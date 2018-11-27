@@ -123,7 +123,7 @@ class Bayes_opt():
                 * extra_para,
                 **sampler_options)
             log_params[i,:] = params_array.ravel()
-            current_ll = current_ll  # for diagnostics
+            current_ll = current_ll  # for diagnostics QUESTION: what is this for?
         self.params = np.exp(log_params[self.burnin:, :])
 
     def _fit_GP(self):
@@ -133,11 +133,11 @@ class Bayes_opt():
         lscale_param = self.params[:, 0:self.X_dim]
         var_param = self.params[:, self.X_dim]
         noise_param = self.params[:, self.X_dim + 1]
-        eta = np.min(self.Y) - self.params[:, self.X_dim + 2]
+        eta = np.min(self.Y) - self.params[:, self.X_dim + 2] # There are 
 
-        for i in range(len(self.params)):
+        for i in range(len(self.params)): # iterate across each MC sample of hyperparaters (Nsamples = 50)
             diff = self.Y - eta[i]
-            diff.clip(min=0)
+            diff.clip(min=0) # Change negative values to zero
             self.G = np.sqrt(2.0 * diff)
             self.kernel.append(GPy.kern.RBF(input_dim=self.X_dim, ARD=True, variance=var_param[i], lengthscale=lscale_param[i, :]))
             self.GP.append(GPy.models.GPRegression(self.X, self.G, self.kernel[i], noise_var=(noise_param[i])))
@@ -224,7 +224,7 @@ class Bayes_opt():
         Meanf = np.zeros([len(self.params), n])
         # dMeanf = np.zeros([len(self.params), n])
         for i in range(len(self.params)):
-            my, vary = self.GP_normal[i].predict(x)
+            my, vary = self.GP_normal[i].predict(x) # GPy.models.predict returns (mean, variance) of prediction
             # dmy, dvary = self.GP_normal[i].predictve_gradients(x)
 
             Meanf[i, :] = my[:, 0]
@@ -264,10 +264,10 @@ class Bayes_opt():
         mean_log_ymin_minus_eta = np.log(1.0)
         var_log_ymin_minus_eta = 0.1
         self._samplehyper(mean_log_ymin_minus_eta, var_log_ymin_minus_eta)
-        mean_log_ymin_minus_eta, var_log_ymin_minus_eta = sp.stats.norm.fit(np.log(self.params[:, self.X_dim + 2]))
+        mean_log_ymin_minus_eta, var_log_ymin_minus_eta = sp.stats.norm.fit(np.log(self.params[:, self.X_dim + 2])) # Fit a normal distribution to sampled etas
 
         # fit GP models to hyperparameter samples
-        self._fit_GP()
+        self._fit_GP() 
 
         # Specify acquisition function
         if bo_method == 'FITBOMM':
@@ -281,7 +281,7 @@ class Bayes_opt():
             # optimise the acquisition function to get the next query point and evaluate at next query point
             x_next = self._gloabl_minimser(acqu_func)
             max_acqu_value = - acqu_func(x_next)
-            y_next = self.func(x_next) + np.random.normal(0, self.var_noise, len(x_next))
+            y_next = self.func(x_next) + np.random.normal(0, self.var_noise, len(x_next)) # Query x_next, but y = f(x) + noise
 
             # update the observation data
             self.X = np.vstack((self.X, x_next))
@@ -312,7 +312,7 @@ class Bayes_opt():
                         next_query_loc=x_next,
                         next_query_value=y_next,
                         best_acquisition_value=max_acqu_value,
-                        x_opt_pred=X_for_L2[-1,:],
+                        x_opt_pred=X_for_L2[-1,:], # QUESTION: why is this always the last value?
                         y_opt_pred=Y_for_IR[-1,:]
                         ))
 
