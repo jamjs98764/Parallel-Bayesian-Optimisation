@@ -12,7 +12,8 @@ from class_FITBOMM import Bayes_opt
 
 def BO_test(test_func, BO_method, burnin=100, sample_size=50, interval=1):
     # BO_method is either FITBOMM (moment matching) or FITBO (quadrature) 
-    seed_size = 20 # Run BO experiment for x times 
+    # Sample size = MC sample size
+    seed_size = 3 # Run BO experiment for x times 
     # speficy test func
     if test_func == 'branin':
         obj_func = branin
