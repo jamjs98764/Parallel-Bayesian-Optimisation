@@ -9,6 +9,7 @@ Created on Fri Nov 10 13:45:16 2017
 import numpy as np
 import scipy as sp
 from scipy import stats
+import copy 
 from scipy.optimize import minimize,fmin_l_bfgs_b
 import GPy
 from MCMC_Sampler import elliptical_slice
@@ -285,6 +286,9 @@ class Bayes_opt():
             # update the observation data
             self.X = np.vstack((self.X, x_next))
             self.Y = np.vstack((self.Y, y_next))
+            
+            print('first query sequential')
+            print(x_next)
 
             # resample hyperparameters
             if k % resample_interval ==0:
@@ -547,8 +551,27 @@ class Bayes_opt_batch():
         res = minimize(func, X_start, method='L-BFGS-B', jac=False, bounds=bnds)
         x_opt = res.x[None, :]
         return x_opt
+    
+    def kriging_believer(self, x):
+        ''' Returns KB guess which is expectation of current GP normal for point x'''
+        if self.GP_normal == []:
+            kb_guess = np.random.rand() * abs(self.ub - self.lb) # Return random point there is no past Y
+        else:
+            kb_guess = self._marginalised_posterior_mean(x)
+        return kb_guess
+    
+    def constant_liar(self, x, setting = "mean"):
+        ''' Returns CL guess which is solely based on past Y's. Has 3 choices for settings: min, max, mean '''
+        
+        if setting == "min":
+            return min(self.Y)
+        elif setting == "max":
+            return max(self.Y)
+        else: 
+            return np.mean(self.Y)
+        
 
-    def iteration_step_batch(self, iterations, mc_burn , mc_samples,bo_method, seed, resample_interval, batch_size = 2):
+    def iteration_step_batch(self, iterations, mc_burn , mc_samples,bo_method, seed, resample_interval, batch_size = 2, heuristic = "kb"):
         np.random.seed(seed)
 
         X_optimum = np.atleast_2d(self.arg_opt)
@@ -568,6 +591,7 @@ class Bayes_opt_batch():
 
         # fit GP models to hyperparameter samples
         self._fit_GP() 
+        self._fit_GP_normal()
 
         # Specify acquisition function
         if bo_method == 'FITBOMM':
@@ -577,26 +601,55 @@ class Bayes_opt_batch():
 
         for k in range(iterations):
             
-            X_batch = []
-            # Running in batches
+            # Storing values which will be reset once batch iterations are over
+            real_X = copy.deepcopy(self.X)
+            real_Y = copy.deepcopy(self.Y)
+            real_GP = copy.copy(self.GP)
+            real_GP_normal = self.GP_normal
+            
+            batch_X = [] # Stores suggested query points for this batch
+            
+            #################### Main changes for batch
+            
+            # Iterate across current batch
             for batch_i in range(batch_size):
-                self.GP_batch = []
-                #self.
                 # optimise the acquisition function to get the next query point and evaluate at next query point
                 x_next = self._gloabl_minimser(acqu_func)
                 max_acqu_value = - acqu_func(x_next)
-                y_guess_mean = self._marginalised_posterior_mean(x_next) # Change to marginalized fit
                 
-                X_batch.append(x_next)
-                #Y_
+                if heuristic == "kb":
+                    y_next_guess = self.kriging_believer(x_next) 
+                elif heuristic == "cl":
+                    y_next_guess = self.constant_liar(x_next)
                 
-    
+                batch_X.append(x_next)
+                self.X = np.vstack((self.X, x_next))
+                self.Y = np.vstack((self.Y, y_next_guess)) # Appending Data with guessed values
+                
+                self._fit_GP()
+                self._fit_GP_normal()    
+                
+                print("Currently on iteration %d, batch %d" % (k, batch_i))
+                
+            # Resetting back to original real values
+            self.X = real_X
+            self.Y = real_Y
+            self.GP = real_GP
+            self.GP_normal = real_GP_normal
+                
+            # Finding real function values for all query points in batch
             
-            y_next = self.func(x_next) + np.random.normal(0, self.var_noise, len(x_next)) # Query x_next, but y = f(x) + noise
-            # update the observation data
-            self.X = np.vstack((self.X, x_next))
-            self.Y = np.vstack((self.Y, y_next))
-
+            for actual_query in batch_X:
+                self.X = np.vstack((self.X, actual_query))
+                actual_y = self.func(actual_query) + np.random.normal(0, self.var_noise, len(x_next))
+                self.Y = np.vstack((self.Y, actual_y))
+                
+            
+            print('first query batch')
+            print(batch_X[0])
+                
+            #################### Main changes for batch END
+            
             # resample hyperparameters
             if k % resample_interval ==0:
                 self._samplehyper(mean_log_ymin_minus_eta, var_log_ymin_minus_eta)
@@ -620,7 +673,7 @@ class Bayes_opt_batch():
                 .format(seed = seed,
                         iteration=k,
                         next_query_loc=x_next,
-                        next_query_value=y_next,
+                        next_query_value=actual_y,
                         best_acquisition_value=max_acqu_value,
                         x_opt_pred=X_for_L2[-1,:], # QUESTION: why is this always the last value?
                         y_opt_pred=Y_for_IR[-1,:]
