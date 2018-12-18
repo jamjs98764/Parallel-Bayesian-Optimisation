@@ -36,7 +36,7 @@ def BO_test(test_func, BO_method, burnin=100, sample_size=50, interval=1):
         true_location = np.array([[0.20169, 0.150011, 0.476874, 0.275332, 0.311652, 0.6573]])
 
     var_noise = 1.0e-3
-    num_iterations = 50
+    num_iterations = 20
     sigma0 = np.sqrt(var_noise)
 
     results_IR = np.zeros(shape=(seed_size, num_iterations + 1)) # Immediate regret
