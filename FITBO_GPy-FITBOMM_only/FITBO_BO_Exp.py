@@ -104,8 +104,6 @@ def BO_test(test_func, BO_method, burnin=100, sample_size=50, interval=1):
             Y_opt_file_name = 'Exp_Data/' + test_func + BO_method + '_results_IR'
             np.save(X_opt_file_name, results_IR)
             np.save(Y_opt_file_name, results_L2)
-
-        
         
 if __name__ == '__main__':
     BO_test(test_func='egg', BO_method='FITBOMM')
