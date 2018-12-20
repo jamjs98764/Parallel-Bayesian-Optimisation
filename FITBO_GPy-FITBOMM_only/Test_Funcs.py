@@ -9,7 +9,13 @@ Created on Fri Nov 10 13:45:16 2017
 import numpy as np
 import math
 
-'''Benchmark Test Functions'''
+'''
+Benchmark Test Functions
+
+Input: vector, x
+Output: Function value (noise-less)
+'''
+
 
 def func1D(x):
     '''1D gaussian mixture'''
@@ -72,3 +78,4 @@ def hartmann(x):
         y = y - c[i]*np.exp(sum)
     y_biased = 10*(y+1.5)
     return y_biased[:, None]
+

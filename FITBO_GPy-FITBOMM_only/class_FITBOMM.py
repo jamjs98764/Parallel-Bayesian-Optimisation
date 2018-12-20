@@ -286,9 +286,6 @@ class Bayes_opt():
             # update the observation data
             self.X = np.vstack((self.X, x_next))
             self.Y = np.vstack((self.Y, y_next))
-            
-            print('first query sequential')
-            print(x_next)
 
             # resample hyperparameters
             if k % resample_interval ==0:
@@ -560,18 +557,17 @@ class Bayes_opt_batch():
             kb_guess = self._marginalised_posterior_mean(x)
         return kb_guess
     
-    def constant_liar(self, x, setting = "mean"):
+    def constant_liar(self, x, cl_setting = "mean"):
         ''' Returns CL guess which is solely based on past Y's. Has 3 choices for settings: min, max, mean '''
         
-        if setting == "min":
+        if cl_setting == "min":
             return min(self.Y)
-        elif setting == "max":
+        elif cl_setting == "max":
             return max(self.Y)
         else: 
             return np.mean(self.Y)
-        
 
-    def iteration_step_batch(self, iterations, mc_burn , mc_samples,bo_method, seed, resample_interval, batch_size = 2, heuristic = "kb"):
+    def iteration_step_batch(self, num_batches, mc_burn , mc_samples,bo_method, seed, resample_interval, batch_size = 2, heuristic = "kb"):
         np.random.seed(seed)
 
         X_optimum = np.atleast_2d(self.arg_opt)
@@ -599,13 +595,13 @@ class Bayes_opt_batch():
         else:
             acqu_func = self._FITBO
 
-        for k in range(iterations):
+        for k in range(num_batches):
             
             # Storing values which will be reset once batch iterations are over
             real_X = copy.deepcopy(self.X)
             real_Y = copy.deepcopy(self.Y)
             real_GP = copy.copy(self.GP)
-            real_GP_normal = self.GP_normal
+            real_GP_normal = copy.copy(self.GP_normal)
             
             batch_X = [] # Stores suggested query points for this batch
             
@@ -619,8 +615,22 @@ class Bayes_opt_batch():
                 
                 if heuristic == "kb":
                     y_next_guess = self.kriging_believer(x_next) 
-                elif heuristic == "cl":
-                    y_next_guess = self.constant_liar(x_next)
+                elif heuristic[0:2] == "cl":
+                    cl_setting = heuristic[3:]
+                    y_next_guess = self.constant_liar(x_next, cl_setting = cl_setting)
+                elif heuristic == "random":
+                    """Fully random, even first sample in batch"""
+                    x_next = np.random.rand(1, self.X_dim) # Returns random float 
+                    y_next_guess = 0.5 # Arbitary as not used in random batch selector
+                elif heuristic == "random_except_1st":
+                    """First sample in batch is max of acq function, rest is random"""
+                    if batch_i > 0:
+                        x_next = np.random.rand(1, self.X_dim) # Returns random float 
+                        y_next_guess = 0.5 # Arbitary as not used in random batch selector
+                    else:
+                        y_next_guess = 0.5 # Arbitary as not used in random batch selector
+                        
+                        
                 
                 batch_X.append(x_next)
                 self.X = np.vstack((self.X, x_next))
@@ -634,6 +644,8 @@ class Bayes_opt_batch():
             # Resetting back to original real values
             self.X = real_X
             self.Y = real_Y
+            print("size of data")
+            print(self.Y.shape)
             self.GP = real_GP
             self.GP_normal = real_GP_normal
                 
@@ -643,10 +655,6 @@ class Bayes_opt_batch():
                 self.X = np.vstack((self.X, actual_query))
                 actual_y = self.func(actual_query) + np.random.normal(0, self.var_noise, len(x_next))
                 self.Y = np.vstack((self.Y, actual_y))
-                
-            
-            print('first query batch')
-            print(batch_X[0])
                 
             #################### Main changes for batch END
             
@@ -661,6 +669,7 @@ class Bayes_opt_batch():
 
             # optimise the marginalised posterior mean to get the prediction for the global optimum/optimiser
             self._fit_GP_normal()
+            
             x_opt = self._gloabl_minimser(self._marginalised_posterior_mean)
             y_opt = self.func(x_opt)
             X_optimum = np.concatenate((X_optimum, np.atleast_2d(x_opt)))
