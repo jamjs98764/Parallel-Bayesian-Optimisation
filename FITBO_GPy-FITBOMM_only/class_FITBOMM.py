@@ -5,7 +5,8 @@ Created on Fri Nov 10 13:45:16 2017
 
 @author: robin
 """
-
+import os
+import pickle
 import numpy as np
 import scipy as sp
 from scipy import stats
@@ -16,6 +17,8 @@ from MCMC_Sampler import elliptical_slice
 from Test_Funcs import branin,func1D
 from utilities import Gaussianprior,GMMpdf,computeEntropyGMM1Dquad
 from GPy.util.linalg import pdinv, dpotrs, tdot
+import batch_proposals
+import GP_models
 
 class Bayes_opt():
     def __init__(self, func, lb, ub, var_noise):
@@ -127,30 +130,6 @@ class Bayes_opt():
             current_ll = current_ll  # for diagnostics QUESTION: what is this for?
         self.params = np.exp(log_params[self.burnin:, :])
 
-    def _fit_GP(self):
-        '''collect GPs defined using observed g values and all hyperparameter samples'''
-        self.GP = [] # Contains a collection of GPs based on hyperparameter sampling
-        self.kernel = [] # Contains a collection of kernels based on hyperparameter sampling
-        lscale_param = self.params[:, 0:self.X_dim]
-        var_param = self.params[:, self.X_dim]
-        noise_param = self.params[:, self.X_dim + 1]
-        eta = np.min(self.Y) - self.params[:, self.X_dim + 2] # There are 
-
-        for i in range(len(self.params)): # iterate across each MC sample of hyperparaters (Nsamples = 50)
-            diff = self.Y - eta[i]
-            diff.clip(min=0) # Change negative values to zero
-            self.G = np.sqrt(2.0 * diff)
-            self.kernel.append(GPy.kern.RBF(input_dim=self.X_dim, ARD=True, variance=var_param[i], lengthscale=lscale_param[i, :]))
-            self.GP.append(GPy.models.GPRegression(self.X, self.G, self.kernel[i], noise_var=(noise_param[i])))
-
-
-    def _fit_GP_normal(self):
-        '''collect GPs defined using observed y values and all hyperparameter samples'''
-        self.GP_normal = []
-        noise_param = self.params[:, self.X_dim + 1]
-        for i in range(len(self.params)):
-            self.GP_normal.append(GPy.models.GPRegression(self.X, self.Y, self.kernel[i], noise_var=noise_param[i]))
-
     def _FITBOMM(self,x):
         '''FITBO-Moment Matching acquisition function'''
         x = np.atleast_2d(x)
@@ -218,6 +197,31 @@ class Bayes_opt():
         Mutual_info = Entropy_1 - np.mean(Entropy_T2, axis=0)
         # return - Mutual_info for minimiser
         return - Mutual_info
+    
+    def _fit_GP(self):
+        '''collect GPs defined using observed g values and all hyperparameter samples'''
+        self.GP = [] # Contains a collection of GPs based on hyperparameter sampling
+        self.kernel = [] # Contains a collection of kernels based on hyperparameter sampling
+        lscale_param = self.params[:, 0:self.X_dim]
+        var_param = self.params[:, self.X_dim]
+        noise_param = self.params[:, self.X_dim + 1]
+        eta = np.min(self.Y) - self.params[:, self.X_dim + 2] # There are 
+
+        for i in range(len(self.params)): # iterate across each MC sample of hyperparaters (Nsamples = 50)
+            diff = self.Y - eta[i]
+            diff.clip(min=0) # Change negative values to zero
+            self.G = np.sqrt(2.0 * diff)
+            self.kernel.append(GPy.kern.RBF(input_dim=self.X_dim, ARD=True, variance=var_param[i], lengthscale=lscale_param[i, :]))
+            self.GP.append(GPy.models.GPRegression(self.X, self.G, self.kernel[i], noise_var=(noise_param[i])))
+
+
+    def _fit_GP_normal(self):
+        '''collect GPs defined using observed y values and all hyperparameter samples'''
+        self.GP_normal = []
+        noise_param = self.params[:, self.X_dim + 1]
+        for i in range(len(self.params)):
+            self.GP_normal.append(GPy.models.GPRegression(self.X, self.Y, self.kernel[i], noise_var=noise_param[i]))
+
 
     def _marginalised_posterior_mean(self, x):
         '''Marginalize GP-normal over all hyperparam sample'''
@@ -248,7 +252,8 @@ class Bayes_opt():
         x_opt = res.x[None, :]
         return x_opt
 
-    def iteration_step(self, iterations, mc_burn , mc_samples,bo_method, seed, resample_interval):
+    def iteration_step(self, iterations, mc_burn , mc_samples,bo_method, \
+                       seed, resample_interval, dir_name = 'Exp_Data/'):
         np.random.seed(seed)
 
         X_optimum = np.atleast_2d(self.arg_opt)
@@ -274,7 +279,7 @@ class Bayes_opt():
             acqu_func = self._FITBOMM
         else:
             acqu_func = self._FITBO
-
+            
         for k in range(iterations):
 
             # np.random.seed(seed*100)
@@ -315,10 +320,30 @@ class Bayes_opt():
                         x_opt_pred=X_for_L2[-1,:], # QUESTION: why is this always the last value?
                         y_opt_pred=Y_for_IR[-1,:]
                         ))
+       
+        # Just for saving
+        new_dir = dir_name + str(seed) + '_seed/' 
+        
+        try:
+            os.mkdir(new_dir)
+        except FileExistsError:
+            pass
+
+        file_name = new_dir + 'sequential,intermediate_vars.pickle'
+        with open(file_name, 'wb') as f:
+            pickle.dump([self.X, self.Y], f)          
 
         return X_for_L2, Y_for_IR
+
+        return X_for_L2, Y_for_IR
+    
 #########################################################################
 #########################################################################
+#########################################################################
+#########################################################################
+#########################################################################
+#########################################################################
+
 class Bayes_opt_batch():
     def __init__(self, func, lb, ub, var_noise):
         self.func = func
@@ -429,30 +454,6 @@ class Bayes_opt_batch():
             current_ll = current_ll  # for diagnostics QUESTION: what is this for?
         self.params = np.exp(log_params[self.burnin:, :])
 
-    def _fit_GP(self):
-        '''collect GPs defined using observed g values and all hyperparameter samples'''
-        self.GP = [] # Contains a collection of GPs based on hyperparameter sampling
-        self.kernel = [] # Contains a collection of kernels based on hyperparameter sampling
-        lscale_param = self.params[:, 0:self.X_dim]
-        var_param = self.params[:, self.X_dim]
-        noise_param = self.params[:, self.X_dim + 1]
-        eta = np.min(self.Y) - self.params[:, self.X_dim + 2] # There are 
-
-        for i in range(len(self.params)): # iterate across each MC sample of hyperparaters (Nsamples = 50)
-            diff = self.Y - eta[i]
-            diff.clip(min=0) # Change negative values to zero
-            self.G = np.sqrt(2.0 * diff)
-            self.kernel.append(GPy.kern.RBF(input_dim=self.X_dim, ARD=True, variance=var_param[i], lengthscale=lscale_param[i, :]))
-            self.GP.append(GPy.models.GPRegression(self.X, self.G, self.kernel[i], noise_var=(noise_param[i])))
-
-
-    def _fit_GP_normal(self):
-        '''collect GPs defined using observed y values and all hyperparameter samples'''
-        self.GP_normal = []
-        noise_param = self.params[:, self.X_dim + 1]
-        for i in range(len(self.params)):
-            self.GP_normal.append(GPy.models.GPRegression(self.X, self.Y, self.kernel[i], noise_var=noise_param[i]))
-
     def _FITBOMM(self,x):
         '''FITBO-Moment Matching acquisition function'''
         x = np.atleast_2d(x)
@@ -484,7 +485,9 @@ class Bayes_opt_batch():
 
         Mutual_info = Entropy_1 - np.mean(Entropy_T2, axis=0)
         # return - Mutual_info for minimiser
+
         return - Mutual_info
+
 
     def _FITBO(self,x):
         '''FITBO-Numerical Quadrature acquisition function'''
@@ -521,6 +524,29 @@ class Bayes_opt_batch():
         # return - Mutual_info for minimiser
         return - Mutual_info
 
+    def _fit_GP(self):
+        '''collect GPs defined using observed g values and all hyperparameter samples'''
+        self.GP = [] # Contains a collection of GPs based on hyperparameter sampling
+        self.kernel = [] # Contains a collection of kernels based on hyperparameter sampling
+        lscale_param = self.params[:, 0:self.X_dim]
+        var_param = self.params[:, self.X_dim]
+        noise_param = self.params[:, self.X_dim + 1]
+        eta = np.min(self.Y) - self.params[:, self.X_dim + 2] # There are 
+
+        for i in range(len(self.params)): # iterate across each MC sample of hyperparaters (Nsamples = 50)
+            diff = self.Y - eta[i]
+            diff.clip(min=0) # Change negative values to zero
+            self.G = np.sqrt(2.0 * diff)
+            self.kernel.append(GPy.kern.RBF(input_dim=self.X_dim, ARD=True, variance=var_param[i], lengthscale=lscale_param[i, :]))
+            self.GP.append(GPy.models.GPRegression(self.X, self.G, self.kernel[i], noise_var=(noise_param[i])))
+
+    def _fit_GP_normal(self):
+        '''collect GPs defined using observed y values and all hyperparameter samples'''
+        self.GP_normal = []
+        noise_param = self.params[:, self.X_dim + 1]
+        for i in range(len(self.params)):
+            self.GP_normal.append(GPy.models.GPRegression(self.X, self.Y, self.kernel[i], noise_var=noise_param[i]))
+
     def _marginalised_posterior_mean(self, x):
         x = np.atleast_2d(x) # Wrap array x into 2D-array
         n = x.shape[0]
@@ -548,26 +574,9 @@ class Bayes_opt_batch():
         res = minimize(func, X_start, method='L-BFGS-B', jac=False, bounds=bnds)
         x_opt = res.x[None, :]
         return x_opt
-    
-    def kriging_believer(self, x):
-        ''' Returns KB guess which is expectation of current GP normal for point x'''
-        if self.GP_normal == []:
-            kb_guess = np.random.rand() * abs(self.ub - self.lb) # Return random point there is no past Y
-        else:
-            kb_guess = self._marginalised_posterior_mean(x)
-        return kb_guess
-    
-    def constant_liar(self, x, cl_setting = "mean"):
-        ''' Returns CL guess which is solely based on past Y's. Has 3 choices for settings: min, max, mean '''
-        
-        if cl_setting == "min":
-            return min(self.Y)
-        elif cl_setting == "max":
-            return max(self.Y)
-        else: 
-            return np.mean(self.Y)
 
-    def iteration_step_batch(self, num_batches, mc_burn , mc_samples,bo_method, seed, resample_interval, batch_size = 2, heuristic = "kb"):
+    def iteration_step_batch(self, num_batches, mc_burn , mc_samples,bo_method, seed, resample_interval, \
+                             batch_size = 2, heuristic = "kb", dir_name = 'Exp_Data/'):
         np.random.seed(seed)
 
         X_optimum = np.atleast_2d(self.arg_opt)
@@ -594,18 +603,24 @@ class Bayes_opt_batch():
             acqu_func = self._FITBOMM
         else:
             acqu_func = self._FITBO
-
+        
+        #################### Main changes for batch
+        
+        batch_X = np.zeros((num_batches, batch_size, self.X_dim))
+        batch_Y = np.zeros((num_batches, batch_size, 1))
+        
         for k in range(num_batches):
             
             # Storing values which will be reset once batch iterations are over
             real_X = copy.deepcopy(self.X)
             real_Y = copy.deepcopy(self.Y)
+            
+            """ Temporarily not used as deepcopy isnt working
             real_GP = copy.copy(self.GP)
             real_GP_normal = copy.copy(self.GP_normal)
+            """
             
-            batch_X = [] # Stores suggested query points for this batch
-            
-            #################### Main changes for batch
+            #batch_X = [] # Stores suggested query points for this batch
             
             # Iterate across current batch
             for batch_i in range(batch_size):
@@ -614,10 +629,10 @@ class Bayes_opt_batch():
                 max_acqu_value = - acqu_func(x_next)
                 
                 if heuristic == "kb":
-                    y_next_guess = self.kriging_believer(x_next) 
+                    y_next_guess = batch_proposals.kriging_believer(self, x_next) 
                 elif heuristic[0:2] == "cl":
                     cl_setting = heuristic[3:]
-                    y_next_guess = self.constant_liar(x_next, cl_setting = cl_setting)
+                    y_next_guess = batch_proposals.constant_liar(self, x_next, cl_setting = cl_setting)
                 elif heuristic == "random":
                     """Fully random, even first sample in batch"""
                     x_next = np.random.rand(1, self.X_dim) # Returns random float 
@@ -630,24 +645,26 @@ class Bayes_opt_batch():
                     else:
                         y_next_guess = 0.5 # Arbitary as not used in random batch selector
                         
-                        
-                
-                batch_X.append(x_next)
+                batch_X[k, batch_i, :] = x_next
+                batch_Y[k, batch_i, :] = y_next_guess
                 self.X = np.vstack((self.X, x_next))
                 self.Y = np.vstack((self.Y, y_next_guess)) # Appending Data with guessed values
                 
                 self._fit_GP()
                 self._fit_GP_normal()    
                 
-                print("Currently on iteration %d, batch %d" % (k, batch_i))
+                #print("Currently on iteration %d, batch %d" % (k, batch_i))
                 
-            # Resetting back to original real values
+                # Just for recording
+                batch_X[k, batch_i, :] = x_next
+                batch_Y[k, batch_i, :] = y_next_guess
+
+            # Resetting back to original real values 
+            # TODO: deepcopy doesnt work so we re-initialize GP with original X's every time
             self.X = real_X
             self.Y = real_Y
-            print("size of data")
-            print(self.Y.shape)
-            self.GP = real_GP
-            self.GP_normal = real_GP_normal
+            self._fit_GP()
+            self._fit_GP_normal()    
                 
             # Finding real function values for all query points in batch
             
@@ -687,6 +704,18 @@ class Bayes_opt_batch():
                         x_opt_pred=X_for_L2[-1,:], # QUESTION: why is this always the last value?
                         y_opt_pred=Y_for_IR[-1,:]
                         ))
+            
+        # Just for saving
+        new_dir = dir_name + str(seed) + '_seed/' 
+        
+        try:
+            os.mkdir(new_dir)
+        except FileExistsError:
+            pass
+
+        file_name = new_dir + heuristic + ',intermediate_vars.pickle'
+        with open(file_name, 'wb') as f:
+            pickle.dump([batch_X, batch_Y], f)          
 
         return X_for_L2, Y_for_IR
 

@@ -7,13 +7,14 @@ Created on Fri Nov 10 13:45:16 2017
 
 import numpy as np
 import scipy as sp
+import os
 from Test_Funcs import egg,hartmann,branin,func1D
 from class_FITBOMM import Bayes_opt
 from class_FITBOMM import Bayes_opt_batch
 
 
 def BO_test(test_func, BO_method, burnin = 100, sample_size = 50, resample_interval = 1, \
-            seed_size = 10, num_iterations = 30, batch = False, batch_size = 2, heuristic = "kb"):
+            seed_size = 5, num_iterations = 32, batch = False, batch_size = 2, heuristic = "kb"):
     # BO_method is either FITBOMM (moment matching) or FITBO (quadrature) 
     # Sample size = MC sample size
     # Seed size = run BO experiment for x times to get spread of results
@@ -22,6 +23,7 @@ def BO_test(test_func, BO_method, burnin = 100, sample_size = 50, resample_inter
     # batch_size = ditto. For "batch" mode, num_iterations = (num_batch / batch_size) for equal comparison
     
     var_noise = 1.0e-3
+    
 
     # speficy test func
     if test_func == 'branin':
@@ -49,11 +51,18 @@ def BO_test(test_func, BO_method, burnin = 100, sample_size = 50, resample_inter
     results_IR = np.zeros(shape=(seed_size, num_iterations + 1)) # Immediate regret
     results_L2 = np.zeros(shape=(seed_size, num_iterations + 1)) # L2 norm of x
     
+    # Creating directory to save
+    dir_name = 'Exp_Data/' + test_func + ',' + str(seed_size) + '_seed,' + str(batch_size) + '_batch_size/' 
+   
+    try:
+        os.mkdir(dir_name)
+    except FileExistsError:
+        pass
+    
     if batch == False:
         results_IR = np.zeros(shape=(seed_size, num_iterations + 1)) # Immediate regret
         results_L2 = np.zeros(shape=(seed_size, num_iterations + 1)) # L2 norm of x
 
-        
         for j in range(seed_size):
             seed = j
             np.random.seed(seed)
@@ -62,8 +71,10 @@ def BO_test(test_func, BO_method, burnin = 100, sample_size = 50, resample_inter
     
             bayes_opt = Bayes_opt(obj_func, np.zeros(d), np.ones(d), var_noise)
             bayes_opt.initialise(x_ob, y_ob)
-            X_optimum, Y_optimum = bayes_opt.iteration_step(iterations=num_iterations, mc_burn=burnin, mc_samples=sample_size, \
-                                                                              bo_method=BO_method, seed=seed, resample_interval= resample_interval)
+            X_optimum, Y_optimum = bayes_opt.iteration_step(iterations=num_iterations, mc_burn=burnin, \
+                                                            mc_samples=sample_size, bo_method=BO_method, \
+                                                            seed=seed, resample_interval= resample_interval, \
+                                                            dir_name = dir_name)
     
             results_IR[j, :] = np.abs(Y_optimum - true_min).ravel()
     
@@ -76,8 +87,8 @@ def BO_test(test_func, BO_method, burnin = 100, sample_size = 50, resample_inter
             else:
                 results_L2[j, :] = np.linalg.norm(X_optimum - true_location[0, :], axis=1).ravel()
     
-            X_opt_file_name = 'Exp_Data/' + test_func + BO_method + '_results_L2'
-            Y_opt_file_name = 'Exp_Data/' + test_func + BO_method + '_results_IR'
+            X_opt_file_name = dir_name + 'A_results_L2, sequential' 
+            Y_opt_file_name = dir_name + 'A_results_IR, sequential'
             
             np.save(X_opt_file_name, results_IR) # results_IR/L2 is np array of shape (num_iterations + 1, seed_size)
             np.save(Y_opt_file_name, results_L2)
@@ -97,7 +108,8 @@ def BO_test(test_func, BO_method, burnin = 100, sample_size = 50, resample_inter
             bayes_opt.initialise(x_ob, y_ob)
             X_optimum, Y_optimum = bayes_opt.iteration_step_batch(num_batches=num_batches, mc_burn=burnin, mc_samples=sample_size, \
                                                                               bo_method=BO_method, seed=seed, resample_interval= resample_interval, \
-                                                                              batch_size = batch_size, heuristic = heuristic)
+                                                                              batch_size = batch_size, heuristic = heuristic, 
+                                                                              dir_name = dir_name)
     
             results_IR[j, :] = np.abs(Y_optimum - true_min).ravel()
     
@@ -109,9 +121,9 @@ def BO_test(test_func, BO_method, burnin = 100, sample_size = 50, resample_inter
                 results_L2[j, :] = np.min(results_L2_all_candidates, axis=0).ravel()
             else:
                 results_L2[j, :] = np.linalg.norm(X_optimum - true_location[0, :], axis=1).ravel()
-    
-            X_opt_file_name = 'Exp_Data/' + test_func + BO_method + '_results_L2,' + str(batch_size) + '_batch_size,' + heuristic + '_heuristic'
-            Y_opt_file_name = 'Exp_Data/' + test_func + BO_method + '_results_IR,' + str(batch_size) + '_batch_size,' + heuristic + '_heuristic' 
+            
+            X_opt_file_name = dir_name + 'A_results_L2,' + heuristic + '_heuristic'
+            Y_opt_file_name = dir_name + 'A_results_IR,' + heuristic + '_heuristic' 
             np.save(X_opt_file_name, results_IR)
             np.save(Y_opt_file_name, results_L2)
         
@@ -119,18 +131,25 @@ def BO_test(test_func, BO_method, burnin = 100, sample_size = 50, resample_inter
 # Running tests
 #####
 
-## Single test sequential
-BO_test(test_func = 'egg', BO_method = 'FITBOMM')
+def test_all(test_func, current_batch_size):    
+    ## Single test sequential
+    #BO_test(test_func = test_func, BO_method = 'FITBOMM')
+    
+    ## Single test batch
+    #BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'kb')
+    #BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-mean') # cl-max , cl-min
+    #BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-min')
+    #BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-max')  
+    BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'random')  
+    BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'random_except_1st')  
+    return None
 
-## Single test batch
-BO_test(test_func = 'egg', BO_method = 'FITBOMM', batch = True, batch_size = 2, heuristic = 'kb')
-BO_test(test_func = 'egg', BO_method = 'FITBOMM', batch = True, batch_size = 2, heuristic = 'cl-mean') # cl-max , cl-min
-BO_test(test_func = 'egg', BO_method = 'FITBOMM', batch = True, batch_size = 2, heuristic = 'cl-min')
-BO_test(test_func = 'egg', BO_method = 'FITBOMM', batch = True, batch_size = 2, heuristic = 'cl-max')  
-#BO_test(test_func = 'egg', BO_method = 'FITBOMM', batch = True, batch_size = 2, heuristic = 'random')  
-BO_test(test_func = 'egg', BO_method = 'FITBOMM', batch = True, batch_size = 2, heuristic = 'random_except_1st')  
+current_batch_size = 2
+test_func = "egg"
+test_all(test_func, current_batch_size)
+current_batch_size = 4
+test_all(test_func, current_batch_size)
 
 
-##
 
 
