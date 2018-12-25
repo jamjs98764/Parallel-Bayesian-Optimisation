@@ -341,6 +341,7 @@ class Bayes_opt():
 #########################################################################
 #########################################################################
 #########################################################################
+
 #########################################################################
 #########################################################################
 
@@ -650,8 +651,9 @@ class Bayes_opt_batch():
                 self.X = np.vstack((self.X, x_next))
                 self.Y = np.vstack((self.Y, y_next_guess)) # Appending Data with guessed values
                 
-                self._fit_GP()
-                self._fit_GP_normal()    
+                if heuristic != "random" or heuristic != "random_except_1st": # If random, no need recalculate GP
+                    self._fit_GP()
+                    self._fit_GP_normal()
                 
                 #print("Currently on iteration %d, batch %d" % (k, batch_i))
                 

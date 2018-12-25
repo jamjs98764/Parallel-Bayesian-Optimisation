@@ -13,7 +13,8 @@ from class_FITBOMM import Bayes_opt
 from class_FITBOMM import Bayes_opt_batch
 
 
-def BO_test(test_func, BO_method, burnin = 100, sample_size = 50, resample_interval = 1, \
+def BO_test(test_func, BO_method, burnin = 100, sample_size = 50, resample_interval = 1
+            , \
             seed_size = 5, num_iterations = 32, batch = False, batch_size = 2, heuristic = "kb"):
     # BO_method is either FITBOMM (moment matching) or FITBO (quadrature) 
     # Sample size = MC sample size
@@ -86,12 +87,13 @@ def BO_test(test_func, BO_method, burnin = 100, sample_size = 50, resample_inter
                 results_L2[j, :] = np.min(results_L2_all_candidates, axis=0).ravel()
             else:
                 results_L2[j, :] = np.linalg.norm(X_optimum - true_location[0, :], axis=1).ravel()
+                print(np.linalg.norm(X_optimum - true_location[0, :], axis=1).ravel())
     
-            X_opt_file_name = dir_name + 'A_results_L2, sequential' 
-            Y_opt_file_name = dir_name + 'A_results_IR, sequential'
+            X_opt_file_name = dir_name + 'A_results_L2,sequential' 
+            Y_opt_file_name = dir_name + 'A_results_IR,sequential'
             
-            np.save(X_opt_file_name, results_IR) # results_IR/L2 is np array of shape (num_iterations + 1, seed_size)
-            np.save(Y_opt_file_name, results_L2)
+            np.save(X_opt_file_name, results_L2) # results_IR/L2 is np array of shape (num_iterations + 1, seed_size)
+            np.save(Y_opt_file_name, results_IR)
 
     if batch == True:
         num_batches = int(num_iterations / batch_size)
@@ -121,11 +123,12 @@ def BO_test(test_func, BO_method, burnin = 100, sample_size = 50, resample_inter
                 results_L2[j, :] = np.min(results_L2_all_candidates, axis=0).ravel()
             else:
                 results_L2[j, :] = np.linalg.norm(X_optimum - true_location[0, :], axis=1).ravel()
+                print(results_L2)
             
             X_opt_file_name = dir_name + 'A_results_L2,' + heuristic + '_heuristic'
             Y_opt_file_name = dir_name + 'A_results_IR,' + heuristic + '_heuristic' 
-            np.save(X_opt_file_name, results_IR)
-            np.save(Y_opt_file_name, results_L2)
+            np.save(X_opt_file_name, results_L2)
+            np.save(Y_opt_file_name, results_IR)
         
 #####
 # Running tests
@@ -136,19 +139,22 @@ def test_all(test_func, current_batch_size):
     #BO_test(test_func = test_func, BO_method = 'FITBOMM')
     
     ## Single test batch
-    #BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'kb')
-    #BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-mean') # cl-max , cl-min
-    #BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-min')
-    #BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-max')  
+    """
+    BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'kb')
+    BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-mean') # cl-max , cl-min
+    BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-min')
+    BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-max') 
+    """
     BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'random')  
-    BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'random_except_1st')  
+    #BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'random_except_1st')  
+    
     return None
-
+ 
 current_batch_size = 2
 test_func = "egg"
 test_all(test_func, current_batch_size)
-current_batch_size = 4
-test_all(test_func, current_batch_size)
+
+
 
 
 
