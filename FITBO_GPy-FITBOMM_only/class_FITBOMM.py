@@ -19,6 +19,7 @@ from utilities import Gaussianprior,GMMpdf,computeEntropyGMM1Dquad
 from GPy.util.linalg import pdinv, dpotrs, tdot
 import batch_proposals
 import GP_models
+from scipy.stats import norm
 
 class Bayes_opt():
     def __init__(self, func, lb, ub, var_noise):
@@ -26,6 +27,7 @@ class Bayes_opt():
         self.lb = lb
         self.ub = ub
         self.var_noise = var_noise
+        self.ntest = 2000
 
     def initialise(self, X_init=None, Y_init=None, kernel=None):
         assert X_init.ndim == 2, "X_init has to be 2D array"
@@ -238,6 +240,31 @@ class Bayes_opt():
         pos_mean = np.mean(Meanf, axis=0)
         # dpos_mean = np.mean(dMeanf, axis=0)
         return pos_mean
+    
+    def _marginalised_posterior_var(self, x):
+        '''Marginalize GP-normal over all hyperparam sample'''
+        x = np.atleast_2d(x) # Wrap array x into 2D-array
+        n = x.shape[0]
+        Mean_var = np.zeros([len(self.params), n])
+        for i in range(len(self.params)):
+            my, vary = self.GP_normal[i].predict(x) # GPy.models.predict returns (mean, variance) of prediction
+            Mean_var[i, :] = vary[:, 0]
+        pos_var = np.mean(Mean_var, axis=0)
+        return pos_var
+    
+    def _store_full_posterior_mean_var(self):
+        ''' Saves the posterior mean and variance of GP model at each iteration'''
+        Xgrid = np.random.uniform(0.0, 1.0, (self.ntest, self.X_dim))
+        full_mean = []
+        full_var = []
+        
+        for x in Xgrid:
+            pos_mean = self._marginalised_posterior_mean(x)
+            pos_var = self._marginalised_posterior_var(x)
+            full_mean.append(pos_mean)
+            full_var.append(pos_var)
+            
+        return full_mean, full_var       
 
     def _gloabl_minimser(self,func):
         ntest = 2000;
@@ -254,6 +281,12 @@ class Bayes_opt():
 
     def iteration_step(self, iterations, mc_burn , mc_samples,bo_method, \
                        seed, resample_interval, dir_name = 'Exp_Data/'):
+        
+        # Array to store mean GP values at each iteration
+        self.full_mean_record = np.zeros([iterations, self.ntest])
+        self.full_var_record = np.zeros([iterations, self.ntest])
+        self.full_PI_value = np.zeros([1, iterations])
+        
         np.random.seed(seed)
 
         X_optimum = np.atleast_2d(self.arg_opt)
@@ -280,10 +313,12 @@ class Bayes_opt():
         else:
             acqu_func = self._FITBO
             
+        
         for k in range(iterations):
 
             # np.random.seed(seed*100)
             # optimise the acquisition function to get the next query point and evaluate at next query point
+            current_y_best = self.Y.min()
             x_next = self._gloabl_minimser(acqu_func)
             max_acqu_value = - acqu_func(x_next)
             y_next = self.func(x_next) + np.random.normal(0, self.var_noise, len(x_next)) # Query x_next, but y = f(x) + noise
@@ -320,7 +355,20 @@ class Bayes_opt():
                         x_opt_pred=X_for_L2[-1,:], # QUESTION: why is this always the last value?
                         y_opt_pred=Y_for_IR[-1,:]
                         ))
-       
+            
+            # Saving GP values for PI calculation
+            x_next_mean = self._marginalised_posterior_mean(x_next)
+            x_next_var = self._marginalised_posterior_var(x_next)
+            PI_value = norm.cdf(((x_next_mean) - current_y_best) / x_next_var)
+            self.full_PI_value[:, k] = PI_value
+
+            """
+            full_mean, full_var = self._store_full_posterior_mean_var()
+            self.full_mean_record[k,:] = full_mean
+            self.full_var_record[k,:] = full_var
+            print(self.full_mean_record)
+            """
+            
         # Just for saving
         new_dir = dir_name + str(seed) + '_seed/' 
         
@@ -330,18 +378,25 @@ class Bayes_opt():
             pass
 
         file_name = new_dir + 'sequential,intermediate_vars.pickle'
+        
+        pickle_dict = {
+                "X": self.X, 
+                "Y": self.Y, 
+                "X_init": self.X_init,
+                "Y_init": self.Y_init,
+                "PI_values": self.full_PI_value
+                }
+        
         with open(file_name, 'wb') as f:
-            pickle.dump([self.X, self.Y], f)          
+            pickle.dump(pickle_dict, f)          
 
         return X_for_L2, Y_for_IR
 
-        return X_for_L2, Y_for_IR
     
 #########################################################################
 #########################################################################
 #########################################################################
 #########################################################################
-
 #########################################################################
 #########################################################################
 
@@ -351,6 +406,7 @@ class Bayes_opt_batch():
         self.lb = lb
         self.ub = ub
         self.var_noise = var_noise
+        self.ntest = 2000
 
     def initialise(self, X_init=None, Y_init=None, kernel=None):
         assert X_init.ndim == 2, "X_init has to be 2D array"
@@ -562,6 +618,17 @@ class Bayes_opt_batch():
         pos_mean = np.mean(Meanf, axis=0)
         # dpos_mean = np.mean(dMeanf, axis=0)
         return pos_mean
+    
+    def _marginalised_posterior_var(self, x):
+        '''Marginalize GP-normal over all hyperparam sample'''
+        x = np.atleast_2d(x) # Wrap array x into 2D-array
+        n = x.shape[0]
+        Mean_var = np.zeros([len(self.params), n])
+        for i in range(len(self.params)):
+            my, vary = self.GP_normal[i].predict(x) # GPy.models.predict returns (mean, variance) of prediction
+            Mean_var[i, :] = vary[:, 0]
+        pos_var = np.mean(Mean_var, axis=0)
+        return pos_var
 
     def _gloabl_minimser(self,func):
         ntest = 2000;
@@ -578,6 +645,9 @@ class Bayes_opt_batch():
 
     def iteration_step_batch(self, num_batches, mc_burn , mc_samples,bo_method, seed, resample_interval, \
                              batch_size = 2, heuristic = "kb", dir_name = 'Exp_Data/'):
+
+  
+        
         np.random.seed(seed)
 
         X_optimum = np.atleast_2d(self.arg_opt)
@@ -610,6 +680,8 @@ class Bayes_opt_batch():
         batch_X = np.zeros((num_batches, batch_size, self.X_dim))
         batch_Y = np.zeros((num_batches, batch_size, 1))
         
+        self.full_PI_value = np.zeros((num_batches, batch_size, 1))
+        
         for k in range(num_batches):
             
             # Storing values which will be reset once batch iterations are over
@@ -626,6 +698,7 @@ class Bayes_opt_batch():
             # Iterate across current batch
             for batch_i in range(batch_size):
                 # optimise the acquisition function to get the next query point and evaluate at next query point
+                current_y_best = self.Y.min()
                 x_next = self._gloabl_minimser(acqu_func)
                 max_acqu_value = - acqu_func(x_next)
                 
@@ -651,15 +724,20 @@ class Bayes_opt_batch():
                 self.X = np.vstack((self.X, x_next))
                 self.Y = np.vstack((self.Y, y_next_guess)) # Appending Data with guessed values
                 
-                if heuristic != "random" or heuristic != "random_except_1st": # If random, no need recalculate GP
-                    self._fit_GP()
-                    self._fit_GP_normal()
+                self._fit_GP()
+                self._fit_GP_normal()
                 
                 #print("Currently on iteration %d, batch %d" % (k, batch_i))
+                
+                # PI Values
+                x_next_mean = self._marginalised_posterior_mean(x_next)
+                x_next_var = self._marginalised_posterior_var(x_next)
+                PI_value = norm.cdf(((x_next_mean) - current_y_best) / x_next_var)              
                 
                 # Just for recording
                 batch_X[k, batch_i, :] = x_next
                 batch_Y[k, batch_i, :] = y_next_guess
+                self.full_PI_value[k, batch_i, :] = PI_value
 
             # Resetting back to original real values 
             # TODO: deepcopy doesnt work so we re-initialize GP with original X's every time
@@ -716,8 +794,17 @@ class Bayes_opt_batch():
             pass
 
         file_name = new_dir + heuristic + ',intermediate_vars.pickle'
+                
+        pickle_dict = {
+                "X": self.X, 
+                "Y": self.Y, 
+                "X_init": self.X_init,
+                "Y_init": self.Y_init,
+                "PI_values": self.full_PI_value
+                }
+        
         with open(file_name, 'wb') as f:
-            pickle.dump([batch_X, batch_Y], f)          
+            pickle.dump(pickle_dict, f)          
 
         return X_for_L2, Y_for_IR
 

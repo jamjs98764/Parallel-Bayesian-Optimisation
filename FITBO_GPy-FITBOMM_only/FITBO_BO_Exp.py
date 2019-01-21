@@ -15,7 +15,7 @@ from class_FITBOMM import Bayes_opt_batch
 
 def BO_test(test_func, BO_method, burnin = 100, sample_size = 50, resample_interval = 1
             , \
-            seed_size = 5, num_iterations = 32, batch = False, batch_size = 2, heuristic = "kb"):
+            seed_size = 1, num_iterations = 4, batch = False, batch_size = 2, heuristic = "kb"):
     # BO_method is either FITBOMM (moment matching) or FITBO (quadrature) 
     # Sample size = MC sample size
     # Seed size = run BO experiment for x times to get spread of results
@@ -154,6 +154,7 @@ current_batch_size = 2
 test_func = "egg"
 test_all(test_func, current_batch_size)
 
+# BO_test(test_func = test_func, BO_method = 'FITBOMM', num_iterations = 10)
 
 
 
