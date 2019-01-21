@@ -22,6 +22,7 @@ import GP_models
 
 class Bayes_opt():
     def __init__(self, func, lb, ub, var_noise):
+        self.ntest = 2000
         self.func = func
         self.lb = lb
         self.ub = ub
@@ -58,6 +59,7 @@ class Bayes_opt():
 
         kernel = GPy.kern.RBF(input_dim=self.X_dim, ARD=True, variance=output_var, lengthscale=l_scales)
         Kng = kernel.K(self.X)
+        
         # QUESTION: does not seem to follow conditional variance form in eqn 6
         
         # compute posterior mean distribution for g TODO update this
@@ -222,7 +224,6 @@ class Bayes_opt():
         for i in range(len(self.params)):
             self.GP_normal.append(GPy.models.GPRegression(self.X, self.Y, self.kernel[i], noise_var=noise_param[i]))
 
-
     def _marginalised_posterior_mean(self, x):
         '''Marginalize GP-normal over all hyperparam sample'''
         x = np.atleast_2d(x) # Wrap array x into 2D-array
@@ -232,13 +233,38 @@ class Bayes_opt():
         for i in range(len(self.params)):
             my, vary = self.GP_normal[i].predict(x) # GPy.models.predict returns (mean, variance) of prediction
             # dmy, dvary = self.GP_normal[i].predictve_gradients(x)
-
             Meanf[i, :] = my[:, 0]
             # dMeanf[i, :] = dmy[:, 0]
         pos_mean = np.mean(Meanf, axis=0)
         # dpos_mean = np.mean(dMeanf, axis=0)
         return pos_mean
-
+    
+    
+    def _marginalised_posterior_var(self, x):
+        '''Marginalize GP-normal over all hyperparam sample'''
+        x = np.atleast_2d(x) # Wrap array x into 2D-array
+        n = x.shape[0]
+        Mean_var = np.zeros([len(self.params), n])
+        for i in range(len(self.params)):
+            my, vary = self.GP_normal[i].predict(x) # GPy.models.predict returns (mean, variance) of prediction
+            Mean_var[i, :] = vary[:, 0]
+        pos_var = np.mean(Mean_var, axis=0)
+        return pos_var
+    
+    def _store_full_posterior_mean_var(self):
+        ''' Saves the posterior mean and variance of GP model at each iteration'''
+        Xgrid = np.random.uniform(0.0, 1.0, (self.ntest, self.X_dim))
+        full_mean = np.array([])
+        full_var = np.array([])
+        
+        for x in Xgrid:
+            pos_mean = self._marginalised_posterior_mean(self, x)
+            pos_var = self._marginalised_posterior_var(self, x)
+            full_mean.append(pos_mean)
+            full_var.append(pos_var)
+            
+        return full_mean, full_var         
+    
     def _gloabl_minimser(self,func):
         ntest = 2000;
         Xgrid = np.random.uniform(0.0, 1.0, (ntest, self.X_dim))
@@ -254,13 +280,18 @@ class Bayes_opt():
 
     def iteration_step(self, iterations, mc_burn , mc_samples,bo_method, \
                        seed, resample_interval, dir_name = 'Exp_Data/'):
+        
+        # Array to store mean GP values at each iteration
+        self.full_mean_record = np.zeros([iterations, self.ntest])
+        self.full_var_record = np.zeros([iterations, self.ntest])
+        
         np.random.seed(seed)
 
         X_optimum = np.atleast_2d(self.arg_opt)
         Y_optimum = np.atleast_2d(np.min(self.Y))
         X_for_L2  = X_optimum
         Y_for_IR  = Y_optimum
-
+        print("we")
         # sample hyperparameters
         self.mc_samples = mc_samples  # number of samples
         self.burnin = mc_burn         # number of burnin
@@ -270,7 +301,7 @@ class Bayes_opt():
         var_log_ymin_minus_eta = 0.1
         self._samplehyper(mean_log_ymin_minus_eta, var_log_ymin_minus_eta)
         mean_log_ymin_minus_eta, var_log_ymin_minus_eta = sp.stats.norm.fit(np.log(self.params[:, self.X_dim + 2])) # Fit a normal distribution to sampled etas
-
+        
         # fit GP models to hyperparameter samples
         self._fit_GP() 
 
@@ -284,6 +315,7 @@ class Bayes_opt():
 
             # np.random.seed(seed*100)
             # optimise the acquisition function to get the next query point and evaluate at next query point
+            print("HEEEEEE")
             x_next = self._gloabl_minimser(acqu_func)
             max_acqu_value = - acqu_func(x_next)
             y_next = self.func(x_next) + np.random.normal(0, self.var_noise, len(x_next)) # Query x_next, but y = f(x) + noise
@@ -303,7 +335,9 @@ class Bayes_opt():
 
             # optimise the marginalised posterior mean to get the prediction for the global optimum/optimiser
             self._fit_GP_normal()
+            print("asasa")
             x_opt = self._gloabl_minimser(self._marginalised_posterior_mean)
+            print("bbbbb")
             y_opt = self.func(x_opt)
             X_optimum = np.concatenate((X_optimum, np.atleast_2d(x_opt)))
             Y_optimum = np.concatenate((Y_optimum, np.atleast_2d(y_opt)))
@@ -320,6 +354,11 @@ class Bayes_opt():
                         x_opt_pred=X_for_L2[-1,:], # QUESTION: why is this always the last value?
                         y_opt_pred=Y_for_IR[-1,:]
                         ))
+            
+            # Saving GP values
+            full_mean, full_var = self._store_full_posterior_mean_var(self)
+            self.full_mean_record[k,:] = full_mean
+            self.full_var_record[k,:] = full_var
        
         # Just for saving
         new_dir = dir_name + str(seed) + '_seed/' 
@@ -330,13 +369,21 @@ class Bayes_opt():
             pass
 
         file_name = new_dir + 'sequential,intermediate_vars.pickle'
+        
+        pickle_dict = {
+                "X": self.X, 
+                "Y": self.Y, 
+                "X_init": self.X_init,
+                "Y_init": self.Y_init,
+                "GP_means": self.full_mean_record,
+                "GP_vars": self.full_var_record
+                }
+        
         with open(file_name, 'wb') as f:
-            pickle.dump([self.X, self.Y], f)          
+            pickle.dump(pickle_dict, f)          
 
         return X_for_L2, Y_for_IR
 
-        return X_for_L2, Y_for_IR
-    
 #########################################################################
 #########################################################################
 #########################################################################
@@ -717,7 +764,7 @@ class Bayes_opt_batch():
 
         file_name = new_dir + heuristic + ',intermediate_vars.pickle'
         with open(file_name, 'wb') as f:
-            pickle.dump([batch_X, batch_Y], f)          
+            pickle.dump([batch_X, batch_Y, self.X_init, self.Y_init], f)          
 
         return X_for_L2, Y_for_IR
 

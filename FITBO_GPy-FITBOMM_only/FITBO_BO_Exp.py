@@ -13,9 +13,8 @@ from class_FITBOMM import Bayes_opt
 from class_FITBOMM import Bayes_opt_batch
 
 
-def BO_test(test_func, BO_method, burnin = 100, sample_size = 50, resample_interval = 1
-            , \
-            seed_size = 5, num_iterations = 32, batch = False, batch_size = 2, heuristic = "kb"):
+def BO_test(test_func, BO_method, burnin = 100, sample_size = 50, resample_interval = 2, \
+            seed_size = 30, num_iterations = 48, batch = False, batch_size = 2, heuristic = "kb"):
     # BO_method is either FITBOMM (moment matching) or FITBO (quadrature) 
     # Sample size = MC sample size
     # Seed size = run BO experiment for x times to get spread of results
@@ -24,7 +23,6 @@ def BO_test(test_func, BO_method, burnin = 100, sample_size = 50, resample_inter
     # batch_size = ditto. For "batch" mode, num_iterations = (num_batch / batch_size) for equal comparison
     
     var_noise = 1.0e-3
-    
 
     # speficy test func
     if test_func == 'branin':
@@ -40,13 +38,17 @@ def BO_test(test_func, BO_method, burnin = 100, sample_size = 50, resample_inter
         initialsamplesize = 3
         true_min = np.array([-9.596407])
         true_location = np.array([[1.0, 0.7895]])
-    else:
+    elif test_func == 'hartmann':
         obj_func = hartmann
         d = 6
         initialsamplesize = 9
         true_min = np.array([-18.22368011])
         true_location = np.array([[0.20169, 0.150011, 0.476874, 0.275332, 0.311652, 0.6573]])
-
+        
+    else:
+        print("Function does not exist in repository")
+        return 0
+    
     sigma0 = np.sqrt(var_noise)
 
     results_IR = np.zeros(shape=(seed_size, num_iterations + 1)) # Immediate regret
@@ -72,11 +74,11 @@ def BO_test(test_func, BO_method, burnin = 100, sample_size = 50, resample_inter
     
             bayes_opt = Bayes_opt(obj_func, np.zeros(d), np.ones(d), var_noise)
             bayes_opt.initialise(x_ob, y_ob)
+            print("Initialised")
             X_optimum, Y_optimum = bayes_opt.iteration_step(iterations=num_iterations, mc_burn=burnin, \
                                                             mc_samples=sample_size, bo_method=BO_method, \
                                                             seed=seed, resample_interval= resample_interval, \
                                                             dir_name = dir_name)
-    
             results_IR[j, :] = np.abs(Y_optimum - true_min).ravel()
     
             if test_func == 'branin': # Because branin has 3 global minima
@@ -130,32 +132,39 @@ def BO_test(test_func, BO_method, burnin = 100, sample_size = 50, resample_inter
             np.save(X_opt_file_name, results_L2)
             np.save(Y_opt_file_name, results_IR)
         
+        
 #####
 # Running tests
 #####
 
 def test_all(test_func, current_batch_size):    
     ## Single test sequential
-    #BO_test(test_func = test_func, BO_method = 'FITBOMM')
+    BO_test(test_func = test_func, BO_method = 'FITBOMM')
     
     ## Single test batch
-    """
     BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'kb')
     BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-mean') # cl-max , cl-min
     BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-min')
     BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-max') 
-    """
     BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'random')  
-    #BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'random_except_1st')  
+    BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'random_except_1st')  
     
     return None
  
-current_batch_size = 2
-test_func = "egg"
-test_all(test_func, current_batch_size)
+batch_sizes = [2, 8]
+test_funcs = ["egg", "branin", "hartmann"]
+
+for batch_size in batch_sizes:
+    for test_func in test_funcs:
+        #test_all(test_func, batch_size)
+        print(0)
+
+print("Finished tests")
 
 
 
+BO_test(test_func = 'egg', BO_method = 'FITBOMM', seed_size=1, num_iterations=2)
 
 
 
+BO_test(test_func = 'egg', BO_method = 'FITBOMM', batch = True, seed_size=1, num_iterations=2)
