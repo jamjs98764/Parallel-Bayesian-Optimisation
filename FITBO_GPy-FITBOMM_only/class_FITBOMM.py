@@ -818,7 +818,7 @@ class Bayes_opt_batch():
 # d = 2
 # sigma0 = np.sqrt(var_noise)
 # initialsamplesize = 3
-#
+
 # for j in range(seed_size):
 #
 #     seed = j
