@@ -151,7 +151,7 @@ def test_all(test_func, current_batch_size):
     
     return None
 
-batch_sizes = [2, 8]
+batch_sizes = [4, 8]
 test_funcs = ["egg", "branin", "hartmann"]
 
 for batch_size in batch_sizes:
