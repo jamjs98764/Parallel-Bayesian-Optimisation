@@ -4,10 +4,18 @@ Created on Wed Dec 19 14:56:44 2018
 
 @author: jianhong
 """
+### DISCONTINUED ###
+##################################################
+##################################################
+##################################################
+##################################################
+##################################################
+
 import numpy as np
 import seaborn as sns
 import pandas as pd
 import pickle
+import matplotlib.pyplot as plt
 
 #####
 # 1. Error against number of iterations
@@ -15,11 +23,11 @@ import pickle
 
 def error_vs_iterations(func = "egg", seed_size = 2, metrics = "IR", batch = False, batch_size = 2, heuristic = "kb"):
     if batch == False:
-        dir_name = func + "," + str(seed_size) + "_seed," + str(batch_size) + "_batch_size/"
+        dir_name = "Exp_Data/" + func + "," + str(seed_size) + "_seed," + str(batch_size) + "_batch_size/"
         filename = "A_results_" + metrics + ",sequential.npy"
         results = np.load(dir_name + filename)
     else:
-        dir_name = func + "," + str(seed_size) + "_seed," + str(batch_size) + "_batch_size/"
+        dir_name = "Exp_Data/" + func + "," + str(seed_size) + "_seed," + str(batch_size) + "_batch_size/"
         filename = "A_results_" + metrics + "," + heuristic + "_heuristic.npy"
         results = np.load(dir_name + filename)
         results = np.repeat(results, repeats = batch_size * np.ones(results.shape[1], dtype = int), axis = 1)
@@ -33,20 +41,26 @@ def error_vs_iterations(func = "egg", seed_size = 2, metrics = "IR", batch = Fal
     return df
     
     #return results, seed_size, num_iterations
-
+"""
 seed_size = 30
 batch_sizes = [2, 8]
 test_funcs = ["egg", "branin", "hartmann"]
 metrics = ["IR", "L2"]
+"""
+seed_size = 1
+batch_sizes = [2]
+test_funcs = ["branin"]
+metrics = ["IR", "L2"]
+
 
 plot_choice = {
         "seq_results": 1, 
         "random_results": 1,
         "random1_results": 0,
         "kb_results": 1,
-        "cl-mean_results": 1, 
-        "cl-min_results": 1,
-        "cl-max_results": 0
+        "cl_mean_results": 1, 
+        "cl_min_results": 1,
+        "cl_max_results": 0
         }
 
 label_lookup = {
@@ -54,9 +68,9 @@ label_lookup = {
         "random_results": "Fully Random",
         "random1_results": "Random excl. 1st",
         "kb_results": "Kriging Believer",
-        "cl-mean_results": "Constant Liar (Mean)", 
-        "cl-min_results": "Constant Liar (Min)",
-        "cl-max_results": "Constant Liar (Max)"
+        "cl_mean_results": "Constant Liar (Mean)", 
+        "cl_min_results": "Constant Liar (Min)",
+        "cl_max_results": "Constant Liar (Max)"
         }
 
 metric_lookup = {
@@ -67,6 +81,7 @@ metric_lookup = {
 def plot_error_vs_iterations(seed_size, batch_sizes, test_funcs, metrics, plot_choice):   
     # Loads, plots and saves graphs     
     for metric in metrics:
+        plt.figure()
         for batch_size in batch_sizes:
             for func in test_funcs:
                 seq_results = error_vs_iterations(batch = False, metrics = metric, func = func, batch_size = batch_size, seed_size = seed_size)    
@@ -79,10 +94,12 @@ def plot_error_vs_iterations(seed_size, batch_sizes, test_funcs, metrics, plot_c
                         
                 for key, value in plot_choice.items():
                     if value == 1:
-                        fig = sns.lineplot(x = 'iters', y = 'values', data = key, err_style = "band", label = label_lookup[key])
+                        fig = sns.lineplot(x = 'iters', y = 'values', data = eval(key), err_style = "band", label = label_lookup[key])
                 
                 graph_title = str(batch_size) + "-Batch on "+ str(func) + " Function"
                 fig.set(xlabel = "No. of Iterations", ylabel = metric_lookup[metric], title = graph_title)
+
+plot_error_vs_iterations(seed_size, batch_sizes, test_funcs, metrics, plot_choice)
 
 #####
 # 2. Plot PI value

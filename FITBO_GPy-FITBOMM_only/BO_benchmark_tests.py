@@ -70,7 +70,9 @@ def wrapper_GPyOpt(test_func, acq_func = "EI", iterations = 20, batch = False, b
     
 BO, query_record = wrapper_GPyOpt("branin")
 BO.plot_convergence()
-        
+
+
+
 """
 Batch BO using GPyOpt 
 
@@ -78,7 +80,7 @@ Documentation:
 https://gpyopt.readthedocs.io/en/latest/GPyOpt.core.html#GPyOpt.core.bo.BO
 https://gpyopt.readthedocs.io/en/latest/GPyOpt.methods.html#
 
-"""
+Sample:
 
 objective_true  = GPyOpt.objective_examples.experiments2d.branin()
 objective_noisy = GPyOpt.objective_examples.experiments2d.branin(sd = var_noise)
@@ -112,5 +114,5 @@ BO_demo_parallel.plot_convergence()
 
 # Get past evaluatiosn
 past_query = BO_demo_parallel.get_evaluations()[0]
-
+"""
 
