@@ -3,6 +3,9 @@
 Created on Tue Jan 22 15:18:49 2019
 
 @author: jianhong
+
+Implementing GPyOpt to serve as benchmark
+
 """
 import GPyOpt
 import numpy as np
@@ -19,7 +22,14 @@ def wrapper_GPyOpt(test_func, acq_func = "EI", iterations = 20, batch = False, b
     Wrapper function which implements GPyOpt BO
     Returns all query points
     
-    acq_func: "EI" / "EI_MCMC" / "MPI_MCMC" /  "LCB" / "LCB_MCMC"    
+    acq_func: "EI" / "EI_MCMC" / "MPI_MCMC" /  "LCB" / "LCB_MCMC"
+    evaluator_type: sequential / random  (1st random in Jian's deifnition) / local_penalization / thompson_sampling    
+    
+    Documentation:
+    https://gpyopt.readthedocs.io/en/latest/GPyOpt.core.html#GPyOpt.core.bo.BO
+    https://gpyopt.readthedocs.io/en/latest/GPyOpt.methods.html#
+
+    
     """
     num_cores = 1 
     
@@ -58,7 +68,7 @@ def wrapper_GPyOpt(test_func, acq_func = "EI", iterations = 20, batch = False, b
                                                 acquisition_type = acq_func,              
                                                 normalize_Y = True,
                                                 initial_design_numdata = initialsamplesize,
-                                                evaluator_type = 'random',
+                                                evaluator_type = 'local_penalization',
                                                 batch_size = batch_size,
                                                 num_cores = num_cores,
                                                 acquisition_jitter = 0)
@@ -70,8 +80,7 @@ def wrapper_GPyOpt(test_func, acq_func = "EI", iterations = 20, batch = False, b
     
 BO, query_record = wrapper_GPyOpt("branin")
 BO.plot_convergence()
-
-
+BO.plot_acquisition()
 
 """
 Batch BO using GPyOpt 
