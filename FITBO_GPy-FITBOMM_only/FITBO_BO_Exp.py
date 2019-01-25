@@ -12,8 +12,8 @@ from Test_Funcs import egg,hartmann,branin,func1D
 from class_FITBOMM import Bayes_opt
 from class_FITBOMM import Bayes_opt_batch
 
-def BO_test(test_func, BO_method, burnin = 100, sample_size = 50, resample_interval = 1, \
-            seed_size = 5, num_iterations = 32, batch = False, batch_size = 2, heuristic = "kb"):
+def BO_test(test_func, BO_method, burnin = 100, sample_size = 50, resample_interval = 4, \
+            seed_size = 1, num_iterations = 32, batch = False, batch_size = 2, heuristic = "kb"):
 
     # BO_method is either FITBOMM (moment matching) or FITBO (quadrature) 
     # Sample size = MC sample size
@@ -151,7 +151,7 @@ def test_all(test_func, current_batch_size):
     
     return None
 
-batch_sizes = [4]
+batch_sizes = [4, 8]
 test_funcs = ["egg", "branin", "hartmann"]
 
 for batch_size in batch_sizes:
