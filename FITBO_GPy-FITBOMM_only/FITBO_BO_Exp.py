@@ -139,7 +139,7 @@ def BO_test(test_func, BO_method, burnin = 100, sample_size = 50, resample_inter
 
 def test_all(test_func, current_batch_size):    
     ## Single test sequential
-    BO_test(test_func = test_func, BO_method = 'FITBOMM')
+    BO_test(test_func = test_func, BO_method = 'FITBOMM', )
     
     ## Single test batch
     BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'kb')
