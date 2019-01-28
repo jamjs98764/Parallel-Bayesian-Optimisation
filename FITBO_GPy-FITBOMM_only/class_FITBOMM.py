@@ -720,7 +720,7 @@ class Bayes_opt_batch():
                         y_next_guess = 0.5 # Arbitary as not used in random batch selector
                         
                 batch_X[k, batch_i, :] = x_next
-                batch_Y[k, batch_i, :] = y_next_guess
+                batch_Y[k, batch_i, :] = y_next_guess # 
                 self.X = np.vstack((self.X, x_next))
                 self.Y = np.vstack((self.Y, y_next_guess)) # Appending Data with guessed values
                 
@@ -733,7 +733,10 @@ class Bayes_opt_batch():
                 x_next_mean = self._marginalised_posterior_mean(x_next)
                 x_next_var = self._marginalised_posterior_var(x_next)
                 PI_value = norm.cdf(((x_next_mean) - current_y_best) / x_next_var)              
-                
+                print(PI_value)
+                print(x_next_mean)
+                print(x_next_var)
+                print(current_y_best)
                 # Just for recording
                 batch_X[k, batch_i, :] = x_next
                 batch_Y[k, batch_i, :] = y_next_guess
