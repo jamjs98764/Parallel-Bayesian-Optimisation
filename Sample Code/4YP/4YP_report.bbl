@@ -1,0 +1,118 @@
+\begin{thebibliography}{10}
+
+\bibitem{brochu2010tutorial}
+Eric Brochu, Vlad~M Cora, and Nando De~Freitas.
+\newblock A tutorial on bayesian optimization of expensive cost functions, with
+  application to active user modeling and hierarchical reinforcement learning.
+\newblock {\em arXiv preprint arXiv:1012.2599}, 2010.
+
+\bibitem{shahriari2016taking}
+Bobak Shahriari, Kevin Swersky, Ziyu Wang, Ryan~P Adams, and Nando de~Freitas.
+\newblock Taking the human out of the loop: A review of bayesian optimization.
+\newblock {\em Proceedings of the IEEE}, 104(1):148--175, 2016.
+
+\bibitem{mockus1994application}
+Jonas Mockus.
+\newblock Application of bayesian approach to numerical methods of global and
+  stochastic optimization.
+\newblock {\em Journal of Global Optimization}, 4(4):347--365, 1994.
+
+\bibitem{rasmussen2006gaussian}
+Carl~Edward Rasmussen.
+\newblock Gaussian processes for machine learning.
+\newblock 2006.
+
+\bibitem{bishop2006pattern}
+Christopher~M Bishop.
+\newblock Pattern recognition.
+\newblock {\em Machine Learning}, 128, 2006.
+
+\bibitem{kushner1964new}
+Harold~J Kushner.
+\newblock A new method of locating the maximum point of an arbitrary multipeak
+  curve in the presence of noise.
+\newblock {\em Journal of Basic Engineering}, 86(1):97--106, 1964.
+
+\bibitem{jones2001taxonomy}
+Donald~R Jones.
+\newblock A taxonomy of global optimization methods based on response surfaces.
+\newblock {\em Journal of global optimization}, 21(4):345--383, 2001.
+
+\bibitem{dixon1978towards}
+Laurence Charles~Ward Dixon and Giorgio~P Szeg{\"o}.
+\newblock {\em Towards global optimisation}.
+\newblock North-Holland Amsterdam, 1978.
+
+\bibitem{lizotte2008practical}
+Daniel~James Lizotte.
+\newblock {\em Practical bayesian optimization}.
+\newblock University of Alberta, 2008.
+
+\bibitem{cox1992statistical}
+Dennis~D Cox and Susan John.
+\newblock A statistical method for global optimization.
+\newblock In {\em Systems, Man and Cybernetics, 1992., IEEE International
+  Conference on}, pages 1241--1246. IEEE, 1992.
+
+\bibitem{srinivas2009gaussian}
+Niranjan Srinivas, Andreas Krause, Sham~M Kakade, and Matthias Seeger.
+\newblock Gaussian process optimization in the bandit setting: No regret and
+  experimental design.
+\newblock {\em arXiv preprint arXiv:0912.3995}, 2009.
+
+\bibitem{hennig2012entropy}
+Philipp Hennig and Christian~J Schuler.
+\newblock Entropy search for information-efficient global optimization.
+\newblock {\em Journal of Machine Learning Research}, 13(Jun):1809--1837, 2012.
+
+\bibitem{hernandez2014predictive}
+Jos{\'e}~Miguel Hern{\'a}ndez-Lobato, Matthew~W Hoffman, and Zoubin Ghahramani.
+\newblock Predictive entropy search for efficient global optimization of
+  black-box functions.
+\newblock In {\em Advances in neural information processing systems}, pages
+  918--926, 2014.
+
+\bibitem{bochner2016lectures}
+Salomon Bochner.
+\newblock {\em Lectures on Fourier Integrals.(AM-42)}, volume~42.
+\newblock Princeton University Press, 2016.
+
+\bibitem{rahimi2007random}
+Ali Rahimi, Benjamin Recht, et~al.
+\newblock Random features for large-scale kernel machines.
+\newblock In {\em NIPS}, volume~3, page~5, 2007.
+
+\bibitem{snoek2012practical}
+Jasper Snoek, Hugo Larochelle, and Ryan~P Adams.
+\newblock Practical bayesian optimization of machine learning algorithms.
+\newblock In {\em Advances in neural information processing systems}, pages
+  2951--2959, 2012.
+
+\bibitem{vanhatalo2011bayesian}
+Jarno Vanhatalo, Jaakko Riihim{\"a}ki, Jouni Hartikainen, and Aki Vehtari.
+\newblock Bayesian modeling with gaussian processes using the matlab toolbox
+  gpstuff.
+\newblock {\em submitted. http://becs. aalto.
+  fi/en/research/bayes/gpstuff/GPstuffDoc31. pdf}, 2011.
+
+\bibitem{wang2017max}
+Zi~Wang and Stefanie Jegelka.
+\newblock Max-value entropy search for efficient bayesian optimization.
+\newblock {\em arXiv preprint arXiv:1703.01968}, 2017.
+
+\bibitem{gunter2014sampling}
+Tom Gunter, Michael~A Osborne, Roman Garnett, Philipp Hennig, and Stephen~J
+  Roberts.
+\newblock Sampling for inference in probabilistic models with fast bayesian
+  quadrature.
+\newblock In {\em Advances in neural information processing systems}, pages
+  2789--2797, 2014.
+
+\bibitem{huber2008entropy}
+Marco~F Huber, Tim Bailey, Hugh Durrant-Whyte, and Uwe~D Hanebeck.
+\newblock On entropy approximation for gaussian mixture random vectors.
+\newblock In {\em Multisensor Fusion and Integration for Intelligent Systems,
+  2008. MFI 2008. IEEE International Conference on}, pages 181--188. IEEE,
+  2008.
+
+\end{thebibliography}

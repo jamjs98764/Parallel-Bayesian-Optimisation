@@ -1,0 +1,72 @@
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: 4YP_report.aux
+The style file: unsrt.bst
+White space in argument---line 42 of file 4YP_report.aux
+ : \citation{C24
+ :               Advanced probability notes}
+I'm skipping whatever remains of this command
+White space in argument---line 108 of file 4YP_report.aux
+ : \citation{bitbucket
+ :                     code}
+I'm skipping whatever remains of this command
+White space in argument---line 113 of file 4YP_report.aux
+ : \citation{Hoffman
+ :                   and Ghahramani}
+I'm skipping whatever remains of this command
+White space in argument---line 150 of file 4YP_report.aux
+ : \citation{C19
+ :               lecture notes}
+I'm skipping whatever remains of this command
+Illegal, another \bibstyle command---line 247 of file 4YP_report.aux
+ : \bibstyle
+ :          {plain}
+I'm skipping whatever remains of this command
+Database file #1: references.bib
+Warning--I didn't find a database entry for "2015"
+Warning--I didn't find a database entry for "hoffman2015"
+Warning--I didn't find a database entry for "hennig2012entropy."
+Warning--empty journal in rasmussen2006gaussian
+Warning--can't use both volume and number fields in rahimi2007random
+You've used 20 entries,
+            1791 wiz_defined-function locations,
+            563 strings with 6978 characters,
+and the built_in function-call counts, 4867 in all, are:
+= -- 448
+> -- 180
+< -- 8
++ -- 69
+- -- 49
+* -- 281
+:= -- 727
+add.period$ -- 62
+call.type$ -- 20
+change.case$ -- 17
+chr.to.int$ -- 0
+cite$ -- 22
+duplicate$ -- 249
+empty$ -- 489
+format.name$ -- 49
+if$ -- 1125
+int.to.chr$ -- 0
+int.to.str$ -- 20
+missing$ -- 23
+newline$ -- 103
+num.names$ -- 20
+pop$ -- 78
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 136
+stack$ -- 0
+substring$ -- 314
+swap$ -- 82
+text.length$ -- 8
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 2
+while$ -- 46
+width$ -- 22
+write$ -- 217
+(There were 5 error messages)
