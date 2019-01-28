@@ -14,7 +14,7 @@ from class_FITBOMM import Bayes_opt_batch
 
 
 def BO_test(test_func, BO_method, burnin = 100, sample_size = 50, resample_interval = 1, \
-            seed_size = 30, num_iterations = 40, batch = False, batch_size = 2, heuristic = "kb"):
+            seed_size = 10, num_iterations = 20, batch = False, batch_size = 2, heuristic = "kb"):
 
     # BO_method is either FITBOMM (moment matching) or FITBO (quadrature) 
     # Sample size = MC sample size
@@ -140,27 +140,25 @@ def BO_test(test_func, BO_method, burnin = 100, sample_size = 50, resample_inter
 
 def test_all(test_func, current_batch_size):    
     ## Single test sequential
-    """
+    
     BO_test(test_func = test_func, BO_method = 'FITBOMM', batch_size = current_batch_size)
     
     ## Single test batch
     
     BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'kb')
-    BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-mean')
-    """
+    #BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-mean')
     BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-min')
-    BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-max')
-    
+    #BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-max')
     BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'random')  
-    
     BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'random_except_1st')  
     
     return None
-
-
+"""
 batch_sizes = [2, 4]
 test_funcs = ["branin", "hartmann"]
-
+"""
+batch_sizes = [2, 4]
+test_funcs = ["branin"]
 
 for batch_size in batch_sizes:
     for test_func in test_funcs:
