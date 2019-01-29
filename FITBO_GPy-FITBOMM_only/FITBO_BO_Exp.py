@@ -164,9 +164,9 @@ for batch_size in batch_sizes:
         test_all(test_func, batch_size)
         
 print("Finished 4-batch tests")
-
 """
-test_funcs = ["branin", "egg", "hartmann"]
+
+test_funcs = ["branin", "hartmann"]
 for test_func in test_funcs:
     test_sequential(test_func)
 
