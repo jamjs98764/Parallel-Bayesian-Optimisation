@@ -1,0 +1,2187 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.11.26)  18 AUG 2018 17:13
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**4YP_report.tex
+(./4YP_report.tex
+LaTeX2e <2017-04-15>
+Babel <3.10> and hyphenation patterns for 84 language(s) loaded.
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count88
+\Gm@cntv=\count89
+\c@Gm@tempcnt=\count90
+\Gm@bindingoffset=\dimen103
+\Gm@wd@mp=\dimen104
+\Gm@odd@mp=\dimen105
+\Gm@even@mp=\dimen106
+\Gm@layoutwidth=\dimen107
+\Gm@layoutheight=\dimen108
+\Gm@layouthoffset=\dimen109
+\Gm@layoutvoffset=\dimen110
+\Gm@dimlist=\toks15
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2016/09/06 3.8 Extensive control of page headers and footers
+\fancy@headwidth=\skip43
+\f@ncyO@elh=\skip44
+\f@ncyO@erh=\skip45
+\f@ncyO@olh=\skip46
+\f@ncyO@orh=\skip47
+\f@ncyO@elf=\skip48
+\f@ncyO@erf=\skip49
+\f@ncyO@olf=\skip50
+\f@ncyO@orf=\skip51
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/titlesec/titlesec.sty
+Package: titlesec 2016/03/21 v2.10.2 Sectioning titles
+\ttl@box=\box26
+\beforetitleunit=\skip52
+\aftertitleunit=\skip53
+\ttl@plus=\dimen111
+\ttl@minus=\dimen112
+\ttl@toksa=\toks16
+\titlewidth=\dimen113
+\titlewidthlast=\dimen114
+\titlewidthfirst=\dimen115
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2017/04/14 v1.1b Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 99.
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2017/01/12 v0.06k Graphics/color for pdfTeX
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count91
+))
+\Gin@req@height=\dimen116
+\Gin@req@width=\dimen117
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count92
+\float@exts=\toks17
+\float@box=\box27
+\@float@everytoks=\toks18
+\@floatcapt=\box28
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2016/05/22 v1.1-161 Sub-captions (AR)
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen118
+\captionmargin@=\dimen119
+\captionwidth=\dimen120
+\caption@tempdima=\dimen121
+\caption@indent=\dimen122
+\caption@parindent=\dimen123
+\caption@hangindent=\dimen124
+)
+\c@ContinuedFloat=\count93
+Package caption Info: float package is loaded.
+)
+\c@subfigure=\count94
+\c@subtable=\count95
+)
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/atbegshi.sty
+Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/footmisc/footmisc.sty
+Package: footmisc 2011/06/06 v5.5b a miscellany of footnote facilities
+\FN@temptoken=\toks19
+\footnotemargin=\dimen125
+\c@pp@next@reset=\count96
+Package footmisc Info: Declaring symbol style bringhurst on input line 855.
+Package footmisc Info: Declaring symbol style chicago on input line 863.
+Package footmisc Info: Declaring symbol style wiley on input line 872.
+Package footmisc Info: Declaring symbol style lamport-robust on input line 883.
+
+Package footmisc Info: Declaring symbol style lamport* on input line 903.
+Package footmisc Info: Declaring symbol style lamport*-robust on input line 924
+.
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2017/03/14 v6.85a Hypertext links for LaTeX
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
+
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
+Package hobsub Info: Skipping package `infwarerr' (already loaded).
+Package hobsub Info: Skipping package `ltxcmds' (already loaded).
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+Package hobsub Info: Skipping package `ifvtex' (already loaded).
+Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
+Package hobsub Info: Skipping package `ifpdf' (already loaded).
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO
+)
+Package: bitset 2016/05/16 v1.2 Handle bit-vector datatype (HO)
+Package: uniquecounter 2016/05/16 v1.3 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2016/05/16 v1.5 Let assignment for LaTeX macros (HO)
+Package: hopatch 2016/05/16 v1.3 Wrapper for package hooks (HO)
+Package: xcolor-patch 2016/05/16 xcolor patch
+Package: atveryend 2016/05/16 v1.9 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+Package hobsub Info: Skipping package `atbegshi' (already loaded).
+Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
+Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/auxhook.sty
+Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+)
+\@linkdim=\dimen126
+\Hy@linkcounter=\count97
+\Hy@pagecounter=\count98
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2017/03/14 v6.85a Hyperref: PDFDocEncoding definition (HO)
+)
+\Hy@SavedSpaceFactor=\count99
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Hyper figures OFF on input line 4498.
+Package hyperref Info: Link nesting OFF on input line 4503.
+Package hyperref Info: Hyper index ON on input line 4506.
+Package hyperref Info: Plain pages OFF on input line 4513.
+Package hyperref Info: Backreferencing OFF on input line 4518.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4751.
+\c@Hy@tempcnt=\count100
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip10
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5104.
+\XeTeXLinkMargin=\dimen127
+\Fld@menulength=\count101
+\Field@Width=\dimen128
+\Fld@charsize=\dimen129
+Package hyperref Info: Hyper figures OFF on input line 6358.
+Package hyperref Info: Link nesting OFF on input line 6363.
+Package hyperref Info: Hyper index ON on input line 6366.
+Package hyperref Info: backreferencing OFF on input line 6373.
+Package hyperref Info: Link coloring OFF on input line 6378.
+Package hyperref Info: Link coloring with OCG OFF on input line 6383.
+Package hyperref Info: PDF/A mode OFF on input line 6388.
+LaTeX Info: Redefining \ref on input line 6428.
+LaTeX Info: Redefining \pageref on input line 6432.
+\Hy@abspage=\count102
+\c@Item=\count103
+\c@Hfootnote=\count104
+)
+
+Package hyperref Message: Driver (autodetected): hpdftex.
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2017/03/14 v6.85a Hyperref driver for pdfTeX
+\Fld@listcount=\count105
+\c@bookmark@seq@number=\count106
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+)
+\Hy@SectionHShift=\skip54
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2016/11/05 v2.16a AMS math features
+\@mathmargin=\skip55
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks20
+\ex@=\dimen130
+))
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen131
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count107
+LaTeX Info: Redefining \frac on input line 213.
+\uproot@=\count108
+\leftroot@=\count109
+LaTeX Info: Redefining \overline on input line 375.
+\classnum@=\count110
+\DOTSCASE@=\count111
+LaTeX Info: Redefining \ldots on input line 472.
+LaTeX Info: Redefining \dots on input line 475.
+LaTeX Info: Redefining \cdots on input line 596.
+\Mathstrutbox@=\box29
+\strutbox@=\box30
+\big@size=\dimen132
+LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+\macc@depth=\count112
+\c@MaxMatrixCols=\count113
+\dotsspace@=\muskip11
+\c@parentequation=\count114
+\dspbrk@lvl=\count115
+\tag@help=\toks21
+\row@=\count116
+\column@=\count117
+\maxfields@=\count118
+\andhelp@=\toks22
+\eqnshift@=\dimen133
+\alignsep@=\dimen134
+\tagshift@=\dimen135
+\tagwidth@=\dimen136
+\totwidth@=\dimen137
+\lineht@=\dimen138
+\@envbody=\toks23
+\multlinegap=\skip56
+\multlinetaggap=\skip57
+\mathdisplay@stack=\toks24
+LaTeX Info: Redefining \[ on input line 2817.
+LaTeX Info: Redefining \] on input line 2818.
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/tocloft/tocloft.sty
+Package: tocloft 2013/05/02 v2.3f parameterised ToC, etc., typesetting
+Package tocloft Info: The document has chapter divisions on input line 44.
+\cftparskip=\skip58
+\cftbeforetoctitleskip=\skip59
+\cftaftertoctitleskip=\skip60
+\cftbeforepartskip=\skip61
+\cftpartnumwidth=\skip62
+\cftpartindent=\skip63
+\cftbeforechapskip=\skip64
+\cftchapindent=\skip65
+\cftchapnumwidth=\skip66
+\cftbeforesecskip=\skip67
+\cftsecindent=\skip68
+\cftsecnumwidth=\skip69
+\cftbeforesubsecskip=\skip70
+\cftsubsecindent=\skip71
+\cftsubsecnumwidth=\skip72
+\cftbeforesubsubsecskip=\skip73
+\cftsubsubsecindent=\skip74
+\cftsubsubsecnumwidth=\skip75
+\cftbeforeparaskip=\skip76
+\cftparaindent=\skip77
+\cftparanumwidth=\skip78
+\cftbeforesubparaskip=\skip79
+\cftsubparaindent=\skip80
+\cftsubparanumwidth=\skip81
+\cftbeforeloftitleskip=\skip82
+\cftafterloftitleskip=\skip83
+\cftbeforefigskip=\skip84
+\cftfigindent=\skip85
+\cftfignumwidth=\skip86
+\c@lofdepth=\count119
+\c@lotdepth=\count120
+\cftbeforelottitleskip=\skip87
+\cftafterlottitleskip=\skip88
+\cftbeforetabskip=\skip89
+\cfttabindent=\skip90
+\cfttabnumwidth=\skip91
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/l3packages/xfrac/xfrac.sty
+(/usr/local/texlive/2017/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2017/05/13 L3 programming layer (loader) 
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/l3kernel/expl3-code.tex
+Package: expl3 2017/05/13 L3 programming layer (code)
+\c_max_int=\count121
+\l_tmpa_int=\count122
+\l_tmpb_int=\count123
+\g_tmpa_int=\count124
+\g_tmpb_int=\count125
+\g__prg_map_int=\count126
+\c_log_iow=\count127
+\l_iow_line_count_int=\count128
+\l__iow_line_target_int=\count129
+\l__iow_one_indent_int=\count130
+\l__iow_indent_int=\count131
+\c_zero_dim=\dimen139
+\c_max_dim=\dimen140
+\l_tmpa_dim=\dimen141
+\l_tmpb_dim=\dimen142
+\g_tmpa_dim=\dimen143
+\g_tmpb_dim=\dimen144
+\c_zero_skip=\skip92
+\c_max_skip=\skip93
+\l_tmpa_skip=\skip94
+\l_tmpb_skip=\skip95
+\g_tmpa_skip=\skip96
+\g_tmpb_skip=\skip97
+\c_zero_muskip=\muskip12
+\c_max_muskip=\muskip13
+\l_tmpa_muskip=\muskip14
+\l_tmpb_muskip=\muskip15
+\g_tmpa_muskip=\muskip16
+\g_tmpb_muskip=\muskip17
+\l_keys_choice_int=\count132
+\c__fp_leading_shift_int=\count133
+\c__fp_middle_shift_int=\count134
+\c__fp_trailing_shift_int=\count135
+\c__fp_big_leading_shift_int=\count136
+\c__fp_big_middle_shift_int=\count137
+\c__fp_big_trailing_shift_int=\count138
+\c__fp_Bigg_leading_shift_int=\count139
+\c__fp_Bigg_middle_shift_int=\count140
+\c__fp_Bigg_trailing_shift_int=\count141
+\c__fp_rand_size_int=\count142
+\c__fp_rand_four_int=\count143
+\c__fp_rand_eight_int=\count144
+\l__sort_length_int=\count145
+\l__sort_min_int=\count146
+\l__sort_top_int=\count147
+\l__sort_max_int=\count148
+\l__sort_true_max_int=\count149
+\l__sort_block_int=\count150
+\l__sort_begin_int=\count151
+\l__sort_end_int=\count152
+\l__sort_A_int=\count153
+\l__sort_B_int=\count154
+\l__sort_C_int=\count155
+\c_empty_box=\box31
+\l_tmpa_box=\box32
+\l_tmpb_box=\box33
+\g_tmpa_box=\box34
+\g_tmpb_box=\box35
+\l__box_top_dim=\dimen145
+\l__box_bottom_dim=\dimen146
+\l__box_left_dim=\dimen147
+\l__box_right_dim=\dimen148
+\l__box_top_new_dim=\dimen149
+\l__box_bottom_new_dim=\dimen150
+\l__box_left_new_dim=\dimen151
+\l__box_right_new_dim=\dimen152
+\l__box_internal_box=\box36
+\l__coffin_internal_box=\box37
+\l__coffin_internal_dim=\dimen153
+\l__coffin_offset_x_dim=\dimen154
+\l__coffin_offset_y_dim=\dimen155
+\l__coffin_x_dim=\dimen156
+\l__coffin_y_dim=\dimen157
+\l__coffin_x_prime_dim=\dimen158
+\l__coffin_y_prime_dim=\dimen159
+\c_empty_coffin=\box38
+\l__coffin_aligned_coffin=\box39
+\l__coffin_aligned_internal_coffin=\box40
+\l_tmpa_coffin=\box41
+\l_tmpb_coffin=\box42
+\l__coffin_display_coffin=\box43
+\l__coffin_display_coord_coffin=\box44
+\l__coffin_display_pole_coffin=\box45
+\l__coffin_display_offset_dim=\dimen160
+\l__coffin_display_x_dim=\dimen161
+\l__coffin_display_y_dim=\dimen162
+\l__coffin_bounding_shift_dim=\dimen163
+\l__coffin_left_corner_dim=\dimen164
+\l__coffin_right_corner_dim=\dimen165
+\l__coffin_bottom_corner_dim=\dimen166
+\l__coffin_top_corner_dim=\dimen167
+\l__coffin_scaled_total_height_dim=\dimen168
+\l__coffin_scaled_width_dim=\dimen169
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/l3kernel/l3pdfmode.def
+File: l3pdfmode.def 2017/03/18 v L3 Experimental driver: PDF mode
+\l__driver_color_stack_int=\count156
+\l__driver_tmp_box=\box46
+))
+(/usr/local/texlive/2017/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+Package: l3keys2e 2017/05/13 LaTeX2e option processing using LaTeX3 keys
+) (/usr/local/texlive/2017/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2017/04/05 v2.0i Standard LaTeX package
+Package textcomp Info: Sub-encoding information:
+(textcomp)               5 = only ISO-Adobe without \textcurrency
+(textcomp)               4 = 5 + \texteuro
+(textcomp)               3 = 4 + \textohm
+(textcomp)               2 = 3 + \textestimated + \textcurrency
+(textcomp)               1 = TS1 - \textcircled - \t
+(textcomp)               0 = TS1 (full)
+(textcomp)             Font families with sub-encoding setting implement
+(textcomp)             only a restricted character set as indicated.
+(textcomp)             Family '?' is the default used for unknown fonts.
+(textcomp)             See the documentation for details.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 79.
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+)
+LaTeX Info: Redefining \oldstylenums on input line 334.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 349.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 350.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 351.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 352.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 353.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 354.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 355.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 356.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 357.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 358.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 359.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 360.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 361.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 362.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 363.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 364.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 365.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 366.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 367.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 368.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 369.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 370.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 371.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 372.
+
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 373.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 374.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 375.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 376.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 377.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 378.
+Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 379.
+Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 380.
+Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 381.
+Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 382.
+Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 383.
+Package textcomp Info: Setting lmtt sub-encoding to TS1/0 on input line 384.
+Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 385.
+Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 386.
+Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 387.
+Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 388.
+Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 389.
+Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 390.
+Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 391.
+Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 392.
+Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 393.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 394.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 395.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 396.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 397.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 398.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 399.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 400.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 401.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 402.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 403.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 404.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 405.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 406.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2017/05/13 L3 Experimental document command parser
+\l__xparse_current_arg_int=\count157
+\g__xparse_grabber_int=\count158
+\l__xparse_m_args_int=\count159
+\l__xparse_mandatory_args_int=\count160
+\l__xparse_v_nesting_int=\count161
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/l3packages/xtemplate/xtemplate.st
+y
+Package: xtemplate 2017/05/13 L3 Experimental prototype document functions
+\l__xtemplate_tmp_dim=\dimen170
+\l__xtemplate_tmp_int=\count162
+\l__xtemplate_tmp_muskip=\muskip18
+\l__xtemplate_tmp_skip=\skip98
+)
+Package: xfrac 2017/05/13 L3 Experimental split-level fractions
+\l__xfrac_slash_box=\box47
+\l__xfrac_tmp_box=\box48
+\l__xfrac_denominator_bot_sep_dim=\dimen171
+\l__xfrac_numerator_bot_sep_dim=\dimen172
+\l__xfrac_numerator_top_sep_dim=\dimen173
+\l__xfrac_slash_left_sep_dim=\dimen174
+\l__xfrac_slash_right_sep_dim=\dimen175
+\l__xfrac_slash_left_muskip=\muskip19
+\l__xfrac_slash_right_muskip=\muskip20
+.................................................
+. xtemplate info: "declare-object-type"
+. 
+. Declaring object type 'xfrac' taking 3 argument(s) on line 80.
+.................................................
+.................................................
+. LaTeX info: "xparse/define-command"
+. 
+. Defining command \sfrac with sig. 'omom' on line 419.
+.................................................
+) (/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 147.
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
+Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
+\c@ALG@line=\count163
+\c@ALG@rem=\count164
+\c@ALG@nested=\count165
+\ALG@tlm=\skip99
+\ALG@thistlm=\skip100
+\c@ALG@Lnr=\count166
+\c@ALG@blocknr=\count167
+\c@ALG@storecount=\count168
+\c@ALG@tmpcounter=\count169
+\ALG@tmplength=\skip101
+) (/usr/local/texlive/2017/texmf-dist/tex/latex/algorithms/algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
+\@float@every@algorithm=\toks25
+\c@algorithm=\count170
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
+Package: algpseudocode 
+
+Document Style - pseudocode environments for use with the `algorithmicx' style
+) (/usr/local/texlive/2017/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2011/09/28 v3.5.2 Customized lists
+\labelindent=\skip102
+\enit@outerparindent=\dimen176
+\enit@toks=\toks26
+\enit@inbox=\box49
+\enitdp@description=\count171
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
+)
+(/usr/local/texlive/2017/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+LaTeX Info: Redefining \color on input line 709.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
+(./4YP_report.aux
+
+LaTeX Warning: Label `posteriory' multiply defined.
+
+
+LaTeX Warning: Label `hypposterior' multiply defined.
+
+)
+\openout1 = `4YP_report.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 67.
+LaTeX Font Info:    ... okay on input line 67.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 67.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 67.
+ (/usr/local/texlive/2017/texmf-dist/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 67.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(56.9055pt, 483.69687pt, 56.9055pt)
+* v-part:(T,H,B)=(56.9055pt, 731.23584pt, 56.9055pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=483.69687pt
+* \textheight=731.23584pt
+* \oddsidemargin=-15.36449pt
+* \evensidemargin=-15.36449pt
+* \topmargin=-52.36449pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=11.0pt
+* \footskip=30.0pt
+* \marginparwidth=50.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count172
+\scratchdimen=\dimen177
+\scratchbox=\box50
+\nofMPsegments=\count173
+\nofMParguments=\count174
+\everyMPshowfont=\toks27
+\MPscratchCnt=\count175
+\MPscratchDim=\dimen178
+\MPnumerator=\count176
+\makeMPintoPDFobject=\count177
+\everyMPtoPDFconversion=\toks28
+) (/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: hyperref package is loaded.
+Package caption Info: End \AtBeginDocument code.
+\AtBeginShipoutBox=\box51
+Package hyperref Info: Link coloring OFF on input line 67.
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
+
+(/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
+)
+\c@section@level=\count178
+)
+LaTeX Info: Redefining \ref on input line 67.
+LaTeX Info: Redefining \pageref on input line 67.
+LaTeX Info: Redefining \nameref on input line 67.
+
+(./4YP_report.out) (./4YP_report.out)
+\@outlinefile=\write3
+\openout3 = `4YP_report.out'.
+
+LaTeX Font Info:    Try loading font information for U+msa on input line 70.
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 70.
+
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+<Oxford.png, id=131, 2007.5pt x 2513.39pt>
+File: Oxford.png Graphic file (type png)
+ <use Oxford.png>
+Package pdftex.def Info: Oxford.png used on input line 70.
+(pdftex.def)             Requested size: 193.47578pt x 242.22614pt.
+Package atbegshi Info: Shipout page discarded.
+ [2{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./Ox
+ford.png>] [1]pdfTeX warning (ext4): destination with the same identifier (name
+{page.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.81 \end{abstract}
+                    [1] (./4YP_report.toc)
+\tf@toc=\write4
+\openout4 = `4YP_report.toc'.
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.88 \chapter
+             {Introduction} [1]
+Chapter 1.
+
+LaTeX Warning: Citation `jones1998efficient' on page 2 undefined on input line 
+96.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 93--101
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 93--101
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 93--101
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 93--101
+
+ []
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.101 
+       [2
+
+] [3]
+Chapter 2.
+
+Package caption Warning: \label without proper reference on input line 129.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `BOdemonstration' on page 4 undefined on input line 10
+9.
+
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
+put line 113.
+<figures/Bayesianoptimisation.png, id=216, 886.31125pt x 877.2775pt>
+File: figures/Bayesianoptimisation.png Graphic file (type png)
+
+<use figures/Bayesianoptimisation.png>
+Package pdftex.def Info: figures/Bayesianoptimisation.png used on input line 13
+1.
+(pdftex.def)             Requested size: 338.58632pt x 335.13588pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 107--133
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 107--133
+
+ []
+
+[4
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 136--140
+
+ []
+
+
+LaTeX Warning: Citation `C24 Advanced probability notes' on page 5 undefined on
+ input line 144.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 142--149
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 142--149
+
+ []
+
+[5 <./figures/Bayesianoptimisation.png>]
+
+Package caption Warning: \label without proper reference on input line 197.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `seard' on page 6 undefined on input line 188.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 186--191
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 186--191
+
+ []
+
+[6] <figures/SEARDprior.png, id=264, 1399.2275pt x 464.73625pt>
+File: figures/SEARDprior.png Graphic file (type png)
+
+<use figures/SEARDprior.png>
+Package pdftex.def Info: figures/SEARDprior.png used on input line 199.
+(pdftex.def)             Requested size: 386.95897pt x 128.52263pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 193--201
+
+ []
+
+[7 <./figures/SEARDprior.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 212--215
+
+ []
+
+
+LaTeX Warning: Citation `jones1998efficient' on page 8 undefined on input line 
+224.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 217--225
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 217--225
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 217--225
+
+ []
+
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 242--247
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 250--253
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 255--259
+
+ []
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 270--273
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 275--285
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 275--285
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 275--285
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 275--285
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 287--291
+
+ []
+
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 302--306
+
+ []
+
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 314--329
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 314--329
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 314--329
+
+ []
+
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 349--353
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 355--359
+
+ []
+
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 374--396
+
+ []
+
+
+LaTeX Warning: Citation `requeimaintegrated' on page 14 undefined on input line
+ 405.
+
+
+LaTeX Warning: Citation `bitbucket code' on page 14 undefined on input line 405
+.
+
+
+LaTeX Warning: Citation `Hoffman and Ghahramani' on page 14 undefined on input 
+line 416.
+
+
+LaTeX Warning: Citation `2015' on page 14 undefined on input line 416.
+
+LaTeX Font Info:    Calculating math sizes for size <7.66495> on input line 425
+.
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <3.83247> not available
+(Font)              size <5> substituted on input line 425.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <3.83247> not available
+(Font)              size <5> substituted on input line 425.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <3.83247> not available
+(Font)              size <5> substituted on input line 425.
+
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <3.83247> not available
+(Font)              size <5> substituted on input line 425.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 400--432
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 400--432
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 400--432
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 400--432
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 400--432
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 400--432
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 400--432
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 400--432
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 400--432
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 400--432
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 400--432
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 400--432
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 400--432
+
+ []
+
+[14] [15] [16]
+Chapter 3.
+
+Underfull \hbox (badness 10000) in paragraph at lines 442--445
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 447--458
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 467--472
+
+ []
+
+[17
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 486--489
+
+ []
+
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 509--513
+
+ []
+
+
+LaTeX Warning: Citation `hoffman2015' on page 19 undefined on input line 522.
+
+
+LaTeX Warning: Citation `hoffman2015' on page 19 undefined on input line 522.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 519--525
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 519--525
+
+ []
+
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 545--549
+
+ []
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\begingroup' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<let>-command' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@nomath' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\begingroup' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\setbox' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\hbox' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\thinmuskip' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\medmuskip' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\m@ne' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\thickmuskip' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@ne' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\setbox' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\tw@' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\hbox' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\eta' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\mathsurround' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\eta' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\mathsurround' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\<def>-command' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\@tempa' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\mathchoice' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\hbox' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\mathsurround' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\displaystyle' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\eta' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\hbox' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\mathsurround' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\textstyle' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\eta' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\hbox' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\mathsurround' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\scriptstyle' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\eta' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\hbox' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\mathsurround' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\scriptscriptstyle' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\eta' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\endgroup' on input line 553.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 553.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 559--563
+
+ []
+
+[20]
+
+LaTeX Warning: Citation `C19 lecture notes' on page 21 undefined on input line 
+580.
+
+
+LaTeX Warning: Reference `loglikelihoodbreakdown' on page 21 undefined on input
+ line 590.
+
+<figures/loglikelihoodbreakdown.png, id=472, 867.24pt x 684.5575pt>
+File: figures/loglikelihoodbreakdown.png Graphic file (type png)
+
+<use figures/loglikelihoodbreakdown.png>
+Package pdftex.def Info: figures/loglikelihoodbreakdown.png used on input line 
+595.
+(pdftex.def)             Requested size: 241.84843pt x 190.90182pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 586--597
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 586--597
+
+ []
+
+[21]
+Underfull \hbox (badness 10000) in paragraph at lines 602--608
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 602--608
+
+ []
+
+[22 <./figures/loglikelihoodbreakdown.png>]
+
+LaTeX Warning: Citation `hoffman2015' on page 23 undefined on input line 622.
+
+
+Package caption Warning: \label without proper reference on input line 665.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `1DESBOPA' on page 23 undefined on input line 662.
+
+<figures/ESBOPA_update_eta_prior_seed6_1.png, id=498, 578.16pt x 433.62pt>
+File: figures/ESBOPA_update_eta_prior_seed6_1.png Graphic file (type png)
+
+<use figures/ESBOPA_update_eta_prior_seed6_1.png>
+Package pdftex.def Info: figures/ESBOPA_update_eta_prior_seed6_1.png used on in
+put line 668.
+(pdftex.def)             Requested size: 241.84843pt x 181.38472pt.
+
+<figures/ESBOPA_update_eta_prior_seed6_2.png, id=499, 578.16pt x 433.62pt>
+File: figures/ESBOPA_update_eta_prior_seed6_2.png Graphic file (type png)
+
+<use figures/ESBOPA_update_eta_prior_seed6_2.png>
+Package pdftex.def Info: figures/ESBOPA_update_eta_prior_seed6_2.png used on in
+put line 674.
+(pdftex.def)             Requested size: 241.84843pt x 181.38472pt.
+
+<figures/ESBOPA_update_eta_prior_seed6_3.png, id=500, 578.16pt x 433.62pt>
+File: figures/ESBOPA_update_eta_prior_seed6_3.png Graphic file (type png)
+
+<use figures/ESBOPA_update_eta_prior_seed6_3.png>
+Package pdftex.def Info: figures/ESBOPA_update_eta_prior_seed6_3.png used on in
+put line 680.
+(pdftex.def)             Requested size: 241.84843pt x 181.38472pt.
+
+<figures/ESBOPA_update_eta_prior_seed6_4.png, id=501, 578.16pt x 433.62pt>
+File: figures/ESBOPA_update_eta_prior_seed6_4.png Graphic file (type png)
+
+<use figures/ESBOPA_update_eta_prior_seed6_4.png>
+Package pdftex.def Info: figures/ESBOPA_update_eta_prior_seed6_4.png used on in
+put line 686.
+(pdftex.def)             Requested size: 241.84843pt x 181.38472pt.
+
+<figures/ESBOPA_update_eta_prior_seed6_5.png, id=502, 578.16pt x 433.62pt>
+File: figures/ESBOPA_update_eta_prior_seed6_5.png Graphic file (type png)
+
+<use figures/ESBOPA_update_eta_prior_seed6_5.png>
+Package pdftex.def Info: figures/ESBOPA_update_eta_prior_seed6_5.png used on in
+put line 692.
+(pdftex.def)             Requested size: 241.84843pt x 181.38472pt.
+
+<figures/ESBOPA_update_eta_prior_seed6_6.png, id=503, 578.16pt x 433.62pt>
+File: figures/ESBOPA_update_eta_prior_seed6_6.png Graphic file (type png)
+
+<use figures/ESBOPA_update_eta_prior_seed6_6.png>
+Package pdftex.def Info: figures/ESBOPA_update_eta_prior_seed6_6.png used on in
+put line 698.
+(pdftex.def)             Requested size: 241.84843pt x 181.38472pt.
+
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 666--702
+[]$[]$ $[]$
+ []
+
+
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 666--702
+[]$ $[]$
+ []
+
+
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 666--702
+[]$ $[]$ 
+ []
+
+[23]
+Underfull \hbox (badness 10000) in paragraph at lines 710--713
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 715--719
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 729--733
+
+ []
+
+[24] [25 <./figures/ESBOPA_update_eta_prior_seed6_1.png (PNG copy)> <./figures/
+ESBOPA_update_eta_prior_seed6_2.png (PNG copy)> <./figures/ESBOPA_update_eta_pr
+ior_seed6_3.png (PNG copy)> <./figures/ESBOPA_update_eta_prior_seed6_4.png (PNG
+ copy)> <./figures/ESBOPA_update_eta_prior_seed6_5.png (PNG copy)> <./figures/E
+SBOPA_update_eta_prior_seed6_6.png (PNG copy)>] [26]
+Underfull \hbox (badness 10000) in paragraph at lines 762--765
+
+ []
+
+
+Package caption Warning: \label without proper reference on input line 776.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `fig:fig_medi_abs_err' on page 27 undefined on input l
+ine 773.
+
+
+Package caption Warning: \label without proper reference on input line 784.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `fig:fig_medi_frac_err' on page 27 undefined on input 
+line 773.
+
+<figures/Log_median_absolute_error.png, id=538, 690.58pt x 538.01pt>
+File: figures/Log_median_absolute_error.png Graphic file (type png)
+
+<use figures/Log_median_absolute_error.png>
+Package pdftex.def Info: figures/Log_median_absolute_error.png used on input li
+ne 778.
+(pdftex.def)             Requested size: 338.58632pt x 263.78317pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 772--781
+
+ []
+
+[27] <figures/Log_median_frac_error.png, id=551, 688.5725pt x 533.995pt>
+File: figures/Log_median_frac_error.png Graphic file (type png)
+
+<use figures/Log_median_frac_error.png>
+Package pdftex.def Info: figures/Log_median_frac_error.png used on input line 7
+86.
+(pdftex.def)             Requested size: 338.58632pt x 262.57242pt.
+
+
+Package caption Warning: \label without proper reference on input line 776.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `fig:fig_medi_abs_err' on page 28 undefined on input l
+ine 793.
+
+
+Package caption Warning: \label without proper reference on input line 784.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `fig:fig_medi_frac_err' on page 28 undefined on input 
+line 793.
+
+
+Package caption Warning: \label without proper reference on input line 798.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `runningtime' on page 28 undefined on input line 795.
+
+<figures/Running_time.png, id=555, 701.62125pt x 550.055pt>
+File: figures/Running_time.png Graphic file (type png)
+
+<use figures/Running_time.png>
+Package pdftex.def Info: figures/Running_time.png used on input line 801.
+(pdftex.def)             Requested size: 338.58632pt x 265.45023pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 792--805
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 792--805
+
+ []
+
+[28 <./figures/Log_median_absolute_error.png> <./figures/Log_median_frac_error.
+png>] [29 <./figures/Running_time.png>]
+Chapter 4.
+
+Underfull \hbox (badness 10000) in paragraph at lines 812--817
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 812--817
+
+ []
+
+[30
+
+]
+
+Package caption Warning: \label without proper reference on input line 854.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `1Dtestfunctions' on page 31 undefined on input line 8
+52.
+
+<figures/1Dtestfunctions.png, id=582, 601.24625pt x 396.48125pt>
+File: figures/1Dtestfunctions.png Graphic file (type png)
+
+<use figures/1Dtestfunctions.png>
+Package pdftex.def Info: figures/1Dtestfunctions.png used on input line 856.
+(pdftex.def)             Requested size: 386.95897pt x 255.18092pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 852--858
+
+ []
+
+[31]
+
+Package caption Warning: \label without proper reference on input line 864.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `1DtestIR' on page 32 undefined on input line 861.
+
+
+Package caption Warning: \label without proper reference on input line 872.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `1DtestXnorm2' on page 32 undefined on input line 861.
+
+
+<figures/1D_ESBOPAV4_IR.png, id=596, 582.175pt x 298.11375pt>
+File: figures/1D_ESBOPAV4_IR.png Graphic file (type png)
+
+<use figures/1D_ESBOPAV4_IR.png>
+Package pdftex.def Info: figures/1D_ESBOPAV4_IR.png used on input line 866.
+(pdftex.def)             Requested size: 386.95897pt x 198.15218pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 860--869
+
+ []
+
+[32 <./figures/1Dtestfunctions.png>]
+<figures/1D_ESBOPAV4_Xnorm.png, id=608, 582.175pt x 299.1175pt>
+File: figures/1D_ESBOPAV4_Xnorm.png Graphic file (type png)
+
+<use figures/1D_ESBOPAV4_Xnorm.png>
+Package pdftex.def Info: figures/1D_ESBOPAV4_Xnorm.png used on input line 874.
+(pdftex.def)             Requested size: 386.95897pt x 198.81935pt.
+ [33 <./figures/1D_ESBOPAV4_IR.png> <./figures/1D_ESBOPAV4_Xnorm.png>]
+
+Package caption Warning: \label without proper reference on input line 882.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `2Dtestfunctions' on page 34 undefined on input line 8
+80.
+
+<figures/2Dtestfunction.png, id=616, 633.36626pt x 385.44pt>
+File: figures/2Dtestfunction.png Graphic file (type png)
+
+<use figures/2Dtestfunction.png>
+Package pdftex.def Info: figures/2Dtestfunction.png used on input line 884.
+(pdftex.def)             Requested size: 435.32422pt x 264.92465pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 880--886
+
+ []
+
+
+Package caption Warning: \label without proper reference on input line 891.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `2DtestIR' on page 34 undefined on input line 889.
+
+
+Package caption Warning: \label without proper reference on input line 898.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `2DtestXnorm2' on page 34 undefined on input line 889.
+
+
+<figures/2DtestESBOPAV3_seed_20_80IR.png, id=619, 607.26875pt x 276.03125pt>
+File: figures/2DtestESBOPAV3_seed_20_80IR.png Graphic file (type png)
+
+<use figures/2DtestESBOPAV3_seed_20_80IR.png>
+Package pdftex.def Info: figures/2DtestESBOPAV3_seed_20_80IR.png used on input 
+line 893.
+(pdftex.def)             Requested size: 386.95897pt x 175.89282pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 888--895
+
+ []
+
+[34 <./figures/2Dtestfunction.png>]
+<figures/2DtestESBOPAV3_seed_20_80Xnorm2.png, id=629, 602.25pt x 282.05376pt>
+File: figures/2DtestESBOPAV3_seed_20_80Xnorm2.png Graphic file (type png)
+
+<use figures/2DtestESBOPAV3_seed_20_80Xnorm2.png>
+Package pdftex.def Info: figures/2DtestESBOPAV3_seed_20_80Xnorm2.png used on in
+put line 900.
+(pdftex.def)             Requested size: 386.95897pt x 181.23251pt.
+ [35 <./figures/2DtestESBOPAV3_seed_20_80IR.png> <./figures/2DtestESBOPAV3_seed
+_20_80Xnorm2.png>]
+
+Package caption Warning: \label without proper reference on input line 920.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `2DBranin' on page 36 undefined on input line 917.
+
+<figures/Branin2D.png, id=637, 776.9025pt x 357.335pt>
+File: figures/Branin2D.png Graphic file (type png)
+
+<use figures/Branin2D.png>
+Package pdftex.def Info: figures/Branin2D.png used on input line 922.
+(pdftex.def)             Requested size: 435.32422pt x 200.23163pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 914--924
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 914--924
+
+ []
+
+
+Package caption Warning: \label without proper reference on input line 929.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `2DBraninIR' on page 36 undefined on input line 927.
+
+
+Package caption Warning: \label without proper reference on input line 936.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `2DBraninXnorm2' on page 36 undefined on input line 92
+7.
+
+<figures/2DBranin_ESBOPA_V4IR.png, id=640, 750.805pt x 359.3425pt>
+File: figures/2DBranin_ESBOPA_V4IR.png Graphic file (type png)
+
+<use figures/2DBranin_ESBOPA_V4IR.png>
+Package pdftex.def Info: figures/2DBranin_ESBOPA_V4IR.png used on input line 93
+1.
+(pdftex.def)             Requested size: 386.95897pt x 185.20326pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 926--933
+
+ []
+
+[36 <./figures/Branin2D.png>]
+<figures/2DBranin_ESBOPA_V4Xnorm2.png, id=650, 750.805pt x 374.39874pt>
+File: figures/2DBranin_ESBOPA_V4Xnorm2.png Graphic file (type png)
+
+<use figures/2DBranin_ESBOPA_V4Xnorm2.png>
+Package pdftex.def Info: figures/2DBranin_ESBOPA_V4Xnorm2.png used on input lin
+e 938.
+(pdftex.def)             Requested size: 386.95897pt x 192.96318pt.
+
+
+Package caption Warning: \label without proper reference on input line 944.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `2Dbraninevaluationpoints' on page 37 undefined on inp
+ut line 942.
+
+<figures/Branin_evaluataions.png, id=653, 714.67pt x 364.36125pt>
+File: figures/Branin_evaluataions.png Graphic file (type png)
+
+<use figures/Branin_evaluataions.png>
+Package pdftex.def Info: figures/Branin_evaluataions.png used on input line 946
+.
+(pdftex.def)             Requested size: 483.69687pt x 246.60594pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 941--948
+
+ []
+
+[37 <./figures/2DBranin_ESBOPA_V4IR.png> <./figures/2DBranin_ESBOPA_V4Xnorm2.pn
+g>]
+
+LaTeX Warning: Reference `' on page 38 undefined on input line 952.
+
+<figures/rosenbrock2D.png, id=661, 725.71124pt x 349.305pt>
+File: figures/rosenbrock2D.png Graphic file (type png)
+
+<use figures/rosenbrock2D.png>
+Package pdftex.def Info: figures/rosenbrock2D.png used on input line 961.
+(pdftex.def)             Requested size: 435.32422pt x 209.53664pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 955--963
+
+ []
+
+[38 <./figures/Branin_evaluataions.png>]
+
+Package caption Warning: \label without proper reference on input line 967.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `Rosenbrock_ESBOPAV4_IR' on page 39 undefined on input
+ line 965.
+
+
+Package caption Warning: \label without proper reference on input line 974.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `Rosenbrock_ESBOPAV4_Xnorm' on page 39 undefined on in
+put line 965.
+
+<figures/Rosenbrock_ESBOPAV4_IR.png, id=670, 750.805pt x 367.3725pt>
+File: figures/Rosenbrock_ESBOPAV4_IR.png Graphic file (type png)
+
+<use figures/Rosenbrock_ESBOPAV4_IR.png>
+Package pdftex.def Info: figures/Rosenbrock_ESBOPAV4_IR.png used on input line 
+969.
+(pdftex.def)             Requested size: 386.95897pt x 189.34187pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 964--971
+
+ []
+
+<figures/Rosenbrock_ESBOPAV4_Xnorm.png, id=671, 750.805pt x 363.3575pt>
+File: figures/Rosenbrock_ESBOPAV4_Xnorm.png Graphic file (type png)
+
+<use figures/Rosenbrock_ESBOPAV4_Xnorm.png>
+Package pdftex.def Info: figures/Rosenbrock_ESBOPAV4_Xnorm.png used on input li
+ne 976.
+(pdftex.def)             Requested size: 386.95897pt x 187.27257pt.
+ [39 <./figures/rosenbrock2D.png> <./figures/Rosenbrock_ESBOPAV4_IR.png>]
+
+Package amsfonts Warning: Obsolete command \bold; \mathbf should be used instea
+d on input line 986.
+
+
+Package caption Warning: \label without proper reference on input line 1007.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `6DHartIR' on page 40 undefined on input line 1002.
+
+
+Package caption Warning: \label without proper reference on input line 1014.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `6DHartXnorm' on page 40 undefined on input line 1002.
+
+
+
+Package caption Warning: \label without proper reference on input line 1014.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `6DHartXnorm' on page 40 undefined on input line 1005.
+
+
+<figures/Hartmann6D_ESBOPAV4_IR.png, id=687, 750.805pt x 362.35374pt>
+File: figures/Hartmann6D_ESBOPAV4_IR.png Graphic file (type png)
+
+<use figures/Hartmann6D_ESBOPAV4_IR.png>
+Package pdftex.def Info: figures/Hartmann6D_ESBOPAV4_IR.png used on input line 
+1009.
+(pdftex.def)             Requested size: 386.95897pt x 186.75525pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 999--1011
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 999--1011
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 999--1011
+
+ []
+
+[40 <./figures/Rosenbrock_ESBOPAV4_Xnorm.png>]
+<figures/Hartmann6D_ESBOPAV4_1_X_norm.png, id=697, 750.805pt x 357.335pt>
+File: figures/Hartmann6D_ESBOPAV4_1_X_norm.png Graphic file (type png)
+
+<use figures/Hartmann6D_ESBOPAV4_1_X_norm.png>
+Package pdftex.def Info: figures/Hartmann6D_ESBOPAV4_1_X_norm.png used on input
+ line 1016.
+(pdftex.def)             Requested size: 386.95897pt x 184.16861pt.
+
+
+Package caption Warning: \label without proper reference on input line 1027.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `RosenbrocknoisyIRandL2' on page 41 undefined on input
+ line 1023.
+
+
+Package caption Warning: \label without proper reference on input line 1068.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `BraninnoisyIRandL2' on page 41 undefined on input lin
+e 1023.
+
+<figures/Rosenbrock1e-3_ESBOPAV4_IR.png, id=700, 592.2125pt x 239.89626pt>
+File: figures/Rosenbrock1e-3_ESBOPAV4_IR.png Graphic file (type png)
+
+<use figures/Rosenbrock1e-3_ESBOPAV4_IR.png>
+Package pdftex.def Info: figures/Rosenbrock1e-3_ESBOPAV4_IR.png used on input l
+ine 1030.
+(pdftex.def)             Requested size: 241.84843pt x 97.97008pt.
+
+<figures/Rosenbrock1e-3_ESBOPAV4_Xnorm.png, id=701, 598.235pt x 252.945pt>
+File: figures/Rosenbrock1e-3_ESBOPAV4_Xnorm.png Graphic file (type png)
+
+<use figures/Rosenbrock1e-3_ESBOPAV4_Xnorm.png>
+Package pdftex.def Info: figures/Rosenbrock1e-3_ESBOPAV4_Xnorm.png used on inpu
+t line 1036.
+(pdftex.def)             Requested size: 241.84843pt x 102.2569pt.
+
+<figures/Rosenbrock1e-2_ESBOPAV4_IR.png, id=702, 592.2125pt x 237.88875pt>
+File: figures/Rosenbrock1e-2_ESBOPAV4_IR.png Graphic file (type png)
+
+<use figures/Rosenbrock1e-2_ESBOPAV4_IR.png>
+Package pdftex.def Info: figures/Rosenbrock1e-2_ESBOPAV4_IR.png used on input l
+ine 1042.
+(pdftex.def)             Requested size: 241.84843pt x 97.15024pt.
+
+<figures/Rosenbrock1e-2_ESBOPAV4_Xnorm.png, id=703, 598.235pt x 247.92625pt>
+File: figures/Rosenbrock1e-2_ESBOPAV4_Xnorm.png Graphic file (type png)
+
+<use figures/Rosenbrock1e-2_ESBOPAV4_Xnorm.png>
+Package pdftex.def Info: figures/Rosenbrock1e-2_ESBOPAV4_Xnorm.png used on inpu
+t line 1048.
+(pdftex.def)             Requested size: 241.84843pt x 100.228pt.
+
+<figures/Rosenbrock1e-1_ESBOPAV4_IR.png, id=704, 592.2125pt x 232.87pt>
+File: figures/Rosenbrock1e-1_ESBOPAV4_IR.png Graphic file (type png)
+
+<use figures/Rosenbrock1e-1_ESBOPAV4_IR.png>
+Package pdftex.def Info: figures/Rosenbrock1e-1_ESBOPAV4_IR.png used on input l
+ine 1054.
+(pdftex.def)             Requested size: 241.84843pt x 95.10066pt.
+
+<figures/Rosenbrock1e-1_ESBOPAV4_Xnorm.png, id=705, 598.235pt x 247.92625pt>
+File: figures/Rosenbrock1e-1_ESBOPAV4_Xnorm.png Graphic file (type png)
+
+<use figures/Rosenbrock1e-1_ESBOPAV4_Xnorm.png>
+Package pdftex.def Info: figures/Rosenbrock1e-1_ESBOPAV4_Xnorm.png used on inpu
+t line 1060.
+(pdftex.def)             Requested size: 241.84843pt x 100.228pt.
+
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 1028--1064
+[]$[]$ $[]$
+ []
+
+
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 1028--1064
+[]$ $[]$
+ []
+
+
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 1028--1064
+[]$ $[]$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1021--1065
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1021--1065
+
+ []
+
+[41 <./figures/Hartmann6D_ESBOPAV4_IR.png> <./figures/Hartmann6D_ESBOPAV4_1_X_n
+orm.png>]
+<figures/Branin15noise1e-3_sigma100_ESBOPA_V4_IR.png, id=712, 592.2125pt x 237.
+88875pt>
+File: figures/Branin15noise1e-3_sigma100_ESBOPA_V4_IR.png Graphic file (type pn
+g)
+ <use figures/Branin15noise1e-3_sigma100_ESBOPA_V4_IR.png>
+Package pdftex.def Info: figures/Branin15noise1e-3_sigma100_ESBOPA_V4_IR.png us
+ed on input line 1071.
+(pdftex.def)             Requested size: 241.84843pt x 97.15024pt.
+
+<figures/Branin15noise1e-3_sigma100_ESBOPA_V4_Xnorm.png, id=713, 598.235pt x 24
+7.92625pt>
+File: figures/Branin15noise1e-3_sigma100_ESBOPA_V4_Xnorm.png Graphic file (type
+ png)
+ <use figures/Branin15noise1e-3_sigma100_ESBOPA_V4_Xnorm.png>
+Package pdftex.def Info: figures/Branin15noise1e-3_sigma100_ESBOPA_V4_Xnorm.png
+ used on input line 1077.
+(pdftex.def)             Requested size: 241.84843pt x 100.228pt.
+
+<figures/Branin15noise1e-2_sigma100_ESBOPA_V4_IR.png, id=714, 592.2125pt x 238.
+8925pt>
+File: figures/Branin15noise1e-2_sigma100_ESBOPA_V4_IR.png Graphic file (type pn
+g)
+ <use figures/Branin15noise1e-2_sigma100_ESBOPA_V4_IR.png>
+Package pdftex.def Info: figures/Branin15noise1e-2_sigma100_ESBOPA_V4_IR.png us
+ed on input line 1083.
+(pdftex.def)             Requested size: 241.84843pt x 97.56015pt.
+
+<figures/Branin15noise1e-2_sigma100_ESBOPA_V4_Xnorm.png, id=715, 598.235pt x 24
+3.91125pt>
+File: figures/Branin15noise1e-2_sigma100_ESBOPA_V4_Xnorm.png Graphic file (type
+ png)
+ <use figures/Branin15noise1e-2_sigma100_ESBOPA_V4_Xnorm.png>
+Package pdftex.def Info: figures/Branin15noise1e-2_sigma100_ESBOPA_V4_Xnorm.png
+ used on input line 1089.
+(pdftex.def)             Requested size: 241.84843pt x 98.60486pt.
+
+<figures/Branin15noise1e-1_sigma100_ESBOPA_V4_IR.png, id=716, 592.2125pt x 239.
+89626pt>
+File: figures/Branin15noise1e-1_sigma100_ESBOPA_V4_IR.png Graphic file (type pn
+g)
+ <use figures/Branin15noise1e-1_sigma100_ESBOPA_V4_IR.png>
+Package pdftex.def Info: figures/Branin15noise1e-1_sigma100_ESBOPA_V4_IR.png us
+ed on input line 1095.
+(pdftex.def)             Requested size: 241.84843pt x 97.97008pt.
+
+<figures/Branin15noise1e-1_sigma100_ESBOPA_V4_Xnorm.png, id=717, 598.235pt x 24
+6.9225pt>
+File: figures/Branin15noise1e-1_sigma100_ESBOPA_V4_Xnorm.png Graphic file (type
+ png)
+ <use figures/Branin15noise1e-1_sigma100_ESBOPA_V4_Xnorm.png>
+Package pdftex.def Info: figures/Branin15noise1e-1_sigma100_ESBOPA_V4_Xnorm.png
+ used on input line 1101.
+(pdftex.def)             Requested size: 241.84843pt x 99.8222pt.
+
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 1069--1105
+[]$[]$ $[]$
+ []
+
+
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 1069--1105
+[]$ $[]$
+ []
+
+
+Overfull \hbox (2.43333pt too wide) in paragraph at lines 1069--1105
+[]$ $[]$ 
+ []
+
+[42 <./figures/Rosenbrock1e-3_ESBOPAV4_IR.png> <./figures/Rosenbrock1e-3_ESBOPA
+V4_Xnorm.png> <./figures/Rosenbrock1e-2_ESBOPAV4_IR.png> <./figures/Rosenbrock1
+e-2_ESBOPAV4_Xnorm.png> <./figures/Rosenbrock1e-1_ESBOPAV4_IR.png> <./figures/R
+osenbrock1e-1_ESBOPAV4_Xnorm.png>] [43 <./figures/Branin15noise1e-3_sigma100_ES
+BOPA_V4_IR.png> <./figures/Branin15noise1e-3_sigma100_ESBOPA_V4_Xnorm.png> <./f
+igures/Branin15noise1e-2_sigma100_ESBOPA_V4_IR.png> <./figures/Branin15noise1e-
+2_sigma100_ESBOPA_V4_Xnorm.png> <./figures/Branin15noise1e-1_sigma100_ESBOPA_V4
+_IR.png> <./figures/Branin15noise1e-1_sigma100_ESBOPA_V4_Xnorm.png>]
+Chapter 5.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1109--1112
+
+ []
+
+(./4YP_report.bbl [44
+
+]
+Underfull \hbox (badness 3281) in paragraph at lines 92--97
+[]\OT1/cmr/m/n/10 Jarno Van-hat-alo, Jaakko Ri-ihim^^?aki, Jouni Har-tikainen, 
+and Aki Ve-htari.  Bayesian mod-el-
+ []
+
+
+Underfull \hbox (badness 2653) in paragraph at lines 92--97
+\OT1/cmr/m/n/10 ing with gaus-sian pro-cesses us-ing the mat-lab tool-box gp-st
+uff.  \OT1/cmr/m/it/10 sub-mit-ted. http://becs. aalto.
+ []
+
+[45
+
+]) [46]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1117.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1117.
+ (./4YP_report.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1117.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1117.
+
+Package rerunfilecheck Info: File `4YP_report.out' has not changed.
+(rerunfilecheck)             Checksum: 833B4FD0222E2A1DBDF256F464F307EB;2381.
+
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 2.90001pt have occurred.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1117.
+ ) 
+Here is how much of TeX's memory you used:
+ 18350 strings out of 492995
+ 324542 string characters out of 6132703
+ 406353 words of memory out of 5000000
+ 21471 multiletter control sequences out of 15000+600000
+ 25720 words of font info for 100 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 42i,17n,43p,10379b,531s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></
+usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><
+/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><
+/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
+usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></u
+sr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr
+/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/l
+ocal/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/loc
+al/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/loc
+al/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local
+/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/t
+exlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texl
+ive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive
+/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/20
+17/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/201
+7/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2017/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2017/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2017/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2017/texmf
+-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on 4YP_report.pdf (49 pages, 2287548 bytes).
+PDF statistics:
+ 871 PDF objects out of 1000 (max. 8388607)
+ 714 compressed objects within 8 object streams
+ 208 named destinations out of 1000 (max. 500000)
+ 457 words of extra memory for PDF output out of 10000 (max. 10000000)
+
