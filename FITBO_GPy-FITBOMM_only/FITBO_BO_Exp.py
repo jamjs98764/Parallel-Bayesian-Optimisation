@@ -14,7 +14,7 @@ from class_FITBOMM import Bayes_opt_batch
 
 
 def BO_test(test_func, BO_method, burnin = 100, sample_size = 50, resample_interval = 1, \
-            seed_size = 10, num_iterations = 20, batch = False, batch_size = 2, heuristic = "kb"):
+            seed_size = 30, num_iterations = 40, batch = False, batch_size = 2, heuristic = "kb"):
 
     # BO_method is either FITBOMM (moment matching) or FITBO (quadrature) 
     # Sample size = MC sample size
@@ -56,7 +56,7 @@ def BO_test(test_func, BO_method, burnin = 100, sample_size = 50, resample_inter
     results_L2 = np.zeros(shape=(seed_size, num_iterations + 1)) # L2 norm of x
     
     # Creating directory to save
-    dir_name = 'Exp_Data/' + test_func + ',' + str(seed_size) + '_seed,' + str(batch_size) + '_batch_size/' 
+    dir_name = 'Exp_Data/' + test_func + ',' + str(seed_size) + '_seed,sequential' 
    
     try:
         os.mkdir(dir_name)
@@ -137,11 +137,12 @@ def BO_test(test_func, BO_method, burnin = 100, sample_size = 50, resample_inter
 #####
 # Running tests
 #####
+def test_sequential(test_func):    
+    ## Single test sequential
+    BO_test(test_func = test_func, BO_method = 'FITBOMM')  
+    return None
 
 def test_all(test_func, current_batch_size):    
-    ## Single test sequential
-    BO_test(test_func = test_func, BO_method = 'FITBOMM', batch_size = current_batch_size)
-    
     ## Single test batch    
     BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'kb')
     BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-mean')
@@ -154,7 +155,6 @@ def test_all(test_func, current_batch_size):
 """
 batch_sizes = [2, 4]
 test_funcs = ["branin", "hartmann"]
-"""
 
 batch_sizes = [4]
 test_funcs = ["egg", "branin", "hartmann"]
@@ -166,13 +166,17 @@ for batch_size in batch_sizes:
 print("Finished 4-batch tests")
 
 """
-batch_sizes = [8]
-test_funcs = ["egg", "branin", "hartmann"]
+test_funcs = ["branin", "egg", "hartmann"]
+for test_func in test_funcs:
+    test_sequential(test_func)
+
+batch_sizes = [4, 8]
+test_funcs = ["branin", "egg", "hartmann"]
 
 for batch_size in batch_sizes:
     for test_func in test_funcs:
         test_all(test_func, batch_size)
 
-print("Finished 8-batch tests")
-"""
+print("Finished tests")
+
 

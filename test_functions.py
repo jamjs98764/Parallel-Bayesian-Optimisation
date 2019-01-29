@@ -11,7 +11,7 @@ def branin(x1, x2, a = 1, b = 5.1/((4*np.pi)**2), c = 5/np.pi, r = 6, s = 10, t 
 def eggholder(x1, x2):
 	# Input domain [-512, 512] for both dimensions
 	# https://www.sfu.ca/~ssurjano/egg.html
-	return -(x2 + 47) * np.sin(np.sqrt(abs(x2 + x1/2 + 47))) - x1 * np.sin(np.sqrt(abs(x1 - (x2 + 47))))
+	return -(x2 + 47) * np.sin(np.sqrt(abs(x2 + x1/2 + 47))) - x1 * np.sin(np.sqrt(abs(x1 - (x2 + 47))))\
 
 branin_minimiser = [(-np.pi, 12.275), (np.pi, 2.275), (9.42478, 2.475)]
 branin_minimum = 0.397887
