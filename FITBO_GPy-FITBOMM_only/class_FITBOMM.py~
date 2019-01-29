@@ -698,7 +698,7 @@ class Bayes_opt_batch():
             # Iterate across current batch
             for batch_i in range(batch_size):
                 # optimise the acquisition function to get the next query point and evaluate at next query point
-                current_y_best = real_Y.min()
+                current_y_best = self.Y.min()
                 x_next = self._gloabl_minimser(acqu_func)
                 max_acqu_value = - acqu_func(x_next)
                 
@@ -710,7 +710,7 @@ class Bayes_opt_batch():
                 elif heuristic == "random":
                     """Fully random, even first sample in batch"""
                     x_next = np.random.rand(1, self.X_dim) # Returns random float 
-                    y_next_guess = -10.0 # Arbitary as not used in random batch selector
+                    y_next_guess = 0.5 # Arbitary as not used in random batch selector
                 elif heuristic == "random_except_1st":
                     """First sample in batch is max of acq function, rest is random"""
                     if batch_i > 0:
@@ -719,22 +719,24 @@ class Bayes_opt_batch():
                     else:
                         y_next_guess = 0.5 # Arbitary as not used in random batch selector
                         
-                # PI Values - calculate before updating GP with guessed values
-                
-                x_next_mean = self._marginalised_posterior_mean(x_next)
-                x_next_var = self._marginalised_posterior_var(x_next)
-                PI_value = norm.cdf(((x_next_mean) - current_y_best) / x_next_var)              
-                        
+                batch_X[k, batch_i, :] = x_next
+                batch_Y[k, batch_i, :] = y_next_guess # 
                 self.X = np.vstack((self.X, x_next))
                 self.Y = np.vstack((self.Y, y_next_guess)) # Appending Data with guessed values
                 
-                if heuristic != "random" and heuristic != "random_except_1st": # If random, not necessary to recalculate GP
-                    print("Not random, need reset GP")
-                    self._fit_GP()
-                    self._fit_GP_normal()
+                self._fit_GP()
+                self._fit_GP_normal()
                 
                 #print("Currently on iteration %d, batch %d" % (k, batch_i))
                 
+                # PI Values
+                x_next_mean = self._marginalised_posterior_mean(x_next)
+                x_next_var = self._marginalised_posterior_var(x_next)
+                PI_value = norm.cdf(((x_next_mean) - current_y_best) / x_next_var)              
+                print(PI_value)
+                print(x_next_mean)
+                print(x_next_var)
+                print(current_y_best)
                 # Just for recording
                 batch_X[k, batch_i, :] = x_next
                 batch_Y[k, batch_i, :] = y_next_guess
@@ -744,8 +746,8 @@ class Bayes_opt_batch():
             # TODO: deepcopy doesnt work so we re-initialize GP with original X's every time
             self.X = real_X
             self.Y = real_Y
-            #self._fit_GP()
-            #self._fit_GP_normal()    
+            self._fit_GP()
+            self._fit_GP_normal()    
                 
             # Finding real function values for all query points in batch
             
