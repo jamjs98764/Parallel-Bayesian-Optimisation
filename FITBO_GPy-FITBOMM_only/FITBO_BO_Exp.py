@@ -12,7 +12,6 @@ from Test_Funcs import egg,hartmann,branin,func1D
 from class_FITBOMM import Bayes_opt
 from class_FITBOMM import Bayes_opt_batch
 
-
 def BO_test(test_func, BO_method, burnin = 100, sample_size = 50, resample_interval = 1, \
             seed_size = 30, num_iterations = 40, batch = False, batch_size = 2, heuristic = "kb"):
 
@@ -133,7 +132,7 @@ def BO_test(test_func, BO_method, burnin = 100, sample_size = 50, resample_inter
             np.save(X_opt_file_name, results_L2)
             np.save(Y_opt_file_name, results_IR)
         
-        
+
 #####
 # Running tests
 #####
@@ -169,14 +168,14 @@ print("Finished 4-batch tests")
 test_funcs = ["branin", "hartmann"]
 for test_func in test_funcs:
     test_sequential(test_func)
-
-batch_sizes = [4, 8]
+"""
+batch_sizes = [8]
 test_funcs = ["branin", "egg", "hartmann"]
 
 for batch_size in batch_sizes:
     for test_func in test_funcs:
         test_all(test_func, batch_size)
-
+"""
 print("Finished tests")
 
 
