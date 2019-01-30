@@ -13,7 +13,7 @@ from class_FITBOMM import Bayes_opt
 from class_FITBOMM import Bayes_opt_batch
 
 def BO_test(test_func, BO_method, burnin = 100, sample_size = 50, resample_interval = 1, \
-            seed_size = 30, num_iterations = 40, batch = False, batch_size = 2, heuristic = "kb"):
+            seed_size = 30, num_iterations = 32, batch = False, batch_size = 2, heuristic = "kb"):
 
     # BO_method is either FITBOMM (moment matching) or FITBO (quadrature) 
     # Sample size = MC sample size
@@ -53,16 +53,19 @@ def BO_test(test_func, BO_method, burnin = 100, sample_size = 50, resample_inter
 
     results_IR = np.zeros(shape=(seed_size, num_iterations + 1)) # Immediate regret
     results_L2 = np.zeros(shape=(seed_size, num_iterations + 1)) # L2 norm of x
-    
-    # Creating directory to save
-    dir_name = 'Exp_Data/' + test_func + ',' + str(seed_size) + '_seed,sequential' 
    
+
+    # Creating directory to save
+    if batch == False:
+        dir_name = 'Exp_Data/' + test_func + ',' + str(seed_size) + '_seed,sequential/' 
+    else:
+        dir_name = 'Exp_Data/' + test_func + ',' + str(seed_size) + '_seed,' + str(batch_size) + '_batch_size/' 
     try:
         os.mkdir(dir_name)
     except FileExistsError:
         pass
     
-    if batch == False:
+    if batch == False: # Sequential
         results_IR = np.zeros(shape=(seed_size, num_iterations + 1)) # Immediate regret
         results_L2 = np.zeros(shape=(seed_size, num_iterations + 1)) # L2 norm of x
 
@@ -143,28 +146,28 @@ def test_sequential(test_func):
 
 def test_all(test_func, current_batch_size):    
     ## Single test batch    
-    BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'kb')
-    BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-mean')
+    #BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'kb')
+    #BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-mean')
     BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-min')
-    BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-max')
+    #BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-max')
     BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'random')  
     BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'random_except_1st')  
     
     return None
 
 # Batch
-batch_sizes = [4]
+batch_sizes = [8]
 test_funcs = ["egg","branin", "hartmann"]
 
 for batch_size in batch_sizes:
     for test_func in test_funcs:
         test_all(test_func, batch_size)
-
+"""
 # Sequential
 test_funcs = ["branin", "hartmann"]
 for test_func in test_funcs:
     test_sequential(test_func)
-
+"""
 
 """
 batch_sizes = [8]
