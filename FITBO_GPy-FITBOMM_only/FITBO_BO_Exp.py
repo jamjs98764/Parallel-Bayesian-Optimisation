@@ -54,15 +54,18 @@ def BO_test(test_func, BO_method, burnin = 100, sample_size = 50, resample_inter
     results_IR = np.zeros(shape=(seed_size, num_iterations + 1)) # Immediate regret
     results_L2 = np.zeros(shape=(seed_size, num_iterations + 1)) # L2 norm of x
    
+
+    # Creating directory to save
+    if batch == False:
+        dir_name = 'Exp_Data/' + test_func + ',' + str(seed_size) + '_seed,sequential/' 
+    else:
+        dir_name = 'Exp_Data/' + test_func + ',' + str(seed_size) + '_seed,' + str(batch_size) + '_batch_size/' 
     try:
         os.mkdir(dir_name)
     except FileExistsError:
         pass
     
     if batch == False: # Sequential
-
-        # Creating directory to save
-        dir_name = 'Exp_Data/' + test_func + ',' + str(seed_size) + '_seed,sequential/' 
         results_IR = np.zeros(shape=(seed_size, num_iterations + 1)) # Immediate regret
         results_L2 = np.zeros(shape=(seed_size, num_iterations + 1)) # L2 norm of x
 
@@ -98,7 +101,6 @@ def BO_test(test_func, BO_method, burnin = 100, sample_size = 50, resample_inter
             np.save(Y_opt_file_name, results_IR)
 
     if batch == True:
-        dir_name = 'Exp_Data/' + test_func + ',' + str(seed_size) + '_seed,' + str(batch_size) + '_batch_size/' 
         num_batches = int(num_iterations / batch_size)
         results_IR = np.zeros(shape=(seed_size, num_batches + 1)) # Immediate regret
         results_L2 = np.zeros(shape=(seed_size, num_batches + 1)) # L2 norm of x
