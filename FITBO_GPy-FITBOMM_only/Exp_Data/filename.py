@@ -18,7 +18,7 @@ os.chdir(dir_name)
 # egg,30_seed,sequentialA_results_IR,cl-mean_heuristic.npy
 
 # Creating new subfolders
-dir_name = "Exp_Data/branin,30_seed,8_batch_size"
+dir_name = "Exp_Data/branin,30_seed,4_batch_size"
 os.mkdir(dir_name)
 for i in range(30):
 	try:

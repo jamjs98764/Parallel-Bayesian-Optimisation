@@ -13,7 +13,7 @@ from class_FITBOMM import Bayes_opt
 from class_FITBOMM import Bayes_opt_batch
 
 def BO_test(test_func, BO_method, burnin = 100, sample_size = 50, resample_interval = 1, \
-            seed_size = 5, num_iterations = 32, batch = False, batch_size = 2, heuristic = "kb"):
+            seed_size = 30, num_iterations = 40, batch = False, batch_size = 2, heuristic = "kb"):
 
     # BO_method is either FITBOMM (moment matching) or FITBO (quadrature) 
     # Sample size = MC sample size
@@ -155,6 +155,7 @@ def test_all(test_func, current_batch_size):
     
     return None
 
+"""
 # Batch
 batch_sizes = [8]
 test_funcs = ["egg","branin", "hartmann"]
@@ -162,7 +163,7 @@ test_funcs = ["egg","branin", "hartmann"]
 for batch_size in batch_sizes:
     for test_func in test_funcs:
         test_all(test_func, batch_size)
-"""
+
 # Sequential
 test_funcs = ["branin", "hartmann"]
 for test_func in test_funcs:
@@ -177,6 +178,7 @@ for batch_size in batch_sizes:
     for test_func in test_funcs:
         test_all(test_func, batch_size)
 """
+test_sequential("egg")
 print("Finished tests")
 
 
