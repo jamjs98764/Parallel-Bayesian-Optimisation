@@ -30,8 +30,8 @@ for i in range(30):
 import shutil
 import os
 for i  in range(30):
-    source = "egg,30_seed,sequential" + str(i) + "_seed/"
-    dest = "egg,30_seed,8_batch_size/" + str(i) + "_seed/"    
+    source = "hartmann,30_seed,sequential" + str(i) + "_seed/"
+    dest = "hartmann,30_seed,4_batch_size/" + str(i) + "_seed/"    
     files = os.listdir(source)
     for f in files:
             shutil.move(source+f, dest)
