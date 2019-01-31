@@ -155,6 +155,7 @@ def test_all(test_func, current_batch_size):
     
     return None
 
+"""
 # Batch
 batch_sizes = [8]
 test_funcs = ["egg","branin", "hartmann"]
@@ -162,7 +163,7 @@ test_funcs = ["egg","branin", "hartmann"]
 for batch_size in batch_sizes:
     for test_func in test_funcs:
         test_all(test_func, batch_size)
-"""
+
 # Sequential
 test_funcs = ["branin", "hartmann"]
 for test_func in test_funcs:
@@ -177,6 +178,7 @@ for batch_size in batch_sizes:
     for test_func in test_funcs:
         test_all(test_func, batch_size)
 """
+test_sequential("egg")
 print("Finished tests")
 
 
