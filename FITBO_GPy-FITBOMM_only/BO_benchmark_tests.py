@@ -17,11 +17,13 @@ seed(123)
 
 var_noise = 1.0e-3 # y_next = self.func(x_next) + np.random.normal(0, self.var_noise, len(x_next)) 
 
-def wrapper_GPyOpt(test_func, acq_func = "EI", iterations = 20, batch = False, batch_size = 1,):
+def wrapper_GPyOpt(test_func, acq_func = "EI", eval_type = "random", \
+    seed_size = 30, iterations = 40, batch = False, batch_size = 1,):
     """
     Wrapper function which implements GPyOpt BO
     Returns all query points
     
+    X: 2d numpy array for initial inputs, one per row
     acq_func: "EI" / "EI_MCMC" / "MPI_MCMC" /  "LCB" / "LCB_MCMC"
     evaluator_type: sequential / random  (1st random in Jian's deifnition) / local_penalization / thompson_sampling    
     
@@ -31,7 +33,11 @@ def wrapper_GPyOpt(test_func, acq_func = "EI", iterations = 20, batch = False, b
 
     
     """
-    num_cores = 1 
+    # Noise
+    var_noise = 1.0e-3  # Same noise setting as FITBO tests
+    sigma0 = np.sqrt(var_noise)
+
+    num_cores = 1
     
     if test_func == 'branin':
         obj_func = Test_Funcs.branin_gpyopt
@@ -57,28 +63,53 @@ def wrapper_GPyOpt(test_func, acq_func = "EI", iterations = 20, batch = False, b
            {'name': 'x5', 'type': 'continuous', 'domain': (0., 1.)},
            {'name': 'x6', 'type': 'continuous', 'domain': (0., 1.)}]  
         initialsamplesize = 9
- 
+
     else:
         print("Function does not exist in repository")
         return 0    
     
-    if batch == False:
-        BO = GPyOpt.methods.BayesianOptimization(f = obj_func,  
-                                                domain = domain,                  
-                                                acquisition_type = acq_func,              
-                                                normalize_Y = True,
-                                                initial_design_numdata = initialsamplesize,
-                                                evaluator_type = 'local_penalization',
-                                                batch_size = batch_size,
-                                                num_cores = num_cores,
-                                                acquisition_jitter = 0)
-        BO.run_optimization(max_iter = int(iterations / batch_size))
+    for seed in seed_size:
+        np.random.seed(seed)
+
+        # Noisy function
+        def obj_func_noise(x):
+            noisy_eval = obj_func(x) + sigma0 * np.random.randn()
+
+        # Generating initialising points
+        x_ob = np.random.uniform(0., 1., (initialsamplesize, d)) 
+        y_ob = obj_func(x_ob) + sigma0 * np.random.randn(initialsamplesize, 1)
+
+        if batch == False:
+            BO = GPyOpt.methods.BayesianOptimization(f = obj_func_noise,  
+                                                    domain = domain,                  
+                                                    acquisition_type = acq_func,
+                                                    evaluator_type = eval_type,
+                                                    model_type='GP',              
+                                                    normalize_Y = False,
+                                                    initial_design_numdata = 0,
+                                                    X = x_ob,
+                                                    Y = y_ob,
+                                                    batch_size = batch_size,
+                                                    num_cores = num_cores,
+                                                    acquisition_jitter = 0)
+            BO.run_optimization(max_iter = int(iterations / batch_size))
+            
+        query_record = BO.get_evaluations()[0]
         
-    query_record = BO.get_evaluations()[0]
-    
     return BO, query_record
     
 BO, query_record = wrapper_GPyOpt("branin")
+
+# Creating directory to save
+if batch == False:
+    dir_name = 'Exp_Data/GPyOpt/' + test_func + ',' + str(seed_size) + '_seed,sequential/' 
+else:
+    dir_name = 'Exp_Data/GPyOpt/' + test_func + ',' + str(seed_size) + '_seed,' + str(batch_size) + '_batch_size/' 
+try:
+    os.mkdir(dir_name)
+except FileExistsError:
+    pass
+
 BO.plot_convergence()
 BO.plot_acquisition()
 
