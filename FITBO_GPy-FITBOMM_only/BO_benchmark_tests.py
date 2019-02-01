@@ -155,9 +155,10 @@ for test_func in test_funcs:
     for batch_size in batch_sizes:
         for acq_func in acq_funcs:
             for eval_type in evaluator_types:
-                    BO, query_record = wrapper_GPyOpt(test_func, acq_func = acq_func, eval_type = eval_type, \
-                                                      batch_size = batch_size)
-                    saving_data(BO, query_record)
+                print(test_func, batch_size, acq_func, eval_type)
+                BO, query_record = wrapper_GPyOpt(test_func, acq_func = acq_func, eval_type = eval_type, \
+                                                  batch_size = batch_size)
+                saving_data(BO, query_record)
                     
 batch_sizes = [1]
 test_funcs = ["egg"]
@@ -168,9 +169,10 @@ for test_func in test_funcs:
     for batch_size in batch_sizes:
         for acq_func in acq_funcs:
             for eval_type in evaluator_types:
-                    BO, query_record = wrapper_GPyOpt(test_func, acq_func = acq_func, eval_type = eval_type, \
-                                                      batch_size = batch_size)
-                    saving_data(BO, query_record)
+                print(test_func, batch_size, acq_func, eval_type)
+                BO, query_record = wrapper_GPyOpt(test_func, acq_func = acq_func, eval_type = eval_type, \
+                                                  batch_size = batch_size)
+                saving_data(BO, query_record)
 
 
 #BO.plot_convergence()
