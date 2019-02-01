@@ -79,11 +79,14 @@ def wrapper_GPyOpt(test_func, acq_func = "EI", iterations = 20, batch = False, b
     return BO, query_record
     
 BO, query_record = wrapper_GPyOpt("branin")
-#BO.plot_convergence()
-#BO.plot_acquisition()
+BO.plot_convergence()
+BO.plot_acquisition()
 print("abc")
 x, y = BO.return_convergence()
-
+print("x")
+print(x)
+print("y")
+print(y)
 
 """
 Batch BO using GPyOpt 
