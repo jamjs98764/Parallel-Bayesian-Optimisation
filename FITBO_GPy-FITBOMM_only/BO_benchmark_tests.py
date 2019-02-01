@@ -146,9 +146,21 @@ def saving_data(BO_obj, query_record):
 #acq_funcs =  ["EI", "EI_MCMC", "MPI_MCMC",  "LCB", "LCB_MCMC"]
 #evaluator_types = ["sequential", "random", "local_penalization", "thompson_sampling"]  
 
+batch_sizes = [4]
+test_funcs = ["egg"]
+acq_funcs =  ["EI", "LCB"]
+evaluator_types = ["random", "local_penalization"] # does not matter for batch size = 1  
 
+for test_func in test_funcs:
+    for batch_size in batch_sizes:
+        for acq_func in acq_funcs:
+            for eval_type in evaluator_types:
+                    BO, query_record = wrapper_GPyOpt(test_func, acq_func = acq_func, eval_type = eval_type, \
+                                                      batch_size = batch_size)
+                    saving_data(BO, query_record)
+                    
 batch_sizes = [1]
-test_funcs = ["branin", "hartmann", "egg"]
+test_funcs = ["egg"]
 acq_funcs =  ["EI", "LCB"]
 evaluator_types = ["sequential"] # does not matter for batch size = 1  
 
@@ -160,19 +172,7 @@ for test_func in test_funcs:
                                                       batch_size = batch_size)
                     saving_data(BO, query_record)
 
-batch_sizes = [4]
-test_funcs = ["branin", "hartmann", "egg"]
-acq_funcs =  ["EI", "LCB"]
-evaluator_types = ["random", "local_penalization"] # does not matter for batch size = 1  
 
-for test_func in test_funcs:
-    for batch_size in batch_sizes:
-        for acq_func in acq_funcs:
-            for eval_type in evaluator_types:
-                    BO, query_record = wrapper_GPyOpt(test_func, acq_func = acq_func, eval_type = eval_type, \
-                                                      batch_size = batch_size)
-                    saving_data(BO, query_record)
-    
 #BO.plot_convergence()
 #BO.plot_acquisition()
 
