@@ -72,6 +72,9 @@ def wrapper_GPyOpt(test_func, acq_func = "EI", eval_type = "random", \
         print("Function does not exist in repository")
         return 0    
     
+    X_record = {}
+    min_y_record = {}
+
     for seed_i in range(seed_size):
         np.random.seed(seed_i)
 
@@ -114,11 +117,15 @@ def wrapper_GPyOpt(test_func, acq_func = "EI", eval_type = "random", \
                                                     acquisition_jitter = 0)
             BO.run_optimization(max_iter = int(iterations))           
             
-        query_record = BO.get_evaluations()[0]
+        eval_record = BO.get_evaluations()[0]
+        x, min_y = BO.return_convergence()
+        X_record[seed_i] = x[initialsamplesize:] # Initial samples dont count
+        min_y_record[seed_i] = min_y[initialsamplesize:]
         
-    return BO, query_record
+    return X_record, min_y_record   
 
-def saving_data(BO_obj, query_record):
+
+def saving_data(X_record, min_y_record):
     """
     For saving data
     """
@@ -130,12 +137,9 @@ def saving_data(BO_obj, query_record):
     except FileExistsError:
         pass
     
-    x, y = BO_obj.return_convergence()
-    
     pickle_dict = {
-        #"BO_obj": BO_obj, 
-        "query_record": query_record, 
-        "min_y": y
+        "X": X_record, 
+        "min_y": min_y_record
         }
     
     with open(file_name, 'wb') as f:
@@ -156,9 +160,9 @@ for test_func in test_funcs:
         for acq_func in acq_funcs:
             for eval_type in evaluator_types:
                 print(test_func, batch_size, acq_func, eval_type)
-                BO, query_record = wrapper_GPyOpt(test_func, acq_func = acq_func, eval_type = eval_type, \
+                X_record, min_y_record = wrapper_GPyOpt(test_func, acq_func = acq_func, eval_type = eval_type, \
                                                   batch_size = batch_size)
-                saving_data(BO, query_record)
+                saving_data(X_record, min_y_record)
                     
 batch_sizes = [1]
 test_funcs = ["egg"]
@@ -170,9 +174,9 @@ for test_func in test_funcs:
         for acq_func in acq_funcs:
             for eval_type in evaluator_types:
                 print(test_func, batch_size, acq_func, eval_type)
-                BO, query_record = wrapper_GPyOpt(test_func, acq_func = acq_func, eval_type = eval_type, \
+                X_record, min_y_record = wrapper_GPyOpt(test_func, acq_func = acq_func, eval_type = eval_type, \
                                                   batch_size = batch_size)
-                saving_data(BO, query_record)
+                saving_data(X_record, min_y_record)
 
 
 #BO.plot_convergence()
