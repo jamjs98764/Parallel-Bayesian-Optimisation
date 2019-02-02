@@ -17,9 +17,10 @@ import pickle
 import os
 
 var_noise = 1.0e-3 # y_next = self.func(x_next) + np.random.normal(0, self.var_noise, len(x_next)) 
+seed_size = 50
 
 def wrapper_GPyOpt(test_func, acq_func = "EI", eval_type = "random", \
-    seed_size = 50, iterations = 40, batch_size = 2):
+    seed_size = seed_size, iterations = 40, batch_size = 2):
     """
     Wrapper function which implements GPyOpt BO
     Returns all query points
@@ -129,7 +130,7 @@ def saving_data(X_record, min_y_record):
     """
     For saving data
     """
-    dir_name = 'Exp_Data/gpyopt/' + test_func + ',' + str(2) + '_seed,' + str(batch_size) + '_batch/'
+    dir_name = 'Exp_Data/gpyopt/' + test_func + ',' + str(seed_size) + '_seed,' + str(batch_size) + '_batch/'
     file_name = dir_name + str(acq_func) + ',' + str(eval_type) + ',results_vars.pickle'
     
     try: # creates new folder
@@ -150,9 +151,9 @@ def saving_data(X_record, min_y_record):
 #acq_funcs =  ["EI", "EI_MCMC", "MPI_MCMC",  "LCB", "LCB_MCMC"]
 #evaluator_types = ["sequential", "random", "local_penalization", "thompson_sampling"]  
 
-batch_sizes = [4]
-test_funcs = ["egg"]
-acq_funcs =  ["EI", "LCB"]
+batch_sizes = [4, 8]
+test_funcs = ["branin", "hartmann"]
+acq_funcs =  ["EI"]
 evaluator_types = ["random", "local_penalization"] # does not matter for batch size = 1  
 
 for test_func in test_funcs:
@@ -165,8 +166,8 @@ for test_func in test_funcs:
                 saving_data(X_record, min_y_record)
                     
 batch_sizes = [1]
-test_funcs = ["egg"]
-acq_funcs =  ["EI", "LCB"]
+test_funcs = ["egg", "branin", "hartmann"]
+acq_funcs =  ["EI"]
 evaluator_types = ["sequential"] # does not matter for batch size = 1  
 
 for test_func in test_funcs:

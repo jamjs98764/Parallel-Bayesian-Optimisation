@@ -134,7 +134,7 @@ def BO_test(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, re
             np.save(Y_opt_file_name, results_IR)
         
 def BO_test_v2(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, resample_interval = 1, \
-            seed_start = 30, seed_size = 30, num_iterations = 40, batch = False, batch_size = 2, heuristic = "kb"):
+            seed_start = 30, seed_size = 20, num_iterations = 40, batch = False, batch_size = 2, heuristic = "kb"):
 
     # Allows specification of specific seed range
 
@@ -285,6 +285,22 @@ def test_all(test_func, current_batch_size):
     
     return None
 
+def test_sequential_v2(test_func):    
+    ## Single test sequential
+    BO_test_v2(test_func = test_func)  
+    return None
+
+def test_all(test_func, current_batch_size):    
+    ## Single test batch    
+
+    BO_test_v2(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'kb')
+    BO_test_v2(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-mean')
+    BO_test_v2(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-min')
+    BO_test_v2(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-max')
+    # BO_test_v2(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'random')  
+    BO_test_v2(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'random_except_1st') 
+    
+    return None
 
 # Batch
 batch_sizes = [4]
