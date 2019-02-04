@@ -178,6 +178,10 @@ def BO_test_v2(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50,
         dir_name = 'Exp_Data/' + test_func + ',' + str(seed_start) + '_seed,' + str(batch_size) + '_batch_size/' 
         new_dir_name = 'Exp_Data/' + test_func + ',' + str(seed_start + seed_size) + '_seed,' + str(batch_size) + '_batch_size/'
 
+    created_new_dir = os.path.isdir(new_dir_name)
+    if created_new_dir:
+        dir_name = new_dir_name
+
     if batch == False: # Sequential
         results_IR = np.zeros(shape=(seed_size, num_iterations + 1)) # Immediate regret
         results_L2 = np.zeros(shape=(seed_size, num_iterations + 1)) # L2 norm of x
@@ -290,10 +294,10 @@ def test_sequential_v2(test_func):
     BO_test_v2(test_func = test_func)  
     return None
 
-def test_all(test_func, current_batch_size):    
+def test_all_v2(test_func, current_batch_size):    
     ## Single test batch    
 
-    BO_test_v2(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'kb')
+    # BO_test_v2(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'kb')
     BO_test_v2(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-mean')
     BO_test_v2(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-min')
     BO_test_v2(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-max')
@@ -304,11 +308,11 @@ def test_all(test_func, current_batch_size):
 
 # Batch
 batch_sizes = [4]
-test_funcs = ["hartmann"]
+test_funcs = ["hartmann", "egg", "branin"]
 
 for batch_size in batch_sizes:
     for test_func in test_funcs:
-        test_all(test_func, batch_size)
+        test_all_v2(test_func, batch_size)
 """
 # Sequential
 test_funcs = ["branin", "hartmann"]
@@ -323,11 +327,6 @@ test_funcs = ["branin", "egg", "hartmann"]
 for batch_size in batch_sizes:
     for test_func in test_funcs:
         test_all(test_func, batch_size)
-"""
-
-test_sequential("egg")
-
-print("Finished tests")
 """
 
 
