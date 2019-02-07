@@ -312,7 +312,7 @@ test_funcs = ["hartmann", "egg", "branin"]
 
 for batch_size in batch_sizes:
     for test_func in test_funcs:
-        test_all_v2(test_func, batch_size)
+        test_sequential_v2(test_func)
 """
 # Sequential
 test_funcs = ["branin", "hartmann"]
