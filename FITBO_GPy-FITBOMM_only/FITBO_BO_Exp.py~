@@ -134,7 +134,7 @@ def BO_test(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, re
             np.save(Y_opt_file_name, results_IR)
         
 def BO_test_v2(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, resample_interval = 1, \
-            seed_start = 30, seed_size = 30, num_iterations = 40, batch = False, batch_size = 2, heuristic = "kb"):
+            seed_start = 30, seed_size = 20, num_iterations = 40, batch = False, batch_size = 2, heuristic = "kb"):
 
     # Allows specification of specific seed range
 
@@ -177,6 +177,10 @@ def BO_test_v2(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50,
     else:
         dir_name = 'Exp_Data/' + test_func + ',' + str(seed_start) + '_seed,' + str(batch_size) + '_batch_size/' 
         new_dir_name = 'Exp_Data/' + test_func + ',' + str(seed_start + seed_size) + '_seed,' + str(batch_size) + '_batch_size/'
+
+    created_new_dir = os.path.isdir(new_dir_name)
+    if created_new_dir:
+        dir_name = new_dir_name
 
     if batch == False: # Sequential
         results_IR = np.zeros(shape=(seed_size, num_iterations + 1)) # Immediate regret
@@ -275,32 +279,40 @@ def test_sequential(test_func):
 
 def test_all(test_func, current_batch_size):    
     ## Single test batch    
-<<<<<<< HEAD
-    #BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'kb')
-    #BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-mean')
+
+    BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'kb')
+    BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-mean')
     BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-min')
     BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-max')
-    BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'random')  
-    BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'random_except_1st')  
-=======
-    #BO_test(test_func = test_func, batch = True, batch_size = current_batch_size, heuristic = 'kb')
-    #BO_test(test_func = test_func, batch = True, batch_size = current_batch_size, heuristic = 'cl-mean')
-    BO_test(test_func = test_func, batch = True, batch_size = current_batch_size, heuristic = 'cl-min')
-    #BO_test(test_func = test_func, batch = True, batch_size = current_batch_size, heuristic = 'cl-max')
-    BO_test(test_func = test_func, batch = True, batch_size = current_batch_size, heuristic = 'random')  
-    BO_test(test_func = test_func, batch = True, batch_size = current_batch_size, heuristic = 'random_except_1st')  
->>>>>>> 2bb6a6415bb6e3759f93770f304ce0adcb5d17ee
+    # BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'random')  
+    BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'random_except_1st') 
     
     return None
 
+def test_sequential_v2(test_func):    
+    ## Single test sequential
+    BO_test_v2(test_func = test_func)  
+    return None
+
+def test_all_v2(test_func, current_batch_size):    
+    ## Single test batch    
+
+    # BO_test_v2(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'kb')
+    BO_test_v2(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-mean')
+    BO_test_v2(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-min')
+    BO_test_v2(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-max')
+    # BO_test_v2(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'random')  
+    BO_test_v2(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'random_except_1st') 
+    
+    return None
 
 # Batch
-batch_sizes = [4]
-test_funcs = ["hartmann"]
+batch_sizes = [8]
+test_funcs = ["hartmann", "egg", "branin"]
 
 for batch_size in batch_sizes:
     for test_func in test_funcs:
-        test_all(test_func, batch_size)
+        test_sequential(test_func)
 """
 # Sequential
 test_funcs = ["branin", "hartmann"]
@@ -315,13 +327,6 @@ test_funcs = ["branin", "egg", "hartmann"]
 for batch_size in batch_sizes:
     for test_func in test_funcs:
         test_all(test_func, batch_size)
-
-<<<<<<< HEAD
-"""
-=======
-test_sequential("egg")
->>>>>>> 2bb6a6415bb6e3759f93770f304ce0adcb5d17ee
-print("Finished tests")
 """
 
 
