@@ -37,6 +37,17 @@ def wrapper_GPyOpt(test_func, acq_func = "EI", eval_type = "random", \
     var_noise = 1.0e-3  # Same noise setting as FITBO tests
     sigma0 = np.sqrt(var_noise)
 
+    # Values for marginalisation of GP hyperparameters
+    n_samples = 150
+    n_burning = 50
+
+    # Specifying GP model type
+    # if MCMC acq func used, require GP_MCMC
+    if acq_func[-4:] == "MCMC":
+        gp_model = "GP_MCMC"
+    else:
+        gp_model = "GP"
+
 
     num_cores = 1
     if batch_size > 1:
@@ -94,33 +105,38 @@ def wrapper_GPyOpt(test_func, acq_func = "EI", eval_type = "random", \
                                                     domain = domain,                  
                                                     acquisition_type = acq_func,
                                                     evaluator_type = eval_type,
-                                                    model_type='GP',              
+                                                    model_type=gp_model,              
                                                     normalize_Y = False,
                                                     initial_design_numdata = 0,
                                                     X = x_ob,
                                                     Y = y_ob,
                                                     batch_size = batch_size,
                                                     num_cores = num_cores,
-                                                    acquisition_jitter = 0)
+                                                    acquisition_jitter = 0,
+                                                    n_burning = n_burning,
+                                                    n_samples = n_samples)
             BO.run_optimization(max_iter = int(iterations / batch_size))
         else:
             # sequential
             BO = GPyOpt.methods.BayesianOptimization(f = obj_func_noise,  
                                                     domain = domain,                  
                                                     acquisition_type = acq_func,
-                                                    model_type='GP',              
+                                                    model_type=gp_model,              
                                                     normalize_Y = False,
                                                     initial_design_numdata = 0,
                                                     X = x_ob,
                                                     Y = y_ob,
                                                     batch_size = batch_size,
                                                     num_cores = num_cores,
-                                                    acquisition_jitter = 0)
+                                                    acquisition_jitter = 0,
+                                                    n_burning = n_burning,
+                                                    n_samples = n_samples)
             BO.run_optimization(max_iter = int(iterations))           
             
         eval_record = BO.get_evaluations()[0]
-        x, min_y = BO.return_convergence()
-        X_record[seed_i] = x[initialsamplesize:] # Initial samples dont count
+        X_opt = BO.return_minimiser()
+        min_y = obj_func(X_opt)
+        X_record[seed_i] = X_opt[initialsamplesize:] # Initial samples dont count
         min_y_record[seed_i] = min_y[initialsamplesize:]
         
     return X_record, min_y_record   
