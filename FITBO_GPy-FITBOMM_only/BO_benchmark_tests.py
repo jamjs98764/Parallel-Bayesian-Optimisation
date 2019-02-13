@@ -132,12 +132,14 @@ def wrapper_GPyOpt(test_func, acq_func = "EI", eval_type = "random", \
                                                     n_burning = n_burning,
                                                     n_samples = n_samples)
             BO.run_optimization(max_iter = int(iterations))           
-            
+        
+        # Per seed
         eval_record = BO.get_evaluations()[0]
         X_opt = BO.return_minimiser()
-        min_y = np.zeros((X_opt.shape[0], 1))
-        for i in range(X_opt.shape[0]):
-            min_y[i] = obj_func(X_opt[i])
+        num_iter = X_opt.shape[0]
+        min_y = obj_func(X_opt)
+        print(min_y)
+
         X_record[seed_i] = X_opt[initialsamplesize:] # Initial samples dont count
         min_y_record[seed_i] = min_y[initialsamplesize:]
         
@@ -170,9 +172,9 @@ def saving_data(X_record, min_y_record):
 #evaluator_types = ["sequential", "random", "local_penalization", "thompson_sampling"]  
 
 
-"""
+
 batch_sizes = [4]
-test_funcs = ["egg", "branin", "hartmann"]
+test_funcs = ["hartmann"]
 acq_funcs =  ["EI"]
 evaluator_types = ["random", "local_penalization"] # does not matter for batch size = 1  
 
@@ -184,9 +186,9 @@ for test_func in test_funcs:
                 X_record, min_y_record = wrapper_GPyOpt(test_func, acq_func = acq_func, eval_type = eval_type, \
                                                   batch_size = batch_size)
                 saving_data(X_record, min_y_record)
-"""                   
+                
 batch_sizes = [1]
-test_funcs = ["egg", "branin", "hartmann"]
+test_funcs = ["hartmann"]
 acq_funcs =  ["EI"]
 evaluator_types = ["sequential"] # does not matter for batch size = 1  
 
@@ -198,3 +200,4 @@ for test_func in test_funcs:
                 X_record, min_y_record = wrapper_GPyOpt(test_func, acq_func = acq_func, eval_type = eval_type, \
                                                   batch_size = batch_size)
                 saving_data(X_record, min_y_record)
+
