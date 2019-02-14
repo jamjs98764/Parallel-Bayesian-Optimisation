@@ -13,6 +13,9 @@ bounds = objective_noisy.bounds
 batch_size = 4
 num_cores = 4
 
+domain = [{'name': 'var_1', 'type': 'continuous', 'domain': bounds[0]}, ## use default bounds
+          {'name': 'var_2', 'type': 'continuous', 'domain': bounds[1]}]
+
 from numpy.random import seed
 seed(123)
 BO_demo_parallel = GPyOpt.methods.BayesianOptimization(f=objective_noisy.f,  
