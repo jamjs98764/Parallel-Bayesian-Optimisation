@@ -126,7 +126,7 @@ def hartmann_gpyopt(x):
     for i in range(4):
         sum = 0.0
         for j in range(6):
-            sum = sum - a[i][j]*(x[:,j]-p[i][j])**2
+            sum = sum - a[i][j]*(x[:,0j]-p[i][j])**2
         y = y - c[i]*np.exp(sum)
     y_biased = 10*(y+1.5)
     return y_biased[:, None]
