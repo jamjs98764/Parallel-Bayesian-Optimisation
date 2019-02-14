@@ -17,7 +17,8 @@ from numpy.random import seed
 seed(123)
 BO_demo_parallel = GPyOpt.methods.BayesianOptimization(f=objective_noisy.f,  
                                             domain = domain,                  
-                                            acquisition_type = 'EI',              
+                                            acquisition_type = 'EI_MCMC',
+                                            model_type = "GP_MCMC",              
                                             normalize_Y = True,
                                             initial_design_numdata = 10,
                                             evaluator_type = 'local_penalization',
@@ -25,7 +26,7 @@ BO_demo_parallel = GPyOpt.methods.BayesianOptimization(f=objective_noisy.f,
                                             num_cores = num_cores,
                                             acquisition_jitter = 0)    
 
---- Run the optimization for 10 iterations
+
 max_iter = 10                                        
 BO_demo_parallel.run_optimization(max_iter)
 
