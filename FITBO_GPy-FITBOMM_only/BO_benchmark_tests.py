@@ -182,7 +182,7 @@ def saving_data(X_record, min_y_record):
 
 
 batch_sizes = [4]
-test_funcs = ["branin", "egg", "hartmann"]
+test_funcs = ["hartmann"]
 # test_funcs = ["branin"]
 acq_funcs =  ["EI"]
 evaluator_types = ["local_penalization"] # does not matter for batch size = 1  
