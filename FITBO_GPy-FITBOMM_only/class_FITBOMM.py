@@ -359,7 +359,7 @@ class Bayes_opt():
             # Saving GP values for PI calculation
             x_next_mean = self._marginalised_posterior_mean(x_next)
             x_next_var = self._marginalised_posterior_var(x_next)
-            PI_value = norm.cdf(((x_next_mean) - current_y_best) / x_next_var)
+            PI_value = norm.cdf((current_y_best - (x_next_mean)) / np.sqrt(x_next_var))
             self.full_PI_value[:, k] = PI_value
 
             """
@@ -545,7 +545,6 @@ class Bayes_opt_batch():
 
         return - Mutual_info
 
-
     def _FITBO(self,x):
         '''FITBO-Numerical Quadrature acquisition function'''
         x = np.atleast_2d(x)
@@ -723,15 +722,7 @@ class Bayes_opt_batch():
                 
                 x_next_mean = self._marginalised_posterior_mean(x_next)
                 x_next_var = self._marginalised_posterior_var(x_next)
-                PI_value = norm.cdf((-(x_next_mean) + current_y_best) / x_next_var)  
-                print("x_next_mean")
-                print(x_next_mean)            
-                print("current_y_best")
-                print(current_y_best)
-                print("x_next_var")
-                print(x_next_var)
-                print("PI")
-                print(PI_value)        
+                PI_value = norm.cdf((-(x_next_mean) + current_y_best) / np.sqrt(x_next_var)) 
 
                 self.X = np.vstack((self.X, x_next))
                 self.Y = np.vstack((self.Y, y_next_guess)) # Appending Data with guessed values
