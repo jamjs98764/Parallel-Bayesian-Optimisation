@@ -14,6 +14,11 @@ Benchmark Test Functions
 
 Input: vector, x
 Output: Function value (noise-less)
+
+
+Note: difference between normal-func and gpyopt-func
+- for normal-func, X is size (num_iter, input_dim)
+- for gpyopt-func, X is size (1, input_dim)
 '''
 
 
@@ -112,7 +117,8 @@ def hartmann_gpyopt(x):
     '''6D hartmann
     f_min = -18.22368011
     x_min = [0.20169,0.150011,0.476874,0.275332,0.311652,0.6573]
-    '''    
+    ''' 
+    x = x.flatten() 
     a = np.array([[10.0, 3.0, 17.0, 3.5, 1.7, 8.0],
                   [0.05, 10.0, 17.0, 0.1, 8.0, 14.0],
                   [3.0, 3.5, 1.7, 10.0, 17.0, 8.0],
@@ -126,7 +132,7 @@ def hartmann_gpyopt(x):
     for i in range(4):
         sum = 0.0
         for j in range(6):
-            sum = sum - a[i][j]*(x[:,0j]-p[i][j])**2
+            sum = sum - a[i][j]*(x[j]-p[i][j])**2
         y = y - c[i]*np.exp(sum)
     y_biased = 10*(y+1.5)
-    return y_biased[:, None]
+    return y_biased

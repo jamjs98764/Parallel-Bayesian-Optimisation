@@ -97,7 +97,14 @@ def wrapper_GPyOpt(test_func, acq_func = "EI", eval_type = "random", \
 
         # Generating initialising points
         x_ob = np.random.uniform(0., 1., (initialsamplesize, d)) 
-        y_ob = obj_func(x_ob) + sigma0 * np.random.randn(initialsamplesize, 1)
+        
+        # NOTE: gpyopt function is applied row by row
+
+        y_ob = np.zeros((initialsamplesize, 1))
+        for i in range(initialsamplesize):
+            y_ob[i] = obj_func_noise(x_ob[i,:]) 
+
+        y_ob = y_ob + sigma0 * np.random.randn(initialsamplesize, 1) # initial sample points have noise too
 
         if batch == True:
             # batch
@@ -135,10 +142,11 @@ def wrapper_GPyOpt(test_func, acq_func = "EI", eval_type = "random", \
         
         # Per seed
         eval_record = BO.get_evaluations()[0]
-        X_opt = BO.return_minimiser()
+        X_opt = BO.return_minimiser() # (rows = iterations, columns = X_dimensions)
         num_iter = X_opt.shape[0]
-        min_y = obj_func(X_opt)
-        print(min_y)
+        min_y = np.zeros((num_iter, 1)) # cols = output dimension
+        for i in range(num_iter):
+            min_y[i] = obj_func(X_opt[i])
 
         X_record[seed_i] = X_opt[initialsamplesize:] # Initial samples dont count
         min_y_record[seed_i] = min_y[initialsamplesize:]
@@ -174,9 +182,10 @@ def saving_data(X_record, min_y_record):
 
 
 batch_sizes = [4]
-test_funcs = ["branin"]
-acq_funcs =  ["EI_MCMC"]
-evaluator_types = ["random", "local_penalization"] # does not matter for batch size = 1  
+test_funcs = ["hartmann"]
+# test_funcs = ["branin"]
+acq_funcs =  ["EI"]
+evaluator_types = ["local_penalization"] # does not matter for batch size = 1  
 
 for test_func in test_funcs:
     for batch_size in batch_sizes:
@@ -186,9 +195,9 @@ for test_func in test_funcs:
                 X_record, min_y_record = wrapper_GPyOpt(test_func, acq_func = acq_func, eval_type = eval_type, \
                                                   batch_size = batch_size)
                 saving_data(X_record, min_y_record)
-"""          
+         
 batch_sizes = [1]
-test_funcs = ["hartmann"]
+test_funcs = ["branin", "egg", "hartmann"]
 acq_funcs =  ["EI"]
 evaluator_types = ["sequential"] # does not matter for batch size = 1  
 
@@ -200,4 +209,4 @@ for test_func in test_funcs:
                 X_record, min_y_record = wrapper_GPyOpt(test_func, acq_func = acq_func, eval_type = eval_type, \
                                                   batch_size = batch_size)
                 saving_data(X_record, min_y_record)
-"""
+
