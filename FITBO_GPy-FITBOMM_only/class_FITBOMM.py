@@ -723,8 +723,16 @@ class Bayes_opt_batch():
                 
                 x_next_mean = self._marginalised_posterior_mean(x_next)
                 x_next_var = self._marginalised_posterior_var(x_next)
-                PI_value = norm.cdf(((x_next_mean) - current_y_best) / x_next_var)              
-                        
+                PI_value = norm.cdf((-(x_next_mean) + current_y_best) / x_next_var)  
+                print("x_next_mean")
+                print(x_next_mean)            
+                print("current_y_best")
+                print(current_y_best)
+                print("x_next_var")
+                print(x_next_var)
+                print("PI")
+                print(PI_value)        
+
                 self.X = np.vstack((self.X, x_next))
                 self.Y = np.vstack((self.Y, y_next_guess)) # Appending Data with guessed values
                 
@@ -732,6 +740,8 @@ class Bayes_opt_batch():
                     print("Not random, need reset GP")
                     self._fit_GP()
                     self._fit_GP_normal()
+                else:
+                    print("Random, not resetting GP")
                 
                 #print("Currently on iteration %d, batch %d" % (k, batch_i))
                 
