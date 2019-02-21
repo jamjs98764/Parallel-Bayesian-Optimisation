@@ -11,7 +11,7 @@ objective_noisy = GPyOpt.objective_examples.experiments2d.branin(sd = 0.1)      
 bounds = objective_noisy.bounds 
 
 batch_size = 4
-num_cores = 4
+num_cores = 1
 
 domain = [{'name': 'var_1', 'type': 'continuous', 'domain': bounds[0]}, ## use default bounds
           {'name': 'var_2', 'type': 'continuous', 'domain': bounds[1]}]
@@ -24,8 +24,8 @@ BO_demo_parallel = GPyOpt.methods.BayesianOptimization(f=objective_noisy.f,
                                             model_type = "GP_MCMC",              
                                             normalize_Y = True,
                                             initial_design_numdata = 10,
-                                            evaluator_type = 'thomson_sampling',
-                                            # evaluator_type = 'local_penalization',
+                                            #evaluator_type = 'thomson_sampling',
+                                             evaluator_type = 'local_penalization',
                                             batch_size = batch_size,
                                             num_cores = num_cores,
                                             acquisition_jitter = 0)    
