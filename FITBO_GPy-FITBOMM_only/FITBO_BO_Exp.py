@@ -305,7 +305,7 @@ def test_all_v2(test_func, current_batch_size):
     #BO_test_v2(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'random_except_1st') 
     
     return None
-
+"""
 # Batch
 batch_sizes = [4]
 test_funcs = ["branin", "egg", "hartmann"]
@@ -313,12 +313,11 @@ test_funcs = ["branin", "egg", "hartmann"]
 for batch_size in batch_sizes:
     for test_func in test_funcs:
         test_all(test_func, batch_size)
-
+"""
 # Sequential
-test_funcs = ["branin", "egg", "hartmann"]
+print('running')
+test_funcs = ["egg", "hartmann"]
 for test_func in test_funcs:
     test_sequential(test_func)
-
-
 
 
