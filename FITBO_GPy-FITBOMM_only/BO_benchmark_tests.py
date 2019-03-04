@@ -38,8 +38,8 @@ def wrapper_GPyOpt(test_func, acq_func = "EI", eval_type = "random", \
     sigma0 = np.sqrt(var_noise)
 
     # Values for marginalisation of GP hyperparameters
-    n_samples = 10
-    n_burning = 5
+    n_samples = 150
+    n_burning = 100
 
     # Specifying GP model type
     # if MCMC acq func used, require GP_MCMC
