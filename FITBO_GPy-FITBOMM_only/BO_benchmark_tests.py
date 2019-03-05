@@ -114,9 +114,10 @@ def wrapper_GPyOpt(test_func, acq_func = "EI", eval_type = "random", \
                                                     evaluator_type = eval_type,
                                                     model_type=gp_model,              
                                                     normalize_Y = False,
-                                                    initial_design_numdata = 0,
-                                                    X = x_ob,
-                                                    Y = y_ob,
+                                                    # NEW CHANGES HERE
+                                                    initial_design_numdata = initialsamplesize,
+                                                    initial_design_type = 'random',
+                                                    # END
                                                     batch_size = batch_size,
                                                     num_cores = num_cores,
                                                     acquisition_jitter = 0,
@@ -130,9 +131,8 @@ def wrapper_GPyOpt(test_func, acq_func = "EI", eval_type = "random", \
                                                     acquisition_type = acq_func,
                                                     model_type=gp_model,              
                                                     normalize_Y = False,
-                                                    initial_design_numdata = 0,
-                                                    X = x_ob,
-                                                    Y = y_ob,
+                                                    initial_design_numdata = initialsamplesize,
+                                                    initial_design_type = 'random'
                                                     batch_size = batch_size,
                                                     num_cores = num_cores,
                                                     acquisition_jitter = 0,

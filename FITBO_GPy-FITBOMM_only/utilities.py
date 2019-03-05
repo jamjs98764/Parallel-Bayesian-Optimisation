@@ -13,6 +13,8 @@ from scipy import stats
 from scipy.stats import norm
 import scipy.integrate as integrate
 
+import sobol_seq
+
 '''Utility Functions'''
 
 def gamma_fromEV(x, E, V):
@@ -63,3 +65,79 @@ def computeEntropyGMM1Dquad(means, covs, weights, N):
     # H = integrate.quad(integrant,minX,maxX)
 
     return H
+
+
+''' Initial Sequence Generation '''
+
+def sobol_normalized(num_dim, num_init):
+    ''' 
+    Generate ndarray Sobol sequence 
+    Assumes domain: 0 to 1
+    Assumes all numerical data
+
+    Used for egg, branin, hartmann
+
+    Documentation: https://github.com/naught101/sobol_seq/tree/6ac1799818a1b9a359a5fc86517173584fe34613
+    '''
+    return sobol_seq.i4_sobol_generate(num_dim, num_init) # rows = sequence, columns = dimensions/features
+
+def sobol_mixed_unnormalized(num_continuous_dim, num_discrete_dim, num_categorical_dim, 
+                            continuous_bounds, discrete_bounds, categorical_choice, 
+                            num_init, seed):
+    ''' 
+    Generates Sobol sequence for continuous input domain, random selection for categorical domain
+    Discrete domain uses continuous generation, but rounds to nearest integer
+
+    Assumes domain: any range, given by continuous_bounds
+
+    Returns (continuous_sequence, discrete_sequence, categorical_sequence)
+    '''
+    np.random.seed(seed)
+
+    ####
+    # Continuous sequence
+    ####
+    continuous_seq = sobol_seq.i4_sobol_generate(num_continuous_dim, num_init)
+
+    # Scaling to bounds
+    for i in range(num_continuous_dim):
+        continuous_seq[:,i] = continuous_seq[:,i]*(continuous_bounds[i][1] - continuous_bounds[i][0])
+
+    ####
+    # Discrete sequence
+    ####
+    if num_discrete_dim > 0:
+        discrete_seq = sobol_seq.i4_sobol_generate(num_discrete_dim, num_init)
+
+        # Scaling to bounds then rounding
+        for i in range(num_discrete_dim):
+            discrete_seq[:,i] = (discrete_seq[:,i]*(discrete_seq[i][1] - discrete_seq[i][0])).astype(int)
+    else: 
+        discrete_seq = 0
+
+    ####
+    # Categorical sequence
+    ####
+    if num_categorical_dim > 0:
+        categorical_seq = np.ones((num_init, num_categorical_dim))
+
+        for j in range(num_categorical_dim):
+            for i in range(num_init):
+                categorical_seq[i, j] = np.random.randint(categorical_choice[j][0],categorical_choice[j][1])
+                # get random integer between lower and upper bound
+
+    else:
+        categorical_seq = 0
+
+    return (continuous_seq, discrete_seq, categorical_seq) 
+
+
+
+
+
+
+
+
+
+
+
