@@ -14,6 +14,7 @@ import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pickle
+import os
 
 from sklearn.datasets import load_boston
 from sklearn.ensemble import GradientBoostingRegressor
@@ -29,7 +30,7 @@ initial_num = 10
 
 seed_size = 30
 """
-total_evals = 32
+total_evals = 4
 initial_num = 4
 
 seed_size = 2
@@ -115,8 +116,7 @@ def gpyopt_objective(x):
 def fitbo_objective(X):
     # same as gpyopt_objective, except X is size (num_iter, input_dim)
     y = np.zeros((X.shape[0], 1))
-    print("X")
-    print(X)
+
     for i in range(X.shape[0]):
         y[i] = gpyopt_objective(X[i])
         
@@ -225,10 +225,15 @@ def FITBO_wrapper(batch_size = 2, heuristic = "cl-min"):
     sample_size = 50
     resample_interval = 1
 
-    dir_name = "Exp_Data/boston_gbr/fitbo/"
+    dir_name = "Exp_Data/boston_gbr/fitbo/batch_" + str(batch_size) + "/"
+    
+    try:
+        os.mkdir(dir_name)
+    except FileExistsError:
+        pass
     
     if batch_size == 1: # Sequential
-
+        heuristic = "sequential"
         for j in range(seed_size):
             seed = j
             np.random.seed(seed)
@@ -242,8 +247,8 @@ def FITBO_wrapper(batch_size = 2, heuristic = "cl-min"):
                                                             seed=seed, resample_interval= resample_interval, \
                                                             dir_name = dir_name)
             
-            X_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size)
-            Y_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size)
+            X_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic)
+            Y_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic)
             np.save(X_file_name, X_optimum) # results_IR/L2 is np array of shape (num_iterations + 1, seed_size)
             np.save(Y_file_name, Y_optimum)
 
@@ -262,8 +267,8 @@ def FITBO_wrapper(batch_size = 2, heuristic = "cl-min"):
                                                                               bo_method=BO_method, seed=seed, resample_interval= resample_interval, \
                                                                               batch_size = batch_size, heuristic = heuristic, 
                                                                               dir_name = dir_name)
-            X_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size)
-            Y_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size)
+            X_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic)
+            Y_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic)
             np.save(X_file_name, X_optimum) # results_IR/L2 is np array of shape (num_iterations + 1, seed_size)
             np.save(Y_file_name, Y_optimum)
     

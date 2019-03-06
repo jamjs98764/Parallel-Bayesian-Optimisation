@@ -719,9 +719,6 @@ class Bayes_opt_batch():
                         
                 # PI Values - calculate before updating GP with guessed values
                 
-                print('x_next')
-                print(x_next)
-                
                 x_next_mean = self._marginalised_posterior_mean(x_next)
                 x_next_var = self._marginalised_posterior_var(x_next)
                 PI_value = norm.cdf((-(x_next_mean) + current_y_best) / np.sqrt(x_next_var)) 
@@ -752,13 +749,12 @@ class Bayes_opt_batch():
                 
             # Finding real function values for all query points in batch
             
-            print('actual query')
-            print(batch_X)
+            cur_batch_X = batch_X[k]
             
-            for actual_query in batch_X:
-                self.X = np.vstack((self.X, actual_query))
-                actual_y = self.func(actual_query) + np.random.normal(0, self.var_noise, len(x_next))
-                self.Y = np.vstack((self.Y, actual_y))
+
+            self.X = np.vstack((self.X, cur_batch_X))
+            actual_y = self.func(cur_batch_X) + np.random.normal(0, self.var_noise, len(x_next))
+            self.Y = np.vstack((self.Y, actual_y))
                 
             #################### Main changes for batch END
             
