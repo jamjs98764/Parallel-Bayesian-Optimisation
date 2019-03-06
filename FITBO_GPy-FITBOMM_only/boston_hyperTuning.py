@@ -20,24 +20,8 @@ from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.model_selection import cross_val_score
 from skopt.space import Real, Integer
 from skopt.utils import use_named_args
+import utilities
 
-boston = load_boston()
-X, y = boston.data, boston.target
-n_features = X.shape[1]
-
-# Input domain range
-space  = [Integer(1, 5, name='max_depth'),
-          Real(10**-5, 10**0, "log-uniform", name='learning_rate'),
-          Integer(1, n_features, name='max_features'),
-          Integer(2, 100, name='min_samples_split'),
-          Integer(1, 100, name='min_samples_leaf')]
-
-space_gpyopt = [{"name": "max_depth", "type": "discrete", "domain": (1,2,3,4,5)},
-				{"name": "learning_rate", "type": "continuous", "domain": (10**-5,10**0)},
-				{"name": "max_features", "type": "discrete", "domain": (1,n_features)},
-				{"name": "min_samples_split", "type": "discrete", "domain": tuple(np.arange(2,101))},
-				{"name": "min_samples_leaf", "type": "discrete", "domain": tuple(np.arange(1,101))},
-				]
 
 
 """
@@ -53,6 +37,55 @@ seed_size = 3
 
 n_folds = 5
 
+init_type = "random"
+#init_type = "sobol"
+#init_type = "latin"
+
+#####
+# Experiment parameters
+#####
+boston = load_boston()
+X, y = boston.data, boston.target
+n_features = X.shape[1]
+
+space  = [Real(10**-5, 10**0, name='learning_rate'),
+          Integer(1, 5, name='max_depth'),
+          Integer(1, n_features, name='max_features'),
+          Integer(2, 100, name='min_samples_split'),
+          Integer(1, 100, name='min_samples_leaf')]
+
+space_gpyopt = [{"name": "learning_rate", "type": "continuous", "domain": (10**-5,10**0)},
+                {"name": "max_depth", "type": "discrete", "domain": (1,2,3,4,5)},
+				{"name": "max_features", "type": "discrete", "domain": tuple(np.arange(1,n_features))},
+				{"name": "min_samples_split", "type": "discrete", "domain": tuple(np.arange(2,101))},
+				{"name": "min_samples_leaf", "type": "discrete", "domain": tuple(np.arange(1,101))},]
+
+# For FITBO
+"""
+num_continuous_dim, num_discrete_dim, num_categorical_dim, 
+                            continuous_bounds, discrete_bounds, categorical_choice, 
+"""
+
+num_continuous_dim = 1
+num_discrete_dim = 4 
+num_categorical_dim = 0
+
+continuous_bounds = [(10**-5,10**0)]
+
+discrete_bounds = [(1,5),
+                   (1,n_features),
+                   (2,201),
+                   (1,101)]
+
+fitbo_lb = [continuous_bounds[0][0]]
+fitbo_ub = [continuous_bounds[0][1]]
+
+for i in discrete_bounds:
+    fitbo_lb.append(i[0])
+    fitbo_ub.append(i[1])
+    
+categorical_choice = []
+
 # gradient boosted trees tend to do well on problems like this
 reg = GradientBoostingRegressor(n_estimators=50, random_state=0)
 
@@ -67,19 +100,25 @@ def objective(**params):
 
 def gpyopt_objective(x):
 	x = x[0]
-	print(x)
 	# Wrapper around "objective" to suit gpyopt notation
 	params = {
-		"max_depth": x[0],
-		"learning_rate": x[1],
+		"learning_rate": x[0],
+		"max_depth": x[1],
 		"max_features": int(x[2]),
 		"min_samples_split": int(x[3]),
 		"min_samples_leaf": int(x[4]),
 	}
-	print(params)
 	reg.set_params(**params)
 	return -np.mean(cross_val_score(reg, X, y, cv= n_folds, n_jobs=1,
 		scoring="neg_mean_absolute_error"))
+
+def fitbo_objective(X):
+    # same as gpyopt_objective, except X is size (num_iter, input_dim)
+    y = np.zeros((X.shape[0], 1))
+    
+    for i in range(X.shape[0]):
+        y[i] = gpyopt_objective(i)
+    return y
 
 ####
 # Scikit learn wrapper
@@ -130,7 +169,7 @@ def gpyopt_wrapper(acq_func = 'EI', batch_size = 1, eval_type = 'local_penalizat
 												evaluator_type = eval_type,
 												model_type="GP",
 												initial_design_numdata = initial_num,
-                                                initial_design_type = 'random',
+                                            initial_design_type = init_type,
 												batch_size = batch_size,
 												n_burning = 100,
 												n_samples = 150)
@@ -144,13 +183,31 @@ def gpyopt_wrapper(acq_func = 'EI', batch_size = 1, eval_type = 'local_penalizat
 
 # gpyopt_wrapper()
 
-
 ####
 # GPyOpt learn wrapper
 ####
 
 from class_FITBOMM import Bayes_opt
 from class_FITBOMM import Bayes_opt_batch
+
+def generate_initial_points_x(init_type, seed):
+    if init_type == "random":
+        func = utilities.random_mixed_unnormalized
+    elif init_type == "sobol":
+        func = utilities.sobol_mixed_unnormalized
+    a, b, c = func(num_continuous_dim, num_discrete_dim, num_categorical_dim,
+                   continuous_bounds, discrete_bounds, categorical_choice,
+                   initial_num, seed)
+    return np.hstack((a,b,c))
+
+def generate_initial_points_y(X):
+    # X is an array of array
+    y = np.zeros((X.shape[0],1))
+    for i in range(X.shape[0]):
+        error = gpyopt_objective(X[i])
+        y[i] = error
+    return y
+        
 
 def FITBO_wrapper(batch_size = 2, heuristic = "kb"):
 	
@@ -162,55 +219,45 @@ def FITBO_wrapper(batch_size = 2, heuristic = "kb"):
 
     dir_name = "Exp_Data/boston_gbr/fitbo/"
     
-    if batch == False: # Sequential
-        results_error = np.zeros(shape=(seed_size, num_iterations + 1)) 
+    if batch_size == 1: # Sequential
 
         for j in range(seed_size):
             seed = j
             np.random.seed(seed)
-            x_ob = np.random.uniform(0., 1., (initialsamplesize, d)) 
-            y_ob = obj_func(x_ob) + sigma0 * np.random.randn(initialsamplesize, 1)
-    
-            bayes_opt = Bayes_opt(obj_func, np.zeros(d), np.ones(d), var_noise)
+            
+            x_ob = generate_initial_points_x(init_type, seed)
+            y_ob = generate_initial_points_y(x_ob)
+            
+            bayes_opt = Bayes_opt(fitbo_objective, fitbo_lb, fitbo_ub, var_noise = 0)
             bayes_opt.initialise(x_ob, y_ob)
-            X_optimum, Y_optimum = bayes_opt.iteration_step(iterations=num_iterations, mc_burn=burnin, \
+            X_optimum, Y_optimum = bayes_opt.iteration_step(iterations=total_evals, mc_burn=burnin, \
                                                             mc_samples=sample_size, bo_method=BO_method, \
                                                             seed=seed, resample_interval= resample_interval, \
                                                             dir_name = dir_name)
-            results_IR[j, :] = np.abs(Y_optimum - true_min).ravel()
-    
-            np.save(X_opt_file_name, results_L2) # results_IR/L2 is np array of shape (num_iterations + 1, seed_size)
-            np.save(Y_opt_file_name, results_IR)
+            
+            X_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size)
+            Y_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size)
+            np.save(X_file_name, X_optimum) # results_IR/L2 is np array of shape (num_iterations + 1, seed_size)
+            np.save(Y_file_name, Y_optimum)
 
-    if batch == True:
-        num_batches = int(num_iterations / batch_size)
-        results_error = np.zeros(shape=(seed_size, num_batches + 1)) 
+    else: # Batch
+        num_batches = int(total_evals / batch_size)
         
         for j in range(seed_size):
             seed = j
             np.random.seed(seed)
-            x_ob = np.random.uniform(0., 1., (initialsamplesize, d)) # QUESTION: why not initialized with Latin hypercube or Cobol seq
-            y_ob = obj_func(x_ob) + sigma0 * np.random.randn(initialsamplesize, 1)
-    
-            bayes_opt = Bayes_opt_batch(obj_func, np.zeros(d), np.ones(d), var_noise)
+            x_ob = generate_initial_points_x(init_type, seed)
+            y_ob = generate_initial_points_y(x_ob)
+            
+            bayes_opt = Bayes_opt(fitbo_objective, fitbo_lb, fitbo_ub, var_noise = 0)
             bayes_opt.initialise(x_ob, y_ob)
             X_optimum, Y_optimum = bayes_opt.iteration_step_batch(num_batches=num_batches, mc_burn=burnin, mc_samples=sample_size, \
                                                                               bo_method=BO_method, seed=seed, resample_interval= resample_interval, \
                                                                               batch_size = batch_size, heuristic = heuristic, 
                                                                               dir_name = dir_name)
+            X_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size)
+            Y_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size)
+            np.save(X_file_name, X_optimum) # results_IR/L2 is np array of shape (num_iterations + 1, seed_size)
+            np.save(Y_file_name, Y_optimum)
     
-            results_IR[j, :] = np.abs(Y_optimum - true_min).ravel()
-    
-            if test_func == 'branin': # Because branin has 3 global minima
-                results_L2_candiate_1 = np.linalg.norm(X_optimum - true_location[0, :], axis=1)
-                results_L2_candiate_2 = np.linalg.norm(X_optimum - true_location[1, :], axis=1)
-                results_L2_candiate_3 = np.linalg.norm(X_optimum - true_location[2, :], axis=1)
-                results_L2_all_candidates = np.array([results_L2_candiate_1, results_L2_candiate_2, results_L2_candiate_3])
-                results_L2[j, :] = np.min(results_L2_all_candidates, axis=0).ravel()
-            else:
-                results_L2[j, :] = np.linalg.norm(X_optimum - true_location[0, :], axis=1).ravel()
             
-            X_opt_file_name = dir_name + 'A_results_L2,' + heuristic + '_heuristic'
-            Y_opt_file_name = dir_name + 'A_results_IR,' + heuristic + '_heuristic' 
-            np.save(X_opt_file_name, results_L2)
-            np.save(Y_opt_file_name, results_IR)
