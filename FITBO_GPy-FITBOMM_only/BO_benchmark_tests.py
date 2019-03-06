@@ -196,6 +196,10 @@ for test_func in test_funcs:
                                                   batch_size = batch_size)
                 saving_data(X_record, min_y_record)
 """        
+
+# Sample test!
+# X_record, min_y_record = wrapper_GPyOpt("branin", acq_func = "EI_MCMC", eval_type = "sequential", batch_size = 2, iterations = 4, seed_size = 2)
+
 batch_sizes = [1]
 test_funcs = ["branin", "egg", "hartmann"]
 acq_funcs =  ["EI_MCMC", "EI"]

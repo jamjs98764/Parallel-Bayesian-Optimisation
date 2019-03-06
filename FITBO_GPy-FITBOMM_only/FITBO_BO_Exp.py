@@ -12,8 +12,15 @@ from Test_Funcs import egg,hartmann,branin,func1D
 from class_FITBOMM import Bayes_opt
 from class_FITBOMM import Bayes_opt_batch
 
+##### Initializing experiment parameters
+
+seed_size = 50
+num_iters = 40
+v2_seed_start = 30
+v2_seed_size = 20
+
 def BO_test(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, resample_interval = 1, \
-            seed_size = 1, num_iterations = 8, batch = False, batch_size = 2, heuristic = "kb"):
+            seed_size = seed_size, num_iterations = num_iters, batch = False, batch_size = 2, heuristic = "kb"):
 
     # BO_method is either FITBOMM (moment matching) or FITBO (quadrature) 
     # Sample size = MC sample size
@@ -31,7 +38,7 @@ def BO_test(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, re
         initialsamplesize = 3
         true_min = np.array([-14.96021125])
         true_location = np.array([[0.1239, 0.8183],[0.5428, 0.1517],[0.9617, 0.1650]])
-
+        
     elif test_func == 'egg':
         obj_func = egg
         d = 2
@@ -72,7 +79,7 @@ def BO_test(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, re
         for j in range(seed_size):
             seed = j
             np.random.seed(seed)
-            x_ob = np.random.uniform(0., 1., (initialsamplesize, d)) # QUESTION: why not initialized with Latin hypercube or Cobol seq
+            x_ob = np.random.uniform(0., 1., (initialsamplesize, d)) 
             y_ob = obj_func(x_ob) + sigma0 * np.random.randn(initialsamplesize, 1)
     
             bayes_opt = Bayes_opt(obj_func, np.zeros(d), np.ones(d), var_noise)
@@ -82,7 +89,7 @@ def BO_test(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, re
                                                             seed=seed, resample_interval= resample_interval, \
                                                             dir_name = dir_name)
             results_IR[j, :] = np.abs(Y_optimum - true_min).ravel()
-    
+            
             if test_func == 'branin': # Because branin has 3 global minima
                 results_L2_candiate_1 = np.linalg.norm(X_optimum - true_location[0, :], axis=1)
                 results_L2_candiate_2 = np.linalg.norm(X_optimum - true_location[1, :], axis=1)
@@ -108,7 +115,7 @@ def BO_test(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, re
         for j in range(seed_size):
             seed = j
             np.random.seed(seed)
-            x_ob = np.random.uniform(0., 1., (initialsamplesize, d)) # QUESTION: why not initialized with Latin hypercube or Cobol seq
+            x_ob = np.random.uniform(0., 1., (initialsamplesize, d)) 
             y_ob = obj_func(x_ob) + sigma0 * np.random.randn(initialsamplesize, 1)
     
             bayes_opt = Bayes_opt_batch(obj_func, np.zeros(d), np.ones(d), var_noise)
@@ -135,7 +142,7 @@ def BO_test(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, re
             np.save(Y_opt_file_name, results_IR)
         
 def BO_test_v2(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, resample_interval = 1, \
-            seed_start = 30, seed_size = 20, num_iterations = 40, batch = False, batch_size = 2, heuristic = "kb"):
+            seed_start = v2_seed_start, seed_size = v2_seed_size, num_iterations = num_iters, batch = False, batch_size = 2, heuristic = "kb"):
 
     # Allows specification of specific seed range
 
@@ -306,19 +313,27 @@ def test_all_v2(test_func, current_batch_size):
     #BO_test_v2(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'random_except_1st') 
     
     return None
-"""
+
 # Batch
-batch_sizes = [4]
-test_funcs = ["branin"]
+batch_sizes = [2]
+test_funcs = ["branin", "egg", "hartmann"]
 
 for batch_size in batch_sizes:
     for test_func in test_funcs:
         test_all(test_func, batch_size)
 
-# Sequential
+# Just for batch-4 kriging believer
+batch_sizes = [4]
+test_funcs = ["branin", "egg", "hartmann"]
 
-test_funcs = ["egg", "hartmann"]
-for test_func in test_funcs:
-    test_sequential(test_func)
-"""
-BO_test(test_func = "branin") 
+def test_all(test_func, current_batch_size):    
+    ## Single test batch    
+
+    BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'kb')  
+    return None
+
+for batch_size in batch_sizes:
+    for test_func in test_funcs:
+        test_all(test_func, batch_size)
+
+
