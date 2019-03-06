@@ -98,7 +98,8 @@ def sobol_mixed_unnormalized(num_continuous_dim, num_discrete_dim, num_categoric
     # Continuous sequence
     ####
     continuous_seq = sobol_seq.i4_sobol_generate(num_continuous_dim, num_init)
-
+    continuous_seq = np.transpose(continuous_seq) # we use different convention
+    
     # Scaling to bounds
     for i in range(num_continuous_dim):
         continuous_seq[:,i] = continuous_seq[:,i]*(continuous_bounds[i][1] - continuous_bounds[i][0])
@@ -108,10 +109,11 @@ def sobol_mixed_unnormalized(num_continuous_dim, num_discrete_dim, num_categoric
     ####
     if num_discrete_dim > 0:
         discrete_seq = sobol_seq.i4_sobol_generate(num_discrete_dim, num_init)
+        discrete_seq = np.transpose(discrete_seq)
 
         # Scaling to bounds then rounding
         for i in range(num_discrete_dim):
-            discrete_seq[:,i] = (discrete_seq[:,i]*(discrete_bounds[i][1] - discrete_bounds[i][0])).astype(int)
+            discrete_seq[:,i] = np.ceil(discrete_seq[:,i]*(discrete_bounds[i][1] - discrete_bounds[i][0])).astype(int)
     else: 
         discrete_seq = 0
 
@@ -147,7 +149,7 @@ def random_mixed_unnormalized(num_continuous_dim, num_discrete_dim, num_categori
     ####
     # Continuous sequence
     ####
-    continuous_seq = np.random.random((num_continuous_dim, num_init))
+    continuous_seq = np.random.random((num_init, num_continuous_dim))
 
     # Scaling to bounds
     for i in range(num_continuous_dim):
@@ -157,10 +159,10 @@ def random_mixed_unnormalized(num_continuous_dim, num_discrete_dim, num_categori
     # Discrete sequence
     ####
     if num_discrete_dim > 0:
-        discrete_seq = np.random.random((num_discrete_dim, num_init))
+        discrete_seq = np.random.random((num_init, num_discrete_dim))
         # Scaling to bounds then rounding
         for i in range(num_discrete_dim):
-            discrete_seq[:,i] = (discrete_seq[:,i]*(discrete_bounds[i][1] - discrete_bounds[i][0])).astype(int)
+            discrete_seq[:,i] = np.ceil(discrete_seq[:,i]*(discrete_bounds[i][1] - discrete_bounds[i][0])).astype(int)
         discrete_seq = discrete_seq.astype(int)
     else: 
         discrete_seq = 0

@@ -23,17 +23,16 @@ from skopt.utils import use_named_args
 import utilities
 
 
-
 """
 total_evals = 80
 initial_num = 10
 
 seed_size = 30
 """
-total_evals = 5
-initial_num = 2
+total_evals = 32
+initial_num = 4
 
-seed_size = 3
+seed_size = 2
 
 n_folds = 5
 
@@ -56,9 +55,9 @@ space  = [Real(10**-5, 10**0, name='learning_rate'),
 
 space_gpyopt = [{"name": "learning_rate", "type": "continuous", "domain": (10**-5,10**0)},
                 {"name": "max_depth", "type": "discrete", "domain": (1,2,3,4,5)},
-				{"name": "max_features", "type": "discrete", "domain": tuple(np.arange(1,n_features))},
-				{"name": "min_samples_split", "type": "discrete", "domain": tuple(np.arange(2,101))},
-				{"name": "min_samples_leaf", "type": "discrete", "domain": tuple(np.arange(1,101))},]
+                {"name": "max_features", "type": "discrete", "domain": tuple(np.arange(1,n_features))},
+                {"name": "min_samples_split", "type": "discrete", "domain": tuple(np.arange(2,101))},
+                {"name": "min_samples_leaf", "type": "discrete", "domain": tuple(np.arange(1,101))},]
 
 # For FITBO
 """
@@ -99,25 +98,28 @@ def objective(**params):
                                     scoring="neg_mean_absolute_error"))
 
 def gpyopt_objective(x):
-	x = x[0]
-	# Wrapper around "objective" to suit gpyopt notation
-	params = {
-		"learning_rate": x[0],
-		"max_depth": x[1],
-		"max_features": int(x[2]),
-		"min_samples_split": int(x[3]),
-		"min_samples_leaf": int(x[4]),
-	}
-	reg.set_params(**params)
-	return -np.mean(cross_val_score(reg, X, y, cv= n_folds, n_jobs=1,
-		scoring="neg_mean_absolute_error"))
+    x = np.ravel(x)
+
+    # Wrapper around "objective" to suit gpyopt notation
+    params = {
+        "learning_rate": x[0],
+        "max_depth": x[1],
+        "max_features": int(x[2]),
+        "min_samples_split": int(x[3]),
+        "min_samples_leaf": int(x[4]),
+    }
+    reg.set_params(**params)
+    return -np.mean(cross_val_score(reg, X, y, cv= n_folds, n_jobs=1,
+        scoring="neg_mean_absolute_error"))
 
 def fitbo_objective(X):
     # same as gpyopt_objective, except X is size (num_iter, input_dim)
     y = np.zeros((X.shape[0], 1))
-    
+    print("X")
+    print(X)
     for i in range(X.shape[0]):
-        y[i] = gpyopt_objective(i)
+        y[i] = gpyopt_objective(X[i])
+        
     return y
 
 ####
@@ -125,32 +127,32 @@ def fitbo_objective(X):
 ####
 
 def sklearn_wrapper(acq_func = 'gp_hedge', batch = 1):
-	"""
-	Documentation with scikit-optimize
+    """
+    Documentation with scikit-optimize
 
-	https://scikit-optimize.github.io/
+    https://scikit-optimize.github.io/
 
-	acq_func = "LCB", "EI", "PI", "gp_hedge"
-	"""
-	from skopt import gp_minimize
-	dir_name = "Exp_Data/boston_gbr/sklearn/"
-	
-	for seed in range(seed_size):
-		res_gp = gp_minimize(objective, space_gpyopt, n_calls = total_evals, 
-			random_state = seed, n_random_starts = initial_num, acq_func = acq_func)
-		file_name = dir_name + "batch_" + str(batch) + "," + acq_func + ",seed_" + str(seed)
+    acq_func = "LCB", "EI", "PI", "gp_hedge"
+    """
+    from skopt import gp_minimize
+    dir_name = "Exp_Data/boston_gbr/sklearn/"
+    
+    for seed in range(seed_size):
+        res_gp = gp_minimize(objective, space_gpyopt, n_calls = total_evals, 
+            random_state = seed, n_random_starts = initial_num, acq_func = acq_func)
+        file_name = dir_name + "batch_" + str(batch) + "," + acq_func + ",seed_" + str(seed)
 
-		with open(file_name, 'wb') as f:
-			pickle.dump(res_gp, f)
+        with open(file_name, 'wb') as f:
+            pickle.dump(res_gp, f)
 
-		print("""Best parameters:
-		- max_depth=%d
-		- learning_rate=%.6f
-		- max_features=%d
-		- min_samples_split=%d
-		- min_samples_leaf=%d""" % (res_gp.x[0], res_gp.x[1], 
-		                            res_gp.x[2], res_gp.x[3], 
-		                            res_gp.x[4]))
+        print("""Best parameters:
+        - max_depth=%d
+        - learning_rate=%.6f
+        - max_features=%d
+        - min_samples_split=%d
+        - min_samples_leaf=%d""" % (res_gp.x[0], res_gp.x[1], 
+                                    res_gp.x[2], res_gp.x[3], 
+                                    res_gp.x[4]))
 
 # sklearn_wrapper()
 
@@ -159,27 +161,27 @@ def sklearn_wrapper(acq_func = 'gp_hedge', batch = 1):
 ####
 
 def gpyopt_wrapper(acq_func = 'EI', batch_size = 1, eval_type = 'local_penalization'):
-	import GPyOpt
-	dir_name = "Exp_Data/boston_gbr/gpyopt/"
-	
-	for seed in range(seed_size):
-		BO = GPyOpt.methods.BayesianOptimization(f = gpyopt_objective,
-												domain = space_gpyopt,
-												acquisition_type = acq_func,
-												evaluator_type = eval_type,
-												model_type="GP",
-												initial_design_numdata = initial_num,
+    import GPyOpt
+    dir_name = "Exp_Data/boston_gbr/gpyopt/"
+    
+    for seed in range(seed_size):
+        BO = GPyOpt.methods.BayesianOptimization(f = gpyopt_objective,
+                                                domain = space_gpyopt,
+                                                acquisition_type = acq_func,
+                                                evaluator_type = eval_type,
+                                                model_type="GP",
+                                                initial_design_numdata = initial_num,
                                             initial_design_type = init_type,
-												batch_size = batch_size,
-												n_burning = 100,
-												n_samples = 150)
-		
-		BO.run_optimization(max_iter = int(total_evals / batch_size))
+                                                batch_size = batch_size,
+                                                n_burning = 100,
+                                                n_samples = 150)
+        
+        BO.run_optimization(max_iter = int(total_evals / batch_size))
 
-		file_name = dir_name + "batch_" + str(batch_size) + "," + acq_func + ",seed_" + str(seed_size)
+        file_name = dir_name + "batch_" + str(batch_size) + "," + acq_func + ",seed_" + str(seed_size)
 
-		with open(file_name, 'wb') as f:
-			pickle.dump(BO, f)
+        with open(file_name, 'wb') as f:
+            pickle.dump(BO, f)
 
 # gpyopt_wrapper()
 
@@ -198,7 +200,13 @@ def generate_initial_points_x(init_type, seed):
     a, b, c = func(num_continuous_dim, num_discrete_dim, num_categorical_dim,
                    continuous_bounds, discrete_bounds, categorical_choice,
                    initial_num, seed)
-    return np.hstack((a,b,c))
+    
+    if type(b) != int: # b and c = 0 if no discrete or categorical domain
+        init_points = np.hstack((a,b))
+    if type(c) != int:
+        init_points = np.hstack((init_points, c))
+
+    return init_points
 
 def generate_initial_points_y(X):
     # X is an array of array
@@ -209,9 +217,9 @@ def generate_initial_points_y(X):
     return y
         
 
-def FITBO_wrapper(batch_size = 2, heuristic = "kb"):
-	
-	# Setting default values
+def FITBO_wrapper(batch_size = 2, heuristic = "cl-min"):
+    
+    # Setting default values
     BO_method = 'FITBOMM'
     burnin = 100
     sample_size = 50
@@ -227,7 +235,6 @@ def FITBO_wrapper(batch_size = 2, heuristic = "kb"):
             
             x_ob = generate_initial_points_x(init_type, seed)
             y_ob = generate_initial_points_y(x_ob)
-            
             bayes_opt = Bayes_opt(fitbo_objective, fitbo_lb, fitbo_ub, var_noise = 0)
             bayes_opt.initialise(x_ob, y_ob)
             X_optimum, Y_optimum = bayes_opt.iteration_step(iterations=total_evals, mc_burn=burnin, \
@@ -249,7 +256,7 @@ def FITBO_wrapper(batch_size = 2, heuristic = "kb"):
             x_ob = generate_initial_points_x(init_type, seed)
             y_ob = generate_initial_points_y(x_ob)
             
-            bayes_opt = Bayes_opt(fitbo_objective, fitbo_lb, fitbo_ub, var_noise = 0)
+            bayes_opt = Bayes_opt_batch(fitbo_objective, fitbo_lb, fitbo_ub, var_noise = 0)
             bayes_opt.initialise(x_ob, y_ob)
             X_optimum, Y_optimum = bayes_opt.iteration_step_batch(num_batches=num_batches, mc_burn=burnin, mc_samples=sample_size, \
                                                                               bo_method=BO_method, seed=seed, resample_interval= resample_interval, \
@@ -261,3 +268,4 @@ def FITBO_wrapper(batch_size = 2, heuristic = "kb"):
             np.save(Y_file_name, Y_optimum)
     
             
+FITBO_wrapper(batch_size = 2)

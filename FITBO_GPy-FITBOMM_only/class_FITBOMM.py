@@ -275,6 +275,7 @@ class Bayes_opt():
         X_start = Xtest[idx_test, :]
         # bnds = ((0.0, 1.0), (0.0, 1.0))
         bnds = tuple((li, ui) for li, ui in zip(self.lb, self.ub))
+
         res = minimize(func, X_start, method='L-BFGS-B', jac=False, bounds=bnds)
         x_opt = res.x[None, :]
         return x_opt
@@ -645,8 +646,6 @@ class Bayes_opt_batch():
     def iteration_step_batch(self, num_batches, mc_burn , mc_samples,bo_method, seed, resample_interval, \
                              batch_size = 2, heuristic = "kb", dir_name = 'Exp_Data/'):
 
-  
-        
         np.random.seed(seed)
 
         X_optimum = np.atleast_2d(self.arg_opt)
@@ -720,6 +719,9 @@ class Bayes_opt_batch():
                         
                 # PI Values - calculate before updating GP with guessed values
                 
+                print('x_next')
+                print(x_next)
+                
                 x_next_mean = self._marginalised_posterior_mean(x_next)
                 x_next_var = self._marginalised_posterior_var(x_next)
                 PI_value = norm.cdf((-(x_next_mean) + current_y_best) / np.sqrt(x_next_var)) 
@@ -749,6 +751,9 @@ class Bayes_opt_batch():
             #self._fit_GP_normal()    
                 
             # Finding real function values for all query points in batch
+            
+            print('actual query')
+            print(batch_X)
             
             for actual_query in batch_X:
                 self.X = np.vstack((self.X, actual_query))

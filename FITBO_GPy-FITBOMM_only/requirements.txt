@@ -1,6 +1,5 @@
 numpy==1.14.5
 scipy==1.0.0
-matplotlib==2.1.0
 seaborn==0.9.0
 scikit_optimize==0.5.2
 GPy==1.9.6
