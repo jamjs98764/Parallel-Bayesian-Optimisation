@@ -13,7 +13,7 @@ from class_FITBOMM import Bayes_opt
 from class_FITBOMM import Bayes_opt_batch
 
 def BO_test(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, resample_interval = 1, \
-            seed_size = 2, num_iterations = 8, batch = False, batch_size = 2, heuristic = "kb"):
+            seed_size = 1, num_iterations = 8, batch = False, batch_size = 2, heuristic = "kb"):
 
     # BO_method is either FITBOMM (moment matching) or FITBO (quadrature) 
     # Sample size = MC sample size
@@ -98,6 +98,7 @@ def BO_test(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, re
             
             np.save(X_opt_file_name, results_L2) # results_IR/L2 is np array of shape (num_iterations + 1, seed_size)
             np.save(Y_opt_file_name, results_IR)
+        
 
     if batch == True:
         num_batches = int(num_iterations / batch_size)
@@ -305,7 +306,7 @@ def test_all_v2(test_func, current_batch_size):
     #BO_test_v2(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'random_except_1st') 
     
     return None
-
+"""
 # Batch
 batch_sizes = [4]
 test_funcs = ["branin"]
@@ -313,11 +314,11 @@ test_funcs = ["branin"]
 for batch_size in batch_sizes:
     for test_func in test_funcs:
         test_all(test_func, batch_size)
-"""
+
 # Sequential
 
 test_funcs = ["egg", "hartmann"]
 for test_func in test_funcs:
     test_sequential(test_func)
 """
-
+BO_test(test_func = "branin") 
