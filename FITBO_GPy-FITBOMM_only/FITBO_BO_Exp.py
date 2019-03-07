@@ -328,7 +328,6 @@ test_funcs = ["branin", "egg", "hartmann"]
 
 def test_all(test_func, current_batch_size):    
     ## Single test batch    
-
     BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'kb')  
     return None
 
