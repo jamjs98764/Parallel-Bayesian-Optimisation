@@ -17,7 +17,7 @@ import pickle
 import os
 
 var_noise = 1.0e-3 # y_next = self.func(x_next) + np.random.normal(0, self.var_noise, len(x_next)) 
-seed_size = 50
+seed_size = 5
 
 def wrapper_GPyOpt(test_func, acq_func = "EI", eval_type = "random", \
     seed_size = seed_size, iterations = 40, batch_size = 2):
@@ -199,7 +199,7 @@ for test_func in test_funcs:
 
 # Sample test!
 # X_record, min_y_record = wrapper_GPyOpt("branin", acq_func = "EI_MCMC", eval_type = "sequential", batch_size = 2, iterations = 4, seed_size = 2)
-
+"""
 batch_sizes = [1]
 test_funcs = ["branin", "egg", "hartmann"]
 acq_funcs =  ["EI_MCMC", "EI"]
@@ -214,3 +214,17 @@ for test_func in test_funcs:
                                                   batch_size = batch_size)
                 saving_data(X_record, min_y_record)
 
+"""
+batch_sizes = [2]
+test_funcs = ["branin"]
+acq_funcs =  ["EI_MCMC"]
+evaluator_types = ["local_penalization"] # does not matter for batch size = 1  
+
+for test_func in test_funcs:
+    for batch_size in batch_sizes:
+        for acq_func in acq_funcs:
+            for eval_type in evaluator_types:
+                print(test_func, batch_size, acq_func, eval_type)
+                X_record, min_y_record = wrapper_GPyOpt(test_func, acq_func = acq_func, eval_type = eval_type, \
+                                                  batch_size = batch_size)
+                saving_data(X_record, min_y_record)
