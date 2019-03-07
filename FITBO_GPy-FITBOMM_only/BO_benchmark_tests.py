@@ -203,7 +203,7 @@ for test_func in test_funcs:
 batch_sizes = [1]
 test_funcs = ["branin", "egg", "hartmann"]
 acq_funcs =  ["EI_MCMC", "EI"]
-evaluator_types = ["sequential"] # does not matter for batch size = 1  
+evaluator_types = ["local_penalization"] # does not matter for batch size = 1  
 
 for test_func in test_funcs:
     for batch_size in batch_sizes:
