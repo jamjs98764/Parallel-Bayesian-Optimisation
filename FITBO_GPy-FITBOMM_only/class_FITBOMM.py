@@ -686,17 +686,14 @@ class Bayes_opt_batch():
             real_X = copy.deepcopy(self.X)
             real_Y = copy.deepcopy(self.Y)
             
-            """ Temporarily not used as deepcopy isnt working
-            real_GP = copy.copy(self.GP)
-            real_GP_normal = copy.copy(self.GP_normal)
-            """
+            real_GP = self.GP.copy()
+            real_GP_normal = self.GP_normal.copy()
             
             #batch_X = [] # Stores suggested query points for this batch
             
             # Iterate across current batch
             for batch_i in range(batch_size):
                 # optimise the acquisition function to get the next query point and evaluate at next query point
-                current_y_best = real_Y.min()
                 x_next = self._gloabl_minimser(acqu_func)
                 max_acqu_value = - acqu_func(x_next)
                 
@@ -719,9 +716,7 @@ class Bayes_opt_batch():
                         
                 # PI Values - calculate before updating GP with guessed values
                 
-                x_next_mean = self._marginalised_posterior_mean(x_next)
-                x_next_var = self._marginalised_posterior_var(x_next)
-                PI_value = norm.cdf((-(x_next_mean) + current_y_best) / np.sqrt(x_next_var)) 
+
 
                 self.X = np.vstack((self.X, x_next))
                 self.Y = np.vstack((self.Y, y_next_guess)) # Appending Data with guessed values
@@ -741,16 +736,24 @@ class Bayes_opt_batch():
                 self.full_PI_value[k, batch_i, :] = PI_value
 
             # Resetting back to original real values 
-            # TODO: deepcopy doesnt work so we re-initialize GP with original X's every time
             self.X = real_X
             self.Y = real_Y
-            #self._fit_GP()
-            #self._fit_GP_normal()    
+            self.GP = real_GP
+            self.GP_normal = real_GP_normal
+
+            # Calculating PI values
+            current_y_best = real_Y.min()
+
+            for batch_i in range(batch_size):
+                x_next = batch_X[k, batch_i, :]
+                x_next_mean = self._marginalised_posterior_mean(x_next)
+                x_next_var = self._marginalised_posterior_var(x_next)
+                PI_value = norm.cdf((-(x_next_mean) + current_y_best) / np.sqrt(x_next_var)) 
+                self.full_PI_value[k, batch_i, : ] = PI_value
                 
             # Finding real function values for all query points in batch
             
             cur_batch_X = batch_X[k]
-            
 
             self.X = np.vstack((self.X, cur_batch_X))
             actual_y = self.func(cur_batch_X) + np.random.normal(0, self.var_noise, len(x_next))
@@ -796,7 +799,7 @@ class Bayes_opt_batch():
         except FileExistsError:
             pass
 
-        file_name = new_dir + heuristic + ',intermediate_vars.pickle'
+        file_name = new_dir + heuristic + ',new_intermediate_vars.pickle' # new_intermediate_vars = new PI values
                 
         pickle_dict = {
                 "X": self.X, 
