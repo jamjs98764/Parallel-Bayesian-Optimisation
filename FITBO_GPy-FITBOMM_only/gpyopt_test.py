@@ -25,13 +25,13 @@ BO_demo_parallel = GPyOpt.methods.BayesianOptimization(f=objective_noisy.f,
                                             normalize_Y = True,
                                             initial_design_numdata = 10,
                                             #evaluator_type = 'thomson_sampling',
-                                             evaluator_type = 'local_penalization',
+                                            evaluator_type = 'local_penalization',
                                             batch_size = batch_size,
                                             num_cores = num_cores,
                                             acquisition_jitter = 0)    
 
 
-max_iter = 10                                        
+max_iter = 12                                  
 BO_demo_parallel.run_optimization(max_iter)
 
 BO_demo_parallel.plot_acquisition()

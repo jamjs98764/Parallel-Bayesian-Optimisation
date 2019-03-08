@@ -17,7 +17,7 @@ import pickle
 import os
 
 var_noise = 1.0e-3 # y_next = self.func(x_next) + np.random.normal(0, self.var_noise, len(x_next)) 
-seed_size = 5
+seed_size = 50
 
 def wrapper_GPyOpt(test_func, acq_func = "EI", eval_type = "random", \
     seed_size = seed_size, iterations = 40, batch_size = 2):
@@ -88,6 +88,7 @@ def wrapper_GPyOpt(test_func, acq_func = "EI", eval_type = "random", \
     min_y_record = {}
 
     for seed_i in range(seed_size):
+        print("Currently on seed: ", seed_i)
         np.random.seed(seed_i)
 
         # Noisy function
