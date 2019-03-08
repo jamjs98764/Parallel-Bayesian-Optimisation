@@ -24,14 +24,9 @@ from skopt.utils import use_named_args
 import utilities
 
 
-"""
-total_evals = 80
-initial_num = 10
-
-seed_size = 30
-"""
-total_evals = 4
-initial_num = 4
+total_evals = 40
+initial_num = 5
+seed_size = 20
 
 seed_size = 2
 
@@ -61,10 +56,6 @@ space_gpyopt = [{"name": "learning_rate", "type": "continuous", "domain": (10**-
                 {"name": "min_samples_leaf", "type": "discrete", "domain": tuple(np.arange(1,101))},]
 
 # For FITBO
-"""
-num_continuous_dim, num_discrete_dim, num_categorical_dim, 
-                            continuous_bounds, discrete_bounds, categorical_choice, 
-"""
 
 num_continuous_dim = 1
 num_discrete_dim = 4 
@@ -183,8 +174,6 @@ def gpyopt_wrapper(acq_func = 'EI', batch_size = 1, eval_type = 'local_penalizat
         with open(file_name, 'wb') as f:
             pickle.dump(BO, f)
 
-# gpyopt_wrapper()
-
 ####
 # GPyOpt learn wrapper
 ####
@@ -233,8 +222,9 @@ def FITBO_wrapper(batch_size = 2, heuristic = "cl-min"):
         pass
     
     if batch_size == 1: # Sequential
-        heuristic = "sequential"
+        heuristic = "sequential"        
         for j in range(seed_size):
+            print("Currently on seed: ", j)
             seed = j
             np.random.seed(seed)
             
@@ -256,6 +246,7 @@ def FITBO_wrapper(batch_size = 2, heuristic = "cl-min"):
         num_batches = int(total_evals / batch_size)
         
         for j in range(seed_size):
+            print("Currently on seed: ", j)
             seed = j
             np.random.seed(seed)
             x_ob = generate_initial_points_x(init_type, seed)
@@ -271,6 +262,17 @@ def FITBO_wrapper(batch_size = 2, heuristic = "cl-min"):
             Y_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic)
             np.save(X_file_name, X_optimum) # results_IR/L2 is np array of shape (num_iterations + 1, seed_size)
             np.save(Y_file_name, Y_optimum)
-    
-            
-FITBO_wrapper(batch_size = 2)
+
+
+####
+# Running experiments
+####    
+
+batch_list = [2]
+heuristic_list = ['cl-min', 'cl-max', 'kb']
+
+for batch in batch_list:
+    gpyopt_wrapper(batch_size = batch)  # EI, Local Penalization by default  
+    for heur in heuristic_list:
+        FITBO_wrapper(batch_size = 2, heuristic = heur)
+        
