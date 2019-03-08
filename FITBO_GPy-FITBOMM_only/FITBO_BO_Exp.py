@@ -305,34 +305,22 @@ def test_sequential_v2(test_func):
 def test_all_v2(test_func, current_batch_size):    
     ## Single test batch    
 
-    # BO_test_v2(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'kb')
-    #BO_test_v2(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-mean')
-    #BO_test_v2(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-min')
-    #BO_test_v2(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-max')
+    BO_test_v2(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'kb')
+    BO_test_v2(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-mean')
+    BO_test_v2(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-min')
+    BO_test_v2(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-max')
     BO_test_v2(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'random')  
-    #BO_test_v2(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'random_except_1st') 
+    BO_test_v2(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'random_except_1st') 
     
     return None
 
 # Batch
-batch_sizes = [2]
-test_funcs = ["branin", "egg", "hartmann"]
+batch_sizes = [8]
+test_funcs = ["hartmann"]
 
 for batch_size in batch_sizes:
     for test_func in test_funcs:
         test_all(test_func, batch_size)
 
-# Just for batch-4 kriging believer
-batch_sizes = [4]
-test_funcs = ["branin", "egg", "hartmann"]
-
-def test_all(test_func, current_batch_size):    
-    ## Single test batch    
-    BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'kb')  
-    return None
-
-for batch_size in batch_sizes:
-    for test_func in test_funcs:
-        test_all(test_func, batch_size)
 
 

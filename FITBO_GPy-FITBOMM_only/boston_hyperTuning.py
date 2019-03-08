@@ -23,7 +23,7 @@ from skopt.space import Real, Integer
 from skopt.utils import use_named_args
 import utilities
 
-total_evals = 60
+total_evals = 40
 initial_num = 5
 seed_size = 5
 
@@ -248,8 +248,6 @@ def FITBO_wrapper(batch_size = 2, heuristic = "cl-min"):
             np.random.seed(seed)
             x_ob = generate_initial_points_x(init_type, seed)
             y_ob = generate_initial_points_y(x_ob)
-            print('ub')
-            print(fitbo_ub)
             bayes_opt = Bayes_opt_batch(fitbo_objective, fitbo_lb, fitbo_ub, var_noise = 0)
             bayes_opt.initialise(x_ob, y_ob)
             X_optimum, Y_optimum = bayes_opt.iteration_step_batch(num_batches=num_batches, mc_burn=burnin, mc_samples=sample_size, \
@@ -268,9 +266,14 @@ def FITBO_wrapper(batch_size = 2, heuristic = "cl-min"):
 
 batch_list = [2]
 heuristic_list = ['cl-min']
+error_list = []
 
 for batch in batch_list:
     gpyopt_wrapper(batch_size = batch)  # EI, Local Penalization by default  
     for heur in heuristic_list:
-        FITBO_wrapper(batch_size = batch, heuristic = heur)
+        try:
+            FITBO_wrapper(batch_size = batch, heuristic = heur)
+        except:
+            error_run = heur + str(batch)
+            error_list.append(error_run)
         
