@@ -733,7 +733,6 @@ class Bayes_opt_batch():
                 # Just for recording
                 batch_X[k, batch_i, :] = x_next
                 batch_Y[k, batch_i, :] = y_next_guess
-                self.full_PI_value[k, batch_i, :] = PI_value
 
             # Resetting back to original real values 
             self.X = real_X
@@ -756,7 +755,8 @@ class Bayes_opt_batch():
             cur_batch_X = batch_X[k]
 
             self.X = np.vstack((self.X, cur_batch_X))
-            actual_y = self.func(cur_batch_X) + np.random.normal(0, self.var_noise, len(x_next))
+            actual_y = self.func(cur_batch_X) + np.random.normal(0, self.var_noise, (batch_size,1))
+
             self.Y = np.vstack((self.Y, actual_y))
                 
             #################### Main changes for batch END
