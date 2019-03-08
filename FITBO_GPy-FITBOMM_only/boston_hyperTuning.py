@@ -28,8 +28,6 @@ total_evals = 40
 initial_num = 5
 seed_size = 20
 
-seed_size = 2
-
 n_folds = 5
 
 init_type = "random"
@@ -225,7 +223,7 @@ def FITBO_wrapper(batch_size = 2, heuristic = "cl-min"):
         heuristic = "sequential"        
         for j in range(seed_size):
             print("Currently on seed: ", j)
-            seed = j
+            seed =  8
             np.random.seed(seed)
             
             x_ob = generate_initial_points_x(init_type, seed)
@@ -268,7 +266,7 @@ def FITBO_wrapper(batch_size = 2, heuristic = "cl-min"):
 # Running experiments
 ####    
 
-batch_list = [2]
+batch_list = [1]
 heuristic_list = ['cl-min', 'cl-max', 'kb']
 
 for batch in batch_list:

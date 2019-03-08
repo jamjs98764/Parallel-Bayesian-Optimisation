@@ -323,7 +323,8 @@ class Bayes_opt():
             x_next = self._gloabl_minimser(acqu_func)
             max_acqu_value = - acqu_func(x_next)
             y_next = self.func(x_next) + np.random.normal(0, self.var_noise, len(x_next)) # Query x_next, but y = f(x) + noise
-
+            print("x_next")
+            print(x_next)
             # update the observation data
             self.X = np.vstack((self.X, x_next))
             self.Y = np.vstack((self.Y, y_next))
@@ -751,7 +752,8 @@ class Bayes_opt_batch():
             
             cur_batch_X = batch_X[k]
             
-
+            print("cur_batch_X")
+            print(cur_batch_X)
             self.X = np.vstack((self.X, cur_batch_X))
             actual_y = self.func(cur_batch_X) + np.random.normal(0, self.var_noise, len(x_next))
             self.Y = np.vstack((self.Y, actual_y))
