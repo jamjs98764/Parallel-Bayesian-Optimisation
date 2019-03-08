@@ -216,7 +216,7 @@ for test_func in test_funcs:
                 saving_data(X_record, min_y_record)
 
 """
-batch_sizes = [2, 4]
+batch_sizes = [8]
 test_funcs = ["branin", "egg", "hartmann"]
 acq_funcs =  ["EI"]
 evaluator_types = ["local_penalization"] # does not matter for batch size = 1  
