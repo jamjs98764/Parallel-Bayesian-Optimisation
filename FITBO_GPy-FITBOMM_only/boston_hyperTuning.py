@@ -270,7 +270,7 @@ batch_list = [1]
 heuristic_list = ['cl-min', 'cl-max', 'kb']
 
 for batch in batch_list:
-    gpyopt_wrapper(batch_size = batch)  # EI, Local Penalization by default  
+    # gpyopt_wrapper(batch_size = batch)  # EI, Local Penalization by default  
     for heur in heuristic_list:
-        FITBO_wrapper(batch_size = 2, heuristic = heur)
+        FITBO_wrapper(batch_size = batch, heuristic = heur)
         
