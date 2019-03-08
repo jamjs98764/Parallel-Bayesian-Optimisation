@@ -1,4 +1,4 @@
-ing# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """
 Created on Tue Jan 22 15:18:49 2019
 
@@ -216,9 +216,9 @@ for test_func in test_funcs:
                 saving_data(X_record, min_y_record)
 
 """
-batch_sizes = [2]
-test_funcs = ["branin"]
-acq_funcs =  ["EI_MCMC"]
+batch_sizes = [2, 4]
+test_funcs = ["branin", "egg", "hartmann"]
+acq_funcs =  ["EI"]
 evaluator_types = ["local_penalization"] # does not matter for batch size = 1  
 
 for test_func in test_funcs:
