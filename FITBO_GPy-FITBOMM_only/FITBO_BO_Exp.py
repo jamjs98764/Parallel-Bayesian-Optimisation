@@ -14,8 +14,8 @@ from class_FITBOMM import Bayes_opt_batch
 
 ##### Initializing experiment parameters
 
-seed_size = 50
-num_iters = 40
+seed_size = 5
+num_iters = 20
 v2_seed_start = 30
 v2_seed_size = 20
 
@@ -315,8 +315,8 @@ def test_all_v2(test_func, current_batch_size):
     return None
 
 # Batch
-batch_sizes = [8]
-test_funcs = ["hartmann"]
+batch_sizes = [4]
+test_funcs = ["branin"]
 
 for batch_size in batch_sizes:
     for test_func in test_funcs:
