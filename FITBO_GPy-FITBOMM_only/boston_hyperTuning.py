@@ -25,7 +25,7 @@ import utilities
 
 total_evals = 40 # on top of initial points - 48
 initial_num = 4
-seed_size = 30
+seed_size = 10
 
 n_folds = 5
 
@@ -59,6 +59,8 @@ num_discrete_dim = 4
 num_categorical_dim = 0
 
 input_dim = num_continuous_dim + num_discrete_dim + num_categorical_dim
+
+input_type = [False, True, True, True, True] # True if domain is discrete
 
 continuous_bounds = [(10**-5,10**0)]
 
@@ -296,7 +298,7 @@ def FITBO_wrapper(batch_size = 2, heuristic = "cl-min"):
             np.random.seed(seed)
             x_ob = generate_initial_points_x(init_type, seed)
             y_ob = generate_initial_points_y(x_ob)
-            bayes_opt = Bayes_opt_batch(fitbo_objective, fitbo_lb, fitbo_ub, var_noise = 0)
+            bayes_opt = Bayes_opt_batch(fitbo_objective, fitbo_lb, fitbo_ub, var_noise = 0, input_type = input_type)
             bayes_opt.initialise(x_ob, y_ob)
             X_optimum, Y_optimum = bayes_opt.iteration_step_batch(num_batches=num_batches, mc_burn=burnin, mc_samples=sample_size, \
                                                                               bo_method=BO_method, seed=seed, resample_interval= resample_interval, \

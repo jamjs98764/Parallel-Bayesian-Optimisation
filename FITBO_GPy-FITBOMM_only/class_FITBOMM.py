@@ -280,7 +280,11 @@ class Bayes_opt():
         res = minimize(func, X_start, method='L-BFGS-B', jac=False, bounds=bnds)
         x_opt = res.x[None, :]
         
-        # Rounding        
+        # Rounding
+        for i in range(len(self.input_type)):
+            if self.input_type[i] == True:
+                x_opt[0][i] = np.rint(x_opt[0][i])
+        
         return x_opt
 
     def iteration_step(self, iterations, mc_burn , mc_samples,bo_method, \
@@ -645,6 +649,12 @@ class Bayes_opt_batch():
         bnds = tuple((li, ui) for li, ui in zip(self.lb, self.ub))
         res = minimize(func, X_start, method='L-BFGS-B', jac=False, bounds=bnds)
         x_opt = res.x[None, :]
+        
+        # Rounding
+        for i in range(len(self.input_type)):
+            if self.input_type[i] == True:
+                x_opt[0][i] = np.rint(x_opt[0][i])
+        
         return x_opt
 
     def iteration_step_batch(self, num_batches, mc_burn , mc_samples,bo_method, seed, resample_interval, \
