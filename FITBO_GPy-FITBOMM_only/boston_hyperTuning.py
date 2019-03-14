@@ -253,7 +253,8 @@ def FITBO_wrapper(batch_size = 2, heuristic = "cl-min"):
     if batch_size == 1: # Sequential
         heuristic = "sequential"        
         for j in range(seed_size):
-            print("Currently on seed: ", j)
+            print("Sequential not yet fixed")
+            """
             seed = j
             np.random.seed(seed)
             
@@ -274,9 +275,14 @@ def FITBO_wrapper(batch_size = 2, heuristic = "cl-min"):
             np.save(Y_file_name, Y_optimum)
             np.save(X_hist_file_name, bayes_opt.X) 
             np.save(Y_hist_file_name, bayes_opt.Y)
+            """
 
     else: # Batch
         num_batches = int(total_evals / batch_size)
+        results_X_hist = np.zeros(shape=(seed_size, num_batches + 1)) 
+        results_X_optimum = np.zeros(shape=(seed_size, num_batches + 1)) 
+        results_Y_hist = np.zeros(shape=(seed_size, num_batches + 1))  
+        results_Y_optimum = np.zeros(shape=(seed_size, num_batches + 1))
         
         for j in range(seed_size):
             print("Currently on seed: ", j)
@@ -294,10 +300,16 @@ def FITBO_wrapper(batch_size = 2, heuristic = "cl-min"):
             Y_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",Y_optimum" 
             X_hist_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",X_hist" 
             Y_hist_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",Y_hist" 
-            np.save(X_file_name, X_optimum) # results_IR/L2 is np array of shape (num_iterations + 1, seed_size)
-            np.save(Y_file_name, Y_optimum)
-            np.save(X_hist_file_name, bayes_opt.X) 
-            np.save(Y_hist_file_name, bayes_opt.Y)
+            
+            results_X_hist[j, :] = bayes_opt.X
+            results_X_optimum[j, :] = X_optimum
+            results_Y_hist[j, :] = bayes_opt.Y
+            results_Y_optimum[j, :] = Y_optimum
+            
+        np.save(X_file_name, results_X_optimum) 
+        np.save(Y_file_name, results_Y_optimum)
+        np.save(X_hist_file_name, results_X_hist) 
+        np.save(Y_hist_file_name, results_Y_hist)
 
 
 ####
