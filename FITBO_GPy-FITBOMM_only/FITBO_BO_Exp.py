@@ -14,7 +14,7 @@ from class_FITBOMM import Bayes_opt_batch
 
 ##### Initializing experiment parameters
 
-seed_size = 5
+seed_size = 20
 num_iters = 40
 v2_seed_start = 30
 v2_seed_size = 20

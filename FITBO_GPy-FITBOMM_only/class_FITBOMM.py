@@ -762,8 +762,8 @@ class Bayes_opt_batch():
                 x_next_mean = self._marginalised_posterior_mean(x_next)
                 x_next_var = self._marginalised_posterior_var(x_next)
                 PI_value = norm.cdf((current_y_best - (x_next_mean)) / np.sqrt(x_next_var))
-                print("here")
-                print(x_next_var)
+                print("pi")
+                print(PI_value)
                 self.full_PI_value[k, batch_i, : ] = PI_value            
             
             # Finding real function values for all query points in batch
