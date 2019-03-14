@@ -58,6 +58,8 @@ num_continuous_dim = 1
 num_discrete_dim = 4 
 num_categorical_dim = 0
 
+input_dim = num_continuous_dim + num_discrete_dim + num_categorical_dim
+
 continuous_bounds = [(10**-5,10**0)]
 
 discrete_bounds = [(1,5),
@@ -178,6 +180,7 @@ def gpyopt_wrapper(acq_func = 'EI', batch_size = 1, eval_type = 'local_penalizat
     eval_record_dict = {}
     
     for seed in range(seed_size):
+
         BO = GPyOpt.methods.BayesianOptimization(f = gpyopt_objective,
                                                 domain = space_gpyopt,
                                                 acquisition_type = acq_func,
@@ -282,11 +285,11 @@ def FITBO_wrapper(batch_size = 2, heuristic = "cl-min"):
 
     else: # Batch
         num_batches = int(total_evals / batch_size)
-        results_X_hist = np.zeros(shape=(seed_size, num_batches + 1)) 
-        results_X_optimum = np.zeros(shape=(seed_size, num_batches + 1)) 
-        results_Y_hist = np.zeros(shape=(seed_size, num_batches + 1))  
+        results_X_hist = np.zeros(shape=(seed_size, total_evals + initial_num, input_dim)) 
+        results_X_optimum = np.zeros(shape=(seed_size, num_batches + 1, input_dim)) 
+        results_Y_hist = np.zeros(shape=(seed_size, total_evals + initial_num))  
         results_Y_optimum = np.zeros(shape=(seed_size, num_batches + 1))
-        
+
         for j in range(seed_size):
             print("Currently on seed: ", j)
             seed = j
@@ -299,21 +302,22 @@ def FITBO_wrapper(batch_size = 2, heuristic = "cl-min"):
                                                                               bo_method=BO_method, seed=seed, resample_interval= resample_interval, \
                                                                               batch_size = batch_size, heuristic = heuristic, 
                                                                               dir_name = dir_name)
-            X_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",X_optimum"  
-            Y_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",Y_optimum" 
-            X_hist_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",X_hist" 
-            Y_hist_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",Y_hist" 
             
             results_X_hist[j, :] = bayes_opt.X
             results_X_optimum[j, :] = X_optimum
-            results_Y_hist[j, :] = bayes_opt.Y
-            results_Y_optimum[j, :] = Y_optimum
-            
+            results_Y_hist[j, :] = bayes_opt.Y.flatten()
+            results_Y_optimum[j, :] = Y_optimum.flatten()
+        
+    
+        X_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",X_optimum"  
+        Y_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",Y_optimum" 
+        X_hist_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",X_hist" 
+        Y_hist_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",Y_hist"
+        
         np.save(X_file_name, results_X_optimum) 
         np.save(Y_file_name, results_Y_optimum)
         np.save(X_hist_file_name, results_X_hist) 
         np.save(Y_hist_file_name, results_Y_hist)
-
 
 ####
 # Running experiments
