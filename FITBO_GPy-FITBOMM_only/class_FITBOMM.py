@@ -710,7 +710,7 @@ class Bayes_opt_batch():
             # Iterate across current batch
             for batch_i in range(batch_size):
                 # optimise the acquisition function to get the next query point and evaluate at next query point
-                current_y_best = real_Y.min()
+                
                 x_next = self._gloabl_minimser(acqu_func)
                 max_acqu_value = - acqu_func(x_next)
                 
@@ -755,23 +755,23 @@ class Bayes_opt_batch():
             self.Y = real_Y
             self._fit_GP()
             self._fit_GP_normal()    
-             
+            
+            current_y_best = real_Y.min()
             for batch_i in range(batch_size):
                 x_next = batch_X[k, batch_i, :]
                 x_next_mean = self._marginalised_posterior_mean(x_next)
                 x_next_var = self._marginalised_posterior_var(x_next)
-                PI_value = norm.cdf((-(x_next_mean) + current_y_best) / np.sqrt(x_next_var)) 
+                PI_value = norm.cdf((current_y_best - (x_next_mean)) / np.sqrt(x_next_var))
+                print("here")
+                print(x_next_var)
                 self.full_PI_value[k, batch_i, : ] = PI_value            
             
             # Finding real function values for all query points in batch
             
             cur_batch_X = batch_X[k]
-            
 
             self.X = np.vstack((self.X, cur_batch_X))
             actual_y = self.func(cur_batch_X) + np.random.normal(0, self.var_noise, (batch_size, 1))
-            print("actual_y")
-            print(actual_y)
             self.Y = np.vstack((self.Y, actual_y))
                 
             #################### Main changes for batch END
