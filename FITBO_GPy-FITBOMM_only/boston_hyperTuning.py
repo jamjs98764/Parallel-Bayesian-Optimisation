@@ -159,8 +159,7 @@ def saving_data(X_record, min_y_record, eval_record, batch_size, acq_func, eval_
         os.mkdir(dir_name)
     except FileExistsError:
         pass
-    print("min_y_record")
-    print(min_y_record)
+
     pickle_dict = {
         "X": X_record, 
         "min_y": min_y_record, 
