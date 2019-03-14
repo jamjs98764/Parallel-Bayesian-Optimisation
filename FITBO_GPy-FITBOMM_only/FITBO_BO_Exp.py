@@ -315,7 +315,7 @@ def test_all_v2(test_func, current_batch_size):
     return None
 
 # Batch
-batch_sizes = [8]
+batch_sizes = [4]
 test_funcs = ["hartmann"]
 
 for batch_size in batch_sizes:

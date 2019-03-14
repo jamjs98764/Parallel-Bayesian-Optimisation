@@ -754,8 +754,6 @@ class Bayes_opt_batch():
 
             self.X = np.vstack((self.X, cur_batch_X))
             actual_y = self.func(cur_batch_X) + np.random.normal(0, self.var_noise, len(x_next))
-            print("actual_y")
-            print(actual_y)
             self.Y = np.vstack((self.Y, actual_y))
                 
             #################### Main changes for batch END

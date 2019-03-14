@@ -23,9 +23,9 @@ from skopt.space import Real, Integer
 from skopt.utils import use_named_args
 import utilities
 
-total_evals = 40
+total_evals = 60
 initial_num = 5
-seed_size = 5
+seed_size = 30
 
 n_folds = 5
 
@@ -147,10 +147,32 @@ def sklearn_wrapper(acq_func = 'gp_hedge', batch = 1):
 ####
 # GPyOpt learn wrapper
 ####
+            
+def saving_data(X_record, min_y_record, eval_record, batch_size, acq_func, eval_type):
+    """
+    For saving data
+    """
+    dir_name = 'Exp_Data/boston_gbr/gpyopt/' + str(batch_size) + '_batch/'
+    file_name = dir_name + str(acq_func) + ',' + str(eval_type) + ',results_vars.pickle'
+    
+    try: # creates new folder
+        os.mkdir(dir_name)
+    except FileExistsError:
+        pass
+    
+    pickle_dict = {
+        "X": X_record, 
+        "min_y": min_y_record, 
+        "eval_record": eval_record
+        }
+    
+    with open(file_name, 'wb') as f:
+        pickle.dump(pickle_dict, f)
+        
+    return 0  
 
 def gpyopt_wrapper(acq_func = 'EI', batch_size = 1, eval_type = 'local_penalization'):
     import GPyOpt
-    dir_name = "Exp_Data/boston_gbr/gpyopt/"
     
     for seed in range(seed_size):
         BO = GPyOpt.methods.BayesianOptimization(f = gpyopt_objective,
@@ -159,17 +181,27 @@ def gpyopt_wrapper(acq_func = 'EI', batch_size = 1, eval_type = 'local_penalizat
                                                 evaluator_type = eval_type,
                                                 model_type="GP",
                                                 initial_design_numdata = initial_num,
-                                            initial_design_type = init_type,
+                                                initial_design_type = init_type,
                                                 batch_size = batch_size,
                                                 n_burning = 100,
                                                 n_samples = 150)
         
         BO.run_optimization(max_iter = int(total_evals / batch_size))
+        
+        # For saving
+        X_record = {}
+        min_y_record = {}
+        eval_record = BO.get_evaluations()[0]
+        X_opt = BO.return_minimiser() # (rows = iterations, columns = X_dimensions)
+        num_iter = X_opt.shape[0]
+        min_y = np.zeros((num_iter, 1)) # cols = output dimension
+        for i in range(num_iter):
+            min_y[i] = gpyopt_objective(X_opt[i])
 
-        file_name = dir_name + "batch_" + str(batch_size) + "," + acq_func + ",seed_" + str(seed_size)
-
-        with open(file_name, 'wb') as f:
-            pickle.dump(BO, f)
+        X_record[seed] = X_opt[initial_num:] # Initial samples dont count
+        min_y_record[seed] = min_y[initial_num:]
+        
+    saving_data(X_record, min_y_record, eval_record, batch_size, acq_func, eval_type)
 
 ####
 # GPyOpt learn wrapper
@@ -234,10 +266,14 @@ def FITBO_wrapper(batch_size = 2, heuristic = "cl-min"):
                                                             seed=seed, resample_interval= resample_interval, \
                                                             dir_name = dir_name)
             
-            X_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic)
-            Y_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic)
+            X_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",X_optimum" 
+            Y_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",Y_optimum"
+            X_hist_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",X_hist" 
+            Y_hist_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",Y_hist" 
             np.save(X_file_name, X_optimum) # results_IR/L2 is np array of shape (num_iterations + 1, seed_size)
             np.save(Y_file_name, Y_optimum)
+            np.save(X_hist_file_name, bayes_opt.X) 
+            np.save(Y_hist_file_name, bayes_opt.Y)
 
     else: # Batch
         num_batches = int(total_evals / batch_size)
@@ -254,18 +290,22 @@ def FITBO_wrapper(batch_size = 2, heuristic = "cl-min"):
                                                                               bo_method=BO_method, seed=seed, resample_interval= resample_interval, \
                                                                               batch_size = batch_size, heuristic = heuristic, 
                                                                               dir_name = dir_name)
-            X_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic)
-            Y_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic)
+            X_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",X_optimum"  
+            Y_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",Y_optimum" 
+            X_hist_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",X_hist" 
+            Y_hist_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",Y_hist" 
             np.save(X_file_name, X_optimum) # results_IR/L2 is np array of shape (num_iterations + 1, seed_size)
             np.save(Y_file_name, Y_optimum)
+            np.save(X_hist_file_name, bayes_opt.X) 
+            np.save(Y_hist_file_name, bayes_opt.Y)
 
 
 ####
 # Running experiments
 ####    
 
-batch_list = [2]
-heuristic_list = ['cl-min']
+batch_list = [2, 4]
+heuristic_list = ['cl-min', 'cl-max', 'cl-mean', 'kb', 'random', 'random_except_1st']
 error_list = []
 
 for batch in batch_list:

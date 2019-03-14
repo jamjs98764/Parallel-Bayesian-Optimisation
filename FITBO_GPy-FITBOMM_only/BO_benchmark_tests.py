@@ -214,7 +214,6 @@ for test_func in test_funcs:
                 X_record, min_y_record = wrapper_GPyOpt(test_func, acq_func = acq_func, eval_type = eval_type, \
                                                   batch_size = batch_size)
                 saving_data(X_record, min_y_record)
-
 """
 batch_sizes = [8]
 test_funcs = ["branin", "egg", "hartmann"]
