@@ -23,7 +23,7 @@ from skopt.space import Real, Integer
 from skopt.utils import use_named_args
 import utilities
 
-total_evals = 60
+total_evals = 60 # on top of initial points
 initial_num = 5
 seed_size = 30
 
@@ -159,7 +159,8 @@ def saving_data(X_record, min_y_record, eval_record, batch_size, acq_func, eval_
         os.mkdir(dir_name)
     except FileExistsError:
         pass
-    
+    print("min_y_record")
+    print(min_y_record)
     pickle_dict = {
         "X": X_record, 
         "min_y": min_y_record, 
@@ -173,6 +174,9 @@ def saving_data(X_record, min_y_record, eval_record, batch_size, acq_func, eval_
 
 def gpyopt_wrapper(acq_func = 'EI', batch_size = 1, eval_type = 'local_penalization'):
     import GPyOpt
+    X_record = {}
+    min_y_record = {}
+    eval_record_dict = {}
     
     for seed in range(seed_size):
         BO = GPyOpt.methods.BayesianOptimization(f = gpyopt_objective,
@@ -189,8 +193,7 @@ def gpyopt_wrapper(acq_func = 'EI', batch_size = 1, eval_type = 'local_penalizat
         BO.run_optimization(max_iter = int(total_evals / batch_size))
         
         # For saving
-        X_record = {}
-        min_y_record = {}
+
         eval_record = BO.get_evaluations()[0]
         X_opt = BO.return_minimiser() # (rows = iterations, columns = X_dimensions)
         num_iter = X_opt.shape[0]
@@ -200,6 +203,7 @@ def gpyopt_wrapper(acq_func = 'EI', batch_size = 1, eval_type = 'local_penalizat
 
         X_record[seed] = X_opt[initial_num:] # Initial samples dont count
         min_y_record[seed] = min_y[initial_num:]
+        eval_record_dict[seed] = eval_record[initial_num:]
         
     saving_data(X_record, min_y_record, eval_record, batch_size, acq_func, eval_type)
 
@@ -320,12 +324,15 @@ batch_list = [2, 4]
 heuristic_list = ['cl-min', 'cl-max', 'cl-mean', 'kb', 'random', 'random_except_1st']
 error_list = []
 
+
 for batch in batch_list:
     gpyopt_wrapper(batch_size = batch)  # EI, Local Penalization by default  
+    """
     for heur in heuristic_list:
         try:
             FITBO_wrapper(batch_size = batch, heuristic = heur)
         except:
             error_run = heur + str(batch)
             error_list.append(error_run)
+    """
         
