@@ -731,11 +731,6 @@ class Bayes_opt_batch():
                     else:
                         y_next_guess = 0.5 # Arbitary as not used in random batch selector
                         
-                # PI Values - calculate before updating GP with guessed values
-                
-                x_next_mean = self._marginalised_posterior_mean(x_next)
-                x_next_var = self._marginalised_posterior_var(x_next)
-                PI_value = norm.cdf((-(x_next_mean) + current_y_best) / np.sqrt(x_next_var)) 
 
                 self.X = np.vstack((self.X, x_next))
                 self.Y = np.vstack((self.Y, y_next_guess)) # Appending Data with guessed values
@@ -752,15 +747,22 @@ class Bayes_opt_batch():
                 # Just for recording
                 batch_X[k, batch_i, :] = x_next
                 batch_Y[k, batch_i, :] = y_next_guess
-                self.full_PI_value[k, batch_i, :] = PI_value
-
+                
+            
             # Resetting back to original real values 
             # TODO: deepcopy doesnt work so we re-initialize GP with original X's every time
             self.X = real_X
             self.Y = real_Y
-            #self._fit_GP()
-            #self._fit_GP_normal()    
-                
+            self._fit_GP()
+            self._fit_GP_normal()    
+             
+            for batch_i in range(batch_size):
+                x_next = batch_X[k, batch_i, :]
+                x_next_mean = self._marginalised_posterior_mean(x_next)
+                x_next_var = self._marginalised_posterior_var(x_next)
+                PI_value = norm.cdf((-(x_next_mean) + current_y_best) / np.sqrt(x_next_var)) 
+                self.full_PI_value[k, batch_i, : ] = PI_value            
+            
             # Finding real function values for all query points in batch
             
             cur_batch_X = batch_X[k]
