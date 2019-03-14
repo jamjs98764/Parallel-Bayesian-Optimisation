@@ -335,7 +335,7 @@ for batch in batch_list:
         try:
             FITBO_wrapper(batch_size = batch, heuristic = heur)
         except:
-            error_run = heur + str(batch)
+            error_run = heur + str(batch) + "_batch" 
             error_list.append(error_run)
     
     

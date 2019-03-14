@@ -22,12 +22,13 @@ import GP_models
 from scipy.stats import norm
 
 class Bayes_opt():
-    def __init__(self, func, lb, ub, var_noise):
+    def __init__(self, func, lb, ub, var_noise, input_type = [0]):
         self.func = func
         self.lb = lb
         self.ub = ub
         self.var_noise = var_noise
         self.ntest = 2000
+        self.input_type = input_type
 
     def initialise(self, X_init=None, Y_init=None, kernel=None):
         assert X_init.ndim == 2, "X_init has to be 2D array"
@@ -278,6 +279,8 @@ class Bayes_opt():
 
         res = minimize(func, X_start, method='L-BFGS-B', jac=False, bounds=bnds)
         x_opt = res.x[None, :]
+        
+        # Rounding        
         return x_opt
 
     def iteration_step(self, iterations, mc_burn , mc_samples,bo_method, \
@@ -402,12 +405,13 @@ class Bayes_opt():
 #########################################################################
 
 class Bayes_opt_batch():
-    def __init__(self, func, lb, ub, var_noise):
+    def __init__(self, func, lb, ub, var_noise, input_type = [0]):
         self.func = func
         self.lb = lb
         self.ub = ub
         self.var_noise = var_noise
         self.ntest = 2000
+        self.input_type = input_type
 
     def initialise(self, X_init=None, Y_init=None, kernel=None):
         assert X_init.ndim == 2, "X_init has to be 2D array"
