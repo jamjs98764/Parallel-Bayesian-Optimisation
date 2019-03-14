@@ -23,9 +23,9 @@ from skopt.space import Real, Integer
 from skopt.utils import use_named_args
 import utilities
 
-total_evals = 24 # on top of initial points - 48
+total_evals = 40 # on top of initial points - 48
 initial_num = 4
-seed_size = 3
+seed_size = 30
 
 n_folds = 5
 
@@ -328,16 +328,15 @@ batch_list = [2]
 heuristic_list = ['cl-min']
 error_list = []
 
-
 for batch in batch_list:
     gpyopt_wrapper(batch_size = batch)  # EI, Local Penalization by default  
-    """
+    
     for heur in heuristic_list:
         try:
             FITBO_wrapper(batch_size = batch, heuristic = heur)
         except:
             error_run = heur + str(batch)
             error_list.append(error_run)
-    """
+    
     
         
