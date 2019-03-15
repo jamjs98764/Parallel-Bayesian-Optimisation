@@ -102,12 +102,16 @@ def BO_test(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, re
                 results_L2[j, :] = np.linalg.norm(X_optimum - true_location[0, :], axis=1).ravel()
                 print(np.linalg.norm(X_optimum - true_location[0, :], axis=1).ravel())
     
-            X_opt_file_name = dir_name + 'A_results_L2,sequential' 
-            Y_opt_file_name = dir_name + 'A_results_IR,sequential'
-            
-            np.save(X_opt_file_name, results_L2) # results_IR/L2 is np array of shape (num_iterations + 1, seed_size)
-            np.save(Y_opt_file_name, results_IR)
-        
+            L2_file_name = dir_name + 'A_results_L2,sequential' 
+            IR_file_name = dir_name + 'A_results_IR,sequential'
+
+            X_opt_file_name = dir_name + 'A_results_X-opt' 
+            Y_opt_file_name = dir_name + 'A_results_Y-opt'
+
+            np.save(L2_file_name, results_L2) # results_IR/L2 is np array of shape (num_iterations + 1, seed_size)
+            np.save(IR_file_name, results_IR)
+            np.save(X_opt_file_name, X_optimum)
+            np.save(Y_opt_file_name, Y_optimum)       
 
     if batch == True:
         num_batches = int(num_iterations / batch_size)
@@ -138,11 +142,16 @@ def BO_test(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, re
             else:
                 results_L2[j, :] = np.linalg.norm(X_optimum - true_location[0, :], axis=1).ravel()
             
-            X_opt_file_name = dir_name + 'A_results_L2,' + heuristic + '_heuristic'
-            Y_opt_file_name = dir_name + 'A_results_IR,' + heuristic + '_heuristic'
+            L2_file_name = dir_name + 'A_results_L2,' + heuristic + '_heuristic'
+            IR_file_name = dir_name + 'A_results_IR,' + heuristic + '_heuristic'
 
-            np.save(X_opt_file_name, results_L2)
-            np.save(Y_opt_file_name, results_IR)
+            X_opt_file_name = dir_name + 'A_results_X-opt,' + heuristic + '_heuristic'
+            Y_opt_file_name = dir_name + 'A_results_Y-opt,' + heuristic + '_heuristic'
+            
+            np.save(L2_file_name, results_L2)
+            np.save(IR_file_name, results_IR)
+            np.save(X_opt_file_name, X_optimum)
+            np.save(Y_opt_file_name, Y_optimum)
         
 def BO_test_v2(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, resample_interval = 1, \
             seed_start = v2_seed_start, seed_size = v2_seed_size, num_iterations = num_iters, batch = False, batch_size = 2, heuristic = "kb"):
