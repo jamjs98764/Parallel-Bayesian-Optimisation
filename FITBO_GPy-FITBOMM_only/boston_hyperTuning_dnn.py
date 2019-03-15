@@ -36,9 +36,9 @@ from skopt.space import Real, Integer
 from skopt.utils import use_named_args
 import utilities
 
-total_evals = 24 # on top of initial points 
+total_evals = 40 # on top of initial points 
 initial_num = 4
-seed_size = 3
+seed_size = 30
 
 n_folds = 5
 
@@ -138,7 +138,7 @@ def sklearn_wrapper(acq_func = 'gp_hedge', batch = 1):
     acq_func = "LCB", "EI", "PI", "gp_hedge"
     """
     from skopt import gp_minimize
-    dir_name = "Exp_Data/boston_gbr/sklearn/"
+    dir_name = "Exp_Data/boston_dnn/sklearn/"
     
     for seed in range(seed_size):
         res_gp = gp_minimize(objective, space_gpyopt, n_calls = total_evals, 
@@ -166,7 +166,7 @@ def saving_data(X_record, min_y_record, eval_record, batch_size, acq_func, eval_
     """
     For saving data
     """
-    dir_name = 'Exp_Data/boston_gbr/gpyopt/' + str(batch_size) + '_batch/'
+    dir_name = 'Exp_Data/boston_dnn/gpyopt/' + str(batch_size) + '_batch/'
     file_name = dir_name + str(acq_func) + ',' + str(eval_type) + ',results_vars.pickle'
     
     try: # creates new folder
@@ -261,7 +261,7 @@ def FITBO_wrapper(batch_size = 2, heuristic = "cl-min"):
     sample_size = 50
     resample_interval = 1
 
-    dir_name = "Exp_Data/boston_gbr/fitbo/batch_" + str(batch_size) + "/"
+    dir_name = "Exp_Data/boston_dnn/fitbo/batch_" + str(batch_size) + "/"
     
     try:
         os.mkdir(dir_name)
@@ -335,21 +335,21 @@ def FITBO_wrapper(batch_size = 2, heuristic = "cl-min"):
 # Running experiments
 ####    
 
-batch_list = [2]
-heuristic_list = ['cl-min']
+batch_list = [2, 4]
+heuristic_list = ['cl-min', 'cl-max', 'kb']
 # heuristic_list = ['cl-min']
 error_list = []
 
 for batch in batch_list:
-    # gpyopt_wrapper(batch_size = batch)  # EI, Local Penalization by default  
-    
+    gpyopt_wrapper(batch_size = batch)  # EI, Local Penalization by default  
+    """
     for heur in heuristic_list:
         try:
             FITBO_wrapper(batch_size = batch, heuristic = heur)
         except:
             error_run = heur + str(batch) + "_batch" 
             error_list.append(error_run)
-    
+    """
    
 
 

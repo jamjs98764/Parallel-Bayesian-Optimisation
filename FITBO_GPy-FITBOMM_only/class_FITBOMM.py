@@ -104,7 +104,7 @@ class Bayes_opt():
         prior_ymin_eta = Gaussianprior(log_params[self.X_dim + 2], mean_ln_yminob_minus_eta, var_ln_yminob_minus_eta )/\
                          params[self.X_dim + 2]
         log_posterior = log_likelihood + np.log(prior_l_scales * prior_output_var * prior_noise_var * prior_ymin_eta)
-        return log_posterior
+        return log_posterior  # returns a scalar value
 
     def _samplehyper(self, mean_ln_yminob_minus_eta, var_ln_yminob_minus_eta):
         
@@ -717,8 +717,6 @@ class Bayes_opt_batch():
                 # optimise the acquisition function to get the next query point and evaluate at next query point
                 
                 x_next = self._gloabl_minimser(acqu_func)
-                print("x_next")
-                print(x_next)
                 max_acqu_value = - acqu_func(x_next)
                 
                 if heuristic == "kb":
@@ -759,8 +757,6 @@ class Bayes_opt_batch():
                 
                 # Just for recording
                 batch_X[k, batch_i, :] = x_next
-                print("batch_X")
-                print(batch_X)
                 batch_Y[k, batch_i, :] = y_next_guess
                 self.full_PI_value[k, batch_i, : ] = PI_value 
                 
@@ -777,8 +773,6 @@ class Bayes_opt_batch():
             cur_batch_X = batch_X[k]
 
             self.X = np.vstack((self.X, cur_batch_X))
-            print("here")
-            print(cur_batch_X)
             actual_y = self.func(cur_batch_X) + np.random.normal(0, self.var_noise, (batch_size, 1))
             self.Y = np.vstack((self.Y, actual_y))
                 
