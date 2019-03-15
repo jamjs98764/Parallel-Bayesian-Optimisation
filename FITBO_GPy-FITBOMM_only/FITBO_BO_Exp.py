@@ -139,7 +139,8 @@ def BO_test(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, re
                 results_L2[j, :] = np.linalg.norm(X_optimum - true_location[0, :], axis=1).ravel()
             
             X_opt_file_name = dir_name + 'A_results_L2,' + heuristic + '_heuristic'
-            Y_opt_file_name = dir_name + 'A_results_IR,' + heuristic + '_heuristic' 
+            Y_opt_file_name = dir_name + 'A_results_IR,' + heuristic + '_heuristic'
+
             np.save(X_opt_file_name, results_L2)
             np.save(Y_opt_file_name, results_IR)
         
