@@ -64,9 +64,9 @@ input_type = [False, True, True, True, True] # True if domain is discrete
 
 continuous_bounds = [(10**-5,10**0)]
 
-discrete_bounds = [(1,5),
+discrete_bounds = [(1,5), # Lower bound inclusive, upper bound exclusive
                    (1,n_features),
-                   (2,201),
+                   (2,101), 
                    (1,101)]
 
 fitbo_lb = [continuous_bounds[0][0]]
@@ -223,6 +223,7 @@ def generate_initial_points_x(init_type, seed):
         func = utilities.random_mixed_unnormalized
     elif init_type == "sobol":
         func = utilities.sobol_mixed_unnormalized
+
     a, b, c = func(num_continuous_dim, num_discrete_dim, num_categorical_dim,
                    continuous_bounds, discrete_bounds, categorical_choice,
                    initial_num, seed)
@@ -326,19 +327,18 @@ def FITBO_wrapper(batch_size = 2, heuristic = "cl-min"):
 ####    
 
 batch_list = [2, 4]
-heuristic_list = ['cl-min', 'random_except_1st']
+heuristic_list = ['cl-min', 'cl-max', 'random_except_1st']
 # heuristic_list = ['cl-min']
 error_list = []
 
 for batch in batch_list:
-    gpyopt_wrapper(batch_size = batch)  # EI, Local Penalization by default  
+    # gpyopt_wrapper(batch_size = batch)  # EI, Local Penalization by default  
     
     for heur in heuristic_list:
         try:
             FITBO_wrapper(batch_size = batch, heuristic = heur)
-        except:
-            error_run = heur + str(batch) + "_batch" 
+        except Exception as e:
+            error_run = heur + str(batch) + "_batch - " + str(e) 
             error_list.append(error_run)
     
     
-        
