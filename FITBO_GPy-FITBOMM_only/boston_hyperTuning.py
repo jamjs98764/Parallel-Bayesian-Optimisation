@@ -25,7 +25,7 @@ import utilities
 
 total_evals = 40 # on top of initial points - 48
 initial_num = 4
-seed_size = 30
+seed_size = 5
 
 n_folds = 5
 
