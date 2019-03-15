@@ -158,12 +158,13 @@ def random_mixed_unnormalized(num_continuous_dim, num_discrete_dim, num_categori
     ####
     # Discrete sequence
     ####
+    discrete_seq = np.zeros((num_init, num_discrete_dim))
+
     if num_discrete_dim > 0:
-        discrete_seq = np.random.random((num_init, num_discrete_dim))
-        # Scaling to bounds then rounding
         for i in range(num_discrete_dim):
-            discrete_seq[:,i] = np.ceil(discrete_seq[:,i]*(discrete_bounds[i][1] - discrete_bounds[i][0])).astype(int)
-        discrete_seq = discrete_seq.astype(int)
+            dim_seq = np.random.randint(discrete_bounds[i][0], discrete_bounds[i][1], (num_init, 1))
+            discrete_seq[:, i] = dim_seq.flatten()
+
     else: 
         discrete_seq = 0
 
