@@ -71,13 +71,18 @@ input_dim = num_continuous_dim + num_discrete_dim + num_categorical_dim
 
 input_type = [False, False, True] # True if domain is discrete
 
-continuous_bounds = [(10**-5,10**0)]
+continuous_bounds = [(10**-5,10**0), 
+                     (10**-5,10**0)]
 
 discrete_bounds = [(1,101)] # upper bound exclusive
 
-fitbo_lb = [continuous_bounds[0][0]]
-fitbo_ub = [continuous_bounds[0][1]]
+fitbo_lb = []
+fitbo_ub = []
 
+for i in continuous_bounds:
+    fitbo_lb.append(i[0])
+    fitbo_ub.append(i[1])
+    
 for i in discrete_bounds:
     fitbo_lb.append(i[0])
     fitbo_ub.append(i[1])
@@ -331,12 +336,12 @@ def FITBO_wrapper(batch_size = 2, heuristic = "cl-min"):
 ####    
 
 batch_list = [2]
-heuristic_list = ['cl-min', 'random_except_1st']
+heuristic_list = ['cl-min']
 # heuristic_list = ['cl-min']
 error_list = []
 
 for batch in batch_list:
-    gpyopt_wrapper(batch_size = batch)  # EI, Local Penalization by default  
+    # gpyopt_wrapper(batch_size = batch)  # EI, Local Penalization by default  
     
     for heur in heuristic_list:
         try:

@@ -649,6 +649,9 @@ class Bayes_opt_batch():
         X_start = Xtest[idx_test, :]
         # bnds = ((0.0, 1.0), (0.0, 1.0))
         bnds = tuple((li, ui) for li, ui in zip(self.lb, self.ub))
+        
+        print("bnds")
+        print(bnds)
         res = minimize(func, X_start, method='L-BFGS-B', jac=False, bounds=bnds)
         x_opt = res.x[None, :]
         
@@ -714,6 +717,8 @@ class Bayes_opt_batch():
                 # optimise the acquisition function to get the next query point and evaluate at next query point
                 
                 x_next = self._gloabl_minimser(acqu_func)
+                print("x_next")
+                print(x_next)
                 max_acqu_value = - acqu_func(x_next)
                 
                 if heuristic == "kb":
@@ -754,6 +759,8 @@ class Bayes_opt_batch():
                 
                 # Just for recording
                 batch_X[k, batch_i, :] = x_next
+                print("batch_X")
+                print(batch_X)
                 batch_Y[k, batch_i, :] = y_next_guess
                 self.full_PI_value[k, batch_i, : ] = PI_value 
                 
@@ -770,6 +777,8 @@ class Bayes_opt_batch():
             cur_batch_X = batch_X[k]
 
             self.X = np.vstack((self.X, cur_batch_X))
+            print("here")
+            print(cur_batch_X)
             actual_y = self.func(cur_batch_X) + np.random.normal(0, self.var_noise, (batch_size, 1))
             self.Y = np.vstack((self.Y, actual_y))
                 
