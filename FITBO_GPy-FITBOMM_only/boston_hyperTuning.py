@@ -25,7 +25,7 @@ import utilities
 
 total_evals = 40 # on top of initial points - 48
 initial_num = 4
-seed_size = 30
+seed_size = 5
 
 n_folds = 5
 
@@ -327,7 +327,7 @@ def FITBO_wrapper(batch_size = 2, heuristic = "cl-min"):
 ####    
 
 batch_list = [2, 4]
-heuristic_list = ['cl-min', 'cl-max', 'random_except_1st']
+heuristic_list = ['cl-min', 'cl-max']
 # heuristic_list = ['cl-min']
 error_list = []
 
