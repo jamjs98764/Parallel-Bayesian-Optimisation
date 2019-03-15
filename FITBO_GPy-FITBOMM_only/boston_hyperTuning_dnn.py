@@ -12,10 +12,18 @@ Created on Wed Dec 19 16:08:52 2018
 
 @author: jianhong
 
-Performs GradientBoosting Regressor on Boston dataset
+Performs Neural Network Regressor on Boston dataset
 Tries 3 different packages: scikit, gpyopt, fitbo
 
 Records cross-validation error at each iteration
+
+ML algorithm used: sklearn
+Hyperparameters tuned:
+    1. hidden layer size (only 1 layer)
+    2. alpha - aka L2 penalty
+    3. Learning rate
+
+Source- https://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPRegressor.html
 """
 
 import numpy as np
@@ -25,7 +33,7 @@ import pickle
 import os
 
 from sklearn.datasets import load_boston
-from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.neural_network import MLPRegressor
 from sklearn.model_selection import cross_val_score
 from skopt.space import Real, Integer
 from skopt.utils import use_named_args
@@ -49,33 +57,26 @@ X, y = boston.data, boston.target
 n_features = X.shape[1]
 
 space  = [Real(10**-5, 10**0, name='learning_rate'),
-          Integer(1, 5, name='max_depth'),
-          Integer(1, n_features, name='max_features'),
-          Integer(2, 100, name='min_samples_split'),
-          Integer(1, 100, name='min_samples_leaf')]
+          Real(10**-5, 10**0, name='alpha'),
+          Integer(1, 100, name='hidden_layer_sizes'),]
 
 space_gpyopt = [{"name": "learning_rate", "type": "continuous", "domain": (10**-5,10**0)},
-                {"name": "max_depth", "type": "discrete", "domain": (1,2,3,4,5)},
-                {"name": "max_features", "type": "discrete", "domain": tuple(np.arange(1,n_features))},
-                {"name": "min_samples_split", "type": "discrete", "domain": tuple(np.arange(2,101))},
-                {"name": "min_samples_leaf", "type": "discrete", "domain": tuple(np.arange(1,101))},]
+                {"name": "alpha", "type": "continuous", "domain": (10**-5,10**0)},
+                {"name": "hidden_layer_sizes", "type": "discrete", "domain": np.arange(101)}]
 
 # For FITBO
 
-num_continuous_dim = 1
-num_discrete_dim = 4 
+num_continuous_dim = 2
+num_discrete_dim = 1
 num_categorical_dim = 0
 
 input_dim = num_continuous_dim + num_discrete_dim + num_categorical_dim
 
-input_type = [False, True, True, True, True] # True if domain is discrete
+input_type = [False, False, True] # True if domain is discrete
 
 continuous_bounds = [(10**-5,10**0)]
 
-discrete_bounds = [(1,5),
-                   (1,n_features),
-                   (2,201),
-                   (1,101)]
+discrete_bounds = [(1,101)]
 
 fitbo_lb = [continuous_bounds[0][0]]
 fitbo_ub = [continuous_bounds[0][1]]
@@ -87,27 +88,25 @@ for i in discrete_bounds:
 categorical_choice = []
 
 # gradient boosted trees tend to do well on problems like this
-reg = GradientBoostingRegressor(n_estimators=50, random_state=0)
+reg = MLPRegressor(random_state=0)
 
 # this decorator allows your objective function to receive a the parameters as
 # keyword arguments. This is particularly convenient when you want to set scikit-learn
 # estimator parameters
 @use_named_args(space)
 def objective(**params):
+    params['hidden_layer_sizes'] = (params['hidden_layer_sizes'],)
     reg.set_params(**params)
     return -np.mean(cross_val_score(reg, X, y, cv= n_folds, n_jobs=1,
                                     scoring="neg_mean_absolute_error"))
 
 def gpyopt_objective(x):
     x = np.ravel(x)
-
     # Wrapper around "objective" to suit gpyopt notation
     params = {
         "learning_rate": x[0],
-        "max_depth": x[1],
-        "max_features": int(x[2]),
-        "min_samples_split": int(x[3]),
-        "min_samples_leaf": int(x[4]),
+        "alpha": x[1],
+        "hidden_layer_sizes": (x[2],)
     }
     reg.set_params(**params)
     return -np.mean(cross_val_score(reg, X, y, cv= n_folds, n_jobs=1,
