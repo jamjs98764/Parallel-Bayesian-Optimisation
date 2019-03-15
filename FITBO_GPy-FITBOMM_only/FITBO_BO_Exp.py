@@ -14,9 +14,8 @@ from class_FITBOMM import Bayes_opt_batch
 
 ##### Initializing experiment parameters
 
-
 seed_size = 50
-num_iters = 12
+num_iters = 40
 
 v2_seed_start = 30
 v2_seed_size = 20
@@ -300,11 +299,11 @@ def test_sequential(test_func):
 def test_all(test_func, current_batch_size):    
     ## Single test batch    
 
-    #BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'kb')
-    #BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-mean')
+    BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'kb')
+    BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-mean')
     BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-min')
     BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-max')
-    #BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'random')  
+    BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'random')  
     BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'random_except_1st') 
     
     return None
@@ -326,13 +325,22 @@ def test_all_v2(test_func, current_batch_size):
     
     return None
 
+# Sequential
+
+test_funcs = ["branin", "hartmann"]
+
+for func in test_funcs:
+    test_sequential(func)
+
+
+"""
 # Batch
 batch_sizes = [4]
-test_funcs = ["branin"]
+test_funcs = ["branin", "hartmann"]
   
 for batch_size in batch_sizes:
     for test_func in test_funcs:
         test_all(test_func, batch_size)
-
+"""
 
 
