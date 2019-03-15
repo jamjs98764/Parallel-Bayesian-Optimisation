@@ -36,9 +36,9 @@ from skopt.space import Real, Integer
 from skopt.utils import use_named_args
 import utilities
 
-total_evals = 40 # on top of initial points 
+total_evals = 24 # on top of initial points 
 initial_num = 4
-seed_size = 10
+seed_size = 3
 
 n_folds = 5
 
