@@ -327,7 +327,7 @@ def FITBO_wrapper(batch_size = 2, heuristic = "cl-min"):
 ####    
 
 batch_list = [2, 4]
-heuristic_list = ['cl-min', 'cl-max', 'random_except_1st']
+heuristic_list = ['cl-min', 'cl-max']
 # heuristic_list = ['cl-min']
 error_list = []
 
