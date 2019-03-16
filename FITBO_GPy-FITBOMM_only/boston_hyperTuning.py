@@ -326,8 +326,11 @@ def FITBO_wrapper(batch_size = 2, heuristic = "cl-min"):
 # Running experiments
 ####    
 
+
 batch_list = [2, 4]
 heuristic_list = ['cl-min', 'cl-max']
+
+
 # heuristic_list = ['cl-min']
 error_list = []
 
@@ -341,4 +344,3 @@ for batch in batch_list:
             error_run = heur + str(batch) + "_batch - " + str(e) 
             error_list.append(error_run)
     """
-    

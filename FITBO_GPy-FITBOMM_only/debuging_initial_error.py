@@ -31,7 +31,7 @@ BO_method = 'FITBOMM'
 burnin = 100
 sample_size = 50
 resample_interval = 1
-seed_size = 1
+seed_size = 5
 num_iterations = 8
 batch = False
 batch_size = 2
@@ -84,7 +84,7 @@ if batch == False: # Sequential
     results_IR = np.zeros(shape=(seed_size, num_iterations + 1)) # Immediate regret
     results_L2 = np.zeros(shape=(seed_size, num_iterations + 1)) # L2 norm of x
 
-    for j in range(seed_size):1`
+    for j in range(seed_size):
         seed = j
         np.random.seed(seed)
         x_ob = np.random.uniform(0., 1., (initialsamplesize, d)) # QUESTION: why not initialized with Latin hypercube or Cobol seq
@@ -116,19 +116,14 @@ if batch == False: # Sequential
     
 ###################
 ###################
-# GPoOpt
+# GPyOpt
 ###################
 ###################
-
-
 
 import GPyOpt
 import numpy as np
-import scipy as sp
 import Test_Funcs 
-from functools import partial
 from numpy.random import seed
-import pickle
 import os
 
 var_noise = 1.0e-3 # y_next = self.func(x_next) + np.random.normal(0, self.var_noise, len(x_next)) 
