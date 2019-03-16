@@ -147,3 +147,21 @@ def error_vs_iterations_v2(func = "egg", seed_size = 2, metrics = "IR", batch = 
     
     df = np_to_df(results)
     return df
+
+def min_y_hist(y_hist):
+    """
+    Takes y_hist and returns min_y_hist (same size), which is the minimum y_hist at each iteration
+    """
+    import copy
+    
+    y_copy = copy.deepcopy(y_hist)
+    seed_size, iters = y_copy.shape
+    
+    for i in range(seed_size):
+        current_min = y_copy[i,0]
+        
+        for j in range(iters):
+            if y_copy[i,j] < current_min:
+                current_min = y_copy[i,j]
+            y_copy[i,j] = current_min
+    return y_copy
