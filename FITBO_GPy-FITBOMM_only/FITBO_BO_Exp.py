@@ -14,7 +14,7 @@ from class_FITBOMM import Bayes_opt_batch
 
 ##### Initializing experiment parameters
 
-seed_size = 50
+seed_size = 5
 num_iters = 40
 
 v2_seed_start = 30
@@ -76,6 +76,8 @@ def BO_test(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, re
     if batch == False: # Sequential
         results_IR = np.zeros(shape=(seed_size, num_iterations + 1)) # Immediate regret
         results_L2 = np.zeros(shape=(seed_size, num_iterations + 1)) # L2 norm of x
+        X_opt_record = np.zeros(shape=(seed_size, num_iterations + 1, d))
+        Y_opt_record = np.zeros(shape=(seed_size, num_iterations + 1))
 
         for j in range(seed_size):
             seed = j
@@ -106,11 +108,14 @@ def BO_test(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, re
 
             X_opt_file_name = dir_name + 'A_results_X-opt,sequential' 
             Y_opt_file_name = dir_name + 'A_results_Y-opt,sequential'
-
+            
+            X_opt_record[j] = X_optimum
+            Y_opt_record[j] = Y_optimum.flatten()
+            
             np.save(L2_file_name, results_L2) # results_IR/L2 is np array of shape (num_iterations + 1, seed_size)
             np.save(IR_file_name, results_IR)
-            np.save(X_opt_file_name, X_optimum)
-            np.save(Y_opt_file_name, Y_optimum)       
+            np.save(X_opt_file_name, X_opt_record)
+            np.save(Y_opt_file_name, Y_opt_record)       
 
     if batch == True:
         num_batches = int(num_iterations / batch_size)
@@ -327,7 +332,7 @@ def test_all_v2(test_func, current_batch_size):
 
 # Sequential
 
-test_funcs = ["egg"]
+test_funcs = ["egg", "branin", "hartmann"]
 
 for func in test_funcs:
     test_sequential(func)

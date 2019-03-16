@@ -25,7 +25,7 @@ import utilities
 
 total_evals = 40 # on top of initial points - 48
 initial_num = 4
-seed_size = 5
+seed_size = 30
 
 n_folds = 5
 
@@ -152,7 +152,7 @@ def sklearn_wrapper(acq_func = 'gp_hedge', batch = 1):
 # GPyOpt learn wrapper
 ####
             
-def saving_data(X_record, min_y_record, eval_record, batch_size, acq_func, eval_type):
+def saving_data(X_record, min_y_record, x_hist_dict,y_hist_dict, batch_size, acq_func, eval_type):
     """
     For saving data
     """
@@ -167,7 +167,8 @@ def saving_data(X_record, min_y_record, eval_record, batch_size, acq_func, eval_
     pickle_dict = {
         "X": X_record, 
         "min_y": min_y_record, 
-        "eval_record": eval_record
+        "x_hist_dict": x_hist_dict,
+        "y_hist_dict": y_hist_dict,
         }
     
     with open(file_name, 'wb') as f:
@@ -179,7 +180,8 @@ def gpyopt_wrapper(acq_func = 'EI', batch_size = 1, eval_type = 'local_penalizat
     import GPyOpt
     X_record = {}
     min_y_record = {}
-    eval_record_dict = {}
+    x_hist_dict = {}
+    y_hist_dict = {}
     
     for seed in range(seed_size):
 
@@ -198,7 +200,7 @@ def gpyopt_wrapper(acq_func = 'EI', batch_size = 1, eval_type = 'local_penalizat
         
         # For saving
 
-        eval_record = BO.get_evaluations()[0]
+        x_hist, y_hist = BO.get_evaluations()
         X_opt = BO.return_minimiser() # (rows = iterations, columns = X_dimensions)
         num_iter = X_opt.shape[0]
         min_y = np.zeros((num_iter, 1)) # cols = output dimension
@@ -207,9 +209,10 @@ def gpyopt_wrapper(acq_func = 'EI', batch_size = 1, eval_type = 'local_penalizat
 
         X_record[seed] = X_opt[initial_num:] # Initial samples dont count
         min_y_record[seed] = min_y[initial_num:]
-        eval_record_dict[seed] = eval_record
+        x_hist_dict[seed] = x_hist
+        y_hist_dict[seed] = y_hist
         
-    saving_data(X_record, min_y_record, eval_record, batch_size, acq_func, eval_type)
+    saving_data(X_record, min_y_record, x_hist_dict, y_hist_dict, batch_size, acq_func, eval_type)
 
 ####
 # GPyOpt learn wrapper
@@ -342,5 +345,4 @@ for batch in batch_list:
             FITBO_wrapper(batch_size = batch, heuristic = heur)
         except Exception as e:
             error_run = heur + str(batch) + "_batch - " + str(e) 
-            error_list.append(error_run)
     """
