@@ -104,8 +104,8 @@ def BO_test(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, re
             L2_file_name = dir_name + 'A_results_L2,sequential' 
             IR_file_name = dir_name + 'A_results_IR,sequential'
 
-            X_opt_file_name = dir_name + 'A_results_X-opt' 
-            Y_opt_file_name = dir_name + 'A_results_Y-opt'
+            X_opt_file_name = dir_name + 'A_results_X-opt,sequential' 
+            Y_opt_file_name = dir_name + 'A_results_Y-opt,sequential'
 
             np.save(L2_file_name, results_L2) # results_IR/L2 is np array of shape (num_iterations + 1, seed_size)
             np.save(IR_file_name, results_IR)
@@ -327,7 +327,7 @@ def test_all_v2(test_func, current_batch_size):
 
 # Sequential
 
-test_funcs = ["branin", "hartmann"]
+test_funcs = ["egg"]
 
 for func in test_funcs:
     test_sequential(func)
