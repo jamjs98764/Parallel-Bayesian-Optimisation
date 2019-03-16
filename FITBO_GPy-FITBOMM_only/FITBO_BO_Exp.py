@@ -6,22 +6,24 @@ Created on Fri Nov 10 13:45:16 2017
 """
 
 import numpy as np
-import scipy as sp
 import os
 from Test_Funcs import egg,hartmann,branin,func1D
 from class_FITBOMM import Bayes_opt
 from class_FITBOMM import Bayes_opt_batch
+from class_FITBOMM_MLE import Bayes_opt_MLE
+from class_FITBOMM_MLE import Bayes_opt_batch_MLE
 
 ##### Initializing experiment parameters
 
-seed_size = 5
+seed_size = 20
 num_iters = 40
 
 v2_seed_start = 30
 v2_seed_size = 20
 
 def BO_test(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, resample_interval = 1, \
-            seed_size = seed_size, num_iterations = num_iters, batch = False, batch_size = 2, heuristic = "kb"):
+            seed_size = seed_size, num_iterations = num_iters, batch = False, batch_size = 2, heuristic = "kb", 
+            MLE = True):
 
     # BO_method is either FITBOMM (moment matching) or FITBO (quadrature) 
     # Sample size = MC sample size
@@ -68,6 +70,10 @@ def BO_test(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, re
         dir_name = 'Exp_Data/' + test_func + ',' + str(seed_size) + '_seed,sequential/' 
     else:
         dir_name = 'Exp_Data/' + test_func + ',' + str(seed_size) + '_seed,' + str(batch_size) + '_batch_size/' 
+    
+    if MLE == True: # New folder record for MLE
+        dir_name = dir_name[:-1] + ",MLE/"
+    
     try:
         os.mkdir(dir_name)
     except FileExistsError:
@@ -85,7 +91,11 @@ def BO_test(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, re
             x_ob = np.random.uniform(0., 1., (initialsamplesize, d)) 
             y_ob = obj_func(x_ob) + sigma0 * np.random.randn(initialsamplesize, 1)
     
-            bayes_opt = Bayes_opt(obj_func, np.zeros(d), np.ones(d), var_noise)
+            if MLE == False:
+                bayes_opt = Bayes_opt(obj_func, np.zeros(d), np.ones(d), var_noise) # Normal MC FITBO
+            else:
+                bayes_opt = Bayes_opt_MLE(obj_func, np.zeros(d), np.ones(d), var_noise)
+            
             bayes_opt.initialise(x_ob, y_ob)
             X_optimum, Y_optimum = bayes_opt.iteration_step(iterations=num_iterations, mc_burn=burnin, \
                                                             mc_samples=sample_size, bo_method=BO_method, \
@@ -128,7 +138,11 @@ def BO_test(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, re
             x_ob = np.random.uniform(0., 1., (initialsamplesize, d)) 
             y_ob = obj_func(x_ob) + sigma0 * np.random.randn(initialsamplesize, 1)
     
-            bayes_opt = Bayes_opt_batch(obj_func, np.zeros(d), np.ones(d), var_noise)
+            if MLE == False:
+                bayes_opt = Bayes_opt_batch(obj_func, np.zeros(d), np.ones(d), var_noise)  # Normal MC FITBO
+            else:
+                bayes_opt = Bayes_opt_batch_MLE(obj_func, np.zeros(d), np.ones(d), var_noise) 
+            
             bayes_opt.initialise(x_ob, y_ob)
             X_optimum, Y_optimum = bayes_opt.iteration_step_batch(num_batches=num_batches, mc_burn=burnin, mc_samples=sample_size, \
                                                                               bo_method=BO_method, seed=seed, resample_interval= resample_interval, \
@@ -158,7 +172,8 @@ def BO_test(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, re
             np.save(Y_opt_file_name, Y_optimum)
         
 def BO_test_v2(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, resample_interval = 1, \
-            seed_start = v2_seed_start, seed_size = v2_seed_size, num_iterations = num_iters, batch = False, batch_size = 2, heuristic = "kb"):
+            seed_start = v2_seed_start, seed_size = v2_seed_size, num_iterations = num_iters, batch = False, 
+            batch_size = 2, heuristic = "kb", MLE = False):
 
     # Allows specification of specific seed range
 

@@ -28,7 +28,7 @@ import batch_proposals
 import GP_models
 from scipy.stats import norm
 
-class Bayes_opt():
+class Bayes_opt_MLE():
     def __init__(self, func, lb, ub, var_noise, input_type = [0]):
         self.func = func
         self.lb = lb
@@ -114,9 +114,9 @@ class Bayes_opt():
 
         return log_posterior # returns a scalar value
 
-    def _samplehyper_v1(self, mean_ln_yminob_minus_eta, var_ln_yminob_minus_eta):
+    def _samplehyper(self, mean_ln_yminob_minus_eta, var_ln_yminob_minus_eta):
         # Takes any samples and finds maximum
-        Nsamples = self.burnin + self.mc_samples + 500
+        Nsamples = self.burnin + self.mc_samples + 200
         L_d = np.ones(self.X_dim)
         # define initial guess for hyperparameters
         init = np.hstack((np.log(0.3*L_d), np.log(10.0), np.log(1e-2), mean_ln_yminob_minus_eta))
@@ -143,39 +143,8 @@ class Bayes_opt():
             
         self.params = np.exp(log_params[self.burnin:, :])
         
-        max_ll_index = np.argmax(ll_record)
-        self.params = self.params[max_ll_index]
-
-    def _samplehyper_v2(self, mean_ln_yminob_minus_eta, var_ln_yminob_minus_eta):
-        # Uses bfgs optimizer to find MLE - similar to GPyOpt
-        
-        L_d = np.ones(self.X_dim)
-        # define initial guess for hyperparameters
-        init = np.hstack((np.log(0.3*L_d), np.log(10.0), np.log(1e-2), mean_ln_yminob_minus_eta))
-
-        prior_mu = np.zeros(self.X_dim+3)
-        prior_cov = np.diag(1.0 * np.ones(self.X_dim+3))
-        prior_cov_chol = sp.linalg.cholesky(prior_cov, lower=True)
-
-        params_array = init
-        
-        sampler_options = {"cur_log_like": None, "angle_range": 0}
-        extra_para = (mean_ln_yminob_minus_eta, var_ln_yminob_minus_eta)
-        for i in range(Nsamples):
-            params_array, current_ll = elliptical_slice(
-                params_array,
-                self._log_posterior,
-                prior_cov_chol,
-                prior_mu,
-                * extra_para,
-                **sampler_options)
-            log_params[i,:] = params_array.ravel()
-            ll_record[i] = current_ll
-            
-        self.params = np.exp(log_params[self.burnin:, :])
-        
-        max_ll_index = np.argmax(ll_record)
-        self.params = self.params[max_ll_index]
+        max_ll_index = np.argmax(ll_record) - self.burnin
+        self.params = np.atleast_2d(self.params[max_ll_index])
 
     def _FITBOMM(self,x):
         '''FITBO-Moment Matching acquisition function'''
@@ -412,8 +381,6 @@ class Bayes_opt():
             x_next_mean = self._marginalised_posterior_mean(x_next)
             x_next_var = self._marginalised_posterior_var(x_next)
             PI_value = norm.cdf((current_y_best - (x_next_mean)) / np.sqrt(x_next_var))
-            print("pi")
-            print(PI_value)
             self.full_PI_value[:, k] = PI_value
 
             """
@@ -454,7 +421,7 @@ class Bayes_opt():
 #########################################################################
 #########################################################################
 
-class Bayes_opt_batch():
+class Bayes_opt_batch_MLE():
     def __init__(self, func, lb, ub, var_noise, input_type = [0]):
         self.func = func
         self.lb = lb
@@ -540,8 +507,8 @@ class Bayes_opt_batch():
         return log_posterior
 
     def _samplehyper(self, mean_ln_yminob_minus_eta, var_ln_yminob_minus_eta):
-        
-        Nsamples = self.burnin + self.mc_samples
+        # Takes any samples and finds maximum
+        Nsamples = self.burnin + self.mc_samples + 200
         L_d = np.ones(self.X_dim)
         # define initial guess for hyperparameters
         init = np.hstack((np.log(0.3*L_d), np.log(10.0), np.log(1e-2), mean_ln_yminob_minus_eta))
@@ -552,6 +519,7 @@ class Bayes_opt_batch():
 
         params_array = init
         log_params = np.zeros((Nsamples, len(params_array)))
+        ll_record = np.zeros((Nsamples, 1))
         sampler_options = {"cur_log_like": None, "angle_range": 0}
         extra_para = (mean_ln_yminob_minus_eta, var_ln_yminob_minus_eta)
         for i in range(Nsamples):
@@ -563,9 +531,13 @@ class Bayes_opt_batch():
                 * extra_para,
                 **sampler_options)
             log_params[i,:] = params_array.ravel()
-            current_ll = current_ll  # for diagnostics QUESTION: what is this for?
+            ll_record[i] = current_ll
+            
         self.params = np.exp(log_params[self.burnin:, :])
-
+        
+        max_ll_index = np.argmax(ll_record) - self.burnin
+        self.params = np.atleast_2d(self.params[max_ll_index])
+        
     def _FITBOMM(self,x):
         '''FITBO-Moment Matching acquisition function'''
         x = np.atleast_2d(x)
@@ -694,8 +666,6 @@ class Bayes_opt_batch():
         # bnds = ((0.0, 1.0), (0.0, 1.0))
         bnds = tuple((li, ui) for li, ui in zip(self.lb, self.ub))
         
-        print("bnds")
-        print(bnds)
         res = minimize(func, X_start, method='L-BFGS-B', jac=False, bounds=bnds)
         x_opt = res.x[None, :]
         

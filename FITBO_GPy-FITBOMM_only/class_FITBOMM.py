@@ -121,6 +121,11 @@ class Bayes_opt():
         log_params = np.zeros((Nsamples, len(params_array)))
         sampler_options = {"cur_log_like": None, "angle_range": 0}
         extra_para = (mean_ln_yminob_minus_eta, var_ln_yminob_minus_eta)
+        
+        print("init")
+        print(init)
+        print("log pos")
+        print(self._log_posterior)
         for i in range(Nsamples):
             params_array, current_ll = elliptical_slice(
                 params_array,
