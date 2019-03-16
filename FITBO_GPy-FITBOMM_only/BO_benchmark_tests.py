@@ -152,10 +152,10 @@ def wrapper_GPyOpt(test_func, acq_func = "EI", eval_type = "random", \
         X_record[seed_i] = X_opt[initialsamplesize:] # Initial samples dont count
         min_y_record[seed_i] = min_y[initialsamplesize:]
         
-    return X_record, min_y_record   
+    return X_record, min_y_record, eval_record
 
 
-def saving_data(X_record, min_y_record):
+def saving_data(X_record, min_y_record, eval_record):
     """
     For saving data
     """
@@ -169,7 +169,8 @@ def saving_data(X_record, min_y_record):
     
     pickle_dict = {
         "X": X_record, 
-        "min_y": min_y_record
+        "min_y": min_y_record, 
+        "eval_record": eval_record
         }
     
     with open(file_name, 'wb') as f:
@@ -215,7 +216,7 @@ for test_func in test_funcs:
                                                   batch_size = batch_size)
                 saving_data(X_record, min_y_record)
 """
-batch_sizes = [8]
+batch_sizes = [1]
 test_funcs = ["branin", "egg", "hartmann"]
 acq_funcs =  ["EI"]
 evaluator_types = ["local_penalization"] # does not matter for batch size = 1  
@@ -225,6 +226,6 @@ for test_func in test_funcs:
         for acq_func in acq_funcs:
             for eval_type in evaluator_types:
                 print(test_func, batch_size, acq_func, eval_type)
-                X_record, min_y_record = wrapper_GPyOpt(test_func, acq_func = acq_func, eval_type = eval_type, \
+                X_record, min_y_record, eval_record = wrapper_GPyOpt(test_func, acq_func = acq_func, eval_type = eval_type, \
                                                   batch_size = batch_size)
-                saving_data(X_record, min_y_record)
+                saving_data(X_record, min_y_record, eval_record)
