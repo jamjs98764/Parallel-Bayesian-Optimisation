@@ -18,7 +18,7 @@ import os
 from plotting_utilities import *
 
 var_noise = 1.0e-3 # y_next = self.func(x_next) + np.random.normal(0, self.var_noise, len(x_next)) 
-seed_size = 50
+seed_size = 1
 
 def wrapper_GPyOpt(test_func, acq_func = "EI", eval_type = "random", \
     seed_size = seed_size, iterations = 40, batch_size = 2):
@@ -107,6 +107,9 @@ def wrapper_GPyOpt(test_func, acq_func = "EI", eval_type = "random", \
             y_ob[i] = obj_func_noise(x_ob[i,:]) # initial samples have noise too
             
         # TODO 
+        arg_opt = np.argmin(y_ob)
+        x_opt_init = x_ob[arg_opt]
+        y_opt_init = y_ob[arg_opt]
     
         if batch == True:
             # batch
@@ -150,9 +153,9 @@ def wrapper_GPyOpt(test_func, acq_func = "EI", eval_type = "random", \
         for i in range(num_iter):
             Y_opt[i] = obj_func(X_opt[i])
 
-        X_record[seed_i] = X_opt[initialsamplesize:] # Initial samples dont count (keep zero as first point)
-        y_opt_record[seed_i] = Y_opt[initialsamplesize:]
-        
+        X_record[seed_i] = np.vstack((x_opt_init,X_opt[initialsamplesize:])) # Initial samples dont count (keep zero as first point)
+        y_opt_record[seed_i] = np.vstack((y_opt_init,Y_opt[initialsamplesize:]))
+
     return X_record, y_opt_record, eval_record
 
 def min_y_hist(y_hist):
