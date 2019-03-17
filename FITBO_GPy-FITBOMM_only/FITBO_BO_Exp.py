@@ -15,7 +15,7 @@ from class_FITBOMM_MLE import Bayes_opt_batch_MLE
 
 ##### Initializing experiment parameters
 
-seed_size = 20
+seed_size = 50
 num_iters = 40
 
 v2_seed_start = 30
@@ -23,7 +23,7 @@ v2_seed_size = 20
 
 def BO_test(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, resample_interval = 1, \
             seed_size = seed_size, num_iterations = num_iters, batch = False, batch_size = 2, heuristic = "kb", 
-            MLE = True):
+            MLE = False):
 
     # BO_method is either FITBOMM (moment matching) or FITBO (quadrature) 
     # Sample size = MC sample size
@@ -346,21 +346,19 @@ def test_all_v2(test_func, current_batch_size):
     return None
 
 # Sequential
-
+"""
 test_funcs = ["egg", "branin", "hartmann"]
 
 for func in test_funcs:
     test_sequential(func)
-
-
 """
+
 # Batch
-batch_sizes = [4]
-test_funcs = ["branin", "hartmann"]
-  
+batch_sizes = [8]
+test_funcs = ["egg", "branin", "hartmann"]
+
 for batch_size in batch_sizes:
     for test_func in test_funcs:
         test_all(test_func, batch_size)
-"""
 
 
