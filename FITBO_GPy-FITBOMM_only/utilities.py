@@ -33,7 +33,7 @@ def gamma_fromEV(x, E, V):
 
 def Gaussianprior(lntheta, mean, variance):
     # lntheta = 1 x N , mean = 1 x N ,  variance = N x N
-    return sp.stats.multivariate_normal.pdf(lntheta, mean, variance)
+    return sp.stats.multivariate_normal.pdf(lntheta, mean, variance, allow_singular = True)
 
 
 def GMMpdf(x, Means, Variances,W):
