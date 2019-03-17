@@ -122,10 +122,6 @@ class Bayes_opt():
         sampler_options = {"cur_log_like": None, "angle_range": 0}
         extra_para = (mean_ln_yminob_minus_eta, var_ln_yminob_minus_eta)
         
-        print("init")
-        print(init)
-        print("log pos")
-        print(self._log_posterior)
         for i in range(Nsamples):
             params_array, current_ll = elliptical_slice(
                 params_array,
@@ -300,12 +296,7 @@ class Bayes_opt():
         self.full_var_record = np.zeros([iterations, self.ntest])
         self.full_PI_value = np.zeros([1, iterations])
         
-        np.random.seed(seed)
-
-        X_optimum = np.atleast_2d(self.arg_opt)
-        Y_optimum = np.atleast_2d(np.min(self.Y))
-        X_for_L2  = X_optimum
-        Y_for_IR  = Y_optimum
+        np.random.seed(seed)      
 
         # sample hyperparameters
         self.mc_samples = mc_samples  # number of samples
@@ -319,6 +310,12 @@ class Bayes_opt():
 
         # fit GP models to hyperparameter samples
         self._fit_GP() 
+        self._fit_GP_normal()
+
+        X_optimum = np.atleast_2d(self.arg_opt)
+        Y_optimum = np.atleast_2d(np.min(self.Y))
+        X_for_L2  = X_optimum
+        Y_for_IR  = Y_optimum
 
         # Specify acquisition function
         if bo_method == 'FITBOMM':
@@ -668,10 +665,7 @@ class Bayes_opt_batch():
 
         np.random.seed(seed)
 
-        X_optimum = np.atleast_2d(self.arg_opt)
-        Y_optimum = np.atleast_2d(np.min(self.Y))
-        X_for_L2  = X_optimum
-        Y_for_IR  = Y_optimum
+
 
         # sample hyperparameters
         self.mc_samples = mc_samples  # number of samples
@@ -686,6 +680,11 @@ class Bayes_opt_batch():
         # fit GP models to hyperparameter samples
         self._fit_GP() 
         self._fit_GP_normal()
+        
+        X_optimum = np.atleast_2d(self.arg_opt)
+        Y_optimum = np.atleast_2d(np.min(self.Y))
+        X_for_L2  = X_optimum
+        Y_for_IR  = Y_optimum
 
         # Specify acquisition function
         if bo_method == 'FITBOMM':

@@ -12,6 +12,7 @@ Created on Fri Nov 10 13:45:16 2017
 
 @author: robin
 """
+
 ###################
 ###################
 # FITBO
@@ -32,12 +33,15 @@ burnin = 100
 sample_size = 50
 resample_interval = 1
 seed_size = 5
-num_iterations = 8
+num_iterations = 4
 batch = False
-batch_size = 2
+batch_size = 1
 heuristic = "kb"
 
 var_noise = 1.0e-3
+
+fitbo_init_y = np.zeros(seed_size)
+gpyopt_init_y = np.zeros(seed_size)
 
 # speficy test func
 if test_func == 'branin':
@@ -68,7 +72,6 @@ sigma0 = np.sqrt(var_noise)
 
 results_IR = np.zeros(shape=(seed_size, num_iterations + 1)) # Immediate regret
 results_L2 = np.zeros(shape=(seed_size, num_iterations + 1)) # L2 norm of x
-   
 
 # Creating directory to save
 if batch == False:
@@ -111,8 +114,8 @@ if batch == False: # Sequential
         X_opt_file_name = dir_name + 'A_results_L2,sequential' 
         Y_opt_file_name = dir_name + 'A_results_IR,sequential'
         
-        np.save(X_opt_file_name, results_L2) # results_IR/L2 is np array of shape (num_iterations + 1, seed_size)
-        np.save(Y_opt_file_name, results_IR)
+        fitbo_init_y[j] = Y_optimum[0]
+        
     
 ###################
 ###################
@@ -127,13 +130,11 @@ from numpy.random import seed
 import os
 
 var_noise = 1.0e-3 # y_next = self.func(x_next) + np.random.normal(0, self.var_noise, len(x_next)) 
-seed_size = 1
 
 test_func = "branin"
 acq_func = "EI"
 X_eval_type = "random"
-iterations = 8
-batch_size = 1
+iterations = num_iterations
 
 # Noise
 sigma0 = np.sqrt(var_noise)
@@ -200,9 +201,7 @@ for seed_i in range(seed_size):
     y_ob = np.zeros((initialsamplesize, 1))
     for i in range(initialsamplesize):
         y_ob[i] = obj_func_noise(x_ob[i,:]) 
-
-    y_ob = y_ob + sigma0 * np.random.randn(initialsamplesize, 1) # initial sample points have noise too
-
+    
     if batch == True:
         # batch
         BO = GPyOpt.methods.BayesianOptimization(f = obj_func_noise,  
@@ -251,6 +250,8 @@ for seed_i in range(seed_size):
     for i in range(num_iter):
         min_y[i] = obj_func(X_opt[i])
 
-    X_record[seed_i] = X_opt[initialsamplesize:] # Initial samples dont count
-    min_y_record[seed_i] = min_y[initialsamplesize:]
+    X_record[seed_i] = X_opt[initialsamplesize-1:] # Initial samples dont count
+    min_y_record[seed_i] = min_y[initialsamplesize-1:]
+    
+    gpyopt_init_y[seed_i] = min_y[0]
  

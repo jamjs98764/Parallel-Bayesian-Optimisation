@@ -217,8 +217,8 @@ def gpyopt_wrapper(acq_func = 'EI', batch_size = 1, eval_type = 'local_penalizat
         for i in range(num_iter):
             min_y[i] = gpyopt_objective(X_opt[i])
 
-        X_record[seed] = X_opt[initial_num:] # Initial samples dont count
-        min_y_record[seed] = min_y[initial_num:]
+        X_record[seed] = X_opt[initial_num-1:] # Initial samples dont count
+        min_y_record[seed] = min_y[initial_num-1:]
         x_hist_dict[seed] = x_hist
         y_hist_dict[seed] = y_hist
         
