@@ -106,7 +106,7 @@ def wrapper_GPyOpt(test_func, acq_func = "EI", eval_type = "random", \
         for i in range(initialsamplesize):
             y_ob[i] = obj_func_noise(x_ob[i,:]) # initial samples have noise too
             
-        # TODO 
+        # Iter= 0 value
         arg_opt = np.argmin(y_ob)
         x_opt_init = x_ob[arg_opt]
         y_opt_init = y_ob[arg_opt]
