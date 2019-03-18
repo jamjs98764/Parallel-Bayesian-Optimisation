@@ -184,7 +184,16 @@ def gpyopt_wrapper(acq_func = 'EI', batch_size = 1, eval_type = 'local_penalizat
     y_hist_dict = {}
     
     for seed in range(seed_size):
-
+        np.random.seed(seed)
+        print("Currently on seed: ", seed)
+        x_ob = generate_initial_points_x(init_type, seed)
+        y_ob = generate_initial_points_y(x_ob)
+        
+        # Iter= 0 value
+        arg_opt = np.argmin(y_ob)
+        x_opt_init = x_ob[arg_opt]
+        y_opt_init = y_ob[arg_opt]
+        
         BO = GPyOpt.methods.BayesianOptimization(f = gpyopt_objective,
                                                 domain = space_gpyopt,
                                                 acquisition_type = acq_func,
@@ -207,8 +216,9 @@ def gpyopt_wrapper(acq_func = 'EI', batch_size = 1, eval_type = 'local_penalizat
         for i in range(num_iter):
             min_y[i] = gpyopt_objective(X_opt[i])
 
-        X_record[seed] = X_opt[initial_num:] # Initial samples dont count
-        min_y_record[seed] = min_y[initial_num:]
+        X_record[seed] = np.vstack((x_opt_init,X_opt[initial_num:])) # Initial samples dont count (keep zero as first point)
+        min_y_record[seed] = np.vstack((y_opt_init,min_y[initial_num:]))
+        
         x_hist_dict[seed] = x_hist
         y_hist_dict[seed] = y_hist
         
@@ -330,22 +340,21 @@ def FITBO_wrapper(batch_size = 2, heuristic = "cl-min"):
 ####    
 
 
-batch_list = [1]
+batch_list = [2,4,8]
 heuristic_list = ['cl-min', 'cl-max', 'kb']
 
 
 # heuristic_list = ['cl-min']
 error_list = []
 
-FITBO_wrapper(batch_size = 1, heuristic = "kb")
+# FITBO_wrapper(batch_size = 1, heuristic = "kb")
 
-"""
 for batch in batch_list:
-    # gpyopt_wrapper(batch_size = batch)  # EI, Local Penalization by default  
-    
+    gpyopt_wrapper(batch_size = batch)  # EI, Local Penalization by default  
+    """
     for heur in heuristic_list:
         try:
             FITBO_wrapper(batch_size = batch, heuristic = heur)
         except Exception as e:
             error_run = heur + str(batch) + "_batch - " + str(e) 
-"""
+    """

@@ -193,8 +193,19 @@ def gpyopt_wrapper(acq_func = 'EI', batch_size = 1, eval_type = 'local_penalizat
     x_hist_dict = {}
     y_hist_dict = {}
     
-    for seed in range(seed_size):
 
+    
+    for seed in range(seed_size):
+        np.random.seed(seed)
+        print("Currently on seed: ", seed)
+        x_ob = generate_initial_points_x(init_type, seed)
+        y_ob = generate_initial_points_y(x_ob)
+        
+        # Iter= 0 value
+        arg_opt = np.argmin(y_ob)
+        x_opt_init = x_ob[arg_opt]
+        y_opt_init = y_ob[arg_opt]
+        
         BO = GPyOpt.methods.BayesianOptimization(f = gpyopt_objective,
                                                 domain = space_gpyopt,
                                                 acquisition_type = acq_func,
@@ -216,9 +227,11 @@ def gpyopt_wrapper(acq_func = 'EI', batch_size = 1, eval_type = 'local_penalizat
         min_y = np.zeros((num_iter, 1)) # cols = output dimension
         for i in range(num_iter):
             min_y[i] = gpyopt_objective(X_opt[i])
-
-        X_record[seed] = X_opt[initial_num:] # Initial samples dont count
-        min_y_record[seed] = min_y[initial_num:]
+            
+        
+        X_record[seed] = np.vstack((x_opt_init,X_opt[initial_num:])) # Initial samples dont count (keep zero as first point)
+        min_y_record[seed] = np.vstack((y_opt_init,min_y[initial_num:]))
+        
         x_hist_dict[seed] = x_hist
         y_hist_dict[seed] = y_hist
         
