@@ -15,7 +15,9 @@ from class_FITBOMM_MLE import Bayes_opt_batch_MLE
 
 ##### Initializing experiment parameters
 
+
 seed_size = 50
+
 num_iters = 40
 
 v2_seed_start = 30
