@@ -274,11 +274,10 @@ def FITBO_wrapper(batch_size = 2, heuristic = "cl-min"):
     if batch_size == 1: # Sequential
         heuristic = "sequential"        
         for j in range(seed_size):
-            print("Sequential not yet fixed")
-            """
+
             seed = j
             np.random.seed(seed)
-            
+            print("Currently on seed: ", j)
             x_ob = generate_initial_points_x(init_type, seed)
             y_ob = generate_initial_points_y(x_ob)
             bayes_opt = Bayes_opt(fitbo_objective, fitbo_lb, fitbo_ub, var_noise = 0)
@@ -296,7 +295,6 @@ def FITBO_wrapper(batch_size = 2, heuristic = "cl-min"):
             np.save(Y_file_name, Y_optimum)
             np.save(X_hist_file_name, bayes_opt.X) 
             np.save(Y_hist_file_name, bayes_opt.Y)
-            """
 
     else: # Batch
         num_batches = int(total_evals / batch_size)
@@ -343,6 +341,8 @@ heuristic_list = ['cl-min', 'cl-max', 'kb']
 # heuristic_list = ['cl-min']
 error_list = []
 
+FITBO_wrapper(batch_size = 1, heuristic = "kb")
+"""
 for batch in batch_list:
     gpyopt_wrapper(batch_size = batch)  # EI, Local Penalization by default  
     
@@ -352,7 +352,7 @@ for batch in batch_list:
         except:
             error_run = heur + str(batch) + "_batch" 
             error_list.append(error_run)
-    
+"""
    
 
 
