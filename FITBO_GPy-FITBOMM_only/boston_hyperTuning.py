@@ -338,19 +338,17 @@ def FITBO_wrapper(batch_size = 2, heuristic = "cl-min"):
 ####
 # Running experiments
 ####    
-
-
+        
 batch_list = [2,4,8]
 heuristic_list = ['cl-min', 'cl-max', 'kb']
-
 
 # heuristic_list = ['cl-min']
 error_list = []
 
-# FITBO_wrapper(batch_size = 1, heuristic = "kb")
+FITBO_wrapper(batch_size = 1, heuristic = "kb")
 
 for batch in batch_list:
-    gpyopt_wrapper(batch_size = batch)  # EI, Local Penalization by default  
+    # gpyopt_wrapper(batch_size = batch)  # EI, Local Penalization by default  
     """
     for heur in heuristic_list:
         try:
