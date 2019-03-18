@@ -354,18 +354,18 @@ heuristic_list = ['cl-min', 'cl-max', 'kb']
 # heuristic_list = ['cl-min']
 error_list = []
 
-FITBO_wrapper(batch_size = 1, heuristic = "kb")
-"""
+# FITBO_wrapper(batch_size = 1)
+
 for batch in batch_list:
     gpyopt_wrapper(batch_size = batch)  # EI, Local Penalization by default  
-    
+    """
     for heur in heuristic_list:
         try:
             FITBO_wrapper(batch_size = batch, heuristic = heur)
         except:
             error_run = heur + str(batch) + "_batch" 
             error_list.append(error_run)
-"""
+    """
    
 
 
