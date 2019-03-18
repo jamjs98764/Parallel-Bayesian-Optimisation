@@ -293,12 +293,6 @@ class Bayes_opt_TS():
         self._fit_GP()
         self._fit_GP_normal()
 
-        # Specify acquisition function
-        if bo_method == 'FITBOMM':
-            acqu_func = self._FITBOMM
-        else:
-            acqu_func = self._FITBO
-
         for k in range(iterations):
 
             # optimise the acquisition function to get the next query point and evaluate at next query point
@@ -309,9 +303,19 @@ class Bayes_opt_TS():
 
             if self.ts_hist_size == 1: # only take max of one single draw
                 if self.ts_hyperpar == False: # only take one single (max) hyperparameter GPy model
+                    n_test = 2000
+                    lb = 0
+                    ub = 1
+                    spacing = (ub - lb) / n_test
+                    X,Y = np.mgrid[lb:ub:spacing, lb:ub:spacing]
+                    xyGrid = np.vstack((X.flatten(), Y.flatten())).T
 
+                    m = self.GP_normal[self.max_ll_index] # get GPy model which has highest likelihood
+                    f = m.posterior_samples_f(xyGrid, size = 1) #Xgrid shape == (Nnew x self.input_dim)
+                    func1 = f[:,0,0]
 
-                    x_next = self._gloabl_minimser(sample_draw)
+                    x_next_index = np.argmin(func1)
+                    x_next = xyGrid[x_next_index]
                 else:
                     pass
 
