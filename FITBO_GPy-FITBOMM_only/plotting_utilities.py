@@ -38,7 +38,9 @@ def load_gpyopt_error(func, metric, batch_size, seed_size, acq_func, eval_type):
         
     if batch_size > 1:
         result = np.repeat(result, repeats = batch_size * np.ones(result.shape[1], dtype = int), axis = 1)
+        result = result[:,(batch_size-1):] # Do not duplicate initial error
     
+
     df = np_to_df(result)
     return df
 
@@ -66,7 +68,9 @@ def unpack_IR(func, dic):
             print("Seed " + str(seed_i) + " has errors in data.")
             IR[seed_i,:] = np.zeros(IR.shape[1])
     
-    IR = IR[~np.all(IR == 0, axis=1)] # remove rows with full zero (errors)      
+    IR = IR[~np.all(IR == 0, axis=1)] # remove rows with full zero (errors)
+    IR = min_y_hist(IR)
+
     return IR
 
 def unpack_l2(func, dic):
