@@ -350,8 +350,8 @@ test_funcs = ["egg", "branin", "hartmann"]
 
 for func in test_funcs:
     test_sequential(func)
-"""
 
+"""
 # Batch
 batch_sizes = [2, 4, 8]
 test_funcs = ["hartmann"]
@@ -360,6 +360,6 @@ test_sequential_v2("hartmann")
 
 for batch_size in batch_sizes:
     for test_func in test_funcs:
-        test_all(test_func, batch_size)
+        test_all_v2(test_func, batch_size)
 
 
