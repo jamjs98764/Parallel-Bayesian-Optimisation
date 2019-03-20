@@ -721,17 +721,20 @@ class Bayes_opt_batch():
                 x_next = self._gloabl_minimser(acqu_func)
 
                 ### For plotting acq_func
-                x = np.linspace(0, 1.0, 200)
-                y = np.linspace(0, 1.0, 200)
-                grid_size = 200
+                grid_size = 100
+                x = np.linspace(0, 1.0, grid_size)
+                y = np.linspace(0, 1.0, grid_size)
+
                 xv, yv = np.meshgrid(x, y)
                 acq_func_grid = np.zeros((grid_size, grid_size))
                 for i in range(grid_size):
                     for j in range(grid_size):
                         acq_func_grid[i,j] = - acqu_func(np.array([xv[i,j], yv[i,j]]))
 
-                # Plotting END
+                 ## Saving acqfunc grid
+                np.save(dir_name + heuristic + ",batch_" + str(k) + ",iter_" + str(batch_i) + ",acq_func.npy", acq_func_grid)
 
+                # Plotting END
                 max_acqu_value = - acqu_func(x_next)
 
                 if heuristic == "kb":
@@ -840,8 +843,7 @@ class Bayes_opt_batch():
                 "Y_init": self.Y_init,
                 "PI_values": self.full_PI_value
                 }
-        ## Saving acqfunc grid
-        np.save(dir_name + "acq_func.npy", acq_func_grid)
+
 
         with open(file_name, 'wb') as f:
             pickle.dump(pickle_dict, f)
