@@ -13,7 +13,7 @@ Y = np.sin(X) + np.random.randn(20,1)*0.05
 kernel = GPy.kern.RBF(input_dim=1, variance=1., lengthscale=1.)
 m = GPy.models.GPRegression(X,Y,kernel)
 
-Xgrid = np.linspace(-3,3,num=1000)
+Xgrid = np.linspace(-1,1,num=1000)
 Xgrid = np.atleast_2d(Xgrid)
 Xgrid = np.transpose(Xgrid)
 # https://gpy.readthedocs.io/en/deploy/GPy.models.html?highlight=posterior_samples_f
