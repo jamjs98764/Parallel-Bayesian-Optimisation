@@ -166,7 +166,7 @@ def saving_data(X_record, min_y_record, x_hist_dict,y_hist_dict, batch_size, acq
     """
     For saving data
     """
-    dir_name = 'Exp_Data/boston_gbr/gpyopt/' + str(batch_size) + '_batch/'
+    dir_name = 'Exp_Data/boston_dnn/gpyopt/' + str(batch_size) + '_batch/'
     file_name = dir_name + str(acq_func) + ',' + str(eval_type) + ',results_vars.pickle'
     
     try: # creates new folder
@@ -192,9 +192,7 @@ def gpyopt_wrapper(acq_func = 'EI', batch_size = 1, eval_type = 'local_penalizat
     min_y_record = {}
     x_hist_dict = {}
     y_hist_dict = {}
-    
-
-    
+        
     for seed in range(seed_size):
         np.random.seed(seed)
         print("Currently on seed: ", seed)
@@ -228,7 +226,6 @@ def gpyopt_wrapper(acq_func = 'EI', batch_size = 1, eval_type = 'local_penalizat
         for i in range(num_iter):
             min_y[i] = gpyopt_objective(X_opt[i])
             
-        
         X_record[seed] = np.vstack((x_opt_init,X_opt[initial_num:])) # Initial samples dont count (keep zero as first point)
         min_y_record[seed] = np.vstack((y_opt_init,min_y[initial_num:]))
         
@@ -334,7 +331,6 @@ def FITBO_wrapper(batch_size = 2, heuristic = "cl-min"):
             results_Y_hist[j, :] = bayes_opt.Y.flatten()
             results_Y_optimum[j, :] = Y_optimum.flatten()
         
-    
         X_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",X_optimum"  
         Y_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",Y_optimum" 
         X_hist_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",X_hist" 
@@ -354,18 +350,18 @@ heuristic_list = ['cl-min', 'cl-max', 'kb']
 # heuristic_list = ['cl-min']
 error_list = []
 
-FITBO_wrapper(batch_size = 1, heuristic = "kb")
-"""
+# FITBO_wrapper(batch_size = 1)
+
 for batch in batch_list:
     gpyopt_wrapper(batch_size = batch)  # EI, Local Penalization by default  
-    
+    """
     for heur in heuristic_list:
         try:
             FITBO_wrapper(batch_size = batch, heuristic = heur)
         except:
             error_run = heur + str(batch) + "_batch" 
             error_list.append(error_run)
-"""
+    """
    
 
 

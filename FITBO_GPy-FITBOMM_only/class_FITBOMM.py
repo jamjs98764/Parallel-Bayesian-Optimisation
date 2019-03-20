@@ -22,14 +22,15 @@ import GP_models
 from scipy.stats import norm
 
 class Bayes_opt():
-    def __init__(self, func, lb, ub, var_noise, input_type = [0]):
+    def __init__(self, func, lb, ub, var_noise, input_type = [0], kernel = "gauss"):
         self.func = func
         self.lb = lb
         self.ub = ub
         self.var_noise = var_noise
         self.ntest = 2000
         self.input_type = input_type
-
+        self.kernel = kernel
+        
     def initialise(self, X_init=None, Y_init=None, kernel=None):
         assert X_init.ndim == 2, "X_init has to be 2D array"
         assert Y_init.ndim == 2, "Y_init has to be 2D array"
@@ -97,6 +98,8 @@ class Bayes_opt():
         logl_priormu = np.log(0.3 * np.ones(self.X_dim))
         logl_priorvar = np.diag(3.0 * np.ones(self.X_dim))
         prior_l_scales = Gaussianprior(log_params[0: self.X_dim], logl_priormu, logl_priorvar) / det_l_scales
+        print("prior_l_scales")
+        print(prior_l_scales)
         # Gaussianprior(X, mean, variance)
         # Returns pdf of X based on multivariate Gaussian with given mean and variance
         prior_output_var = Gaussianprior(log_params[self.X_dim], np.log(1.0), 3.0) / params[self.X_dim]
@@ -217,7 +220,6 @@ class Bayes_opt():
             self.G = np.sqrt(2.0 * diff)
             self.kernel.append(GPy.kern.RBF(input_dim=self.X_dim, ARD=True, variance=var_param[i], lengthscale=lscale_param[i, :]))
             self.GP.append(GPy.models.GPRegression(self.X, self.G, self.kernel[i], noise_var=(noise_param[i])))
-
 
     def _fit_GP_normal(self):
         '''collect GPs defined using observed y values and all hyperparameter samples'''
