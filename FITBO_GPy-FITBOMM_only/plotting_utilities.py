@@ -132,7 +132,6 @@ def load_pickle(seed_size, current_seed, func, batch, heuristic, batch_size, tar
         dir_name = "Exp_Data/" + func + ',' + str(seed_size) + '_seed,' + str(batch_size) + '_batch_size/' \
         + str(current_seed) + "_seed/"
         file_name = dir_name + heuristic + ',intermediate_vars.pickle'
-    
     with open(file_name, 'rb') as f:  # Python 3: open(..., 'rb')
         pickle_dict = pickle.load(f)
         value = pickle_dict[target_val]

@@ -721,6 +721,7 @@ class Bayes_opt_batch():
                 x_next = self._gloabl_minimser(acqu_func)
 
                 ### For plotting acq_func
+                
                 grid_size = 100
                 x = np.linspace(0, 1.0, grid_size)
                 y = np.linspace(0, 1.0, grid_size)
@@ -778,7 +779,6 @@ class Bayes_opt_batch():
                 batch_Y[k, batch_i, :] = y_next_guess
                 self.full_PI_value[k, batch_i, : ] = PI_value
 
-
             # Resetting back to original real values
             # TODO: deepcopy doesnt work so we re-initialize GP with original X's every time
             self.X = real_X
@@ -793,6 +793,9 @@ class Bayes_opt_batch():
             self.X = np.vstack((self.X, cur_batch_X))
             actual_y = self.func(cur_batch_X) + np.random.normal(0, self.var_noise, (batch_size, 1))
             self.Y = np.vstack((self.Y, actual_y))
+
+            print("Self.X size")
+            print(self.X.shape)
 
             #################### Main changes for batch END
 
