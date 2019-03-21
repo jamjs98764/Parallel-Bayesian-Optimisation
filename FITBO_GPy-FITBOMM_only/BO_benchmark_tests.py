@@ -87,6 +87,7 @@ def wrapper_GPyOpt(test_func, acq_func = "EI", eval_type = "random", \
 
     X_record = {}
     y_opt_record = {}
+    X_hist_record = {}
 
     for seed_i in range(seed_size):
         print("Currently on seed: ", seed_i)
@@ -155,8 +156,15 @@ def wrapper_GPyOpt(test_func, acq_func = "EI", eval_type = "random", \
 
         X_record[seed_i] = np.vstack((x_opt_init,X_opt[initialsamplesize:])) # Initial samples dont count (keep zero as first point)
         y_opt_record[seed_i] = np.vstack((y_opt_init,Y_opt[initialsamplesize:]))
+        X_hist_record[seed_i] = eval_record[initialsamplesize:]
 
-    return X_record, y_opt_record, eval_record
+        """
+        # Changes to save acq func grid
+        dir_name = 'Exp_Data/gpyopt/' + test_func + ',' + str(seed_size) + '_seed,' + str(batch_size) + '_batch/'
+        file_name = dir_name + str(acq_func) + ',' + str(eval_type) + ',acq_func.png'
+        BO.plot_acquisition()
+        """
+    return X_record, y_opt_record, X_hist_record
 
 def min_y_hist(y_hist):
     """
@@ -176,16 +184,15 @@ def min_y_hist(y_hist):
             y_copy[i,j] = current_min
     return y_copy
 
-def saving_data(X_record, min_y_record, eval_record):
+def saving_data(X_record, min_y_record, X_hist_record):
     """
     For saving data
 
     X_record = x_opt
     min_y_record = y_opt
 
-    Y_for_IR = minimum until now for "min_y_record"
     """
-    dir_name = 'Exp_Data/gpyopt/' + test_func + ',' + str(seed_size) + '_seed,' + str(batch_size) + '_batch/'
+    dir_name = 'Exp_Data/gpyopt_ard/' + test_func + ',' + str(seed_size) + '_seed,' + str(batch_size) + '_batch/'
     file_name = dir_name + str(acq_func) + ',' + str(eval_type) + ',results_vars.pickle'
 
     try: # creates new folder
@@ -196,7 +203,7 @@ def saving_data(X_record, min_y_record, eval_record):
     pickle_dict = {
         "X": X_record,
         "min_y": min_y_record,
-        "eval_record": eval_record
+        "eval_record": X_hist_record
         }
 
     with open(file_name, 'wb') as f:
@@ -207,9 +214,10 @@ def saving_data(X_record, min_y_record, eval_record):
 #acq_funcs =  ["EI", "EI_MCMC", "MPI_MCMC",  "LCB", "LCB_MCMC"]
 #evaluator_types = ["sequential", "random", "local_penalization", "thompson_sampling"]
 
-batch_sizes = [1, 2, 4, 8]
+batch_sizes = [2, 4]
 test_funcs = ["branin", "egg", "hartmann"]
-acq_funcs =  ["MPI"]
+# test_funcs = ["branin"]
+acq_funcs =  ["EI", "MPI"]
 evaluator_types = ["local_penalization"] # does not matter for batch size = 1
 
 for test_func in test_funcs:
