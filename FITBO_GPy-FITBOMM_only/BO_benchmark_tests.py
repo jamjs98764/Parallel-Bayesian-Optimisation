@@ -18,10 +18,10 @@ import os
 from plotting_utilities import *
 
 var_noise = 1.0e-3 # y_next = self.func(x_next) + np.random.normal(0, self.var_noise, len(x_next))
-seed_size = 1
+seed_size = 50
 
 def wrapper_GPyOpt(test_func, acq_func = "EI", eval_type = "random", \
-    seed_size = seed_size, iterations = 10, batch_size = 2):
+    seed_size = seed_size, iterations = 40, batch_size = 2):
     """
     Wrapper function which implements GPyOpt BO
     Returns all query points
@@ -158,12 +158,12 @@ def wrapper_GPyOpt(test_func, acq_func = "EI", eval_type = "random", \
         y_opt_record[seed_i] = np.vstack((y_opt_init,Y_opt[initialsamplesize:]))
         X_hist_record[seed_i] = eval_record[initialsamplesize:]
 
+        """
         # Changes to save acq func grid
         dir_name = 'Exp_Data/gpyopt/' + test_func + ',' + str(seed_size) + '_seed,' + str(batch_size) + '_batch/'
         file_name = dir_name + str(acq_func) + ',' + str(eval_type) + ',acq_func.png'
-        BO.plot_acquisition(filename = file_name)
-
-
+        BO.plot_acquisition()
+        """
     return X_record, y_opt_record, X_hist_record
 
 def min_y_hist(y_hist):
@@ -192,7 +192,7 @@ def saving_data(X_record, min_y_record, X_hist_record):
     min_y_record = y_opt
 
     """
-    dir_name = 'Exp_Data/gpyopt/' + test_func + ',' + str(seed_size) + '_seed,' + str(batch_size) + '_batch/'
+    dir_name = 'Exp_Data/gpyopt_ard/' + test_func + ',' + str(seed_size) + '_seed,' + str(batch_size) + '_batch/'
     file_name = dir_name + str(acq_func) + ',' + str(eval_type) + ',results_vars.pickle'
 
     try: # creates new folder
@@ -214,10 +214,10 @@ def saving_data(X_record, min_y_record, X_hist_record):
 #acq_funcs =  ["EI", "EI_MCMC", "MPI_MCMC",  "LCB", "LCB_MCMC"]
 #evaluator_types = ["sequential", "random", "local_penalization", "thompson_sampling"]
 
-batch_sizes = [2,4]
-# test_funcs = ["branin", "egg", "hartmann"]
-test_funcs = ["branin"]
-acq_funcs =  ["EI"]
+batch_sizes = [2, 4]
+test_funcs = ["branin", "egg", "hartmann"]
+# test_funcs = ["branin"]
+acq_funcs =  ["EI", "MPI"]
 evaluator_types = ["local_penalization"] # does not matter for batch size = 1
 
 for test_func in test_funcs:
