@@ -1,0 +1,250 @@
+@book{rasmussen2006gaussian,
+ author = {Rasmussen, Carl Edward and Williams, Christopher K. I.},
+ title = {Gaussian Processes for Machine Learning (Adaptive Computation and Machine Learning)},
+ year = {2005},
+ isbn = {026218253X},
+ publisher = {The MIT Press},
+} 
+
+@article{micchelli,
+ author = {Micchelli, Charles A. and Xu, Yuesheng and Zhang, Haizhang},
+ title = {Universal Kernels},
+ journal = {J. Mach. Learn. Res.},
+ issue_date = {12/1/2006},
+ volume = {7},
+ month = dec,
+ year = {2006},
+ issn = {1532-4435},
+ pages = {2651--2667},
+ numpages = {17},
+ url = {http://dl.acm.org/citation.cfm?id=1248547.1248642},
+ acmid = {1248642},
+ publisher = {JMLR.org},
+} 
+
+
+@book{bishop2006,
+ author = {Bishop, Christopher M.},
+ title = {Pattern Recognition and Machine Learning (Information Science and Statistics)},
+ year = {2006},
+ isbn = {0387310738},
+ publisher = {Springer-Verlag},
+ address = {Berlin, Heidelberg},
+} 
+
+@ARTICLE{kandasamy,
+       author = {{Kandasamy}, Kirthevasan and {Krishnamurthy}, Akshay and
+         {Schneider}, Jeff and {Poczos}, Barnabas},
+        title = "{Asynchronous Parallel Bayesian Optimisation via Thompson Sampling}",
+      journal = {arXiv e-prints},
+     keywords = {Statistics - Machine Learning, Computer Science - Machine Learning},
+         year = "2017",
+        month = "May",
+          eid = {arXiv:1705.09236},
+        pages = {arXiv:1705.09236},
+archivePrefix = {arXiv},
+       eprint = {1705.09236},
+ primaryClass = {stat.ML},
+       adsurl = {https://ui.adsabs.harvard.edu/\#abs/2017arXiv170509236K},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@techreport{ginsbourger_asyn,
+  TITLE = {{Dealing with asynchronicity in parallel Gaussian Process based global optimization}},
+  AUTHOR = {Ginsbourger, David and Janusevskis, Janis and Le Riche, Rodolphe},
+  URL = {https://hal.archives-ouvertes.fr/hal-00507632},
+  YEAR = {2011},
+  PDF = {https://hal.archives-ouvertes.fr/hal-00507632/file/EEI_Asy_GP_Opt_HAL.pdf},
+  HAL_ID = {hal-00507632},
+  HAL_VERSION = {v1},
+}
+
+@InProceedings{janis,
+author="Janusevskis, Janis
+and Le Riche, Rodolphe
+and Ginsbourger, David
+and Girdziusas, Ramunas",
+editor="Hamadi, Youssef
+and Schoenauer, Marc",
+title="Expected Improvements for the Asynchronous Parallel Global Optimization of Expensive Functions: Potentials and Challenges",
+booktitle="Learning and Intelligent Optimization",
+year="2012",
+publisher="Springer Berlin Heidelberg",
+address="Berlin, Heidelberg",
+pages="413--418",
+abstract="Sequential sampling strategies based on Gaussian processes are now widely used for the optimization of problems involving costly simulations. But Gaussian processes can also generate parallel optimization strategies. We focus here on a new, parameter free, parallel expected improvement criterion for asynchronous optimization. An estimation of the criterion, which mixes Monte Carlo sampling and analytical bounds, is proposed. Logarithmic speed-ups are measured on 1 and 9 dimensional functions.",
+isbn="978-3-642-34413-8"
+}
+
+
+@ARTICLE{jialei,
+       author = {{Wang}, Jialei and {Clark}, Scott C. and {Liu}, Eric and
+         {Frazier}, Peter I.},
+        title = "{Parallel Bayesian Global Optimization of Expensive Functions}",
+      journal = {arXiv e-prints},
+     keywords = {Statistics - Machine Learning, Mathematics - Optimization and Control},
+         year = "2016",
+        month = "Feb",
+          eid = {arXiv:1602.05149},
+        pages = {arXiv:1602.05149},
+archivePrefix = {arXiv},
+       eprint = {1602.05149},
+ primaryClass = {stat.ML},
+       adsurl = {https://ui.adsabs.harvard.edu/\#abs/2016arXiv160205149W},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{hildo,
+       author = {{Bijl}, Hildo and {Sch{\"o}n}, Thomas B. and
+         {van Wingerden}, Jan-Willem and {Verhaegen}, Michel},
+        title = "{A sequential Monte Carlo approach to Thompson sampling for Bayesian optimization}",
+      journal = {arXiv e-prints},
+     keywords = {Statistics - Machine Learning, Computer Science - Systems and Control},
+         year = "2016",
+        month = "Apr",
+          eid = {arXiv:1604.00169},
+        pages = {arXiv:1604.00169},
+archivePrefix = {arXiv},
+       eprint = {1604.00169},
+ primaryClass = {stat.ML},
+       adsurl = {https://ui.adsabs.harvard.edu/\#abs/2016arXiv160400169B},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@InProceedings{hutter,
+author="Hutter, Frank
+and Hoos, Holger H.
+and Leyton-Brown, Kevin",
+editor="Coello, Carlos A. Coello",
+title="Sequential Model-Based Optimization for General Algorithm Configuration",
+booktitle="Learning and Intelligent Optimization",
+year="2011",
+publisher="Springer Berlin Heidelberg",
+address="Berlin, Heidelberg",
+pages="507--523",
+abstract="State-of-the-art algorithms for hard computational problems often expose many parameters that can be modified to improve empirical performance. However, manually exploring the resulting combinatorial space of parameter settings is tedious and tends to lead to unsatisfactory outcomes. Recently, automated approaches for solving this algorithm configuration problem have led to substantial improvements in the state of the art for solving various problems. One promising approach constructs explicit regression models to describe the dependence of target algorithm performance on parameter settings; however, this approach has so far been limited to the optimization of few numerical algorithm parameters on single instances. In this paper, we extend this paradigm for the first time to general algorithm configuration problems, allowing many categorical parameters and optimization for sets of instances. We experimentally validate our new algorithm configuration procedure by optimizing a local search and a tree search solver for the propositional satisfiability problem (SAT), as well as the commercial mixed integer programming (MIP) solver CPLEX. In these experiments, our procedure yielded state-of-the-art performance, and in many cases outperformed the previous best configuration approach.",
+isbn="978-3-642-25566-3"
+}
+
+
+@article{shahriari,
+  title={Taking the Human Out of the Loop: A Review of Bayesian Optimization},
+  author={Bobak Shahriari and Kevin Swersky and Ziyu Wang and Ryan P. Adams and Nando de Freitas},
+  journal={Proceedings of the IEEE},
+  year={2016},
+  volume={104},
+  pages={148-175}
+}
+
+@article{cholesky,
+  title={Matrix inversion using Cholesky decomposition},
+  author={Aravindh Krishnamoorthy and Deepak Menon},
+  journal={2013 Signal Processing: Algorithms, Architectures, Arrangements, and Applications (SPA)},
+  year={2013},
+  pages={70-72}
+}
+
+@inproceedings{pi,
+  title={A New Method of Locating the Maximum Point of an Arbitrary Multipeak Curve in the Presence of Noise},
+  author={H. J. Kushner},
+  year={1964}
+}
+
+@inproceedings{ei,
+ author = {Mockus, Jonas},
+ title = {On Bayesian Methods for Seeking the Extremum},
+ booktitle = {Proceedings of the IFIP Technical Conference},
+ year = {1974},
+ isbn = {3-540-07165-2},
+ pages = {400--404},
+ numpages = {5},
+ url = {http://dl.acm.org/citation.cfm?id=646296.687872},
+ acmid = {687872},
+ publisher = {Springer-Verlag},
+ address = {London, UK, UK},
+} 
+
+@ARTICLE{gp_ucb,
+       author = {{Srinivas}, Niranjan and {Krause}, Andreas and {Kakade}, Sham M. and
+         {Seeger}, Matthias},
+        title = "{Gaussian Process Optimization in the Bandit Setting: No Regret and Experimental Design}",
+      journal = {arXiv e-prints},
+     keywords = {Computer Science - Machine Learning},
+         year = "2009",
+        month = "Dec",
+          eid = {arXiv:0912.3995},
+        pages = {arXiv:0912.3995},
+archivePrefix = {arXiv},
+       eprint = {0912.3995},
+ primaryClass = {cs.LG},
+       adsurl = {https://ui.adsabs.harvard.edu/\#abs/2009arXiv0912.3995S},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@article{es,
+ author = {Hennig, Philipp and Schuler, Christian J.},
+ title = {Entropy Search for Information-efficient Global Optimization},
+ journal = {J. Mach. Learn. Res.},
+ issue_date = {3/1/2012},
+ volume = {13},
+ month = jun,
+ year = {2012},
+ issn = {1532-4435},
+ pages = {1809--1837},
+ numpages = {29},
+ url = {http://dl.acm.org/citation.cfm?id=2188385.2343701},
+ acmid = {2343701},
+ publisher = {JMLR.org},
+ keywords = {Gaussian processes, expectation propagation, information, optimization, probability},
+} 
+
+@ARTICLE{pes,
+       author = {{Hern{\'a}ndez-Lobato}, Jos{\'e} Miguel and {Hoffman}, Matthew W. and
+         {Ghahramani}, Zoubin},
+        title = "{Predictive Entropy Search for Efficient Global Optimization of Black-box Functions}",
+      journal = {arXiv e-prints},
+     keywords = {Statistics - Machine Learning, Computer Science - Machine Learning},
+         year = "2014",
+        month = "Jun",
+          eid = {arXiv:1406.2541},
+        pages = {arXiv:1406.2541},
+archivePrefix = {arXiv},
+       eprint = {1406.2541},
+ primaryClass = {stat.ML},
+       adsurl = {https://ui.adsabs.harvard.edu/\#abs/2014arXiv1406.2541H},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{parabolic,
+       author = {{Gunter}, Tom and {Osborne}, Michael A. and {Garnett}, Roman and
+         {Hennig}, Philipp and {Roberts}, Stephen J.},
+        title = "{Sampling for Inference in Probabilistic Models with Fast Bayesian Quadrature}",
+      journal = {arXiv e-prints},
+     keywords = {Statistics - Machine Learning},
+         year = "2014",
+        month = "Nov",
+          eid = {arXiv:1411.0439},
+        pages = {arXiv:1411.0439},
+archivePrefix = {arXiv},
+       eprint = {1411.0439},
+ primaryClass = {stat.ML},
+       adsurl = {https://ui.adsabs.harvard.edu/\#abs/2014arXiv1411.0439G},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{local_penalization,
+       author = {{Gonz{\'a}lez}, Javier and {Dai}, Zhenwen and {Hennig}, Philipp and
+         {Lawrence}, Neil D.},
+        title = "{Batch Bayesian Optimization via Local Penalization}",
+      journal = {arXiv e-prints},
+     keywords = {Statistics - Machine Learning},
+         year = "2015",
+        month = "May",
+          eid = {arXiv:1505.08052},
+        pages = {arXiv:1505.08052},
+archivePrefix = {arXiv},
+       eprint = {1505.08052},
+ primaryClass = {stat.ML},
+       adsurl = {https://ui.adsabs.harvard.edu/\#abs/2015arXiv150508052G},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}

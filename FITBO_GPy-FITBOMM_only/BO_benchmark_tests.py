@@ -190,7 +190,6 @@ def saving_data(X_record, min_y_record, X_hist_record):
 
     X_record = x_opt
     min_y_record = y_opt
-
     """
     dir_name = 'Exp_Data/gpyopt_ard/' + test_func + ',' + str(seed_size) + '_seed,' + str(batch_size) + '_batch/'
     file_name = dir_name + str(acq_func) + ',' + str(eval_type) + ',results_vars.pickle'
@@ -214,7 +213,7 @@ def saving_data(X_record, min_y_record, X_hist_record):
 #acq_funcs =  ["EI", "EI_MCMC", "MPI_MCMC",  "LCB", "LCB_MCMC"]
 #evaluator_types = ["sequential", "random", "local_penalization", "thompson_sampling"]
 
-batch_sizes = [2, 4]
+batch_sizes = [1]
 test_funcs = ["branin", "egg", "hartmann"]
 # test_funcs = ["branin"]
 acq_funcs =  ["EI", "MPI"]
