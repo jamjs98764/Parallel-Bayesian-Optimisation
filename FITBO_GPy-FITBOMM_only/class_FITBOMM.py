@@ -56,7 +56,7 @@ class Bayes_opt():
         output_var = params[self.X_dim] # Vertical length scale
         noise_var = params[self.X_dim + 1]
         # compute eta
-        eta = np.min(self.Y) - params[self.X_dim + 2] 
+        eta = np.min(self.Y) - params[self.X_dim + 2]
         # compute the observed value for g instead of y
         g_ob = np.sqrt(2.0 * (self.Y - eta))
 
@@ -719,7 +719,7 @@ class Bayes_opt_batch():
                 x_next = self._gloabl_minimser(acqu_func)
 
                 ### For plotting acq_func
-                
+                """
                 grid_size = 100
                 x = np.linspace(0, 1.0, grid_size)
                 y = np.linspace(0, 1.0, grid_size)
@@ -732,7 +732,7 @@ class Bayes_opt_batch():
 
                  ## Saving acqfunc grid
                 np.save(dir_name + heuristic + ",batch_" + str(k) + ",iter_" + str(batch_i) + ",acq_func.npy", acq_func_grid)
-
+                """
                 # Plotting END
                 max_acqu_value = - acqu_func(x_next)
 

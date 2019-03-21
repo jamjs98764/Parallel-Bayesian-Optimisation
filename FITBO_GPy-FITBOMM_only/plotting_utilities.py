@@ -43,7 +43,6 @@ def load_gpyopt_error(func, metric, batch_size, seed_size, acq_func, eval_type, 
         result = np.repeat(result, repeats = batch_size * np.ones(result.shape[1], dtype = int), axis = 1)
         result = result[:,(batch_size-1):] # Do not duplicate initial error
 
-    result = np.log(result)
     df = np_to_df(result)
     return df
 

@@ -15,8 +15,9 @@ from class_FITBOMM_MLE import Bayes_opt_batch_MLE
 
 ##### Initializing experiment parameters
 
-seed_size = 1
-num_iters = 12
+seed_size = 50
+num_iters = 100
+iter_100 = True
 
 v2_seed_start = 50
 v2_seed_size = 50
@@ -73,6 +74,9 @@ def BO_test(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, re
 
     if MLE == True: # New folder record for MLE
         dir_name = dir_name[:-1] + ",MLE/"
+
+    if iter_100 == True: # New folder record for MLE
+        dir_name = dir_name[:-1] + ",iter_100/"
 
     try:
         os.mkdir(dir_name)
@@ -347,18 +351,18 @@ def test_all_v2(test_func, current_batch_size):
     return None
 
 # Sequential
-"""
+
 test_funcs = ["egg", "branin", "hartmann"]
 
 for func in test_funcs:
     test_sequential(func)
-"""
 
-batch_sizes = [4]
-test_funcs = ["branin", "egg"]
+"""
+batch_sizes = [2, 4]
+test_funcs = ["egg", "branin", "hartmann"]
 
 for batch_size in batch_sizes:
     for test_func in test_funcs:
         test_all(test_func, batch_size)
-
+"""
 
