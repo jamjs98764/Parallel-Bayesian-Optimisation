@@ -56,7 +56,7 @@ class Bayes_opt():
         output_var = params[self.X_dim] # Vertical length scale
         noise_var = params[self.X_dim + 1] 
         # compute eta
-        eta = np.min(self.Y) - params[self.X_dim + 2] # QUESTION: what is this?
+        eta = np.min(self.Y) - params[self.X_dim + 2] 
         # compute the observed value for g instead of y
         g_ob = np.sqrt(2.0 * (self.Y - eta))
 
@@ -98,8 +98,6 @@ class Bayes_opt():
         logl_priormu = np.log(0.3 * np.ones(self.X_dim))
         logl_priorvar = np.diag(3.0 * np.ones(self.X_dim))
         prior_l_scales = Gaussianprior(log_params[0: self.X_dim], logl_priormu, logl_priorvar) / det_l_scales
-        print("prior_l_scales")
-        print(prior_l_scales)
         # Gaussianprior(X, mean, variance)
         # Returns pdf of X based on multivariate Gaussian with given mean and variance
         prior_output_var = Gaussianprior(log_params[self.X_dim], np.log(1.0), 3.0) / params[self.X_dim]
