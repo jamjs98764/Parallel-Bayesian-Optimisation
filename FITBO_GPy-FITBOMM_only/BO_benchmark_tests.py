@@ -18,7 +18,7 @@ import os
 from plotting_utilities import *
 
 var_noise = 1.0e-3 # y_next = self.func(x_next) + np.random.normal(0, self.var_noise, len(x_next))
-seed_size = 50
+seed_size = 100
 
 def wrapper_GPyOpt(test_func, acq_func = "EI", eval_type = "random", \
     seed_size = seed_size, iterations = 40, batch_size = 2):
@@ -213,10 +213,10 @@ def saving_data(X_record, min_y_record, X_hist_record):
 #acq_funcs =  ["EI", "EI_MCMC", "MPI_MCMC",  "LCB", "LCB_MCMC"]
 #evaluator_types = ["sequential", "random", "local_penalization", "thompson_sampling"]
 
-batch_sizes = [1]
-test_funcs = ["branin", "egg", "hartmann"]
-# test_funcs = ["branin"]
-acq_funcs =  ["EI", "MPI"]
+batch_sizes = [1, 2, 4, 8]
+#test_funcs = ["branin", "egg", "hartmann"]
+test_funcs = ["hartmann"]
+acq_funcs =  ["EI"]
 evaluator_types = ["local_penalization"] # does not matter for batch size = 1
 
 for test_func in test_funcs:
