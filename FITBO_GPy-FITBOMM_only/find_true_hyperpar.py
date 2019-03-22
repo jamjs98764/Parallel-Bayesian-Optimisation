@@ -7,7 +7,7 @@ sigma0= 1.0e-3
 
 branin_y = branin(X) + sigma0 * np.random.randn()
 
-kernel_branin = GPy.kern.RBF(input_dim=2, ARD = True)
+kernel_branin = GPy.kern.RBF(input_dim=2, ARD = False)
 m_branin = GPy.models.GPRegression(X,branin_y,kernel_branin)
 m_branin.optimize(messages=True)
 print(m_branin.kern.lengthscale)

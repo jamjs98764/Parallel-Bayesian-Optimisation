@@ -21,6 +21,15 @@ import batch_proposals
 import GP_models
 from scipy.stats import norm
 
+"""
+PRIORS
+"""
+branin_lscale = np.array([0.36986751, 6.24718483])
+branin_lscale_var = np.array([0.03, 0.6])
+
+egg_lscale = np.array([0.05293395, 0.05648268])
+egg_lscale_var = np.array([0.005, 0.005])
+
 class Bayes_opt():
     def __init__(self, func, lb, ub, var_noise, input_type = [0], kernel = "gauss"):
         self.func = func
@@ -95,11 +104,14 @@ class Bayes_opt():
 
         # log prior of hyperparameters
         det_l_scales = np.product(params[0:self.X_dim])
-        logl_priormu = np.log(0.3 * np.ones(self.X_dim))
-        logl_priorvar = np.diag(3.0 * np.ones(self.X_dim))
+        if self.func == "branin":
+            logl_priormu = np.log(branin_lscale)
+            logl_priorvar = np.diag(np.array([0.01,0.015]))
+        else:
+            logl_priormu = np.log(egg_lscale)
+            logl_priorvar = np.diag(np.array([0.01,0.015]))
+
         prior_l_scales = Gaussianprior(log_params[0: self.X_dim], logl_priormu, logl_priorvar) / det_l_scales
-        print("prior_l_scales")
-        print(prior_l_scales)
         # Gaussianprior(X, mean, variance)
         # Returns pdf of X based on multivariate Gaussian with given mean and variance
         prior_output_var = Gaussianprior(log_params[self.X_dim], np.log(1.0), 3.0) / params[self.X_dim]
