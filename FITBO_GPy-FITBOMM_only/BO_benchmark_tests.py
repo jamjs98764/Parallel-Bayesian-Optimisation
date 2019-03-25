@@ -18,7 +18,7 @@ import os
 from plotting_utilities import *
 
 var_noise = 1.0e-3 # y_next = self.func(x_next) + np.random.normal(0, self.var_noise, len(x_next))
-seed_size = 100
+seed_size = 50
 
 def wrapper_GPyOpt(test_func, acq_func = "EI", eval_type = "random", \
     seed_size = seed_size, iterations = 40, batch_size = 2):
@@ -191,7 +191,7 @@ def saving_data(X_record, min_y_record, X_hist_record):
     X_record = x_opt
     min_y_record = y_opt
     """
-    dir_name = 'Exp_Data/gpyopt_ard/' + test_func + ',' + str(seed_size) + '_seed,' + str(batch_size) + '_batch/'
+    dir_name = 'Exp_Data/gpyopt/' + test_func + ',' + str(seed_size) + '_seed,' + str(batch_size) + '_batch/'
     file_name = dir_name + str(acq_func) + ',' + str(eval_type) + ',results_vars.pickle'
 
     try: # creates new folder
@@ -213,9 +213,9 @@ def saving_data(X_record, min_y_record, X_hist_record):
 #acq_funcs =  ["EI", "EI_MCMC", "MPI_MCMC",  "LCB", "LCB_MCMC"]
 #evaluator_types = ["sequential", "random", "local_penalization", "thompson_sampling"]
 
-batch_sizes = [1, 2, 4, 8]
-#test_funcs = ["branin", "egg", "hartmann"]
-test_funcs = ["hartmann"]
+batch_sizes = [2, 4, 8]
+test_funcs = ["branin", "egg", "hartmann"]
+#test_funcs = ["hartmann"]
 acq_funcs =  ["EI"]
 evaluator_types = ["local_penalization"] # does not matter for batch size = 1
 
