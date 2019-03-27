@@ -324,7 +324,6 @@ def FITBO_wrapper(batch_size = 2, heuristic = "cl-min"):
             results_Y_hist[j, :] = bayes_opt.Y.flatten()
             results_Y_optimum[j, :] = Y_optimum.flatten()
 
-
         X_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",X_optimum"
         Y_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",Y_optimum"
         X_hist_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",X_hist"

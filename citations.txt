@@ -248,3 +248,33 @@ archivePrefix = {arXiv},
        adsurl = {https://ui.adsabs.harvard.edu/\#abs/2015arXiv150508052G},
       adsnote = {Provided by the SAO/NASA Astrophysics Data System}
 }
+
+@ARTICLE{fitbo,
+       author = {{Ru}, Binxin and {McLeod}, Mark and {Granziol}, Diego and
+         {Osborne}, Michael A.},
+        title = "{Fast Information-theoretic Bayesian Optimisation}",
+      journal = {arXiv e-prints},
+     keywords = {Statistics - Machine Learning},
+         year = "2017",
+        month = "Nov",
+          eid = {arXiv:1711.00673},
+        pages = {arXiv:1711.00673},
+archivePrefix = {arXiv},
+       eprint = {1711.00673},
+ primaryClass = {stat.ML},
+       adsurl = {https://ui.adsabs.harvard.edu/\#abs/2017arXiv171100673R},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+
+@book{cart,
+  added-at = {2016-11-26T13:19:29.000+0100},
+  address = {Monterey, CA},
+  author = {Breiman, L. and Friedman, J. H. and Olshen, R. A. and Stone, C. J.},
+  keywords = {imported ml},
+  publisher = {Wadsworth and Brooks},
+  serial = {bre84a},
+  timestamp = {2016-11-26T13:20:49.000+0100},
+  title = {Classification and Regression Trees},
+  year = 1984
+}

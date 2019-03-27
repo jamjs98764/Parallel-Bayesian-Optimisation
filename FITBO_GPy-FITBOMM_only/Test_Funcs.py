@@ -64,6 +64,19 @@ def branin_gpyopt(X):
     y = y_unscaled / 10 - 15
     return y
 
+def branin_gpyopt_v2(X):
+    '''2D branin in gpyopt format
+    f_min =-14.96021125
+    x_min = [0.1239, 0.8183]; [0.5428, 0.1517]; [0.9617, 0.1650]'''
+    X = np.atleast_2d(X)
+    x1 = X[0,0]
+    x2 = X[0,1]
+    x1 = x1 * 15 - 5
+    x2 = x2 * 15
+    y_unscaled = (x2 - 5.1 / (4 * np.pi ** 2) * x1 ** 2 + 5 * x1 / np.pi - 6) ** 2 + 10 * (1 - 1 / (8 * np.pi)) * np.cos(x1) + 10
+    y = y_unscaled / 10 - 15
+    return -y
+
 def egg(x):
     '''2D eggholder
     f_min = -9.596407

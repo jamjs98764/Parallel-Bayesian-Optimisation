@@ -114,8 +114,48 @@ plt.figure()
 plt.show()
 
 
-
-
 #########
 # GPyOpt - Branin
 #########
+cur_func = "branin"
+batch_size = 2
+
+a = np.load("1acq_func.npy")
+b = np.load("2acq_func.npy")
+c = np.load("3acq_func.npy")
+
+diff_ba = b - a
+diff_cb = c - b
+
+grid_size = 100
+x = np.linspace(0, 1.0, grid_size)
+y = np.linspace(0, 1.0, grid_size)
+
+###
+# Plot 1 (Between batches)
+###
+lons = [1.0]
+lats = [0.0]
+
+fig = plt.figure()
+plt.contourf(x, y, diff_cb, cmap = "viridis")
+plt.colorbar()
+plt.title("Change in EI-LP Acq Func between \n Iterations 3 & 4 for 2-Batch Branin")
+plt.scatter(lons, lats, marker = '^', label='Queries')
+plt.gca().set_aspect('equal', adjustable='box')
+
+# Adding global minimum
+x_min = min_x_dict[cur_func]
+if (len(x_min)>1):
+        plt.plot(np.array(x_min)[:,0], np.array(x_min)[:,1], 'm.', markersize=15, label='Global Minimums')
+else:
+    plt.plot(x_min[0][0], x_min[0][1], 'm.', markersize=10, label='Global Minimum')
+
+plt.legend(loc='center left', bbox_to_anchor=(1.35, 0.5))
+plt.tight_layout()
+fig.savefig('Exp_Data/Graphs/gpy-ei_branin_acq_betweenbatch.png', transparent=True)
+plt.show()
+
+
+
+
