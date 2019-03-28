@@ -100,9 +100,10 @@ x_ob1 = np.array([4, 128, 0.1, 0.1, 0.3, 0.0001])
 x_ob2 = np.array([256, 64,  0.7, 0.5, 0.5, 0.01])
 x_ob3 = np.array([32, 512, 0.0, 0.0, 0.2, 0.1])
 x_ob = np.vstack((x_ob1, x_ob2, x_ob3))
-y_ob = cifar_utils.cifar_cnn_fitbo(x_ob)
+#y_ob = cifar_utils.cifar_cnn_fitbo(x_ob)
+#np.save("cifar-y_ob.npy", y_ob)
 
-np.save("cifar-y_ob.npy", y_ob)
+y_ob = np.load("cifar-y_ob.npy")
 
 """
 params_complex = {"batch_size": 32,
@@ -195,4 +196,13 @@ def cifar_fitbo_wrapper(batch_size, heuristic = "cl-min"):
         np.save(Y_hist_file_name, results_Y_hist)
 
     return None
+
+batch_list = [2,4]
+heuristic_list = ['cl-min', 'cl-max', 'kb']
+
+cifar_fitbo_wrapper(batch_size = 1, heuristic = "kb")
+
+for batch in batch_list:
+    for heur in heuristic_list:
+        cifar_fitbo_wrapper(batch_size = batch, heuristic = heur)
 

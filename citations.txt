@@ -278,3 +278,23 @@ archivePrefix = {arXiv},
   title = {Classification and Regression Trees},
   year = 1984
 }
+
+@article{rf,
+ author = {Breiman, Leo},
+ title = {Random Forests},
+ journal = {Mach. Learn.},
+ issue_date = {October 1 2001},
+ volume = {45},
+ number = {1},
+ month = oct,
+ year = {2001},
+ issn = {0885-6125},
+ pages = {5--32},
+ numpages = {28},
+ url = {https://doi.org/10.1023/A:1010933404324},
+ doi = {10.1023/A:1010933404324},
+ acmid = {570182},
+ publisher = {Kluwer Academic Publishers},
+ address = {Hingham, MA, USA},
+ keywords = {classification, ensemble, regression},
+} 
