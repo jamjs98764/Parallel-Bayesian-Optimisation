@@ -32,13 +32,22 @@ import numpy as np
 from tensorflow import set_random_seed
 
 num_classes = 10
-epochs = 20
-steps_per_epoch = 500
+epochs = 2
+steps_per_epoch = 10
 data_augmentation = True
 num_predictions = 20
 
 initial_size = 2
 
+# The data, split between train and test sets:
+(x_train, y_train), (x_test, y_test) = cifar10.load_data()
+# Convert class vectors to binary class matrices.
+y_train = keras.utils.to_categorical(y_train, num_classes)
+y_test = keras.utils.to_categorical(y_test, num_classes)
+x_train = x_train.astype('float32')
+x_test = x_test.astype('float32')
+x_train /= 255
+x_test /= 255
 
 params_simple = {"batch_size": 32,
           "l1_dropout": 0.25,
@@ -76,12 +85,6 @@ def cifar_cnn_gpyopt(x):
     l3_dropout = x[4]
     rms_l_rate = x[5]
 
-    # The data, split between train and test sets:
-    (x_train, y_train), (x_test, y_test) = cifar10.load_data()
-    # Convert class vectors to binary class matrices.
-    y_train = keras.utils.to_categorical(y_train, num_classes)
-    y_test = keras.utils.to_categorical(y_test, num_classes)
-
     model = Sequential()
     model.add(Conv2D(32, (3, 3), padding='same', # l1_conv_filter
                      input_shape=x_train.shape[1:]))
@@ -111,11 +114,6 @@ def cifar_cnn_gpyopt(x):
     model.compile(loss='categorical_crossentropy',
                   optimizer=opt,
                   metrics=['accuracy'])
-
-    x_train = x_train.astype('float32')
-    x_test = x_test.astype('float32')
-    x_train /= 255
-    x_test /= 255
 
     if not data_augmentation:
         print('Not using data augmentation.')
