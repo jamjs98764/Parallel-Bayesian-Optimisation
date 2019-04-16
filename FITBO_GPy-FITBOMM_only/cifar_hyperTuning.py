@@ -51,7 +51,7 @@ fully_connected_units
 #####
 
 seed_size = 5
-total_evals = 30
+total_evals = 32
 
 # For FITBO
 num_continuous_dim = 4
@@ -96,13 +96,14 @@ params_simple = {"batch_size": 32,
 np.random.seed(1)
 set_random_seed(1)
 initial_num = 3
-x_ob1 = np.array([4, 128, 0.1, 0.1, 0.3, 0.0001])
+x_ob1 = np.array([16, 256, 0.1, 0.1, 0.3, 0.0001])
 x_ob2 = np.array([256, 64,  0.7, 0.5, 0.5, 0.01])
 x_ob3 = np.array([32, 512, 0.0, 0.0, 0.2, 0.1])
 x_ob = np.vstack((x_ob1, x_ob2, x_ob3))
 y_ob = cifar_utils.cifar_cnn_fitbo(x_ob)
-
 np.save("cifar-y_ob.npy", y_ob)
+
+# y_ob = np.load("cifar-y_ob.npy")
 
 """
 params_complex = {"batch_size": 32,
@@ -178,6 +179,9 @@ def cifar_fitbo_wrapper(batch_size, heuristic = "cl-min"):
                                                                   mc_samples=sample_size, bo_method=BO_method, seed=seed, \
                                                                   resample_interval= resample_interval, batch_size = batch_size, \
                                                                   heuristic = heuristic, dir_name = dir_name)
+            print("here-again")
+            print(bayes_opt.X.shape)
+            print(bayes_opt.X)
 
             results_X_hist[seed, :] = bayes_opt.X
             results_X_optimum[seed, :] = X_optimum
@@ -195,4 +199,13 @@ def cifar_fitbo_wrapper(batch_size, heuristic = "cl-min"):
         np.save(Y_hist_file_name, results_Y_hist)
 
     return None
+
+batch_list = [2, 4]
+heuristic_list = ['cl-min', 'cl-max', 'kb']
+
+cifar_fitbo_wrapper(batch_size = 1, heuristic = "kb")
+
+for batch in batch_list:
+    for heur in heuristic_list:
+        cifar_fitbo_wrapper(batch_size = batch, heuristic = heur)
 

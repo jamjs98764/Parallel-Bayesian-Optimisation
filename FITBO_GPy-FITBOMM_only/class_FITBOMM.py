@@ -792,9 +792,6 @@ class Bayes_opt_batch():
             actual_y = self.func(cur_batch_X) + np.random.normal(0, self.var_noise, (batch_size, 1))
             self.Y = np.vstack((self.Y, actual_y))
 
-            print("Self.X size")
-            print(self.X.shape)
-
             #################### Main changes for batch END
 
             # resample hyperparameters
