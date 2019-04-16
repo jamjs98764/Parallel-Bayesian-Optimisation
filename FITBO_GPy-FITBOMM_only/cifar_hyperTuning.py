@@ -131,7 +131,7 @@ def cifar_fitbo_wrapper(batch_size, heuristic = "cl-min"):
     resample_interval = 1
 
     save_dir = os.path.join(os.getcwd(), 'Exp_Data/cifar10')
-    dir_name = save_dir + "/fitbo/" + str(batch_size) + "_batch"
+    dir_name = save_dir + "/FITBO/" + str(batch_size) + "_batch"
 
     if batch_size == 1: # Sequential
         print("Sequential FITBO not yet fixed. ENDING.")

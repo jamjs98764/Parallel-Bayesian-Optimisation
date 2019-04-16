@@ -278,3 +278,47 @@ archivePrefix = {arXiv},
   title = {Classification and Regression Trees},
   year = 1984
 }
+
+
+@Article{lbfgs,
+author="Liu, Dong C.
+and Nocedal, Jorge",
+title="On the limited memory BFGS method for large scale optimization",
+journal="Mathematical Programming",
+year="1989",
+month="Aug",
+day="01",
+volume="45",
+number="1",
+pages="503--528",
+abstract="We study the numerical performance of a limited memory quasi-Newton method for large scale optimization, which we call the L-BFGS method. We compare its performance with that of the method developed by Buckley and LeNir (1985), which combines cycles of BFGS steps and conjugate direction steps. Our numerical tests indicate that the L-BFGS method is faster than the method of Buckley and LeNir, and is better able to use additional storage to accelerate convergence. We show that the L-BFGS method can be greatly accelerated by means of a simple scaling. We then compare the L-BFGS method with the partitioned quasi-Newton method of Griewank and Toint (1982a). The results show that, for some problems, the partitioned quasi-Newton method is clearly superior to the L-BFGS method. However we find that for other problems the L-BFGS method is very competitive due to its low iteration cost. We also study the convergence properties of the L-BFGS method, and prove global convergence on uniformly convex problems.",
+issn="1436-4646",
+doi="10.1007/BF01589116",
+url="https://doi.org/10.1007/BF01589116"
+}
+
+
+@ARTICLE{latin_sobol,
+       author = {{Kucherenko}, Sergei and {Albrecht}, Daniel and {Saltelli}, Andrea},
+        title = "{Exploring multi-dimensional spaces: a Comparison of Latin Hypercube and Quasi Monte Carlo Sampling Techniques}",
+      journal = {arXiv e-prints},
+     keywords = {Statistics - Applications, Statistics - Computation, 65C05, G.3},
+         year = "2015",
+        month = "May",
+          eid = {arXiv:1505.02350},
+        pages = {arXiv:1505.02350},
+archivePrefix = {arXiv},
+       eprint = {1505.02350},
+ primaryClass = {stat.AP},
+       adsurl = {https://ui.adsabs.harvard.edu/abs/2015arXiv150502350K},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+
+@inproceedings{opes,
+  title = {Output-Space Predictive Entropy Search for Flexible Global
+              Optimization},
+  author = {Hoffman, Matthew W. and Ghahramani, Zoubin},
+  booktitle = {the NIPS workshop on Bayesian optimization},
+  year = {2015}
+}
