@@ -15,9 +15,9 @@ from class_FITBOMM_MLE import Bayes_opt_batch_MLE
 
 ##### Initializing experiment parameters
 
-seed_size = 5
-num_iters = 40
-iter_100 = True
+seed_size = 50
+num_iters = 80
+iter_80 = True
 
 v2_seed_start = 50
 v2_seed_size = 50
@@ -75,8 +75,8 @@ def BO_test(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, re
     if MLE == True: # New folder record for MLE
         dir_name = dir_name[:-1] + ",MLE/"
 
-    if iter_100 == True: # New folder record for MLE
-        dir_name = dir_name[:-1] + ",iter_100/"
+    if iter_80 == True: # New folder record for MLE
+        dir_name = dir_name[:-1] + ",iter_80/"
 
     try:
         os.mkdir(dir_name)
@@ -325,12 +325,9 @@ def test_all(test_func, current_batch_size):
 
     BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'kb')
     BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-min')
-    """
     BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-mean')
-    BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-min')
     BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-max')
     BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'random')
-    """
     return None
 
 def test_sequential_v2(test_func):
@@ -352,15 +349,14 @@ def test_all_v2(test_func, current_batch_size):
 
 # Sequential
 
-"""
-test_funcs = ["egg", "branin", "hartmann"]
 
+test_funcs = ["egg", "branin", "hartmann"]
+"""
 for func in test_funcs:
     test_sequential(func)
 
 """
-batch_sizes = [2]
-test_funcs = ["egg"]
+batch_sizes = [8]
 
 for batch_size in batch_sizes:
     for test_func in test_funcs:

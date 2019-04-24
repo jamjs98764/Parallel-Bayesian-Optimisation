@@ -13,8 +13,10 @@ import os
 
 var_noise = 1.0e-3  # Same noise setting as FITBO tests
 sigma0 = np.sqrt(var_noise)
-num_iters = 40
+num_iters = 80
 seed_size = 50
+
+options = {'c1': 0.5, 'c2': 0.3, 'w':0.9}
 
 def test_pso(test_func, seed_size, num_iters, batch_size):
     if test_func == 'branin':
@@ -64,14 +66,14 @@ def test_pso(test_func, seed_size, num_iters, batch_size):
         """
         # Running optimisation
         optimizer = GlobalBestPSO(n_particles = batch_size, dimensions=d, options=options, bounds=bounds, init_pos = None)
-        best_cost, best_pos = optimizer.optimize(obj_func_noise, num_iters + initialsamplesize, seed_i)
+        best_cost, best_pos = optimizer.optimize(obj_func_noise, num_iters + 1, seed_i)
 
         # Recording results
         pos_hist = optimizer.pos_history
         cost_hist = optimizer.cost_history
 
         pos_dict[seed_i] = pos_hist
-        cost_dict[seed_i] = cost_hist
+        cost_dict[seed_i] = np.transpose(np.array([cost_hist]))
 
     return pos_dict, cost_dict
 
@@ -100,13 +102,12 @@ def saving_data(pos_dict, cost_dict):
 
     return 0
 
-
 ############
 # Running experiments
 ############
 
-batch_sizes = [1,2,4,8]
-test_funcs = ["egg"]
+batch_sizes = [8]
+test_funcs = ["egg", "branin", "hartmann"]
 
 for test_func in test_funcs:
     for batch_size in batch_sizes:
@@ -115,3 +116,8 @@ for test_func in test_funcs:
         pos_dict, cost_dict = test_pso(test_func, seed_size, effective_iters, batch_size)
         saving_data(pos_dict, cost_dict)
 
+from plotting_utilities import *
+
+test = load_pso_error("egg", "IR", 2, 50)
+
+a, b = load_pickle_pso("egg", 50, 8)

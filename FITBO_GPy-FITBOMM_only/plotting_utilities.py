@@ -29,11 +29,37 @@ def load_pickle_gpyopt(func, seed_size, batch_size, acq_func, eval_type, ard):
 
     return X, min_y
 
+
+def load_pickle_pso(func, seed_size, batch_size):
+    dir_name = "Exp_Data/pso/" + func + ',' + str(seed_size) + '_seed,' + str(batch_size) + '_batch/'
+    file_name = dir_name + 'results_vars.pickle'
+
+    with open(file_name, 'rb') as f:  # Python 3: open(..., 'rb')
+        pickle_dict = pickle.load(f)
+        X = pickle_dict["X"]
+        min_y = pickle_dict["min_y"]
+
+    return X, min_y
+
 # acq_func: "EI" / "EI_MCMC" / "MPI_MCMC" /  "LCB" / "LCB_MCMC"
 # evaluator_type: sequential / random  (1st random in Jian's deifnition) / local_penalization / thompson_sampling
 
 def load_gpyopt_error(func, metric, batch_size, seed_size, acq_func, eval_type, ard = False):
     x, y = load_pickle_gpyopt(func, seed_size, batch_size, acq_func, eval_type, ard)
+    if metric == "L2":
+        result = unpack_l2(func, x)
+    elif metric == "IR":
+        result = unpack_IR(func, y)
+
+    if batch_size > 1:
+        result = np.repeat(result, repeats = batch_size * np.ones(result.shape[1], dtype = int), axis = 1)
+        result = result[:,(batch_size-1):] # Do not duplicate initial error
+
+    df = np_to_df(result)
+    return df
+
+def load_pso_error(func, metric, batch_size, seed_size):
+    x, y = load_pickle_pso(func, seed_size, batch_size)
     if metric == "L2":
         result = unpack_l2(func, x)
     elif metric == "IR":

@@ -789,8 +789,6 @@ class Bayes_opt_batch():
             cur_batch_X = batch_X[k]
 
             self.X = np.vstack((self.X, cur_batch_X))
-            print("Queries")
-            print(self.X)
             actual_y = self.func(cur_batch_X) + np.random.normal(0, self.var_noise, (batch_size, 1))
             self.Y = np.vstack((self.Y, actual_y))
 
