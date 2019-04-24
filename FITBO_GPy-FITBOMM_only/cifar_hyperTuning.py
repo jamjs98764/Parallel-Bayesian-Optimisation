@@ -35,6 +35,7 @@ import cifar_utils
 from class_FITBOMM import Bayes_opt
 from class_FITBOMM import Bayes_opt_batch
 
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 """
 seed
 _BATCH_SIZE (16 to 128)
@@ -49,6 +50,9 @@ fully_connected_units
 #####
 # Experiment parameters
 #####
+
+# REMINDER!!!!!!!!
+# Set epoch parameters too
 
 seed_size = 5
 total_evals = 32
@@ -179,9 +183,6 @@ def cifar_fitbo_wrapper(batch_size, heuristic = "cl-min"):
                                                                   mc_samples=sample_size, bo_method=BO_method, seed=seed, \
                                                                   resample_interval= resample_interval, batch_size = batch_size, \
                                                                   heuristic = heuristic, dir_name = dir_name)
-            print("here-again")
-            print(bayes_opt.X.shape)
-            print(bayes_opt.X)
 
             results_X_hist[seed, :] = bayes_opt.X
             results_X_optimum[seed, :] = X_optimum
@@ -202,6 +203,7 @@ def cifar_fitbo_wrapper(batch_size, heuristic = "cl-min"):
 
 batch_list = [2, 4]
 heuristic_list = ['cl-min', 'cl-max', 'kb']
+
 
 cifar_fitbo_wrapper(batch_size = 1, heuristic = "kb")
 
