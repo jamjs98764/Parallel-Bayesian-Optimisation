@@ -12,9 +12,7 @@ Created on Sat Mar 16 18:48:18 2019
 Created on Fri Nov 10 13:45:16 2017
 
 @author: Jian
-
 Thomson Sampling implementation of sequential and parallel FITBO
-
 """
 import os
 import pickle
