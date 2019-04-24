@@ -15,8 +15,8 @@ from class_FITBOMM_MLE import Bayes_opt_batch_MLE
 
 ##### Initializing experiment parameters
 
-seed_size = 50
-num_iters = 100
+seed_size = 5
+num_iters = 40
 iter_100 = True
 
 v2_seed_start = 50
@@ -352,18 +352,17 @@ def test_all_v2(test_func, current_batch_size):
 
 # Sequential
 
-
+"""
 test_funcs = ["egg", "branin", "hartmann"]
 
 for func in test_funcs:
     test_sequential(func)
 
 """
-batch_sizes = [2, 4]
-test_funcs = ["egg", "branin", "hartmann"]
+batch_sizes = [2]
+test_funcs = ["egg"]
 
 for batch_size in batch_sizes:
     for test_func in test_funcs:
         test_all(test_func, batch_size)
 
-"""
