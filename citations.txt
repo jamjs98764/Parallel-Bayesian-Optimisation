@@ -279,7 +279,6 @@ archivePrefix = {arXiv},
   year = 1984
 }
 
-<<<<<<< HEAD
 
 @Article{lbfgs,
 author="Liu, Dong C.
@@ -323,7 +322,7 @@ archivePrefix = {arXiv},
   booktitle = {the NIPS workshop on Bayesian optimization},
   year = {2015}
 }
-=======
+
 @article{rf,
  author = {Breiman, Leo},
  title = {Random Forests},
@@ -343,4 +342,14 @@ archivePrefix = {arXiv},
  address = {Hingham, MA, USA},
  keywords = {classification, ensemble, regression},
 } 
->>>>>>> 9fbe88e1504297d8463b575ee1fc7e6c63737ddb
+
+@article{pyswarm,
+author = {James V. Miranda, Lester},
+year = {2018},
+month = {01},
+pages = {433},
+title = {PySwarms: a research toolkit for Particle Swarm Optimization in Python},
+volume = {3},
+journal = {The Journal of Open Source Software},
+doi = {10.21105/joss.00433}
+}

@@ -21,7 +21,7 @@ var_noise = 1.0e-3 # y_next = self.func(x_next) + np.random.normal(0, self.var_n
 seed_size = 50
 
 def wrapper_GPyOpt(test_func, acq_func = "EI", eval_type = "random", \
-    seed_size = seed_size, iterations = 100, batch_size = 2):
+    seed_size = seed_size, iterations = 80, batch_size = 2):
     """
     Wrapper function which implements GPyOpt BO
     Returns all query points
@@ -213,8 +213,8 @@ def saving_data(X_record, min_y_record, X_hist_record):
 #acq_funcs =  ["EI", "EI_MCMC", "MPI_MCMC",  "LCB", "LCB_MCMC"]
 #evaluator_types = ["sequential", "random", "local_penalization", "thompson_sampling"]
 
-batch_sizes = [1, 2, 4, 8]
-test_funcs = ["hartmann"]
+batch_sizes = [8]
+test_funcs = ["egg", "branin", "hartmann"]
 acq_funcs =  ["EI"]
 evaluator_types = ["local_penalization"] # does not matter for batch size = 1
 

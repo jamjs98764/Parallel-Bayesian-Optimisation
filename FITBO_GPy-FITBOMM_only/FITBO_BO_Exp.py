@@ -350,7 +350,7 @@ def test_all_v2(test_func, current_batch_size):
 # Sequential
 
 
-test_funcs = ["egg", "branin", "hartmann"]
+test_funcs = ["branin", "hartmann"]
 """
 for func in test_funcs:
     test_sequential(func)
