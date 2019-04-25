@@ -226,7 +226,6 @@ class Bayes_opt():
         for i in range(len(self.params)):
             self.GP_normal.append(GPy.models.GPRegression(self.X, self.Y, self.kernel[i], noise_var=noise_param[i]))
 
-
     def _marginalised_posterior_mean(self, x):
         '''Marginalize GP-normal over all hyperparam sample'''
         x = np.atleast_2d(x) # Wrap array x into 2D-array
@@ -328,7 +327,6 @@ class Bayes_opt():
 
             # np.random.seed(seed*100)
             # optimise the acquisition function to get the next query point and evaluate at next query point
-            current_y_best = self.Y.min()
             x_next = self._gloabl_minimser(acqu_func)
             max_acqu_value = - acqu_func(x_next)
             y_next = self.func(x_next) + np.random.normal(0, self.var_noise, len(x_next)) # Query x_next, but y = f(x) + noise
@@ -354,7 +352,6 @@ class Bayes_opt():
             Y_optimum = np.concatenate((Y_optimum, np.atleast_2d(y_opt)))
             X_for_L2 = np.concatenate((X_for_L2, np.atleast_2d(X_optimum[np.argmin(Y_optimum),:])))
             Y_for_IR = np.concatenate((Y_for_IR, np.atleast_2d(min(Y_optimum))))
-
             print("bo:"+ bo_method + ",seed:{seed},itr:{iteration},x_next: {next_query_loc},y_next:{next_query_value}, acq value: {best_acquisition_value},"
                 "x_opt:{x_opt_pred},y_opt:{y_opt_pred}"
                 .format(seed = seed,
@@ -365,14 +362,14 @@ class Bayes_opt():
                         x_opt_pred=X_for_L2[-1,:], # QUESTION: why is this always the last value?
                         y_opt_pred=Y_for_IR[-1,:]
                         ))
-
+            """
             # Saving GP values for PI calculation
             x_next_mean = self._marginalised_posterior_mean(x_next)
             x_next_var = self._marginalised_posterior_var(x_next)
             PI_value = norm.cdf((current_y_best - (x_next_mean)) / np.sqrt(x_next_var))
             self.full_PI_value[:, k] = PI_value
 
-            """
+
             full_mean, full_var = self._store_full_posterior_mean_var()
             self.full_mean_record[k,:] = full_mean
             self.full_var_record[k,:] = full_var

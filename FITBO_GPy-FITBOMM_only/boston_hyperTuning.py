@@ -274,6 +274,11 @@ def FITBO_wrapper(batch_size = 2, heuristic = "cl-min"):
 
     if batch_size == 1: # Sequential
         heuristic = "sequential"
+        results_X_hist = np.zeros(shape=(seed_size, total_evals + initial_num, input_dim))
+        results_X_optimum = np.zeros(shape=(seed_size, total_evals + 1, input_dim))
+        results_Y_hist = np.zeros(shape=(seed_size, total_evals + initial_num))
+        results_Y_optimum = np.zeros(shape=(seed_size, total_evals + 1))
+
         for j in range(seed_size):
 
             seed = j
@@ -289,14 +294,19 @@ def FITBO_wrapper(batch_size = 2, heuristic = "cl-min"):
                                                             seed=seed, resample_interval= resample_interval, \
                                                             dir_name = dir_name)
 
-            X_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",X_optimum"
-            Y_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",Y_optimum"
-            X_hist_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",X_hist"
-            Y_hist_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",Y_hist"
-            np.save(X_file_name, X_optimum) # results_IR/L2 is np array of shape (num_iterations + 1, seed_size)
-            np.save(Y_file_name, Y_optimum)
-            np.save(X_hist_file_name, bayes_opt.X)
-            np.save(Y_hist_file_name, bayes_opt.Y)
+            results_X_hist[j, :] = bayes_opt.X
+            results_X_optimum[j, :] = X_optimum
+            results_Y_hist[j, :] = bayes_opt.Y.flatten()
+            results_Y_optimum[j, :] = Y_optimum.flatten()
+
+        X_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",X_optimum"
+        Y_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",Y_optimum"
+        X_hist_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",X_hist"
+        Y_hist_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",Y_hist"
+        np.save(X_file_name, X_optimum) # results_IR/L2 is np array of shape (num_iterations + 1, seed_size)
+        np.save(Y_file_name, Y_optimum)
+        np.save(X_hist_file_name, bayes_opt.X)
+        np.save(Y_hist_file_name, bayes_opt.Y)
 
 
     else: # Batch
@@ -339,20 +349,19 @@ def FITBO_wrapper(batch_size = 2, heuristic = "cl-min"):
 ####
 
 batch_list = [1]
-heuristic_list = ['cl-min', 'cl-max', 'kb']
+heuristic_list = ['random']
 
 # heuristic_list = ['cl-min']
 error_list = []
 
-# FITBO_wrapper(batch_size = 1, heuristic = "kb")
-
+FITBO_wrapper(batch_size = 1, heuristic = "kb")
+"""
 for batch in batch_list:
     # gpyopt_wrapper(batch_size = batch)  # EI, Local Penalization by default
     FITBO_wrapper(batch_size = batch, heuristic = "kb")
-    """
     for heur in heuristic_list:
         try:
             FITBO_wrapper(batch_size = batch, heuristic = heur)
         except Exception as e:
             error_run = heur + str(batch) + "_batch - " + str(e)
-    """
+"""
