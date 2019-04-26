@@ -816,12 +816,11 @@ class Bayes_opt_batch():
 
             x_opt = self._gloabl_minimser(self._marginalised_posterior_mean)
 
-            if x_opt in X_optimum: # if block to avoid re-running same query
-                for index in range(len(X_optimum)):
-                    if (x_opt == X_optimum[index]).all():
-                        y_opt = Y_optimum[index]
-            else:
-                y_opt = self.func(x_opt)
+            for index in range(len(X_optimum)):
+                if (x_opt == X_optimum[index]).all():
+                    y_opt = Y_optimum[index]
+                else:
+                    y_opt = self.func(x_opt)
 
             X_optimum = np.concatenate((X_optimum, np.atleast_2d(x_opt)))
             Y_optimum = np.concatenate((Y_optimum, np.atleast_2d(y_opt)))
