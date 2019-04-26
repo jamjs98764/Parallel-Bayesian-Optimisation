@@ -357,6 +357,7 @@ class Bayes_opt():
                     y_opt = self.func(x_opt)
                     print("here3")
                     print(y_opt)
+                    break
 
 
             X_optimum = np.concatenate((X_optimum, np.atleast_2d(x_opt)))
