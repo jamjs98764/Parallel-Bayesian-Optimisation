@@ -349,11 +349,19 @@ class Bayes_opt():
             x_opt = self._gloabl_minimser(self._marginalised_posterior_mean)
 
             if x_opt in X_optimum: # if block to avoid re-running same query
+                print("here")
+                print(x_opt)
+                print(X_optimum)
                 for index in range(len(X_optimum)):
                     if (x_opt == X_optimum[index]).all():
+                        print("here2")
                         y_opt = Y_optimum[index]
+                        print(y_opt)
             else:
                 y_opt = self.func(x_opt)
+                print("here3")
+                print(y_opt)
+
 
             X_optimum = np.concatenate((X_optimum, np.atleast_2d(x_opt)))
             Y_optimum = np.concatenate((Y_optimum, np.atleast_2d(y_opt)))

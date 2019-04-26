@@ -49,8 +49,8 @@ fully_connected_units
 # REMINDER!!!!!!!!
 # Set epoch parameters too
 
-seed_size = 3
-total_evals = 40
+seed_size = 1
+total_evals = 4
 
 # For FITBO
 num_continuous_dim = 4

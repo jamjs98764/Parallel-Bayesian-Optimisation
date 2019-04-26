@@ -15,7 +15,7 @@ from class_FITBOMM_MLE import Bayes_opt_batch_MLE
 
 ##### Initializing experiment parameters
 
-seed_size = 50
+seed_size = 5
 num_iters = 80
 iter_80 = True
 
@@ -325,9 +325,11 @@ def test_all(test_func, current_batch_size):
 
     BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'kb')
     BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-min')
+    """
     BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-mean')
     BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-max')
     BO_test(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'random')
+    """
     return None
 
 def test_sequential_v2(test_func):
@@ -350,7 +352,7 @@ def test_all_v2(test_func, current_batch_size):
 # Sequential
 
 
-test_funcs = ["branin", "hartmann"]
+test_funcs = ["hartmann"]
 """
 for func in test_funcs:
     test_sequential(func)
