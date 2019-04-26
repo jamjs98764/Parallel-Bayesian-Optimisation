@@ -347,7 +347,14 @@ class Bayes_opt():
             # optimise the marginalised posterior mean to get the prediction for the global optimum/optimiser
             self._fit_GP_normal()
             x_opt = self._gloabl_minimser(self._marginalised_posterior_mean)
-            y_opt = self.func(x_opt)
+
+            if x_opt in X_optimum: # if block to avoid re-running same query
+                for index in range(len(X_optimum)):
+                    if x_opt == X_optimum[index]:
+                        y_opt = Y_optimum[index]
+            else:
+                y_opt = self.func(x_opt)
+
             X_optimum = np.concatenate((X_optimum, np.atleast_2d(x_opt)))
             Y_optimum = np.concatenate((Y_optimum, np.atleast_2d(y_opt)))
             X_for_L2 = np.concatenate((X_for_L2, np.atleast_2d(X_optimum[np.argmin(Y_optimum),:])))
@@ -804,7 +811,14 @@ class Bayes_opt_batch():
             self._fit_GP_normal()
 
             x_opt = self._gloabl_minimser(self._marginalised_posterior_mean)
-            y_opt = self.func(x_opt)
+            
+            if x_opt in X_optimum: # if block to avoid re-running same query
+                for index in range(len(X_optimum)):
+                    if x_opt == X_optimum[index]:
+                        y_opt = Y_optimum[index]
+            else:
+                y_opt = self.func(x_opt)
+
             X_optimum = np.concatenate((X_optimum, np.atleast_2d(x_opt)))
             Y_optimum = np.concatenate((Y_optimum, np.atleast_2d(y_opt)))
             X_for_L2 = np.concatenate((X_for_L2, np.atleast_2d(X_optimum[np.argmin(Y_optimum),:])))

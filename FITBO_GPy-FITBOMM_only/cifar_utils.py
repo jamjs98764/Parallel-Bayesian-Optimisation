@@ -119,7 +119,7 @@ def cifar_cnn_gpyopt(x):
     scores = model.evaluate(x_test, y_test, verbose=0)
     test_accuracy = scores[1]
 
-    return test_accuracy
+    return -test_accuracy # negative because FITBO minimises
 
 def cifar_cnn_fitbo(X):
     # same as gpyopt_objective, except X is size (num_iter, input_dim)
