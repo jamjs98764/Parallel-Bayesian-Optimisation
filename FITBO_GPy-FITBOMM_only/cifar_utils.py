@@ -31,7 +31,7 @@ import numpy as np
 from tensorflow import set_random_seed
 
 num_classes = 10
-epochs = 40 #20
+epochs = 5 #20
 
 # The data, split between train and test sets:
 (x_train, y_train), (x_test, y_test) = cifar10.load_data()
@@ -119,7 +119,7 @@ def cifar_cnn_gpyopt(x):
     scores = model.evaluate(x_test, y_test, verbose=0)
     test_accuracy = scores[1]
 
-    return test_accuracy
+    return -test_accuracy # negative because FITBO minimises
 
 def cifar_cnn_fitbo(X):
     # same as gpyopt_objective, except X is size (num_iter, input_dim)
