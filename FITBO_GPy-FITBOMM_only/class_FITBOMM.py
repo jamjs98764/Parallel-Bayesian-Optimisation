@@ -350,7 +350,7 @@ class Bayes_opt():
 
             if x_opt in X_optimum: # if block to avoid re-running same query
                 for index in range(len(X_optimum)):
-                    if x_opt == X_optimum[index]:
+                    if (x_opt == X_optimum[index]).all():
                         y_opt = Y_optimum[index]
             else:
                 y_opt = self.func(x_opt)
@@ -811,10 +811,10 @@ class Bayes_opt_batch():
             self._fit_GP_normal()
 
             x_opt = self._gloabl_minimser(self._marginalised_posterior_mean)
-            
+
             if x_opt in X_optimum: # if block to avoid re-running same query
                 for index in range(len(X_optimum)):
-                    if x_opt == X_optimum[index]:
+                    if (x_opt == X_optimum[index]).all():
                         y_opt = Y_optimum[index]
             else:
                 y_opt = self.func(x_opt)
