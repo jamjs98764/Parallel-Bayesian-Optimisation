@@ -196,7 +196,7 @@ def cifar_fitbo_wrapper(batch_size, heuristic = "cl-min"):
 batch_list = [2]
 heuristic_list = ['cl-min']
 
-cifar_fitbo_wrapper(batch_size = 1, heuristic = "kb")
+#cifar_fitbo_wrapper(batch_size = 1, heuristic = "kb")
 
 for batch in batch_list:
     for heur in heuristic_list:
