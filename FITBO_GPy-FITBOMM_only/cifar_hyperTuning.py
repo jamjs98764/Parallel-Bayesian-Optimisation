@@ -49,7 +49,7 @@ fully_connected_units
 # REMINDER!!!!!!!!
 # Set epoch parameters too
 
-seed_size = 1
+seed_size = 3
 total_evals = 40
 
 # For FITBO

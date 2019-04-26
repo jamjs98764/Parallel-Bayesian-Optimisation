@@ -214,7 +214,7 @@ def saving_data(X_record, min_y_record, X_hist_record):
 #evaluator_types = ["sequential", "random", "local_penalization", "thompson_sampling"]
 
 batch_sizes = [8]
-test_funcs = ["egg", "branin", "hartmann"]
+test_funcs = ["hartmann"]
 acq_funcs =  ["EI"]
 evaluator_types = ["local_penalization"] # does not matter for batch size = 1
 
