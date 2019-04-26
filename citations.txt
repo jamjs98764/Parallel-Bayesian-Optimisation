@@ -432,7 +432,7 @@ archivePrefix = {arXiv},
       adsnote = {Provided by the SAO/NASA Astrophysics Data System}
 }
 
-@inproceedings{early_stoppin,
+@inproceedings{early_stopping,
  author = {Domhan, Tobias and Springenberg, Jost Tobias and Hutter, Frank},
  title = {Speeding Up Automatic Hyperparameter Optimization of Deep Neural Networks by Extrapolation of Learning Curves},
  booktitle = {Proceedings of the 24th International Conference on Artificial Intelligence},
@@ -446,3 +446,55 @@ archivePrefix = {arXiv},
  acmid = {2832731},
  publisher = {AAAI Press},
 } 
+
+@inproceedings{genetic_algo,
+ author = {Young, Steven R. and Rose, Derek C. and Karnowski, Thomas P. and Lim, Seung-Hwan and Patton, Robert M.},
+ title = {Optimizing Deep Learning Hyper-parameters Through an Evolutionary Algorithm},
+ booktitle = {Proceedings of the Workshop on Machine Learning in High-Performance Computing Environments},
+ series = {MLHPC '15},
+ year = {2015},
+ isbn = {978-1-4503-4006-9},
+ location = {Austin, Texas},
+ pages = {4:1--4:5},
+ articleno = {4},
+ numpages = {5},
+ url = {http://doi.acm.org/10.1145/2834892.2834896},
+ doi = {10.1145/2834892.2834896},
+ acmid = {2834896},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {convolutional neural networks, deep learning, evolutionary algorithm, hyper-parameter optimization},
+} 
+
+@ARTICLE{portfolio,
+       author = {{Brochu}, Eric and {Hoffman}, Matthew W. and {de Freitas}, Nando},
+        title = "{Portfolio Allocation for Bayesian Optimization}",
+      journal = {arXiv e-prints},
+     keywords = {Computer Science - Machine Learning, G.1.6, G.3, I.2.6},
+         year = "2010",
+        month = "Sep",
+          eid = {arXiv:1009.5419},
+        pages = {arXiv:1009.5419},
+archivePrefix = {arXiv},
+       eprint = {1009.5419},
+ primaryClass = {cs.LG},
+       adsurl = {https://ui.adsabs.harvard.edu/abs/2010arXiv1009.5419B},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+
+@ARTICLE{pes,
+       author = {{Hern{\'a}ndez-Lobato}, Jos{\'e} Miguel and {Hoffman}, Matthew W. and
+         {Ghahramani}, Zoubin},
+        title = "{Predictive Entropy Search for Efficient Global Optimization of Black-box Functions}",
+      journal = {arXiv e-prints},
+     keywords = {Statistics - Machine Learning, Computer Science - Machine Learning},
+         year = "2014",
+        month = "Jun",
+          eid = {arXiv:1406.2541},
+        pages = {arXiv:1406.2541},
+archivePrefix = {arXiv},
+       eprint = {1406.2541},
+ primaryClass = {stat.ML},
+       adsurl = {https://ui.adsabs.harvard.edu/abs/2014arXiv1406.2541H},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
