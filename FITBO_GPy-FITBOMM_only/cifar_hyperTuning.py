@@ -96,17 +96,16 @@ params_simple = {"batch_size": 32,
 np.random.seed(1)
 set_random_seed(1)
 initial_num = 3
-x_ob1 = np.array([32, 256, 0.2, 0.2, 0.7, 0.0001])
-x_ob2 = np.array([64, 128,  0.7, 0.3, 0.5, 0.01])
-x_ob3 = np.array([32, 512, 0.1, 0.1, 0.2, 0.001])
-
+x_ob1 = np.array([16, 256, 0.2, 0.3, 0.2, 0.001])
+x_ob2 = np.array([64, 128,  0.5, 0.5, 0.5, 0.0001])
+x_ob3 = np.array([64, 512, 0.0, 0.0, 0.0, 0.01])
 x_ob = np.vstack((x_ob1, x_ob2, x_ob3))
+"""
 
 y_ob = cifar_utils.cifar_cnn_fitbo(x_ob)
 np.save("cifar-y_ob.npy", y_ob)
 """
-y_ob = np.load("cifar-y_ob.npy")
-"""
+y_ob = np.load("y_ob.npy")
 
 def cifar_fitbo_wrapper(batch_size, heuristic = "cl-min"):
 
@@ -193,7 +192,7 @@ def cifar_fitbo_wrapper(batch_size, heuristic = "cl-min"):
 
     return None
 
-batch_list = [2]
+batch_list = [4]
 heuristic_list = ['cl-min']
 
 #cifar_fitbo_wrapper(batch_size = 1, heuristic = "kb")
