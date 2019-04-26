@@ -352,7 +352,7 @@ class Bayes_opt():
                 if (x_opt == X_optimum[index]).all():
                     print("here2")
                     y_opt = Y_optimum[index]
-                    print(y_opt)
+                    break
                 else:
                     y_opt = self.func(x_opt)
                     print("here3")
@@ -819,6 +819,7 @@ class Bayes_opt_batch():
             for index in range(len(X_optimum)):
                 if (x_opt == X_optimum[index]).all():
                     y_opt = Y_optimum[index]
+                    break
                 else:
                     y_opt = self.func(x_opt)
 
