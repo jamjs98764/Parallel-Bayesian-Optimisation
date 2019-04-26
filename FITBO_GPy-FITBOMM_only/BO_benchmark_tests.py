@@ -215,7 +215,7 @@ def saving_data(X_record, min_y_record, X_hist_record):
 
 batch_sizes = [8]
 test_funcs = ["hartmann"]
-acq_funcs =  ["EI"]
+acq_funcs =  ["MPI", "LCB"]
 evaluator_types = ["local_penalization"] # does not matter for batch size = 1
 
 for test_func in test_funcs:
