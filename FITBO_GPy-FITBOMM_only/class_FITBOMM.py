@@ -359,9 +359,11 @@ class Bayes_opt():
 
             X_optimum = np.concatenate((X_optimum, np.atleast_2d(x_opt)))
             Y_optimum = np.concatenate((Y_optimum, np.atleast_2d(y_opt)))
+            """
             print("X, Y optimum")
             print(x_opt)
             print(y_opt)
+            """
             X_for_L2 = np.concatenate((X_for_L2, np.atleast_2d(X_optimum[np.argmin(Y_optimum),:])))
             Y_for_IR = np.concatenate((Y_for_IR, np.atleast_2d(min(Y_optimum))))
             print("bo:"+ bo_method + ",seed:{seed},itr:{iteration},x_next: {next_query_loc},y_next:{next_query_value}, acq value: {best_acquisition_value},"
