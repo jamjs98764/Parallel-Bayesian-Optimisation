@@ -350,18 +350,18 @@ class Bayes_opt():
 
             for index in range(len(X_optimum)):
                 if (x_opt == X_optimum[index]).all():
-                    print("here2")
                     y_opt = Y_optimum[index]
                     break
                 else:
                     y_opt = self.func(x_opt)
-                    print("here3")
-                    print(y_opt)
                     break
 
 
             X_optimum = np.concatenate((X_optimum, np.atleast_2d(x_opt)))
             Y_optimum = np.concatenate((Y_optimum, np.atleast_2d(y_opt)))
+            print("X, Y optimum")
+            print(x_opt)
+            print(y_opt)
             X_for_L2 = np.concatenate((X_for_L2, np.atleast_2d(X_optimum[np.argmin(Y_optimum),:])))
             Y_for_IR = np.concatenate((Y_for_IR, np.atleast_2d(min(Y_optimum))))
             print("bo:"+ bo_method + ",seed:{seed},itr:{iteration},x_next: {next_query_loc},y_next:{next_query_value}, acq value: {best_acquisition_value},"
@@ -823,9 +823,13 @@ class Bayes_opt_batch():
                     break
                 else:
                     y_opt = self.func(x_opt)
+                    break
 
             X_optimum = np.concatenate((X_optimum, np.atleast_2d(x_opt)))
             Y_optimum = np.concatenate((Y_optimum, np.atleast_2d(y_opt)))
+            print("X, Y optimum")
+            print(x_opt)
+            print(y_opt)
             X_for_L2 = np.concatenate((X_for_L2, np.atleast_2d(X_optimum[np.argmin(Y_optimum),:])))
             Y_for_IR = np.concatenate((Y_for_IR, np.atleast_2d(min(Y_optimum))))
 
@@ -836,7 +840,7 @@ class Bayes_opt_batch():
                         next_query_loc=x_next,
                         next_query_value=actual_y,
                         best_acquisition_value=max_acqu_value,
-                        x_opt_pred=X_for_L2[-1,:], # QUESTION: why is this always the last value?
+                        x_opt_pred=X_for_L2[-1,:],
                         y_opt_pred=Y_for_IR[-1,:]
                         ))
 
