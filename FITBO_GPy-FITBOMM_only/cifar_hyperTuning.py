@@ -69,13 +69,15 @@ l3_dropout = x[4]
 rms_l_rate = x[5]
 """
 
-discrete_bounds = [(4,256), (32, 1024)]
+discrete_bounds = [(16,256), (128, 1024)]
 fitbo_lb = [discrete_bounds[0][0], discrete_bounds[1][0]]
 fitbo_ub = [discrete_bounds[0][1], discrete_bounds[1][0]]
-continuous_bounds = [(0.0,1.0),
-                     (0.0,1.0),
-                     (0.0,1.0),
-                     (0.00001, 0.1),]
+continuous_bounds = [(0.0,0.5),
+                     (0.0,0.5),
+                     (0.0,0.5),
+                     
+                     (0.00001, 0.01),]
+
 for i in continuous_bounds:
     fitbo_lb.append(i[0])
     fitbo_ub.append(i[1])
