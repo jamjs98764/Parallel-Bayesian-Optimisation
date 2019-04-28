@@ -71,13 +71,22 @@ def cifar_cnn_gpyopt(x):
 
     # Unwrapping X into parameters
     x = np.ravel(x)
-
+    """
     batch_size = int(x[0])
     fc_units = int(x[1])
     l1_dropout = x[2]
     l2_dropout = x[3]
     l3_dropout = x[4]
     rms_l_rate = x[5]
+    """
+
+    # Re-adjust normalised inputs
+    batch_size = int(x[0]*256 + 16)
+    fc_units = int(x[1]*1024 + 64)
+    l1_dropout = x[2]/2
+    l2_dropout = x[3]/2
+    l3_dropout = x[4]/2
+    rms_l_rate = x[5]*0.01 + 0.00001
 
     model = Sequential()
     model.add(Conv2D(32, (3, 3), padding='same', # l1_conv_filter
@@ -120,7 +129,7 @@ def cifar_cnn_gpyopt(x):
     scores = model.evaluate(x_test, y_test, verbose=0)
     test_accuracy = scores[1]
 
-    return -test_accuracy # negative because FITBO minimises
+    return -test_accuracy*10 # negative because FITBO minimises
 
 def cifar_cnn_fitbo(X):
     # same as gpyopt_objective, except X is size (num_iter, input_dim)
