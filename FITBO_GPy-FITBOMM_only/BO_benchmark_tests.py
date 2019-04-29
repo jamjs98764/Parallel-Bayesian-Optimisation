@@ -13,6 +13,7 @@ import scipy as sp
 import Test_Funcs
 from functools import partial
 from numpy.random import seed
+import cifar_utils
 import pickle
 import os
 from plotting_utilities import *
@@ -72,6 +73,17 @@ def wrapper_GPyOpt(test_func, acq_func = "EI", eval_type = "random", \
 
     elif test_func == 'hartmann':
         obj_func = Test_Funcs.hartmann_gpyopt
+        d = 6
+        domain = [{'name': 'x1', 'type': 'continuous', 'domain': (0., 1.)},
+           {'name': 'x2', 'type': 'continuous', 'domain': (0., 1.)},
+           {'name': 'x3', 'type': 'continuous', 'domain': (0., 1.)},
+           {'name': 'x4', 'type': 'continuous', 'domain': (0., 1.)},
+           {'name': 'x5', 'type': 'continuous', 'domain': (0., 1.)},
+           {'name': 'x6', 'type': 'continuous', 'domain': (0., 1.)}]
+        initialsamplesize = 9
+
+    elif test_func == 'cifar':
+        obj_func = cifar_utils.cifar_gpyopt
         d = 6
         domain = [{'name': 'x1', 'type': 'continuous', 'domain': (0., 1.)},
            {'name': 'x2', 'type': 'continuous', 'domain': (0., 1.)},
