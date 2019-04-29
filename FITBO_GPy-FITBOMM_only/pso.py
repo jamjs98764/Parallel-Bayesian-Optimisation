@@ -107,7 +107,7 @@ def saving_data(pos_dict, cost_dict):
 ############
 
 batch_sizes = [8]
-test_funcs = ["egg", "branin", "hartmann"]
+test_funcs = ["hartmann"]
 
 for test_func in test_funcs:
     for batch_size in batch_sizes:
