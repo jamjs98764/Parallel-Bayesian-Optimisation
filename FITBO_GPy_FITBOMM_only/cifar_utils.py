@@ -124,7 +124,7 @@ def cifar_cnn_gpyopt(x):
               epochs=epochs,
               validation_data=(x_test, y_test),
               shuffle=True, 
-              verbose = 1)
+              verbose = 2)
 
     scores = model.evaluate(x_test, y_test, verbose=0)
     test_accuracy = scores[1]
