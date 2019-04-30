@@ -44,99 +44,89 @@ warnings.filterwarnings('ignore')
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
-seed_size = 3
-batch_size = 2
-if batch_size == 1:
-  batch = False
-else: batch = True
-acq_func = "EI"
-eval_type = "local_penalization"
-iterations = 40
+batch_size = 4
+heuristic = 'cl-min'
 
+BO_method = 'FITBOMM'
+burnin = 100
+sample_size = 50
+resample_interval = 1
 
-# Values for marginalisation of GP hyperparameters
-n_samples = 150
-n_burning = 100
-gp_model = "GP"
-num_cores = 1
-initialsamplesize = 3
+save_dir = '4yp-bo/FITBO_GPy-FITBOMM_only/Exp_Data/cifar10'
+dir_name = save_dir + "/FITBO/" + str(batch_size) + "_batch"
 
-X_record = {}
-y_opt_record = {}
-X_hist_record = {}
+if batch_size == 1: # Sequential
+    heuristic = "sequential"
+    results_X_hist = np.zeros(shape=(seed_size, total_evals + initial_num, input_dim))
+    results_X_optimum = np.zeros(shape=(seed_size, total_evals + 1, input_dim))
+    results_Y_hist = np.zeros(shape=(seed_size, total_evals + initial_num))
+    results_Y_optimum = np.zeros(shape=(seed_size, total_evals + 1))
 
-domain = [{'name': 'x1', 'type': 'continuous', 'domain': (0., 1.)},
- {'name': 'x2', 'type': 'continuous', 'domain': (0., 1.)},
- {'name': 'x3', 'type': 'continuous', 'domain': (0., 1.)},
- {'name': 'x4', 'type': 'continuous', 'domain': (0., 1.)},
- {'name': 'x5', 'type': 'continuous', 'domain': (0., 1.)},
- {'name': 'x6', 'type': 'continuous', 'domain': (0., 1.)}]
+    for seed in range(seed_size):
+        np.random.seed(seed)
+        set_random_seed(seed)
+        print("Currently on seed: ", seed)
+        x_ob = x_init_dict[seed]
+        y_ob = y_init_dict[seed]
+        
+        bayes_opt = Bayes_opt(cifar_utils.cifar_cnn_fitbo, fitbo_lb, fitbo_ub, var_noise = 0, input_type = input_type)
+        bayes_opt.initialise(x_ob, y_ob)
+        X_optimum, Y_optimum = bayes_opt.iteration_step(iterations=total_evals, mc_burn=burnin, \
+                                                        mc_samples=sample_size, bo_method=BO_method, \
+                                                        seed=seed, resample_interval= resample_interval, \
+                                                        dir_name = dir_name)
+        results_X_hist[seed, :] = bayes_opt.X
+        results_X_optimum[seed, :] = X_optimum
+        results_Y_hist[seed, :] = bayes_opt.Y.flatten()
+        results_Y_optimum[seed, :] = Y_optimum.flatten()
 
-for seed_i in range(seed_size):
-    print("Currently on seed: ", seed_i)
-    np.random.seed(seed_i)
-    seed_i += 1
+        X_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",X_optimum"
+        Y_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",Y_optimum"
+        X_hist_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",X_hist"
+        Y_hist_file_name = dir_name + "batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",Y_hist"
 
-    # Objective
-    obj_func = cifar_utils.cifar_cnn_gpyopt
-    obj_func_noise = cifar_utils.cifar_cnn_gpyopt
+        np.save(X_file_name, X_optimum) # results_IR/L2 is np array of shape (num_iterations + 1, seed_size)
+        np.save(Y_file_name, Y_optimum)
+        np.save(X_hist_file_name, bayes_opt.X)
+        np.save(Y_hist_file_name, bayes_opt.Y)
 
-    # Generating initialising points
-    x_ob = x_init_dict[seed_i]
-    y_ob = y_init_dict[seed_i]
+        np.save(X_file_name, results_X_optimum)
+        np.save(Y_file_name, results_Y_optimum)
+        np.save(X_hist_file_name, results_X_hist)
+        np.save(Y_hist_file_name, results_Y_hist)
 
-    # Iter= 0 value
-    arg_opt = np.argmin(y_ob)
-    x_opt_init = x_ob[arg_opt]
-    y_opt_init = y_ob[arg_opt]
+else: # Batch
+    num_batches = int(total_evals / batch_size)
+    results_X_hist = np.zeros(shape=(seed_size, total_evals + initial_num, input_dim))
+    results_X_optimum = np.zeros(shape=(seed_size, num_batches + 1, input_dim))
+    results_Y_hist = np.zeros(shape=(seed_size, total_evals + initial_num))
+    results_Y_optimum = np.zeros(shape=(seed_size, num_batches + 1))
 
-    if batch == True:
-        # batch
-        BO = GPyOpt.methods.BayesianOptimization(f = obj_func_noise,
-                                                domain = domain,
-                                                acquisition_type = acq_func,
-                                                evaluator_type = eval_type,
-                                                model_type=gp_model,
-                                                normalize_Y = True,
-                                                # NEW CHANGES HERE
-                                                X = x_ob,
-                                                Y = y_ob,
-                                                # END
-                                                batch_size = batch_size,
-                                                num_cores = num_cores,
-                                                acquisition_jitter = 0,
-                                                n_burning = n_burning,
-                                                n_samples = n_samples,
-                                                verbosity = False,
-                                                eps = 1e-10)
-        BO.run_optimization(max_iter = int(iterations / batch_size))
-    else:
-        # sequential
-        BO = GPyOpt.methods.BayesianOptimization(f = obj_func_noise,
-                                                domain = domain,
-                                                acquisition_type = acq_func,
-                                                model_type=gp_model,
-                                                normalize_Y = True,
-                                                X = x_ob,
-                                                Y = y_ob,
-                                                batch_size = batch_size,
-                                                num_cores = num_cores,
-                                                acquisition_jitter = 0,
-                                                n_burning = n_burning,
-                                                n_samples = n_samples,
-                                                verbosity = False,
-                                                eps = 1e-10)
+    for seed in range(seed_size):
+        print("Currently on seed: ", seed)
+        np.random.seed(seed)
+        set_random_seed(seed)
+        x_ob = x_init_dict[seed]
+        y_ob = y_init_dict[seed]
 
-        BO.run_optimization(max_iter = int(iterations))
+        bayes_opt = Bayes_opt_batch(cifar_utils.cifar_cnn_fitbo, fitbo_lb, fitbo_ub, var_noise = 0, input_type = input_type)
+        bayes_opt.initialise(x_ob, y_ob)
+        X_optimum, Y_optimum = bayes_opt.iteration_step_batch(num_batches=num_batches, mc_burn=burnin, \
+                                                              mc_samples=sample_size, bo_method=BO_method, seed=seed, \
+                                                              resample_interval= resample_interval, batch_size = batch_size, \
+                                                              heuristic = heuristic, dir_name = dir_name)
 
-    # Per seed
-    eval_record = BO.get_evaluations()[0]
-    X_opt = BO.return_minimiser() # (rows = iterations, columns = X_dimensions)
-    num_iter = X_opt.shape[0]
-    Y_opt = np.zeros((num_iter, 1)) # cols = output dimension
-    for i in range(num_iter):
-        Y_opt[i] = obj_func(X_opt[i])
+        results_X_hist[seed, :] = bayes_opt.X
+        results_X_optimum[seed, :] = X_optimum
+        results_Y_hist[seed, :] = bayes_opt.Y.flatten()
+        results_Y_optimum[seed, :] = Y_optimum.flatten()
 
-    X_record[seed_i] = np.vstack((x_opt_init,X_opt[initialsamplesize:])) # Initial samples dont count (keep zero as first point)
-    y_opt_record[seed_i] = np.vstack((y_opt_init,Y_opt[initialsamplesize:]))
-    X_hist_record[seed_i] = eval_record[initialsamplesize:]
+    X_file_name = dir_name + "norm_batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",X_optimum"
+    Y_file_name = dir_name + "norm_batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",Y_optimum"
+    X_hist_file_name = dir_name + "norm_batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",X_hist"
+    Y_hist_file_name = dir_name + "norm_batch_" + str(batch_size) + ",seed_" + str(seed_size) + "," + str(heuristic) + ",Y_hist"
+
+    np.save(X_file_name, results_X_optimum)
+    np.save(Y_file_name, results_Y_optimum)
+    np.save(X_hist_file_name, results_X_hist)
+    np.save(Y_hist_file_name, results_Y_hist)
