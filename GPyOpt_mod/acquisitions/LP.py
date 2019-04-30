@@ -54,12 +54,6 @@ class AcquisitionLP(AcquisitionBase):
         m = model.predict(x0)[0]
         pred = model.predict(x0)[1].copy()
         pred1 = model.predict(x0)[1]
-        print(m)
-        print("len_m")
-        print(len(m))
-        print("m[0]")
-        print(m[0])
-        print(type(m[0]))
 
         """
         New changes
