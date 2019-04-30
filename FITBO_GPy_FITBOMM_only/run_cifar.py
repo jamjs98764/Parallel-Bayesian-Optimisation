@@ -24,9 +24,9 @@ from class_FITBOMM import Bayes_opt_batch
 
 np.set_printoptions(suppress=True)
 
+initial_num = 3
 a = np.load("allseed_normalised_initx.npy")
 b = np.load("allseed_normalised_inity.npy")
-print(a,b)
 x_init_dict = {}
 y_init_dict = {}
 x_init_dict[0] = a[0:3]
