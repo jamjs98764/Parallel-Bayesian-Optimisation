@@ -44,6 +44,50 @@ warnings.filterwarnings('ignore')
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
+seed_size = 3
+total_evals = 40
+
+# For FITBO
+num_continuous_dim = 6
+num_discrete_dim = 0
+num_categorical_dim = 0
+
+input_dim = num_continuous_dim + num_discrete_dim + num_categorical_dim
+input_type = [False, False, False, False, False, False] # True if domain is discrete
+
+"""
+batch_size = x[0]
+fc_units = x[1]
+l1_dropout = x[2]
+l2_dropout = x[3]
+l3_dropout = x[4]
+rms_l_rate = x[5]
+"""
+
+discrete_bounds = [(16,256), (64, 1024)]
+fitbo_lb = []
+fitbo_ub = []
+continuous_bounds = [(0.0,1.0),
+                     (0.0,1.0), 
+                     (0.0,1.0),
+                     (0.0,1.0),
+                     (0.0,1.0),
+                     (0.0, 1.0),]
+for i in continuous_bounds:
+    fitbo_lb.append(i[0])
+    fitbo_ub.append(i[1])
+
+categorical_choice = []
+
+params_simple = {"batch_size": 32,
+                 "fc_units": 512,
+          "l1_dropout": 0.25,
+          "l2_dropout": 0.25,
+          "l3_dropout": 0.5,
+          "rms_l_rate": 0.0001,
+          }
+
+
 batch_size = 4
 heuristic = 'cl-min'
 
