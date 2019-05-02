@@ -21,7 +21,7 @@ from class_FITBOMM import Bayes_opt_batch
 
 ##### Initializing experiment parameters
 
-seed_size = 10
+seed_size = 50
 num_iters = 80
 iter_80 = True
 
@@ -65,7 +65,7 @@ def BO_test(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, re
     elif test_func == 'mich':
         obj_func = michalewicz_fitbo
         d = 10
-        initialsamplesize = 20
+        initialsamplesize = 25
         true_min = np.array([-9.6601517])
 
     else:
@@ -99,7 +99,7 @@ def BO_test(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, re
             y_ob = obj_func(x_ob) + sigma0 * np.random.randn(initialsamplesize, 1)
 
             if MLE == False:
-                bayes_opt = Bayes_opt(obj_func, np.zeros(d), np.ones(d), var_noise) # Normal MC FITBO
+                bayes_opt = Bayes_opt(obj_func, np.zeros(d), np.ones(d)*np.pi, var_noise) # Changed upper bound to pi
 
             bayes_opt.initialise(x_ob, y_ob)
             X_optimum, Y_optimum = bayes_opt.iteration_step(iterations=num_iterations, mc_burn=burnin, \
@@ -132,7 +132,7 @@ def BO_test(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, re
             y_ob = obj_func(x_ob) + sigma0 * np.random.randn(initialsamplesize, 1)
 
             if MLE == False:
-                bayes_opt = Bayes_opt_batch(obj_func, np.zeros(d), np.ones(d), var_noise)  # Normal MC FITBO
+                bayes_opt = Bayes_opt_batch(obj_func, np.zeros(d), np.ones(d)*np.pi, var_noise)  # Changed upper bound to pi
 
             bayes_opt.initialise(x_ob, y_ob)
             X_optimum, Y_optimum = bayes_opt.iteration_step_batch(num_batches=num_batches, mc_burn=burnin, mc_samples=sample_size, \
