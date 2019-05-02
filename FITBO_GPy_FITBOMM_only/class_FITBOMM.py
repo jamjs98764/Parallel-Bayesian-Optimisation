@@ -829,9 +829,6 @@ class Bayes_opt_batch():
 
             X_optimum = np.concatenate((X_optimum, np.atleast_2d(x_opt)))
             Y_optimum = np.concatenate((Y_optimum, np.atleast_2d(y_opt)))
-            print("X, Y optimum")
-            print(x_opt)
-            print(y_opt)
             X_for_L2 = np.concatenate((X_for_L2, np.atleast_2d(X_optimum[np.argmin(Y_optimum),:])))
             Y_for_IR = np.concatenate((Y_for_IR, np.atleast_2d(min(Y_optimum))))
 
@@ -845,7 +842,7 @@ class Bayes_opt_batch():
                         x_opt_pred=X_for_L2[-1,:],
                         y_opt_pred=Y_for_IR[-1,:]
                         ))
-
+        """
         # Just for saving
         new_dir = dir_name + str(seed) + '_seed/'
 
@@ -867,7 +864,7 @@ class Bayes_opt_batch():
 
         with open(file_name, 'wb') as f:
             pickle.dump(pickle_dict, f)
-
+        """
         return X_for_L2, Y_for_IR
 
 

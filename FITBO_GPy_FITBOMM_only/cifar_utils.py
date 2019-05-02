@@ -139,3 +139,161 @@ def cifar_cnn_fitbo(X):
         y[i] = cifar_cnn_gpyopt(X[i])
 
     return y
+
+
+"""
+V2 is for training time against batch size
+"""
+
+
+def cifar_cnn_gpyopt_v2(x):
+
+    # Unwrapping X into parameters
+    x = np.ravel(x)
+    """
+    batch_size = int(x[0])
+    fc_units = int(x[1])
+    l1_dropout = x[2]
+    l2_dropout = x[3]
+    l3_dropout = x[4]
+    rms_l_rate = x[5]
+    """
+
+    # Re-adjust normalised inputs
+    batch_size = int(x[0]*256 + 2)
+    fc_units = int(x[1]*1024 + 64)
+    l1_dropout = x[2]/2
+    l2_dropout = x[3]/2
+    l3_dropout = x[4]/2
+    rms_l_rate = x[5]*0.01 + 0.00001
+
+    model = Sequential()
+    model.add(Conv2D(32, (3, 3), padding='same', # l1_conv_filter
+                     input_shape=x_train.shape[1:]))
+    model.add(Activation('relu'))
+    model.add(Conv2D(32, (3, 3)))
+    model.add(Activation('relu'))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
+    model.add(Dropout(l1_dropout))
+
+    model.add(Conv2D(64, (3, 3), padding='same'))
+    model.add(Conv2D(64, (3, 3)))
+    model.add(Activation('relu'))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
+    model.add(Dropout(l2_dropout))
+
+    model.add(Flatten())
+    model.add(Dense(fc_units))
+    model.add(Activation('relu'))
+    model.add(Dropout(l3_dropout))
+    model.add(Dense(num_classes))
+    model.add(Activation('softmax'))
+
+    # initiate RMSprop optimizer
+    opt = keras.optimizers.rmsprop(lr=rms_l_rate, decay=1e-6)
+
+    # Let's train the model using RMSprop
+    model.compile(loss='categorical_crossentropy',
+                  optimizer=opt,
+                  metrics=['accuracy'])
+
+    # Fit the model
+    model.fit(x_train, y_train,
+              batch_size=batch_size,
+              epochs=epochs,
+              validation_data=(x_test, y_test),
+              shuffle=True, 
+              verbose = 1)
+
+    scores = model.evaluate(x_test, y_test, verbose=0)
+    test_accuracy = scores[1]
+
+    return -test_accuracy*10 # negative because FITBO minimises
+
+def cifar_cnn_fitbo_v2(X):
+    # same as gpyopt_objective, except X is size (num_iter, input_dim)
+    y = np.zeros((X.shape[0], 1))
+
+    for i in range(X.shape[0]):
+        y[i] = cifar_cnn_gpyopt(X[i])
+
+    return y
+
+
+
+"""
+V3 is for training time against epoch
+"""
+
+def cifar_cnn_gpyopt_v3(x, epoch):
+
+    # Unwrapping X into parameters
+    x = np.ravel(x)
+    """
+    batch_size = int(x[0])
+    fc_units = int(x[1])
+    l1_dropout = x[2]
+    l2_dropout = x[3]
+    l3_dropout = x[4]
+    rms_l_rate = x[5]
+    """
+
+    # Re-adjust normalised inputs
+    batch_size = int(x[0]*256 + 2)
+    fc_units = int(x[1]*1024 + 64)
+    l1_dropout = x[2]/2
+    l2_dropout = x[3]/2
+    l3_dropout = x[4]/2
+    rms_l_rate = x[5]*0.01 + 0.00001
+
+    model = Sequential()
+    model.add(Conv2D(32, (3, 3), padding='same', # l1_conv_filter
+                     input_shape=x_train.shape[1:]))
+    model.add(Activation('relu'))
+    model.add(Conv2D(32, (3, 3)))
+    model.add(Activation('relu'))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
+    model.add(Dropout(l1_dropout))
+
+    model.add(Conv2D(64, (3, 3), padding='same'))
+    model.add(Conv2D(64, (3, 3)))
+    model.add(Activation('relu'))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
+    model.add(Dropout(l2_dropout))
+
+    model.add(Flatten())
+    model.add(Dense(fc_units))
+    model.add(Activation('relu'))
+    model.add(Dropout(l3_dropout))
+    model.add(Dense(num_classes))
+    model.add(Activation('softmax'))
+
+    # initiate RMSprop optimizer
+    opt = keras.optimizers.rmsprop(lr=rms_l_rate, decay=1e-6)
+
+    # Let's train the model using RMSprop
+    model.compile(loss='categorical_crossentropy',
+                  optimizer=opt,
+                  metrics=['accuracy'])
+
+    # Fit the model
+    model.fit(x_train, y_train,
+              batch_size=batch_size,
+              epochs=epochs,
+              validation_data=(x_test, y_test),
+              shuffle=True, 
+              verbose = 1)
+
+    scores = model.evaluate(x_test, y_test, verbose=0)
+    test_accuracy = scores[1]
+
+    return -test_accuracy*10 # negative because FITBO minimises
+
+def cifar_cnn_fitbo_v2(X, epoch):
+    # same as gpyopt_objective, except X is size (num_iter, input_dim)
+    y = np.zeros((X.shape[0], 1))
+
+    for i in range(X.shape[0]):
+        y[i] = cifar_cnn_gpyopt(X[i])
+
+    return y
