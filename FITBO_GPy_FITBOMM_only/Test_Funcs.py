@@ -196,14 +196,24 @@ def hartmann_pso(x):
     y_biased = 10*(y+1.5)
     return y_biased[:, None].flatten()
 
-"""
-michalewicz_m = 2  # orig 10: ^20 => underflow
+
+michalewicz_m = 10  # orig 10: ^20 => underflow
 
 def michalewicz_fitbo(X):  # mich.m
     Y = np.zeros((len(X),1))
-    for i in range(X)
+    for i in range(len(X)):
+        x = X[i]
+        x = np.asarray_chkfinite(x)
+        n = len(x)
+        j = np.arange( 1., n+1 )
+        y = - sum( np.sin(x) * np.sin( j * x**2 / np.pi ) ** (2 * michalewicz_m) )
+        Y[i] = y
+    return Y
+
+def michalewicz_gpyopt(x):  # mich.m
     x = np.asarray_chkfinite(x)
     n = len(x)
     j = np.arange( 1., n+1 )
-    return - sum( sin(x) * sin( j * x**2 / pi ) ** (2 * michalewicz_m) )
-"""
+    y = - sum( np.sin(x) * np.sin( j * x**2 / np.pi ) ** (2 * michalewicz_m) )
+    return y
+
