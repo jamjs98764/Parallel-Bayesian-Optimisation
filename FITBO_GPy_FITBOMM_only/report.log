@@ -12075,3 +12075,603 @@ ValueError: shape mismatch: objects cannot be broadcast to a single shape
 2019-05-02 16:32:03,818 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.319960470349855, best pos: [ 0.19335258  3.79884182  3.93102909 85.10512843 62.1948801 ]
 2019-05-02 16:32:03,821 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
 2019-05-02 16:32:06,605 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.840851254102528, best pos: [ 0.20711287  4.16402751 10.53668392 39.27356331 89.23385484]
+2019-05-02 17:08:19,720 - GP - INFO - initializing Y
+2019-05-02 17:08:19,721 - GP - INFO - initializing inference method
+2019-05-02 17:08:19,721 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:19,733 - GP - INFO - initializing Y
+2019-05-02 17:08:19,734 - GP - INFO - initializing inference method
+2019-05-02 17:08:19,734 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:19,741 - GP - INFO - initializing Y
+2019-05-02 17:08:19,742 - GP - INFO - initializing inference method
+2019-05-02 17:08:19,742 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:19,749 - GP - INFO - initializing Y
+2019-05-02 17:08:19,750 - GP - INFO - initializing inference method
+2019-05-02 17:08:19,750 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:19,757 - GP - INFO - initializing Y
+2019-05-02 17:08:19,758 - GP - INFO - initializing inference method
+2019-05-02 17:08:19,759 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:19,765 - GP - INFO - initializing Y
+2019-05-02 17:08:19,766 - GP - INFO - initializing inference method
+2019-05-02 17:08:19,767 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:19,773 - GP - INFO - initializing Y
+2019-05-02 17:08:19,774 - GP - INFO - initializing inference method
+2019-05-02 17:08:19,775 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:19,782 - GP - INFO - initializing Y
+2019-05-02 17:08:19,783 - GP - INFO - initializing inference method
+2019-05-02 17:08:19,783 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:19,790 - GP - INFO - initializing Y
+2019-05-02 17:08:19,791 - GP - INFO - initializing inference method
+2019-05-02 17:08:19,791 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:19,798 - GP - INFO - initializing Y
+2019-05-02 17:08:19,799 - GP - INFO - initializing inference method
+2019-05-02 17:08:19,799 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:19,806 - GP - INFO - initializing Y
+2019-05-02 17:08:19,807 - GP - INFO - initializing inference method
+2019-05-02 17:08:19,808 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:19,814 - GP - INFO - initializing Y
+2019-05-02 17:08:19,815 - GP - INFO - initializing inference method
+2019-05-02 17:08:19,816 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:19,830 - GP - INFO - initializing Y
+2019-05-02 17:08:19,831 - GP - INFO - initializing inference method
+2019-05-02 17:08:19,831 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:19,838 - GP - INFO - initializing Y
+2019-05-02 17:08:19,839 - GP - INFO - initializing inference method
+2019-05-02 17:08:19,840 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:19,846 - GP - INFO - initializing Y
+2019-05-02 17:08:19,847 - GP - INFO - initializing inference method
+2019-05-02 17:08:19,848 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:19,855 - GP - INFO - initializing Y
+2019-05-02 17:08:19,855 - GP - INFO - initializing inference method
+2019-05-02 17:08:19,856 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:19,863 - GP - INFO - initializing Y
+2019-05-02 17:08:19,863 - GP - INFO - initializing inference method
+2019-05-02 17:08:19,864 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:19,871 - GP - INFO - initializing Y
+2019-05-02 17:08:19,872 - GP - INFO - initializing inference method
+2019-05-02 17:08:19,872 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:19,895 - GP - INFO - initializing Y
+2019-05-02 17:08:19,896 - GP - INFO - initializing inference method
+2019-05-02 17:08:19,897 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:19,903 - GP - INFO - initializing Y
+2019-05-02 17:08:19,904 - GP - INFO - initializing inference method
+2019-05-02 17:08:19,905 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:19,912 - GP - INFO - initializing Y
+2019-05-02 17:08:19,912 - GP - INFO - initializing inference method
+2019-05-02 17:08:19,913 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:19,922 - GP - INFO - initializing Y
+2019-05-02 17:08:19,923 - GP - INFO - initializing inference method
+2019-05-02 17:08:19,923 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:19,930 - GP - INFO - initializing Y
+2019-05-02 17:08:19,931 - GP - INFO - initializing inference method
+2019-05-02 17:08:19,932 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:19,939 - GP - INFO - initializing Y
+2019-05-02 17:08:19,940 - GP - INFO - initializing inference method
+2019-05-02 17:08:19,940 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:19,947 - GP - INFO - initializing Y
+2019-05-02 17:08:19,948 - GP - INFO - initializing inference method
+2019-05-02 17:08:19,948 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:19,955 - GP - INFO - initializing Y
+2019-05-02 17:08:19,956 - GP - INFO - initializing inference method
+2019-05-02 17:08:19,957 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:19,964 - GP - INFO - initializing Y
+2019-05-02 17:08:19,965 - GP - INFO - initializing inference method
+2019-05-02 17:08:19,965 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:19,972 - GP - INFO - initializing Y
+2019-05-02 17:08:19,973 - GP - INFO - initializing inference method
+2019-05-02 17:08:19,973 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:19,980 - GP - INFO - initializing Y
+2019-05-02 17:08:19,981 - GP - INFO - initializing inference method
+2019-05-02 17:08:19,982 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:19,999 - GP - INFO - initializing Y
+2019-05-02 17:08:20,000 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,001 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,008 - GP - INFO - initializing Y
+2019-05-02 17:08:20,009 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,009 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,016 - GP - INFO - initializing Y
+2019-05-02 17:08:20,017 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,018 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,027 - GP - INFO - initializing Y
+2019-05-02 17:08:20,028 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,029 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,037 - GP - INFO - initializing Y
+2019-05-02 17:08:20,038 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,039 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,046 - GP - INFO - initializing Y
+2019-05-02 17:08:20,047 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,048 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,055 - GP - INFO - initializing Y
+2019-05-02 17:08:20,055 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,056 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,063 - GP - INFO - initializing Y
+2019-05-02 17:08:20,064 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,065 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,072 - GP - INFO - initializing Y
+2019-05-02 17:08:20,072 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,073 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,080 - GP - INFO - initializing Y
+2019-05-02 17:08:20,080 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,081 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,088 - GP - INFO - initializing Y
+2019-05-02 17:08:20,089 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,089 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,097 - GP - INFO - initializing Y
+2019-05-02 17:08:20,098 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,099 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,105 - GP - INFO - initializing Y
+2019-05-02 17:08:20,106 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,107 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,114 - GP - INFO - initializing Y
+2019-05-02 17:08:20,114 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,179 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,186 - GP - INFO - initializing Y
+2019-05-02 17:08:20,187 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,187 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,226 - GP - INFO - initializing Y
+2019-05-02 17:08:20,227 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,228 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,236 - GP - INFO - initializing Y
+2019-05-02 17:08:20,237 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,239 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,246 - GP - INFO - initializing Y
+2019-05-02 17:08:20,247 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,249 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,256 - GP - INFO - initializing Y
+2019-05-02 17:08:20,257 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,258 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,266 - GP - INFO - initializing Y
+2019-05-02 17:08:20,267 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,268 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,276 - GP - INFO - initializing Y
+2019-05-02 17:08:20,277 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,278 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,285 - GP - INFO - initializing Y
+2019-05-02 17:08:20,286 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,287 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,294 - GP - INFO - initializing Y
+2019-05-02 17:08:20,295 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,296 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,302 - GP - INFO - initializing Y
+2019-05-02 17:08:20,304 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,305 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,312 - GP - INFO - initializing Y
+2019-05-02 17:08:20,314 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,315 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,321 - GP - INFO - initializing Y
+2019-05-02 17:08:20,323 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,324 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,330 - GP - INFO - initializing Y
+2019-05-02 17:08:20,331 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,333 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,381 - GP - INFO - initializing Y
+2019-05-02 17:08:20,383 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,384 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,391 - GP - INFO - initializing Y
+2019-05-02 17:08:20,392 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,393 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,400 - GP - INFO - initializing Y
+2019-05-02 17:08:20,401 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,402 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,415 - GP - INFO - initializing Y
+2019-05-02 17:08:20,417 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,418 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,425 - GP - INFO - initializing Y
+2019-05-02 17:08:20,426 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,427 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,434 - GP - INFO - initializing Y
+2019-05-02 17:08:20,435 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,436 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,443 - GP - INFO - initializing Y
+2019-05-02 17:08:20,444 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,445 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,451 - GP - INFO - initializing Y
+2019-05-02 17:08:20,453 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,454 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,460 - GP - INFO - initializing Y
+2019-05-02 17:08:20,462 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,463 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,469 - GP - INFO - initializing Y
+2019-05-02 17:08:20,470 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,472 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,478 - GP - INFO - initializing Y
+2019-05-02 17:08:20,479 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,480 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,486 - GP - INFO - initializing Y
+2019-05-02 17:08:20,488 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,489 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,495 - GP - INFO - initializing Y
+2019-05-02 17:08:20,497 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,498 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,504 - GP - INFO - initializing Y
+2019-05-02 17:08:20,505 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,505 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,515 - GP - INFO - initializing Y
+2019-05-02 17:08:20,516 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,518 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,524 - GP - INFO - initializing Y
+2019-05-02 17:08:20,525 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,526 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,533 - GP - INFO - initializing Y
+2019-05-02 17:08:20,534 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,535 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,541 - GP - INFO - initializing Y
+2019-05-02 17:08:20,543 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,544 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,589 - GP - INFO - initializing Y
+2019-05-02 17:08:20,591 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,592 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,600 - GP - INFO - initializing Y
+2019-05-02 17:08:20,601 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,602 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,609 - GP - INFO - initializing Y
+2019-05-02 17:08:20,610 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,611 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,617 - GP - INFO - initializing Y
+2019-05-02 17:08:20,617 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,619 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,625 - GP - INFO - initializing Y
+2019-05-02 17:08:20,626 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,627 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,633 - GP - INFO - initializing Y
+2019-05-02 17:08:20,634 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,634 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,640 - GP - INFO - initializing Y
+2019-05-02 17:08:20,641 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,641 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,647 - GP - INFO - initializing Y
+2019-05-02 17:08:20,648 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,649 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,655 - GP - INFO - initializing Y
+2019-05-02 17:08:20,655 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,656 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,661 - GP - INFO - initializing Y
+2019-05-02 17:08:20,662 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,663 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,669 - GP - INFO - initializing Y
+2019-05-02 17:08:20,669 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,670 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,676 - GP - INFO - initializing Y
+2019-05-02 17:08:20,676 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,677 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,683 - GP - INFO - initializing Y
+2019-05-02 17:08:20,683 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,684 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,690 - GP - INFO - initializing Y
+2019-05-02 17:08:20,690 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,691 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,697 - GP - INFO - initializing Y
+2019-05-02 17:08:20,697 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,698 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,710 - GP - INFO - initializing Y
+2019-05-02 17:08:20,711 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,712 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,718 - GP - INFO - initializing Y
+2019-05-02 17:08:20,719 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,719 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,725 - GP - INFO - initializing Y
+2019-05-02 17:08:20,726 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,727 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,733 - GP - INFO - initializing Y
+2019-05-02 17:08:20,733 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,734 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,740 - GP - INFO - initializing Y
+2019-05-02 17:08:20,741 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,741 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,747 - GP - INFO - initializing Y
+2019-05-02 17:08:20,748 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,749 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,769 - GP - INFO - initializing Y
+2019-05-02 17:08:20,770 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,770 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,776 - GP - INFO - initializing Y
+2019-05-02 17:08:20,777 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,778 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,785 - GP - INFO - initializing Y
+2019-05-02 17:08:20,786 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,787 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,793 - GP - INFO - initializing Y
+2019-05-02 17:08:20,794 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,794 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:20,803 - GP - INFO - initializing Y
+2019-05-02 17:08:20,804 - GP - INFO - initializing inference method
+2019-05-02 17:08:20,805 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,548 - GP - INFO - initializing Y
+2019-05-02 17:08:29,549 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,550 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,557 - GP - INFO - initializing Y
+2019-05-02 17:08:29,558 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,558 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,566 - GP - INFO - initializing Y
+2019-05-02 17:08:29,567 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,567 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,574 - GP - INFO - initializing Y
+2019-05-02 17:08:29,575 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,576 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,583 - GP - INFO - initializing Y
+2019-05-02 17:08:29,584 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,584 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,591 - GP - INFO - initializing Y
+2019-05-02 17:08:29,592 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,592 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,600 - GP - INFO - initializing Y
+2019-05-02 17:08:29,601 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,602 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,609 - GP - INFO - initializing Y
+2019-05-02 17:08:29,610 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,611 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,618 - GP - INFO - initializing Y
+2019-05-02 17:08:29,618 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,619 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,626 - GP - INFO - initializing Y
+2019-05-02 17:08:29,627 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,627 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,634 - GP - INFO - initializing Y
+2019-05-02 17:08:29,635 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,635 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,642 - GP - INFO - initializing Y
+2019-05-02 17:08:29,643 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,643 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,652 - GP - INFO - initializing Y
+2019-05-02 17:08:29,653 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,653 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,660 - GP - INFO - initializing Y
+2019-05-02 17:08:29,661 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,661 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,668 - GP - INFO - initializing Y
+2019-05-02 17:08:29,669 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,669 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,676 - GP - INFO - initializing Y
+2019-05-02 17:08:29,677 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,678 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,695 - GP - INFO - initializing Y
+2019-05-02 17:08:29,696 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,697 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,718 - GP - INFO - initializing Y
+2019-05-02 17:08:29,723 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,724 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,732 - GP - INFO - initializing Y
+2019-05-02 17:08:29,732 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,733 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,741 - GP - INFO - initializing Y
+2019-05-02 17:08:29,745 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,746 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,754 - GP - INFO - initializing Y
+2019-05-02 17:08:29,759 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,759 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,768 - GP - INFO - initializing Y
+2019-05-02 17:08:29,768 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,769 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,776 - GP - INFO - initializing Y
+2019-05-02 17:08:29,777 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,777 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,785 - GP - INFO - initializing Y
+2019-05-02 17:08:29,785 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,786 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,794 - GP - INFO - initializing Y
+2019-05-02 17:08:29,794 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,795 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,826 - GP - INFO - initializing Y
+2019-05-02 17:08:29,827 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,827 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,835 - GP - INFO - initializing Y
+2019-05-02 17:08:29,835 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,836 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,843 - GP - INFO - initializing Y
+2019-05-02 17:08:29,844 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,844 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,851 - GP - INFO - initializing Y
+2019-05-02 17:08:29,852 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,853 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,860 - GP - INFO - initializing Y
+2019-05-02 17:08:29,861 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,862 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,869 - GP - INFO - initializing Y
+2019-05-02 17:08:29,870 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,871 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,878 - GP - INFO - initializing Y
+2019-05-02 17:08:29,878 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,879 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,886 - GP - INFO - initializing Y
+2019-05-02 17:08:29,887 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,887 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,894 - GP - INFO - initializing Y
+2019-05-02 17:08:29,895 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,896 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,903 - GP - INFO - initializing Y
+2019-05-02 17:08:29,904 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,904 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,916 - GP - INFO - initializing Y
+2019-05-02 17:08:29,936 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,937 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,950 - GP - INFO - initializing Y
+2019-05-02 17:08:29,951 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,952 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,964 - GP - INFO - initializing Y
+2019-05-02 17:08:29,965 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,966 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,974 - GP - INFO - initializing Y
+2019-05-02 17:08:29,975 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,976 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,984 - GP - INFO - initializing Y
+2019-05-02 17:08:29,985 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,985 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:29,994 - GP - INFO - initializing Y
+2019-05-02 17:08:29,995 - GP - INFO - initializing inference method
+2019-05-02 17:08:29,995 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,003 - GP - INFO - initializing Y
+2019-05-02 17:08:30,004 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,004 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,012 - GP - INFO - initializing Y
+2019-05-02 17:08:30,012 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,013 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,023 - GP - INFO - initializing Y
+2019-05-02 17:08:30,024 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,025 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,033 - GP - INFO - initializing Y
+2019-05-02 17:08:30,033 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,034 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,042 - GP - INFO - initializing Y
+2019-05-02 17:08:30,042 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,043 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,051 - GP - INFO - initializing Y
+2019-05-02 17:08:30,051 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,052 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,059 - GP - INFO - initializing Y
+2019-05-02 17:08:30,060 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,061 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,069 - GP - INFO - initializing Y
+2019-05-02 17:08:30,070 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,070 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,077 - GP - INFO - initializing Y
+2019-05-02 17:08:30,078 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,079 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,084 - GP - INFO - initializing Y
+2019-05-02 17:08:30,084 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,085 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,091 - GP - INFO - initializing Y
+2019-05-02 17:08:30,092 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,092 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,099 - GP - INFO - initializing Y
+2019-05-02 17:08:30,100 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,100 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,106 - GP - INFO - initializing Y
+2019-05-02 17:08:30,107 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,108 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,114 - GP - INFO - initializing Y
+2019-05-02 17:08:30,114 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,115 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,145 - GP - INFO - initializing Y
+2019-05-02 17:08:30,168 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,169 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,185 - GP - INFO - initializing Y
+2019-05-02 17:08:30,186 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,187 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,193 - GP - INFO - initializing Y
+2019-05-02 17:08:30,193 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,194 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,200 - GP - INFO - initializing Y
+2019-05-02 17:08:30,201 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,201 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,208 - GP - INFO - initializing Y
+2019-05-02 17:08:30,208 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,209 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,215 - GP - INFO - initializing Y
+2019-05-02 17:08:30,216 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,216 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,222 - GP - INFO - initializing Y
+2019-05-02 17:08:30,223 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,224 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,229 - GP - INFO - initializing Y
+2019-05-02 17:08:30,230 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,231 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,237 - GP - INFO - initializing Y
+2019-05-02 17:08:30,238 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,238 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,244 - GP - INFO - initializing Y
+2019-05-02 17:08:30,245 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,246 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,254 - GP - INFO - initializing Y
+2019-05-02 17:08:30,255 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,256 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,262 - GP - INFO - initializing Y
+2019-05-02 17:08:30,262 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,263 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,269 - GP - INFO - initializing Y
+2019-05-02 17:08:30,270 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,270 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,276 - GP - INFO - initializing Y
+2019-05-02 17:08:30,277 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,278 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,285 - GP - INFO - initializing Y
+2019-05-02 17:08:30,286 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,287 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,293 - GP - INFO - initializing Y
+2019-05-02 17:08:30,294 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,294 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,301 - GP - INFO - initializing Y
+2019-05-02 17:08:30,302 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,303 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,309 - GP - INFO - initializing Y
+2019-05-02 17:08:30,309 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,310 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,316 - GP - INFO - initializing Y
+2019-05-02 17:08:30,317 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,317 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,323 - GP - INFO - initializing Y
+2019-05-02 17:08:30,324 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,325 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,331 - GP - INFO - initializing Y
+2019-05-02 17:08:30,331 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,332 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,389 - GP - INFO - initializing Y
+2019-05-02 17:08:30,390 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,390 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,401 - GP - INFO - initializing Y
+2019-05-02 17:08:30,402 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,403 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,409 - GP - INFO - initializing Y
+2019-05-02 17:08:30,410 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,410 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,416 - GP - INFO - initializing Y
+2019-05-02 17:08:30,417 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,417 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,423 - GP - INFO - initializing Y
+2019-05-02 17:08:30,424 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,425 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,431 - GP - INFO - initializing Y
+2019-05-02 17:08:30,431 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,432 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,438 - GP - INFO - initializing Y
+2019-05-02 17:08:30,439 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,439 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,445 - GP - INFO - initializing Y
+2019-05-02 17:08:30,446 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,446 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,452 - GP - INFO - initializing Y
+2019-05-02 17:08:30,453 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,454 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,459 - GP - INFO - initializing Y
+2019-05-02 17:08:30,460 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,461 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,467 - GP - INFO - initializing Y
+2019-05-02 17:08:30,467 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,468 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,474 - GP - INFO - initializing Y
+2019-05-02 17:08:30,475 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,475 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,481 - GP - INFO - initializing Y
+2019-05-02 17:08:30,482 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,483 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,489 - GP - INFO - initializing Y
+2019-05-02 17:08:30,490 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,490 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,496 - GP - INFO - initializing Y
+2019-05-02 17:08:30,497 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,498 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,503 - GP - INFO - initializing Y
+2019-05-02 17:08:30,504 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,505 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,511 - GP - INFO - initializing Y
+2019-05-02 17:08:30,511 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,512 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,518 - GP - INFO - initializing Y
+2019-05-02 17:08:30,518 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,519 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,525 - GP - INFO - initializing Y
+2019-05-02 17:08:30,526 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,526 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,532 - GP - INFO - initializing Y
+2019-05-02 17:08:30,533 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,533 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,539 - GP - INFO - initializing Y
+2019-05-02 17:08:30,563 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,564 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,602 - GP - INFO - initializing Y
+2019-05-02 17:08:30,603 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,604 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,609 - GP - INFO - initializing Y
+2019-05-02 17:08:30,610 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,611 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-02 17:08:30,617 - GP - INFO - initializing Y
+2019-05-02 17:08:30,617 - GP - INFO - initializing inference method
+2019-05-02 17:08:30,618 - GP - INFO - adding kernel and likelihood as parameters
