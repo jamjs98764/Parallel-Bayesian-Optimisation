@@ -23,19 +23,10 @@ from skopt.space import Real, Integer
 from skopt.utils import use_named_args
 import utilities
 
-# OLD
-
 total_evals = 40 # on top of initial points - 48
 initial_num = 4
 seed_size = 30
 
-"""
-NEW
-total_evals = 80 # on top of initial points - 48
-initial_num = 9
-seed_size = 50
-
-"""
 n_folds = 5
 
 init_type = "random"
@@ -62,6 +53,7 @@ space_gpyopt = [{"name": "learning_rate", "type": "continuous", "domain": (10**-
                 {"name": "min_samples_leaf", "type": "discrete", "domain": tuple(np.arange(1,101))},]
 
 # For FITBO
+
 num_continuous_dim = 1
 num_discrete_dim = 4
 num_categorical_dim = 0
@@ -352,7 +344,6 @@ def FITBO_wrapper(batch_size = 2, heuristic = "cl-min"):
         np.save(X_hist_file_name, results_X_hist)
         np.save(Y_hist_file_name, results_Y_hist)
 
-"""
 ####
 # Running experiments
 ####
@@ -364,7 +355,7 @@ heuristic_list = ['random']
 error_list = []
 
 FITBO_wrapper(batch_size = 1, heuristic = "kb")
-
+"""
 for batch in batch_list:
     # gpyopt_wrapper(batch_size = batch)  # EI, Local Penalization by default
     FITBO_wrapper(batch_size = batch, heuristic = "kb")
