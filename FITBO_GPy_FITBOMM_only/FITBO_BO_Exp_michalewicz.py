@@ -180,7 +180,7 @@ test_funcs = ["mich"]
 for func in test_funcs:
     test_sequential(func)
 """
-batch_sizes = [2]
+batch_sizes = [8]
 
 test_funcs = ["mich"]
 for batch_size in batch_sizes:

@@ -211,6 +211,7 @@ def michalewicz_fitbo(X):  # mich.m
     return Y
 
 def michalewicz_gpyopt(x):  # mich.m
+    x = x.flatten()
     x = np.asarray_chkfinite(x)
     n = len(x)
     j = np.arange( 1., n+1 )

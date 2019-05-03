@@ -13,7 +13,6 @@ import scipy as sp
 import Test_Funcs
 from functools import partial
 from numpy.random import seed
-import cifar_utils
 import pickle
 import os
 from plotting_utilities import *
@@ -92,6 +91,22 @@ def wrapper_GPyOpt(test_func, acq_func = "EI", eval_type = "random", \
            {'name': 'x5', 'type': 'continuous', 'domain': (0., 1.)},
            {'name': 'x6', 'type': 'continuous', 'domain': (0., 1.)}]
         initialsamplesize = 9
+
+    elif test_func == 'mich':
+        obj_func = Test_Funcs.michalewicz_gpyopt
+        d = 10
+        domain = [{'name': 'x1', 'type': 'continuous', 'domain': (0., np.pi)},
+           {'name': 'x2', 'type': 'continuous', 'domain': (0., np.pi)},
+           {'name': 'x3', 'type': 'continuous', 'domain': (0., np.pi)},
+           {'name': 'x4', 'type': 'continuous', 'domain': (0., np.pi)},
+           {'name': 'x5', 'type': 'continuous', 'domain': (0., np.pi)},
+           {'name': 'x6', 'type': 'continuous', 'domain': (0., np.pi)},
+           {'name': 'x7', 'type': 'continuous', 'domain': (0., np.pi)},
+           {'name': 'x8', 'type': 'continuous', 'domain': (0., np.pi)},
+           {'name': 'x9', 'type': 'continuous', 'domain': (0., np.pi)},
+           {'name': 'x10', 'type': 'continuous', 'domain': (0., np.pi)},
+           ]
+        initialsamplesize = 25
 
     else:
         print("Function does not exist in repository")
@@ -225,9 +240,9 @@ def saving_data(X_record, min_y_record, X_hist_record):
 #acq_funcs =  ["EI", "EI_MCMC", "MPI_MCMC",  "LCB", "LCB_MCMC"]
 #evaluator_types = ["sequential", "random", "local_penalization", "thompson_sampling"]
 
-batch_sizes = [8]
-test_funcs = ["hartmann"]
-acq_funcs =  ["MPI", "LCB"]
+batch_sizes = [1, 2, 4]
+test_funcs = ["mich"]
+acq_funcs =  ["EI", "LCB"]
 evaluator_types = ["local_penalization"] # does not matter for batch size = 1
 
 for test_func in test_funcs:
@@ -235,6 +250,5 @@ for test_func in test_funcs:
         for acq_func in acq_funcs:
             for eval_type in evaluator_types:
                 print(test_func, batch_size, acq_func, eval_type)
-                X_record, min_y_record, eval_record = wrapper_GPyOpt(test_func, acq_func = acq_func, eval_type = eval_type, \
-                                                  batch_size = batch_size)
+                X_record, min_y_record, eval_record = wrapper_GPyOpt(test_func, acq_func = acq_func, eval_type = eval_type,batch_size = batch_size)
                 saving_data(X_record, min_y_record, eval_record)
