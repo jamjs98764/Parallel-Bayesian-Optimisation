@@ -96,7 +96,7 @@ def gpyopt_objective(x):
     # Wrapper around "objective" to suit gpyopt notation
     params = {
         "learning_rate": x[0],
-        "max_depth": x[1],
+        "max_depth": int(x[1]),
         "max_features": int(x[2]),
         "min_samples_split": int(x[3]),
         "min_samples_leaf": int(x[4]),
@@ -365,3 +365,93 @@ for batch in batch_list:
         except Exception as e:
             error_run = heur + str(batch) + "_batch - " + str(e)
 """
+
+####
+# Random Search
+####
+"""
+Y_rand_record = np.zeros((seed_size, total_evals+1))
+
+for seed_i in range(seed_size):
+    np.random.seed(seed_i)
+    X1_rand = np.random.uniform(10**-5, 10**0,[total_evals+1,1])
+    X2_rand = np.random.randint(1,5,[total_evals+1,1])
+    X3_rand = np.random.randint(1,n_features,[total_evals+1,1])
+    X4_rand = np.random.randint(2,100,[total_evals+1,1])
+    X5_rand = np.random.randint(1,100,[total_evals+1,1])
+
+    X_rand = np.hstack((X1_rand, X2_rand, X3_rand, X4_rand, X5_rand))
+    Y_rand = fitbo_objective(X_rand)
+    Y_rand_record[seed_i,:] = np.transpose(Y_rand)
+"""
+
+####
+# PSO
+####
+
+from pyswarms.single.global_best import GlobalBestPSO
+options = {'c1': 0.5, 'c2': 0.3, 'w':0.9}
+
+def pso_wrapper(seed_size, num_iters, batch_size):
+    obj_func = gpyopt_objective
+    d = 5
+    x_min = np.array([10**-5,1,1,2,1])
+    x_max = np.array([1,5,n_features-1,99,99])
+    bounds = (x_min, x_max)
+
+    # Creating dicts to store
+    pos_dict = {}
+    cost_dict = {}
+
+    for seed_i in range(seed_size):
+        np.random.seed(seed_i)
+        """
+        # Generating initial samples
+        init_pos = np.random.random((initialsamplesize, d))
+        print(init_pos)
+        """
+        # Running optimisation
+        optimizer = GlobalBestPSO(n_particles = batch_size, dimensions=d, options=options, bounds=bounds, init_pos = None)
+        best_cost, best_pos = optimizer.optimize(obj_func, num_iters + 1, seed_i)
+
+        # Recording results
+        pos_hist = optimizer.pos_history
+        cost_hist = optimizer.cost_history
+
+        pos_dict[seed_i] = pos_hist
+        cost_dict[seed_i] = np.transpose(np.array([cost_hist]))
+
+    return pos_dict, cost_dict
+
+
+def saving_data_pso(pos_dict, cost_dict, batch_size):
+    """
+    For saving data
+
+    pos_dict =
+    cost_dict = y_opt
+    """
+    dir_name = 'Exp_Data/boston_gbr/pso/' + str(seed_size) + '_seed,' + str(batch_size) + '_batch/'
+    file_name = dir_name + 'results_vars.pickle'
+
+    try: # creates new folder
+        os.mkdir(dir_name)
+    except FileExistsError:
+        pass
+
+    pickle_dict = {
+        "X": pos_dict,
+        "min_y": cost_dict,
+        }
+
+    with open(file_name, 'wb') as f:
+        pickle.dump(pickle_dict, f)
+
+    return 0
+
+a, b = pso_wrapper(seed_size, total_evals, 1)
+saving_data_pso(a, b, 1)
+
+for batch in [2,4,8]:
+    a, b = pso_wrapper(seed_size, total_evals, batch)
+    saving_data_pso(a, b, batch)
