@@ -138,6 +138,43 @@ def unpack_l2(func, dic):
 
     return l2_norm
 
+def unpack_l2_pso(func, dic):
+    # Used to unpack x values from pso dictionary to get L2 error
+    max_seed = max(dic.keys()) + 1 # how many seeds
+    col_size = dic[0].shape[0] # how many iterations
+    dim = dic[0].shape[1] # input dimensions
+    l2_norm = np.zeros((max_seed, col_size))
+
+    # Minimiser x value
+    min_x_dict = {
+        "hartmann": np.array([[0.20169, 0.150011, 0.476874, 0.275332, 0.311652, 0.6573]]),
+        "egg": np.array([[1.0, 0.7895]]),
+        "branin": np.array([[0.1239, 0.8183],[0.5428, 0.1517],[0.9617, 0.1650]])
+    }
+
+    true_x_min = min_x_dict[func]
+
+    for seed_i in range(max_seed):
+        if func == "branin":
+            d1 = np.linalg.norm(true_x_min[0] - dic[seed_i], axis = 1)
+            d2 = np.linalg.norm(true_x_min[1] - dic[seed_i], axis = 1)
+            d3 = np.linalg.norm(true_x_min[2] - dic[seed_i], axis = 1)
+            all_d = np.array([d1, d2, d3])
+            l2_distance = np.min(all_d, axis = 0).ravel()
+
+        else:
+            l2_distance = np.linalg.norm(true_x_min - dic[seed_i], axis = 1).ravel()
+
+        if l2_distance.shape[0] == l2_norm.shape[1]: # check whether matches, as gpyopt has errors
+            l2_norm[seed_i,:] = l2_distance
+        else:
+            print("Seed " + str(seed_i) + " has errors in data.")
+            l2_norm[seed_i,:] = np.zeros(l2_norm.shape[1])
+
+    l2_norm = l2_norm[~np.all(l2_norm == 0, axis=1)] # remove rows with full zero (errors)
+
+    return l2_norm
+
 
 # Helper functions
 
