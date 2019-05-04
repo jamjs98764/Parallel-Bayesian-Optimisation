@@ -240,7 +240,7 @@ def saving_data(X_record, min_y_record, X_hist_record):
 #acq_funcs =  ["EI", "EI_MCMC", "MPI_MCMC",  "LCB", "LCB_MCMC"]
 #evaluator_types = ["sequential", "random", "local_penalization", "thompson_sampling"]
 
-batch_sizes = [1, 2, 4]
+batch_sizes = [8]
 test_funcs = ["mich"]
 acq_funcs =  ["EI", "LCB"]
 evaluator_types = ["local_penalization"] # does not matter for batch size = 1
