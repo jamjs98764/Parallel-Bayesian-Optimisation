@@ -82,7 +82,8 @@ def unpack_IR(func, dic):
     min_y_dict = {
         "hartmann": np.array([-18.22368011]),
         "egg": np.array([-9.596407]),
-        "branin": np.array([-14.96021125])
+        "branin": np.array([-14.96021125]),
+        "mich": np.array([-9.6601517])
     }
 
     true_min_y = min_y_dict[func]

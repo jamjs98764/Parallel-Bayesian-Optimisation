@@ -6,7 +6,7 @@
 # Import modules
 import numpy as np
 from pyswarms.single.global_best import GlobalBestPSO
-from Test_Funcs import branin_pso, egg_pso, hartmann_pso
+from Test_Funcs import branin_pso, egg_pso, hartmann_pso, michalewicz_pso
 import pickle
 import os
 
@@ -42,6 +42,14 @@ def test_pso(test_func, seed_size, num_iters, batch_size):
         x_min = 0 * x_max
         bounds = (x_min, x_max)
         initialsamplesize = 9
+
+    elif test_func == 'mich':
+        obj_func = hartmann_pso
+        d = 10
+        x_max = np.pi * np.ones(10)
+        x_min = 0 * x_max
+        bounds = (x_min, x_max)
+        initialsamplesize = 25
 
     else:
         print("Function does not exist in repository")
@@ -106,8 +114,8 @@ def saving_data(pos_dict, cost_dict):
 # Running experiments
 ############
 
-batch_sizes = [8]
-test_funcs = ["hartmann"]
+batch_sizes = [1,2,4]
+test_funcs = ["mich"]
 
 for test_func in test_funcs:
     for batch_size in batch_sizes:
@@ -116,8 +124,3 @@ for test_func in test_funcs:
         pos_dict, cost_dict = test_pso(test_func, seed_size, effective_iters, batch_size)
         saving_data(pos_dict, cost_dict)
 
-from plotting_utilities import *
-
-test = load_pso_error("egg", "IR", 2, 50)
-
-a, b = load_pickle_pso("egg", 50, 8)

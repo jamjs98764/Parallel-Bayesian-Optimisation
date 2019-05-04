@@ -14,16 +14,13 @@ from class_FITBOMM_change_prior import Bayes_opt_batch
 
 ##### Initializing experiment parameters
 
-seed_size = 30
+seed_size = 50
 num_iters = 40
-iter_100 = False
 
-v2_seed_start = 50
-v2_seed_size = 50
 
 def BO_test(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, resample_interval = 1, \
             seed_size = seed_size, num_iterations = num_iters, batch = False, batch_size = 2, heuristic = "kb",
-            MLE = False):
+            MLE = True):
 
     # BO_method is either FITBOMM (moment matching) or FITBO (quadrature)
     # Sample size = MC sample size
@@ -71,7 +68,7 @@ def BO_test(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, re
     else:
         dir_name = 'Exp_Data/' + test_func + ',' + str(seed_size) + '_seed,' + str(batch_size) + '_batch_size/'
 
-    dir_name = dir_name[:-1] + ",true_priors/"
+    dir_name = dir_name[:-1] + ",bad_priors_woMC/"
 
     try:
         os.mkdir(dir_name)
@@ -181,26 +178,9 @@ def test_all(test_func, current_batch_size):
     """
     return None
 
-def test_sequential_v2(test_func):
-    ## Single test sequential
-    BO_test_v2(test_func = test_func)
-    return None
-
-def test_all_v2(test_func, current_batch_size):
-    ## Single test batch
-
-    BO_test_v2(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'kb')
-    BO_test_v2(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-mean')
-    BO_test_v2(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-min')
-    BO_test_v2(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'cl-max')
-    BO_test_v2(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'random')
-    BO_test_v2(test_func = test_func, BO_method = 'FITBOMM', batch = True, batch_size = current_batch_size, heuristic = 'random_except_1st')
-
-    return None
-
 # Sequential
 
-test_funcs = ["egg", "branin"]
+test_funcs = ["egg"]
 
 for func in test_funcs:
     test_sequential(func)

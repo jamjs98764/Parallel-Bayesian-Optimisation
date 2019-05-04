@@ -95,13 +95,13 @@ class Bayes_opt():
 
         # log prior of hyperparameters
         det_l_scales = np.product(params[0:self.X_dim])
-        logl_priormu = np.log(np.array([32, 256, 0.25, 0.25, 0.5, 0.3]))
-        logl_priorvar = np.diag(np.array([300,1500,2.5,2.5,5.0,3.0]))
+        logl_priormu = np.log(5.0 * np.ones(self.X_dim))
+        logl_priorvar = np.diag(50.0 * np.ones(self.X_dim))
         prior_l_scales = Gaussianprior(log_params[0: self.X_dim], logl_priormu, logl_priorvar) / det_l_scales
         # Gaussianprior(X, mean, variance)
         # Returns pdf of X based on multivariate Gaussian with given mean and variance
         prior_output_var = Gaussianprior(log_params[self.X_dim], np.log(1.0), 3.0) / params[self.X_dim]
-        prior_noise_var = Gaussianprior(log_params[self.X_dim + 1], np.log(0.01), 1.0) / params[self.X_dim + 1] 
+        prior_noise_var = Gaussianprior(log_params[self.X_dim + 1], np.log(0.01), 1.0) / params[self.X_dim + 1]
         prior_ymin_eta = Gaussianprior(log_params[self.X_dim + 2], mean_ln_yminob_minus_eta, var_ln_yminob_minus_eta )/\
                          params[self.X_dim + 2]
         log_posterior = log_likelihood + np.log(prior_l_scales * prior_output_var * prior_noise_var * prior_ymin_eta)
@@ -492,8 +492,8 @@ class Bayes_opt_batch():
 
         # log prior of hyperparameters
         det_l_scales = np.product(params[0:self.X_dim])
-        logl_priormu = np.log(0.3 * np.ones(self.X_dim))
-        logl_priorvar = np.diag(3.0 * np.ones(self.X_dim))
+        logl_priormu = np.log(5.0 * np.ones(self.X_dim))
+        logl_priorvar = np.diag(50.0 * np.ones(self.X_dim))
         prior_l_scales = Gaussianprior(log_params[0: self.X_dim], logl_priormu, logl_priorvar) / det_l_scales
         # Gaussianprior(X, mean, variance)
         # Returns pdf of X based on multivariate Gaussian with given mean and variance

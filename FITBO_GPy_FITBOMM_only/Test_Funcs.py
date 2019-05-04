@@ -151,6 +151,7 @@ def hartmann_gpyopt(x):
     y_biased = 10*(y+1.5)
     return y_biased
 
+
 def branin_pso(X):
     '''2D branin
     f_min =-14.96021125
@@ -217,4 +218,16 @@ def michalewicz_gpyopt(x):  # mich.m
     j = np.arange( 1., n+1 )
     y = - sum( np.sin(x) * np.sin( j * x**2 / np.pi ) ** (2 * michalewicz_m) )
     return y
+
+
+def michalewicz_pso(X):  # mich.m
+    Y = np.zeros((len(X),1))
+    for i in range(len(X)):
+        x = X[i]
+        x = np.asarray_chkfinite(x)
+        n = len(x)
+        j = np.arange( 1., n+1 )
+        y = - sum( np.sin(x) * np.sin( j * x**2 / np.pi ) ** (2 * michalewicz_m) )
+        Y[i] = y
+    return Y.flatten()
 
