@@ -21,11 +21,15 @@ import GPyOpt
 
 import sys
 sys.path.append('limjianhong1995/fyp_bo_jian')
-try:
-    from fyp_bo_jian import GPyOpt_mod
 
 try:
+    from fyp_bo_jian import GPyOpt_mod
+except:
+    print('here')
+try:
     from .. import GPyOpt_mod
+except:
+    print('here')
     
 from class_FITBOMM import Bayes_opt
 from class_FITBOMM import Bayes_opt_batch
