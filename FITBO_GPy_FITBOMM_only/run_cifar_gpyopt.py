@@ -21,7 +21,7 @@ import pickle
 import sys
 sys.path.append('limjianhong1995/fyp_bo_jian')
 
-from GPyOpt_mod_
+from GPyOpt_mod_ import * 
 
 from class_FITBOMM import Bayes_opt
 from class_FITBOMM import Bayes_opt_batch
