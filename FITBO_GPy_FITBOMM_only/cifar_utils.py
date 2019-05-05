@@ -34,7 +34,56 @@ num_classes = 10
 epochs = 3 #20
 
 # The data, split between train and test sets:
-(x_train, y_train), (x_test, y_test) = cifar10.load_data(dirname="/Exp_Data/cifar_data")
+(x_train, y_train), (x_test, y_test) = cifar10.load_data()
+
+"""
+import cv2  # pip install opencv-python
+import numpy as np
+import os
+
+
+class ImageLoader:
+    """Load images in arrays without batches."""
+
+    def __init__(self, train_dir, test_dir):
+        """Create class."""
+        self.train_dir = train_dir
+        self.test_dir = test_dir
+
+    def load_data(self):
+        """Load the data."""
+        features, labels = [], []
+
+        for source in [self.train_dir, self.test_dir]:
+            input, output = [], []
+            for class_name in os.listdir(source):
+                if os.path.isdir(class_name):
+                    for img_name in os.listdir(class_name):
+                        img = cv2.imread(os.path.join(self.train_dir, class_name, img_name))
+
+                        # ...
+                        # Modify your image array here.
+                        # ...
+
+                        input.append(img)
+                        output.append(class_name)  # or other method to convert label
+
+            # Shuffle labels.
+            combine = list(zip(input, output))  # zip as list for Python 3
+            np.random.shuffle(combine)
+            input, output = zip(*combine)
+            features.append(input)
+            labels.append(output)
+
+        return [[np.array(features[0], dtype=np.float32),
+                 np.array(labels[0], dtype=np.float32)],
+                [np.array(features[1], dtype=np.float32),
+                 np.array(labels[1], dtype=np.float32)]]
+
+
+cifar10 = ImageLoader('path-to-training', 'path-to-testing')
+(trainX, trainY), (testX, testY) = cifar10.load_data()
+"""
 # Convert class vectors to binary class matrices.
 y_train = keras.utils.to_categorical(y_train, num_classes)
 y_test = keras.utils.to_categorical(y_test, num_classes)
