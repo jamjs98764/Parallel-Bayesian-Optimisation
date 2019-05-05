@@ -24,7 +24,6 @@ sys.path.append('limjianhong1995/fyp_bo_jian')
 
 import GPyOpt_mod
 
-
 from class_FITBOMM import Bayes_opt
 from class_FITBOMM import Bayes_opt_batch
 
