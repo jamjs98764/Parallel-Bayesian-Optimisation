@@ -13283,3 +13283,1604 @@ ValueError: shape mismatch: objects cannot be broadcast to a single shape
 2019-05-04 16:11:06,727 - root - ERROR - Invalid alias: The name more can't be aliased because it is another magic command.
 2019-05-04 16:11:06,727 - root - ERROR - Invalid alias: The name less can't be aliased because it is another magic command.
 2019-05-04 16:11:06,728 - root - ERROR - Invalid alias: The name man can't be aliased because it is another magic command.
+2019-05-05 20:04:57,840 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:05:00,762 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.402161199163153, best pos: [ 0.7389829   3.10881685  7.10085257 91.18608227  9.08913467]
+2019-05-05 20:05:00,765 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:05:03,104 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.1204100274130813, best pos: [ 0.17990981  3.51916948  2.77636865 87.13615616  3.53422327]
+2019-05-05 20:05:03,107 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:05:05,693 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.1836637053781174, best pos: [ 0.12421067  4.17661878  3.22964001 52.87554903 19.20297747]
+2019-05-05 20:05:05,696 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:05:08,320 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.352914882007937, best pos: [ 0.17532562  2.88204809  9.41656595 29.57371299 68.10400165]
+2019-05-05 20:05:08,324 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:05:10,658 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.190860859823856, best pos: [ 0.32681544  1.80337357 11.09251812 97.45668259 18.63009325]
+2019-05-05 20:05:10,661 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:05:13,027 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.781006665560686, best pos: [ 0.16951703  3.82676624  5.25823609 15.85382013 87.27764225]
+2019-05-05 20:05:13,030 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:05:15,573 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.19431290877284, best pos: [ 0.17678634  2.36774189  7.43048606 59.76063599 65.62531339]
+2019-05-05 20:05:15,576 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:05:18,676 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.0864670474582745, best pos: [ 0.13246771  4.78827265  6.56680027 10.45684809 29.30208529]
+2019-05-05 20:05:18,679 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:05:21,741 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.274417587380267, best pos: [ 0.28192282  3.37326087 10.18176376 71.39050494 61.9615763 ]
+2019-05-05 20:05:21,745 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:05:24,366 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.42553395093075, best pos: [ 0.10462976  4.60585043 11.7660026   4.88483808 69.0649207 ]
+2019-05-05 20:05:24,370 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:05:26,340 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.632787299791899, best pos: [ 0.43335347  2.04562665  1.56644574 52.14675858 80.97802498]
+2019-05-05 20:05:26,344 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:05:28,604 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.1933825575609562, best pos: [ 0.29907778  1.45337954 10.93800942 85.42869255 17.3206096 ]
+2019-05-05 20:05:28,608 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:05:32,386 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 2.8822245683947805, best pos: [ 0.23264867  4.03254696 11.74569932 85.55956267  1.39215795]
+2019-05-05 20:05:32,389 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:05:34,419 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.460688602926363, best pos: [ 0.31645155  2.34999194  1.80218295 85.14360957 37.86429165]
+2019-05-05 20:05:34,423 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:05:37,151 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.2556252562500227, best pos: [ 0.16807956  4.0581809   7.62919881  4.38223636 68.24278738]
+2019-05-05 20:05:37,155 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:05:39,665 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.5868010529226595, best pos: [ 0.16936283  2.39465585  8.96877303 86.05765137 80.48534135]
+2019-05-05 20:05:39,669 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:05:41,906 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.1533704825188207, best pos: [ 0.27510206  1.33116271  9.25607322 17.63748328 26.12752524]
+2019-05-05 20:05:41,910 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:05:44,659 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.0186029137049153, best pos: [ 0.15891979  3.18993444 11.60408345 88.71739207  6.95322277]
+2019-05-05 20:05:44,662 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:05:47,723 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.0913892872955415, best pos: [ 0.46479421  3.48091772  9.48734704  4.30920318 12.94229987]
+2019-05-05 20:05:47,726 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:05:50,724 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 2.945676562446157, best pos: [ 0.138306    3.31237808  6.95875719 25.0937369  12.58239981]
+2019-05-05 20:05:50,727 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:05:53,371 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.5587024037696664, best pos: [ 0.3661991   4.18787276 10.42697715 85.1253283  77.6088202 ]
+2019-05-05 20:05:53,374 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:05:55,666 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.352223226973422, best pos: [ 0.22773274  2.89381598  4.22415295 19.89856679 49.88720857]
+2019-05-05 20:05:55,670 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:05:58,184 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.6104525985881915, best pos: [3.38131626e-02 3.02383657e+00 8.21417542e+00 7.70210177e+01
+ 2.04609700e+01]
+2019-05-05 20:05:58,188 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:06:01,186 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.260689304408932, best pos: [ 0.24010834  3.19904444 10.95142171 32.14416664 59.79970318]
+2019-05-05 20:06:01,189 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:06:03,455 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.2668300562270494, best pos: [ 0.1572194   1.87549482  8.3486055  88.78289751 52.91137066]
+2019-05-05 20:06:03,459 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:06:05,541 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.20338604770552, best pos: [ 0.30334301  1.18225077  5.49084763 58.5249351  16.89889902]
+2019-05-05 20:06:05,544 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:06:07,955 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.225675054602882, best pos: [ 0.2325612   2.95380169  5.02675036 76.05562025 27.53473726]
+2019-05-05 20:06:07,958 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:06:11,135 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.1803225232667325, best pos: [ 0.10084971  2.8554256  10.35024662 86.71627902 19.56551464]
+2019-05-05 20:06:11,139 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:06:13,215 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.83021331713812, best pos: [ 0.19270905  4.88318041  3.5828919   4.55632331 93.71391362]
+2019-05-05 20:06:13,219 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:06:15,871 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.2921054476059153, best pos: [ 0.20022802  3.65322566  7.71102794 41.11861671 61.18352486]
+2019-05-05 20:06:15,886 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:06:18,466 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 2.99183628602625, best pos: [ 0.24655875  2.51736758  6.30818682 78.46269508 12.62819834]
+2019-05-05 20:06:18,469 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:06:20,553 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.8648879884507985, best pos: [ 0.29151934  1.67757158  6.60280506 70.19215273 88.86544601]
+2019-05-05 20:06:20,556 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:06:22,631 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.140431742263132, best pos: [ 0.19478066  1.77714033  6.51890961 12.13779393 14.32461733]
+2019-05-05 20:06:22,634 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:06:25,181 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.227846016144268, best pos: [ 0.1938965   3.27375559  6.15509571 17.27361324 54.34622099]
+2019-05-05 20:06:25,185 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:06:28,168 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.146918567554979, best pos: [ 0.27705415  1.47579606  9.96037499 86.11443869 17.98745227]
+2019-05-05 20:06:28,171 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:06:30,183 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.594864759269703, best pos: [ 0.57385977  1.8958287   3.14318664 25.60155657 33.08225561]
+2019-05-05 20:06:30,186 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:06:32,910 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.4560468119259418, best pos: [ 0.12454185  4.98624907 10.15106408 74.23524584 71.23118515]
+2019-05-05 20:06:32,914 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:06:34,958 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.744168377505228, best pos: [ 0.42285062  1.69759537  4.23612754 55.59776855 90.45139484]
+2019-05-05 20:06:34,961 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:06:37,332 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 2.9979520015461327, best pos: [ 0.1610573   3.29325703  3.51214689 35.11797944 10.55928955]
+2019-05-05 20:06:37,336 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:06:39,920 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.859798718193909, best pos: [ 0.43681981  2.29290561 11.20888505 47.56032691 93.53817677]
+2019-05-05 20:06:39,923 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:06:42,418 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.2719224890229066, best pos: [ 0.22465177  2.24076491  6.52032113 67.7747518  44.40220968]
+2019-05-05 20:06:42,421 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:06:45,097 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 2.977269576695931, best pos: [ 0.14377107  2.56232216  5.39592497 33.2001178  12.31797652]
+2019-05-05 20:06:45,100 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:06:47,053 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.3514365107421105, best pos: [ 0.19914966  1.89796045  3.346112   15.29103375 32.6734595 ]
+2019-05-05 20:06:47,056 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:06:49,540 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 2.891367031380395, best pos: [ 0.24453024  2.07459059  6.18407841 92.15686776  5.42146495]
+2019-05-05 20:06:49,543 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:06:51,509 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.349103781261435, best pos: [ 0.24742059  1.53369094  5.16411464 48.14507893 67.67257366]
+2019-05-05 20:06:51,512 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:06:54,094 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.248189830364251, best pos: [ 0.15552432  2.41959239  8.83360012 47.79235637 50.8992762 ]
+2019-05-05 20:06:54,097 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:06:56,403 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.1587123059211586, best pos: [ 0.2443861   1.79886211  7.32205148 48.95726544 32.58563976]
+2019-05-05 20:06:56,406 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:06:58,972 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.3740581470236726, best pos: [ 0.20074246  3.32864384  5.16448591 78.50471452 41.74889342]
+2019-05-05 20:06:58,975 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:07:01,810 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.148142701055216, best pos: [ 0.09377692  2.70190182 10.03896558 81.82071857 21.28662467]
+2019-05-05 20:07:01,814 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:07:04,492 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.3433226128393216, best pos: [ 0.43124153  1.40551281 10.04788815 61.47777123 61.60461535]
+2019-05-05 20:07:04,495 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:07:06,902 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.5541545513572976, best pos: [ 0.17376372  2.1712745   7.51812468 19.42154372 77.73073165]
+2019-05-05 20:07:06,905 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:07:09,118 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.9024858068418657, best pos: [ 0.14391222  3.7633027   3.92492084 84.95316617 91.12023384]
+2019-05-05 20:07:09,121 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:07:11,631 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.3251022270990114, best pos: [ 0.28813405  1.55112295  5.26489173 61.61156615 42.73151552]
+2019-05-05 20:07:11,635 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:07:13,646 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.9159689134585713, best pos: [ 0.22932347  2.55855024  2.47641882  3.71317561 93.62664806]
+2019-05-05 20:07:13,650 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:07:15,961 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.951418052830782, best pos: [ 0.28263374  2.00064588  7.45867934 67.59462482 95.62129546]
+2019-05-05 20:07:15,965 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:07:18,426 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.1976440910853716, best pos: [ 0.17648813  2.23927328  6.45721868 24.03986327 52.36673665]
+2019-05-05 20:07:18,429 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:07:20,603 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.9298991553374045, best pos: [ 0.31154438  1.64374508  4.52694758 15.01939657 96.17549545]
+2019-05-05 20:07:20,607 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:07:23,515 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 2.929400455461111, best pos: [ 0.15142578  2.04600415 10.52620688 17.62064814  7.93302682]
+2019-05-05 20:07:23,519 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:07:26,311 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.6759728177160573, best pos: [ 0.29588205  3.9659616  10.24754365 57.22096598 83.51598335]
+2019-05-05 20:07:26,314 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:07:28,677 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.3028883360555397, best pos: [ 0.20952157  1.75966036 10.47725777 95.23211412 48.59976594]
+2019-05-05 20:07:28,684 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:07:31,185 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.2697940587691434, best pos: [ 0.27468483  2.68728148  7.44593414  7.61601866 66.06989134]
+2019-05-05 20:07:31,188 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:07:33,909 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.0306579204528132, best pos: [ 0.12075987  3.85395887  5.62848753 79.17283846 11.17513651]
+2019-05-05 20:07:33,913 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:07:36,070 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.5480240135918564, best pos: [ 0.60502844  2.25476866  2.36264401 35.77187796 57.62074638]
+2019-05-05 20:07:36,074 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:07:38,616 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.3051633833882335, best pos: [ 0.14067095  3.36891524  4.49308211 30.41957118 46.18815375]
+2019-05-05 20:07:38,619 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:07:41,417 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.319245700797695, best pos: [ 0.652426    2.25696148  9.07518884 18.2203745  36.45656739]
+2019-05-05 20:07:41,420 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:07:44,222 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.111512476905027, best pos: [ 0.25910501  4.20998754 10.57531396 91.50671255  1.21699283]
+2019-05-05 20:07:44,225 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:07:46,853 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.2897680396561206, best pos: [ 0.21002103  2.74553037  7.86024813 98.47760621 46.92315583]
+2019-05-05 20:07:46,856 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:07:49,814 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.246622821525655, best pos: [ 0.15684082  3.47037901  8.29398699 38.47540046 47.1948397 ]
+2019-05-05 20:07:49,817 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:07:52,969 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.20450670500014, best pos: [ 0.1121865   3.13704655  9.77282831  4.9604221  45.63386581]
+2019-05-05 20:07:52,973 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:07:55,492 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.81850337650353, best pos: [ 0.12278003  3.81927207  7.06687928 44.45558745 87.2735783 ]
+2019-05-05 20:07:55,496 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:07:57,868 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.282140444054683, best pos: [ 0.49572278  3.8607536   3.98931461 85.74010693 35.52216287]
+2019-05-05 20:07:57,871 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:08:00,055 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.082031885113802, best pos: [ 0.10292471  4.84203948  2.85649711 34.00566288 10.12187453]
+2019-05-05 20:08:00,059 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:08:02,434 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.334991582889755, best pos: [ 0.15644124  3.03874091  3.2320742  95.98658813 43.54435037]
+2019-05-05 20:08:02,437 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:08:05,226 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.3035816674080096, best pos: [ 0.06627477  3.89566087  9.49219605 25.75529125 45.75245625]
+2019-05-05 20:08:05,230 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:08:08,185 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.3079673828587537, best pos: [ 0.6381602   4.89507364  5.23931229  8.28023685 32.25790186]
+2019-05-05 20:08:08,188 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:08:10,190 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.2565284522352895, best pos: [ 0.19338771  1.51824051  3.81326218 70.30314723  4.68606167]
+2019-05-05 20:08:10,193 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:08:12,342 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.3279570890105403, best pos: [ 0.12070245  4.71713101  2.59960167 58.54994357 34.67690378]
+2019-05-05 20:08:12,345 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:08:14,942 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.4112742548701336, best pos: [ 0.3199771   2.13081899 11.74636472 66.01791592 72.23553395]
+2019-05-05 20:08:14,946 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:08:17,739 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 2.8107236657356913, best pos: [ 0.43313341  2.60758064  7.87507045 11.55605539  3.26607153]
+2019-05-05 20:08:17,743 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:08:19,727 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.571570229034262, best pos: [ 0.25500463  1.93500703  3.5683083   5.55419776 62.95757511]
+2019-05-05 20:08:19,731 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:08:22,390 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.122937965820372, best pos: [ 0.11974354  3.26508751  5.32692873 41.64591165 27.48237778]
+2019-05-05 20:08:22,393 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:08:25,017 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.8160864382075466, best pos: [ 0.24403099  2.85436939 10.04020223 60.59677758 88.95787787]
+2019-05-05 20:08:25,020 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:08:27,087 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.2084209373134684, best pos: [ 0.18144981  1.08594549  5.36622848 10.83649519  4.74138099]
+2019-05-05 20:08:27,090 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:08:30,774 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.1919805619202597, best pos: [ 0.09850802  4.19325835  9.37653552 56.26193567 18.77389964]
+2019-05-05 20:08:30,777 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:08:33,094 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.5826645155109644, best pos: [ 0.20554421  4.32567634  2.73799453 13.95180574 42.60222148]
+2019-05-05 20:08:33,097 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:08:35,311 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.9802729768644425, best pos: [ 0.27395833  3.69036122  4.84832194 52.94044614 96.22533086]
+2019-05-05 20:08:35,315 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:08:37,280 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.3802649879037348, best pos: [ 0.47536303  1.27699545  2.56804703 39.20508383  2.80539943]
+2019-05-05 20:08:37,284 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:08:39,523 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.719228493240196, best pos: [ 0.21040489  4.58678656  3.84974715  3.58468231 84.41591184]
+2019-05-05 20:08:39,526 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:08:42,155 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.1909614304451126, best pos: [ 0.17123978  3.82605714  6.44955567 98.47495111 55.14370324]
+2019-05-05 20:08:42,158 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:08:44,599 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.145459155295029, best pos: [ 0.32611758  3.43318012  4.08866121 97.52657118 12.14926883]
+2019-05-05 20:08:44,606 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:08:46,784 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.336209835716852, best pos: [ 0.13024978  3.04793567  2.19472501 69.56219323 56.86069136]
+2019-05-05 20:08:46,787 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:08:49,962 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.5114574768975664, best pos: [ 0.88330726  3.49468883  9.26036677 35.84313917 27.45293339]
+2019-05-05 20:08:49,965 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:08:52,559 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.317201493554107, best pos: [ 0.12621905  2.1451981   8.5580828  40.02023254 49.83638908]
+2019-05-05 20:08:52,562 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:08:54,810 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.375603216641802, best pos: [ 0.22247034  3.5534274   3.20587964 94.06100009 67.71747078]
+2019-05-05 20:08:54,814 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:08:57,621 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.2307326506892005, best pos: [ 0.23158959  2.70631275 10.57913049 54.24079933 58.76158511]
+2019-05-05 20:08:57,625 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:09:00,079 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 2.97680502473659, best pos: [ 0.18640842  2.10164761  6.39564241 36.85716759 11.35084199]
+2019-05-05 20:09:00,082 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:09:02,896 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.226099541155704, best pos: [ 0.16056522  3.49982482 11.47243808  7.56439481 51.2252292 ]
+2019-05-05 20:09:02,900 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:09:05,266 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.5173003922791723, best pos: [ 0.16550975  2.65960709  5.92932723 77.16533645 79.04628868]
+2019-05-05 20:09:05,269 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:09:07,942 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.211588341203791, best pos: [ 0.13291976  3.31404488  6.4574675  48.34988081 51.0847572 ]
+2019-05-05 20:09:07,945 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:09:10,605 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.541203974155043, best pos: [ 0.82305671  3.83793453  5.13504486 96.50299441 23.06915765]
+2019-05-05 20:09:10,609 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:09:13,302 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.139209750163393, best pos: [ 0.13252023  2.38761021  7.24183854 25.05518118 30.09540997]
+2019-05-05 20:09:13,306 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:09:16,933 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.2243819531259894, best pos: [ 0.15057052  4.93455628 10.18458556 43.30643293 38.03670532]
+2019-05-05 20:09:16,937 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:09:19,477 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.289806592872015, best pos: [ 0.23995425  3.91797924  8.75525689 44.63057814 66.41004541]
+2019-05-05 20:09:19,480 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:09:21,775 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.159255440388472, best pos: [ 0.20103329  2.36105303  4.43156861 76.88516546 20.79871584]
+2019-05-05 20:09:21,778 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:09:23,797 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.442555670265437, best pos: [ 0.31477198  1.34034288  7.04761467  9.67585276 72.82752383]
+2019-05-05 20:09:23,800 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:09:26,026 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.415428148145298, best pos: [ 0.13086988  2.41493354  5.0562662  57.4286652  74.0880801 ]
+2019-05-05 20:09:26,030 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:09:28,610 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.180967301972218, best pos: [ 0.11831622  2.24340606  7.07239604 41.93499499 30.50643287]
+2019-05-05 20:09:28,613 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:09:31,032 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.2758679512319633, best pos: [ 0.22019987  1.98148956  9.00153767  8.22039397 45.46627127]
+2019-05-05 20:09:31,036 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:09:34,200 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.041763902940198, best pos: [ 0.46986159  3.62953438  9.44001666 62.01726267  5.0994877 ]
+2019-05-05 20:09:34,203 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:09:36,795 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 2.9826134739086276, best pos: [ 0.13776625  3.16861926  5.86947282 90.65370713  6.67706916]
+2019-05-05 20:09:36,799 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:09:39,406 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.2225264863779417, best pos: [ 0.10046157  3.7688084   4.05380229 17.59542112 32.20284244]
+2019-05-05 20:09:39,410 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:09:41,651 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.261561689661491, best pos: [ 0.12650613  2.00510208  5.31335033 39.9366029  58.36935173]
+2019-05-05 20:09:41,654 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:09:44,165 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.83009690703956, best pos: [ 0.19275845  2.91794581  8.60933187 33.88093088 88.81475797]
+2019-05-05 20:09:44,168 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:09:46,484 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.3598389529595445, best pos: [ 0.12995734  3.39890576  3.31698671 15.37393972 54.01321473]
+2019-05-05 20:09:46,488 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:09:48,581 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.136236136829673, best pos: [ 0.25543534  1.60192314  5.52842545 58.26315968 18.24760704]
+2019-05-05 20:09:48,585 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:09:52,341 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 2.9201910159670463, best pos: [ 0.18170612  4.76438609  9.39270236 68.23335522  3.32943228]
+2019-05-05 20:09:52,345 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:09:54,621 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.6502118809673965, best pos: [ 0.17997797  2.42384744  5.05833791 27.62808445 85.38354152]
+2019-05-05 20:09:54,625 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:09:56,843 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.4379314579808757, best pos: [ 0.56229503  3.25472781  3.03028188 84.17728762 45.6302035 ]
+2019-05-05 20:09:56,847 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:09:59,150 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.319960470349855, best pos: [ 0.19335258  3.79884182  3.93102909 85.10512843 62.1948801 ]
+2019-05-05 20:09:59,153 - pyswarms.single.global_best - INFO - Optimize for 41 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-05 20:10:01,868 - pyswarms.single.global_best - INFO - Optimization finished | best cost: 3.840851254102528, best pos: [ 0.20711287  4.16402751 10.53668392 39.27356331 89.23385484]
+2019-05-05 22:27:36,616 - GP - INFO - initializing Y
+2019-05-05 22:27:36,617 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,617 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,623 - GP - INFO - initializing Y
+2019-05-05 22:27:36,623 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,624 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,629 - GP - INFO - initializing Y
+2019-05-05 22:27:36,630 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,630 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,635 - GP - INFO - initializing Y
+2019-05-05 22:27:36,636 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,636 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,642 - GP - INFO - initializing Y
+2019-05-05 22:27:36,642 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,642 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,648 - GP - INFO - initializing Y
+2019-05-05 22:27:36,648 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,649 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,654 - GP - INFO - initializing Y
+2019-05-05 22:27:36,655 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,655 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,661 - GP - INFO - initializing Y
+2019-05-05 22:27:36,661 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,661 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,667 - GP - INFO - initializing Y
+2019-05-05 22:27:36,667 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,668 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,673 - GP - INFO - initializing Y
+2019-05-05 22:27:36,674 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,674 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,680 - GP - INFO - initializing Y
+2019-05-05 22:27:36,681 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,681 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,687 - GP - INFO - initializing Y
+2019-05-05 22:27:36,687 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,687 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,693 - GP - INFO - initializing Y
+2019-05-05 22:27:36,693 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,694 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,699 - GP - INFO - initializing Y
+2019-05-05 22:27:36,700 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,700 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,706 - GP - INFO - initializing Y
+2019-05-05 22:27:36,706 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,706 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,712 - GP - INFO - initializing Y
+2019-05-05 22:27:36,712 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,713 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,718 - GP - INFO - initializing Y
+2019-05-05 22:27:36,719 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,719 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,725 - GP - INFO - initializing Y
+2019-05-05 22:27:36,725 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,726 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,731 - GP - INFO - initializing Y
+2019-05-05 22:27:36,731 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,732 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,737 - GP - INFO - initializing Y
+2019-05-05 22:27:36,737 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,738 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,743 - GP - INFO - initializing Y
+2019-05-05 22:27:36,744 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,744 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,749 - GP - INFO - initializing Y
+2019-05-05 22:27:36,749 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,750 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,755 - GP - INFO - initializing Y
+2019-05-05 22:27:36,755 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,756 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,761 - GP - INFO - initializing Y
+2019-05-05 22:27:36,762 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,762 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,767 - GP - INFO - initializing Y
+2019-05-05 22:27:36,768 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,768 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,773 - GP - INFO - initializing Y
+2019-05-05 22:27:36,774 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,774 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,780 - GP - INFO - initializing Y
+2019-05-05 22:27:36,780 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,780 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,785 - GP - INFO - initializing Y
+2019-05-05 22:27:36,786 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,786 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,791 - GP - INFO - initializing Y
+2019-05-05 22:27:36,792 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,792 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,797 - GP - INFO - initializing Y
+2019-05-05 22:27:36,797 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,798 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,802 - GP - INFO - initializing Y
+2019-05-05 22:27:36,803 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,803 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,808 - GP - INFO - initializing Y
+2019-05-05 22:27:36,808 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,809 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,813 - GP - INFO - initializing Y
+2019-05-05 22:27:36,814 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,814 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,820 - GP - INFO - initializing Y
+2019-05-05 22:27:36,820 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,821 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,826 - GP - INFO - initializing Y
+2019-05-05 22:27:36,826 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,826 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,831 - GP - INFO - initializing Y
+2019-05-05 22:27:36,832 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,832 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,837 - GP - INFO - initializing Y
+2019-05-05 22:27:36,837 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,838 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,843 - GP - INFO - initializing Y
+2019-05-05 22:27:36,843 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,843 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,849 - GP - INFO - initializing Y
+2019-05-05 22:27:36,849 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,850 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,854 - GP - INFO - initializing Y
+2019-05-05 22:27:36,855 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,855 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,860 - GP - INFO - initializing Y
+2019-05-05 22:27:36,860 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,861 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,866 - GP - INFO - initializing Y
+2019-05-05 22:27:36,866 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,867 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,872 - GP - INFO - initializing Y
+2019-05-05 22:27:36,872 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,873 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,878 - GP - INFO - initializing Y
+2019-05-05 22:27:36,878 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,878 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,884 - GP - INFO - initializing Y
+2019-05-05 22:27:36,884 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,884 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,890 - GP - INFO - initializing Y
+2019-05-05 22:27:36,891 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,891 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,896 - GP - INFO - initializing Y
+2019-05-05 22:27:36,896 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,897 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,901 - GP - INFO - initializing Y
+2019-05-05 22:27:36,902 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,902 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,907 - GP - INFO - initializing Y
+2019-05-05 22:27:36,908 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,908 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,913 - GP - INFO - initializing Y
+2019-05-05 22:27:36,914 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,914 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,918 - GP - INFO - initializing Y
+2019-05-05 22:27:36,919 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,919 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,924 - GP - INFO - initializing Y
+2019-05-05 22:27:36,925 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,925 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,931 - GP - INFO - initializing Y
+2019-05-05 22:27:36,932 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,932 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,937 - GP - INFO - initializing Y
+2019-05-05 22:27:36,937 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,938 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,942 - GP - INFO - initializing Y
+2019-05-05 22:27:36,943 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,943 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,947 - GP - INFO - initializing Y
+2019-05-05 22:27:36,948 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,948 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,953 - GP - INFO - initializing Y
+2019-05-05 22:27:36,954 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,954 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,959 - GP - INFO - initializing Y
+2019-05-05 22:27:36,960 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,960 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,964 - GP - INFO - initializing Y
+2019-05-05 22:27:36,965 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,965 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,970 - GP - INFO - initializing Y
+2019-05-05 22:27:36,971 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,972 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,976 - GP - INFO - initializing Y
+2019-05-05 22:27:36,977 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,977 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,983 - GP - INFO - initializing Y
+2019-05-05 22:27:36,983 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,984 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,988 - GP - INFO - initializing Y
+2019-05-05 22:27:36,988 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,989 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,993 - GP - INFO - initializing Y
+2019-05-05 22:27:36,994 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,994 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:36,999 - GP - INFO - initializing Y
+2019-05-05 22:27:36,999 - GP - INFO - initializing inference method
+2019-05-05 22:27:36,999 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,004 - GP - INFO - initializing Y
+2019-05-05 22:27:37,004 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,005 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,009 - GP - INFO - initializing Y
+2019-05-05 22:27:37,009 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,010 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,014 - GP - INFO - initializing Y
+2019-05-05 22:27:37,014 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,015 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,019 - GP - INFO - initializing Y
+2019-05-05 22:27:37,019 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,019 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,024 - GP - INFO - initializing Y
+2019-05-05 22:27:37,024 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,025 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,030 - GP - INFO - initializing Y
+2019-05-05 22:27:37,031 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,031 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,037 - GP - INFO - initializing Y
+2019-05-05 22:27:37,037 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,038 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,042 - GP - INFO - initializing Y
+2019-05-05 22:27:37,043 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,043 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,048 - GP - INFO - initializing Y
+2019-05-05 22:27:37,048 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,049 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,053 - GP - INFO - initializing Y
+2019-05-05 22:27:37,053 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,054 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,058 - GP - INFO - initializing Y
+2019-05-05 22:27:37,058 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,058 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,063 - GP - INFO - initializing Y
+2019-05-05 22:27:37,064 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,064 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,068 - GP - INFO - initializing Y
+2019-05-05 22:27:37,069 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,069 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,074 - GP - INFO - initializing Y
+2019-05-05 22:27:37,074 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,074 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,078 - GP - INFO - initializing Y
+2019-05-05 22:27:37,079 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,079 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,083 - GP - INFO - initializing Y
+2019-05-05 22:27:37,084 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,084 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,088 - GP - INFO - initializing Y
+2019-05-05 22:27:37,088 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,089 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,093 - GP - INFO - initializing Y
+2019-05-05 22:27:37,094 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,094 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,099 - GP - INFO - initializing Y
+2019-05-05 22:27:37,099 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,100 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,104 - GP - INFO - initializing Y
+2019-05-05 22:27:37,104 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,105 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,109 - GP - INFO - initializing Y
+2019-05-05 22:27:37,110 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,110 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,114 - GP - INFO - initializing Y
+2019-05-05 22:27:37,115 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,115 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,120 - GP - INFO - initializing Y
+2019-05-05 22:27:37,120 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,121 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,128 - GP - INFO - initializing Y
+2019-05-05 22:27:37,129 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,129 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,135 - GP - INFO - initializing Y
+2019-05-05 22:27:37,136 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,136 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,140 - GP - INFO - initializing Y
+2019-05-05 22:27:37,141 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,141 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,145 - GP - INFO - initializing Y
+2019-05-05 22:27:37,146 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,146 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,151 - GP - INFO - initializing Y
+2019-05-05 22:27:37,151 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,151 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,155 - GP - INFO - initializing Y
+2019-05-05 22:27:37,156 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,156 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,161 - GP - INFO - initializing Y
+2019-05-05 22:27:37,161 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,162 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,166 - GP - INFO - initializing Y
+2019-05-05 22:27:37,167 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,167 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,172 - GP - INFO - initializing Y
+2019-05-05 22:27:37,172 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,173 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,178 - GP - INFO - initializing Y
+2019-05-05 22:27:37,179 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,179 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,183 - GP - INFO - initializing Y
+2019-05-05 22:27:37,184 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,184 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,189 - GP - INFO - initializing Y
+2019-05-05 22:27:37,189 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,190 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,338 - GP - INFO - initializing Y
+2019-05-05 22:27:37,338 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,339 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,344 - GP - INFO - initializing Y
+2019-05-05 22:27:37,344 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,344 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,350 - GP - INFO - initializing Y
+2019-05-05 22:27:37,351 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,351 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,356 - GP - INFO - initializing Y
+2019-05-05 22:27:37,357 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,357 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,362 - GP - INFO - initializing Y
+2019-05-05 22:27:37,362 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,363 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,367 - GP - INFO - initializing Y
+2019-05-05 22:27:37,368 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,368 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,373 - GP - INFO - initializing Y
+2019-05-05 22:27:37,374 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,374 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,379 - GP - INFO - initializing Y
+2019-05-05 22:27:37,379 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,380 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,384 - GP - INFO - initializing Y
+2019-05-05 22:27:37,385 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,385 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,391 - GP - INFO - initializing Y
+2019-05-05 22:27:37,391 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,392 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,398 - GP - INFO - initializing Y
+2019-05-05 22:27:37,399 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,399 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,404 - GP - INFO - initializing Y
+2019-05-05 22:27:37,404 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,405 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,410 - GP - INFO - initializing Y
+2019-05-05 22:27:37,410 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,410 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,475 - GP - INFO - initializing Y
+2019-05-05 22:27:37,476 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,476 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,482 - GP - INFO - initializing Y
+2019-05-05 22:27:37,482 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,483 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,487 - GP - INFO - initializing Y
+2019-05-05 22:27:37,488 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,488 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,493 - GP - INFO - initializing Y
+2019-05-05 22:27:37,494 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,494 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,499 - GP - INFO - initializing Y
+2019-05-05 22:27:37,499 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,500 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,505 - GP - INFO - initializing Y
+2019-05-05 22:27:37,505 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,506 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,511 - GP - INFO - initializing Y
+2019-05-05 22:27:37,511 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,512 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,517 - GP - INFO - initializing Y
+2019-05-05 22:27:37,517 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,518 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,522 - GP - INFO - initializing Y
+2019-05-05 22:27:37,523 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,523 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,529 - GP - INFO - initializing Y
+2019-05-05 22:27:37,529 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,529 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,535 - GP - INFO - initializing Y
+2019-05-05 22:27:37,535 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,536 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,541 - GP - INFO - initializing Y
+2019-05-05 22:27:37,541 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,542 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,547 - GP - INFO - initializing Y
+2019-05-05 22:27:37,547 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,548 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,553 - GP - INFO - initializing Y
+2019-05-05 22:27:37,553 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,554 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,559 - GP - INFO - initializing Y
+2019-05-05 22:27:37,559 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,560 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,565 - GP - INFO - initializing Y
+2019-05-05 22:27:37,565 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,566 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,571 - GP - INFO - initializing Y
+2019-05-05 22:27:37,571 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,572 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,577 - GP - INFO - initializing Y
+2019-05-05 22:27:37,577 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,578 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,583 - GP - INFO - initializing Y
+2019-05-05 22:27:37,583 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,584 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,589 - GP - INFO - initializing Y
+2019-05-05 22:27:37,589 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,590 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,595 - GP - INFO - initializing Y
+2019-05-05 22:27:37,596 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,596 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,601 - GP - INFO - initializing Y
+2019-05-05 22:27:37,602 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,602 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,607 - GP - INFO - initializing Y
+2019-05-05 22:27:37,608 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,608 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,613 - GP - INFO - initializing Y
+2019-05-05 22:27:37,614 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,614 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,619 - GP - INFO - initializing Y
+2019-05-05 22:27:37,620 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,620 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,625 - GP - INFO - initializing Y
+2019-05-05 22:27:37,625 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,626 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,631 - GP - INFO - initializing Y
+2019-05-05 22:27:37,631 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,632 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,637 - GP - INFO - initializing Y
+2019-05-05 22:27:37,638 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,638 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,643 - GP - INFO - initializing Y
+2019-05-05 22:27:37,644 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,644 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,649 - GP - INFO - initializing Y
+2019-05-05 22:27:37,650 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,650 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,655 - GP - INFO - initializing Y
+2019-05-05 22:27:37,656 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,656 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,661 - GP - INFO - initializing Y
+2019-05-05 22:27:37,662 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,662 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,668 - GP - INFO - initializing Y
+2019-05-05 22:27:37,669 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,669 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,674 - GP - INFO - initializing Y
+2019-05-05 22:27:37,675 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,675 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,680 - GP - INFO - initializing Y
+2019-05-05 22:27:37,681 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,681 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,687 - GP - INFO - initializing Y
+2019-05-05 22:27:37,688 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,688 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,694 - GP - INFO - initializing Y
+2019-05-05 22:27:37,694 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,695 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,698 - GP - INFO - initializing Y
+2019-05-05 22:27:37,699 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,699 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,704 - GP - INFO - initializing Y
+2019-05-05 22:27:37,704 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,704 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,710 - GP - INFO - initializing Y
+2019-05-05 22:27:37,710 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,711 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,715 - GP - INFO - initializing Y
+2019-05-05 22:27:37,716 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,716 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,720 - GP - INFO - initializing Y
+2019-05-05 22:27:37,721 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,721 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,726 - GP - INFO - initializing Y
+2019-05-05 22:27:37,726 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,726 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,731 - GP - INFO - initializing Y
+2019-05-05 22:27:37,731 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,732 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,736 - GP - INFO - initializing Y
+2019-05-05 22:27:37,737 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,737 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,741 - GP - INFO - initializing Y
+2019-05-05 22:27:37,742 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,742 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,748 - GP - INFO - initializing Y
+2019-05-05 22:27:37,749 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,749 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,755 - GP - INFO - initializing Y
+2019-05-05 22:27:37,756 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,756 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,761 - GP - INFO - initializing Y
+2019-05-05 22:27:37,761 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,762 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,766 - GP - INFO - initializing Y
+2019-05-05 22:27:37,767 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,767 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,771 - GP - INFO - initializing Y
+2019-05-05 22:27:37,772 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,772 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,778 - GP - INFO - initializing Y
+2019-05-05 22:27:37,779 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,779 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,785 - GP - INFO - initializing Y
+2019-05-05 22:27:37,786 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,786 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,792 - GP - INFO - initializing Y
+2019-05-05 22:27:37,792 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,792 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,798 - GP - INFO - initializing Y
+2019-05-05 22:27:37,798 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,798 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,804 - GP - INFO - initializing Y
+2019-05-05 22:27:37,804 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,805 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,810 - GP - INFO - initializing Y
+2019-05-05 22:27:37,810 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,811 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,815 - GP - INFO - initializing Y
+2019-05-05 22:27:37,816 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,816 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,820 - GP - INFO - initializing Y
+2019-05-05 22:27:37,821 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,821 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,826 - GP - INFO - initializing Y
+2019-05-05 22:27:37,827 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,827 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,832 - GP - INFO - initializing Y
+2019-05-05 22:27:37,832 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,833 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,837 - GP - INFO - initializing Y
+2019-05-05 22:27:37,838 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,838 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,843 - GP - INFO - initializing Y
+2019-05-05 22:27:37,843 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,843 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,848 - GP - INFO - initializing Y
+2019-05-05 22:27:37,849 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,849 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,853 - GP - INFO - initializing Y
+2019-05-05 22:27:37,854 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,854 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,858 - GP - INFO - initializing Y
+2019-05-05 22:27:37,859 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,859 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,864 - GP - INFO - initializing Y
+2019-05-05 22:27:37,864 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,865 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,869 - GP - INFO - initializing Y
+2019-05-05 22:27:37,870 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,870 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,874 - GP - INFO - initializing Y
+2019-05-05 22:27:37,875 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,875 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,880 - GP - INFO - initializing Y
+2019-05-05 22:27:37,881 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,881 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,886 - GP - INFO - initializing Y
+2019-05-05 22:27:37,887 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,887 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,891 - GP - INFO - initializing Y
+2019-05-05 22:27:37,892 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,892 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,897 - GP - INFO - initializing Y
+2019-05-05 22:27:37,897 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,897 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,902 - GP - INFO - initializing Y
+2019-05-05 22:27:37,902 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,903 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,907 - GP - INFO - initializing Y
+2019-05-05 22:27:37,907 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,908 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,912 - GP - INFO - initializing Y
+2019-05-05 22:27:37,912 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,913 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,917 - GP - INFO - initializing Y
+2019-05-05 22:27:37,918 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,918 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,922 - GP - INFO - initializing Y
+2019-05-05 22:27:37,923 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,923 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,928 - GP - INFO - initializing Y
+2019-05-05 22:27:37,928 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,929 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,933 - GP - INFO - initializing Y
+2019-05-05 22:27:37,934 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,934 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,939 - GP - INFO - initializing Y
+2019-05-05 22:27:37,940 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,940 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,946 - GP - INFO - initializing Y
+2019-05-05 22:27:37,946 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,947 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,951 - GP - INFO - initializing Y
+2019-05-05 22:27:37,952 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,952 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,957 - GP - INFO - initializing Y
+2019-05-05 22:27:37,957 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,957 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,962 - GP - INFO - initializing Y
+2019-05-05 22:27:37,963 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,963 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,967 - GP - INFO - initializing Y
+2019-05-05 22:27:37,968 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,968 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:37,972 - GP - INFO - initializing Y
+2019-05-05 22:27:37,973 - GP - INFO - initializing inference method
+2019-05-05 22:27:37,973 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,224 - GP - INFO - initializing Y
+2019-05-05 22:27:38,225 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,225 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,230 - GP - INFO - initializing Y
+2019-05-05 22:27:38,231 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,231 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,236 - GP - INFO - initializing Y
+2019-05-05 22:27:38,237 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,237 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,243 - GP - INFO - initializing Y
+2019-05-05 22:27:38,243 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,243 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,249 - GP - INFO - initializing Y
+2019-05-05 22:27:38,250 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,250 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,255 - GP - INFO - initializing Y
+2019-05-05 22:27:38,256 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,256 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,263 - GP - INFO - initializing Y
+2019-05-05 22:27:38,263 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,264 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,269 - GP - INFO - initializing Y
+2019-05-05 22:27:38,269 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,269 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,274 - GP - INFO - initializing Y
+2019-05-05 22:27:38,275 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,276 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,281 - GP - INFO - initializing Y
+2019-05-05 22:27:38,282 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,282 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,289 - GP - INFO - initializing Y
+2019-05-05 22:27:38,289 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,290 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,295 - GP - INFO - initializing Y
+2019-05-05 22:27:38,296 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,297 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,302 - GP - INFO - initializing Y
+2019-05-05 22:27:38,302 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,303 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,309 - GP - INFO - initializing Y
+2019-05-05 22:27:38,310 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,311 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,317 - GP - INFO - initializing Y
+2019-05-05 22:27:38,317 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,318 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,323 - GP - INFO - initializing Y
+2019-05-05 22:27:38,323 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,324 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,329 - GP - INFO - initializing Y
+2019-05-05 22:27:38,330 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,330 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,338 - GP - INFO - initializing Y
+2019-05-05 22:27:38,338 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,339 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,345 - GP - INFO - initializing Y
+2019-05-05 22:27:38,346 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,347 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,353 - GP - INFO - initializing Y
+2019-05-05 22:27:38,354 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,354 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,359 - GP - INFO - initializing Y
+2019-05-05 22:27:38,360 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,360 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,366 - GP - INFO - initializing Y
+2019-05-05 22:27:38,367 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,367 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,372 - GP - INFO - initializing Y
+2019-05-05 22:27:38,373 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,374 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,379 - GP - INFO - initializing Y
+2019-05-05 22:27:38,380 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,380 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,386 - GP - INFO - initializing Y
+2019-05-05 22:27:38,386 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,386 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,392 - GP - INFO - initializing Y
+2019-05-05 22:27:38,392 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,393 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,398 - GP - INFO - initializing Y
+2019-05-05 22:27:38,399 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,399 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,405 - GP - INFO - initializing Y
+2019-05-05 22:27:38,406 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,407 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,412 - GP - INFO - initializing Y
+2019-05-05 22:27:38,412 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,413 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,418 - GP - INFO - initializing Y
+2019-05-05 22:27:38,418 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,418 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,424 - GP - INFO - initializing Y
+2019-05-05 22:27:38,424 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,425 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,430 - GP - INFO - initializing Y
+2019-05-05 22:27:38,430 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,431 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,436 - GP - INFO - initializing Y
+2019-05-05 22:27:38,436 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,436 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,441 - GP - INFO - initializing Y
+2019-05-05 22:27:38,442 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,442 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,447 - GP - INFO - initializing Y
+2019-05-05 22:27:38,448 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,448 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,453 - GP - INFO - initializing Y
+2019-05-05 22:27:38,453 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,454 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,459 - GP - INFO - initializing Y
+2019-05-05 22:27:38,459 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,459 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,465 - GP - INFO - initializing Y
+2019-05-05 22:27:38,465 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,465 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,473 - GP - INFO - initializing Y
+2019-05-05 22:27:38,474 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,474 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,481 - GP - INFO - initializing Y
+2019-05-05 22:27:38,482 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,482 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,487 - GP - INFO - initializing Y
+2019-05-05 22:27:38,488 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,488 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,493 - GP - INFO - initializing Y
+2019-05-05 22:27:38,494 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,494 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,499 - GP - INFO - initializing Y
+2019-05-05 22:27:38,500 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,501 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,506 - GP - INFO - initializing Y
+2019-05-05 22:27:38,506 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,507 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,512 - GP - INFO - initializing Y
+2019-05-05 22:27:38,513 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,513 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,518 - GP - INFO - initializing Y
+2019-05-05 22:27:38,519 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,519 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,524 - GP - INFO - initializing Y
+2019-05-05 22:27:38,525 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,525 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,530 - GP - INFO - initializing Y
+2019-05-05 22:27:38,531 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,531 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,536 - GP - INFO - initializing Y
+2019-05-05 22:27:38,536 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,537 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,542 - GP - INFO - initializing Y
+2019-05-05 22:27:38,543 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,543 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,546 - GP - INFO - initializing Y
+2019-05-05 22:27:38,547 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,548 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,552 - GP - INFO - initializing Y
+2019-05-05 22:27:38,552 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,553 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,557 - GP - INFO - initializing Y
+2019-05-05 22:27:38,558 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,558 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,562 - GP - INFO - initializing Y
+2019-05-05 22:27:38,563 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,563 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,568 - GP - INFO - initializing Y
+2019-05-05 22:27:38,568 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,568 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,573 - GP - INFO - initializing Y
+2019-05-05 22:27:38,574 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,574 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,578 - GP - INFO - initializing Y
+2019-05-05 22:27:38,579 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,579 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,584 - GP - INFO - initializing Y
+2019-05-05 22:27:38,584 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,585 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,590 - GP - INFO - initializing Y
+2019-05-05 22:27:38,590 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,591 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,595 - GP - INFO - initializing Y
+2019-05-05 22:27:38,595 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,596 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,601 - GP - INFO - initializing Y
+2019-05-05 22:27:38,601 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,602 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,606 - GP - INFO - initializing Y
+2019-05-05 22:27:38,606 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,606 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,611 - GP - INFO - initializing Y
+2019-05-05 22:27:38,612 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,612 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,616 - GP - INFO - initializing Y
+2019-05-05 22:27:38,617 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,617 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,622 - GP - INFO - initializing Y
+2019-05-05 22:27:38,622 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,623 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,627 - GP - INFO - initializing Y
+2019-05-05 22:27:38,628 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,628 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,633 - GP - INFO - initializing Y
+2019-05-05 22:27:38,633 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,633 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,638 - GP - INFO - initializing Y
+2019-05-05 22:27:38,638 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,639 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,643 - GP - INFO - initializing Y
+2019-05-05 22:27:38,643 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,644 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,648 - GP - INFO - initializing Y
+2019-05-05 22:27:38,648 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,649 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,653 - GP - INFO - initializing Y
+2019-05-05 22:27:38,653 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,653 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,658 - GP - INFO - initializing Y
+2019-05-05 22:27:38,658 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,658 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,663 - GP - INFO - initializing Y
+2019-05-05 22:27:38,663 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,664 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,668 - GP - INFO - initializing Y
+2019-05-05 22:27:38,669 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,669 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,673 - GP - INFO - initializing Y
+2019-05-05 22:27:38,674 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,674 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,679 - GP - INFO - initializing Y
+2019-05-05 22:27:38,679 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,680 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,684 - GP - INFO - initializing Y
+2019-05-05 22:27:38,684 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,685 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,690 - GP - INFO - initializing Y
+2019-05-05 22:27:38,690 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,691 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,695 - GP - INFO - initializing Y
+2019-05-05 22:27:38,695 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,696 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,700 - GP - INFO - initializing Y
+2019-05-05 22:27:38,701 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,701 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,705 - GP - INFO - initializing Y
+2019-05-05 22:27:38,706 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,706 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,710 - GP - INFO - initializing Y
+2019-05-05 22:27:38,711 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,711 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,715 - GP - INFO - initializing Y
+2019-05-05 22:27:38,716 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,716 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,720 - GP - INFO - initializing Y
+2019-05-05 22:27:38,721 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,721 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,726 - GP - INFO - initializing Y
+2019-05-05 22:27:38,726 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,727 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,731 - GP - INFO - initializing Y
+2019-05-05 22:27:38,732 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,732 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,736 - GP - INFO - initializing Y
+2019-05-05 22:27:38,737 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,737 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,742 - GP - INFO - initializing Y
+2019-05-05 22:27:38,742 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,743 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,747 - GP - INFO - initializing Y
+2019-05-05 22:27:38,748 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,748 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,753 - GP - INFO - initializing Y
+2019-05-05 22:27:38,753 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,754 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,758 - GP - INFO - initializing Y
+2019-05-05 22:27:38,759 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,759 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,763 - GP - INFO - initializing Y
+2019-05-05 22:27:38,764 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,764 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,768 - GP - INFO - initializing Y
+2019-05-05 22:27:38,769 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,769 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,773 - GP - INFO - initializing Y
+2019-05-05 22:27:38,774 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,774 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,779 - GP - INFO - initializing Y
+2019-05-05 22:27:38,779 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,780 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,786 - GP - INFO - initializing Y
+2019-05-05 22:27:38,786 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,787 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,791 - GP - INFO - initializing Y
+2019-05-05 22:27:38,791 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,791 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,796 - GP - INFO - initializing Y
+2019-05-05 22:27:38,796 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,797 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,801 - GP - INFO - initializing Y
+2019-05-05 22:27:38,802 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,802 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,807 - GP - INFO - initializing Y
+2019-05-05 22:27:38,808 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,808 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,815 - GP - INFO - initializing Y
+2019-05-05 22:27:38,815 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,816 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,821 - GP - INFO - initializing Y
+2019-05-05 22:27:38,821 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,822 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,827 - GP - INFO - initializing Y
+2019-05-05 22:27:38,827 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,828 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,833 - GP - INFO - initializing Y
+2019-05-05 22:27:38,833 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,834 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,839 - GP - INFO - initializing Y
+2019-05-05 22:27:38,839 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,840 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,846 - GP - INFO - initializing Y
+2019-05-05 22:27:38,846 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,846 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,852 - GP - INFO - initializing Y
+2019-05-05 22:27:38,853 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,853 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,858 - GP - INFO - initializing Y
+2019-05-05 22:27:38,858 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,859 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,864 - GP - INFO - initializing Y
+2019-05-05 22:27:38,865 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,865 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,871 - GP - INFO - initializing Y
+2019-05-05 22:27:38,871 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,872 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,878 - GP - INFO - initializing Y
+2019-05-05 22:27:38,878 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,879 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,884 - GP - INFO - initializing Y
+2019-05-05 22:27:38,884 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,885 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,889 - GP - INFO - initializing Y
+2019-05-05 22:27:38,890 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,891 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,896 - GP - INFO - initializing Y
+2019-05-05 22:27:38,897 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,897 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,902 - GP - INFO - initializing Y
+2019-05-05 22:27:38,903 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,903 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,909 - GP - INFO - initializing Y
+2019-05-05 22:27:38,909 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,909 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,915 - GP - INFO - initializing Y
+2019-05-05 22:27:38,915 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,916 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,921 - GP - INFO - initializing Y
+2019-05-05 22:27:38,921 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,922 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,927 - GP - INFO - initializing Y
+2019-05-05 22:27:38,928 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,928 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,934 - GP - INFO - initializing Y
+2019-05-05 22:27:38,934 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,935 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,940 - GP - INFO - initializing Y
+2019-05-05 22:27:38,941 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,941 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,946 - GP - INFO - initializing Y
+2019-05-05 22:27:38,947 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,947 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,952 - GP - INFO - initializing Y
+2019-05-05 22:27:38,953 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,953 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,959 - GP - INFO - initializing Y
+2019-05-05 22:27:38,959 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,960 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,965 - GP - INFO - initializing Y
+2019-05-05 22:27:38,966 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,966 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,971 - GP - INFO - initializing Y
+2019-05-05 22:27:38,972 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,972 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,978 - GP - INFO - initializing Y
+2019-05-05 22:27:38,978 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,978 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,984 - GP - INFO - initializing Y
+2019-05-05 22:27:38,985 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,985 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,990 - GP - INFO - initializing Y
+2019-05-05 22:27:38,991 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,991 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:38,996 - GP - INFO - initializing Y
+2019-05-05 22:27:38,996 - GP - INFO - initializing inference method
+2019-05-05 22:27:38,997 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,002 - GP - INFO - initializing Y
+2019-05-05 22:27:39,003 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,003 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,008 - GP - INFO - initializing Y
+2019-05-05 22:27:39,009 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,009 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,014 - GP - INFO - initializing Y
+2019-05-05 22:27:39,015 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,015 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,021 - GP - INFO - initializing Y
+2019-05-05 22:27:39,021 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,022 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,028 - GP - INFO - initializing Y
+2019-05-05 22:27:39,029 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,029 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,034 - GP - INFO - initializing Y
+2019-05-05 22:27:39,034 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,035 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,040 - GP - INFO - initializing Y
+2019-05-05 22:27:39,040 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,040 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,046 - GP - INFO - initializing Y
+2019-05-05 22:27:39,046 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,047 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,052 - GP - INFO - initializing Y
+2019-05-05 22:27:39,053 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,053 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,058 - GP - INFO - initializing Y
+2019-05-05 22:27:39,058 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,059 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,064 - GP - INFO - initializing Y
+2019-05-05 22:27:39,064 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,065 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,070 - GP - INFO - initializing Y
+2019-05-05 22:27:39,070 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,071 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,077 - GP - INFO - initializing Y
+2019-05-05 22:27:39,077 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,078 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,083 - GP - INFO - initializing Y
+2019-05-05 22:27:39,084 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,084 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,089 - GP - INFO - initializing Y
+2019-05-05 22:27:39,090 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,090 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,095 - GP - INFO - initializing Y
+2019-05-05 22:27:39,095 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,096 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,102 - GP - INFO - initializing Y
+2019-05-05 22:27:39,102 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,103 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,108 - GP - INFO - initializing Y
+2019-05-05 22:27:39,108 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,109 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,114 - GP - INFO - initializing Y
+2019-05-05 22:27:39,114 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,115 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,122 - GP - INFO - initializing Y
+2019-05-05 22:27:39,122 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,123 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,126 - GP - INFO - initializing Y
+2019-05-05 22:27:39,127 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,127 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,132 - GP - INFO - initializing Y
+2019-05-05 22:27:39,133 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,133 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,138 - GP - INFO - initializing Y
+2019-05-05 22:27:39,138 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,139 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,144 - GP - INFO - initializing Y
+2019-05-05 22:27:39,145 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,145 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,150 - GP - INFO - initializing Y
+2019-05-05 22:27:39,151 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,151 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,156 - GP - INFO - initializing Y
+2019-05-05 22:27:39,156 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,156 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,161 - GP - INFO - initializing Y
+2019-05-05 22:27:39,161 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,161 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,166 - GP - INFO - initializing Y
+2019-05-05 22:27:39,166 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,167 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,172 - GP - INFO - initializing Y
+2019-05-05 22:27:39,172 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,173 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,179 - GP - INFO - initializing Y
+2019-05-05 22:27:39,179 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,180 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,184 - GP - INFO - initializing Y
+2019-05-05 22:27:39,185 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,185 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,189 - GP - INFO - initializing Y
+2019-05-05 22:27:39,190 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,190 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,195 - GP - INFO - initializing Y
+2019-05-05 22:27:39,195 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,195 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,200 - GP - INFO - initializing Y
+2019-05-05 22:27:39,201 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,201 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,205 - GP - INFO - initializing Y
+2019-05-05 22:27:39,206 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,206 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,211 - GP - INFO - initializing Y
+2019-05-05 22:27:39,211 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,211 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,216 - GP - INFO - initializing Y
+2019-05-05 22:27:39,216 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,217 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,221 - GP - INFO - initializing Y
+2019-05-05 22:27:39,222 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,222 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,227 - GP - INFO - initializing Y
+2019-05-05 22:27:39,227 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,227 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,232 - GP - INFO - initializing Y
+2019-05-05 22:27:39,233 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,233 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,238 - GP - INFO - initializing Y
+2019-05-05 22:27:39,239 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,239 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,244 - GP - INFO - initializing Y
+2019-05-05 22:27:39,244 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,245 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,249 - GP - INFO - initializing Y
+2019-05-05 22:27:39,250 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,250 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,255 - GP - INFO - initializing Y
+2019-05-05 22:27:39,255 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,256 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,261 - GP - INFO - initializing Y
+2019-05-05 22:27:39,261 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,261 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,266 - GP - INFO - initializing Y
+2019-05-05 22:27:39,267 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,267 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,274 - GP - INFO - initializing Y
+2019-05-05 22:27:39,274 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,275 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,279 - GP - INFO - initializing Y
+2019-05-05 22:27:39,280 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,280 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,285 - GP - INFO - initializing Y
+2019-05-05 22:27:39,286 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,286 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,291 - GP - INFO - initializing Y
+2019-05-05 22:27:39,291 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,291 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,296 - GP - INFO - initializing Y
+2019-05-05 22:27:39,296 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,297 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,302 - GP - INFO - initializing Y
+2019-05-05 22:27:39,302 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,302 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,307 - GP - INFO - initializing Y
+2019-05-05 22:27:39,307 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,308 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,313 - GP - INFO - initializing Y
+2019-05-05 22:27:39,313 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,313 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,318 - GP - INFO - initializing Y
+2019-05-05 22:27:39,319 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,319 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,324 - GP - INFO - initializing Y
+2019-05-05 22:27:39,324 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,325 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,329 - GP - INFO - initializing Y
+2019-05-05 22:27:39,330 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,330 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,336 - GP - INFO - initializing Y
+2019-05-05 22:27:39,336 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,336 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,341 - GP - INFO - initializing Y
+2019-05-05 22:27:39,342 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,342 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,347 - GP - INFO - initializing Y
+2019-05-05 22:27:39,347 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,348 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,352 - GP - INFO - initializing Y
+2019-05-05 22:27:39,353 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,353 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,358 - GP - INFO - initializing Y
+2019-05-05 22:27:39,358 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,359 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,363 - GP - INFO - initializing Y
+2019-05-05 22:27:39,364 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,364 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,369 - GP - INFO - initializing Y
+2019-05-05 22:27:39,370 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,370 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,374 - GP - INFO - initializing Y
+2019-05-05 22:27:39,375 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,375 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,379 - GP - INFO - initializing Y
+2019-05-05 22:27:39,380 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,380 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,384 - GP - INFO - initializing Y
+2019-05-05 22:27:39,385 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,385 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,390 - GP - INFO - initializing Y
+2019-05-05 22:27:39,391 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,391 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,395 - GP - INFO - initializing Y
+2019-05-05 22:27:39,396 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,396 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:39,401 - GP - INFO - initializing Y
+2019-05-05 22:27:39,401 - GP - INFO - initializing inference method
+2019-05-05 22:27:39,402 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,704 - GP - INFO - initializing Y
+2019-05-05 22:27:41,704 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,705 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,710 - GP - INFO - initializing Y
+2019-05-05 22:27:41,710 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,711 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,716 - GP - INFO - initializing Y
+2019-05-05 22:27:41,716 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,716 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,722 - GP - INFO - initializing Y
+2019-05-05 22:27:41,722 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,723 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,727 - GP - INFO - initializing Y
+2019-05-05 22:27:41,728 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,728 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,733 - GP - INFO - initializing Y
+2019-05-05 22:27:41,734 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,734 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,739 - GP - INFO - initializing Y
+2019-05-05 22:27:41,739 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,740 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,745 - GP - INFO - initializing Y
+2019-05-05 22:27:41,745 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,745 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,751 - GP - INFO - initializing Y
+2019-05-05 22:27:41,751 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,751 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,756 - GP - INFO - initializing Y
+2019-05-05 22:27:41,756 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,757 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,761 - GP - INFO - initializing Y
+2019-05-05 22:27:41,762 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,762 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,768 - GP - INFO - initializing Y
+2019-05-05 22:27:41,768 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,768 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,773 - GP - INFO - initializing Y
+2019-05-05 22:27:41,774 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,774 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,779 - GP - INFO - initializing Y
+2019-05-05 22:27:41,780 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,780 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,785 - GP - INFO - initializing Y
+2019-05-05 22:27:41,785 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,786 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,791 - GP - INFO - initializing Y
+2019-05-05 22:27:41,791 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,791 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,797 - GP - INFO - initializing Y
+2019-05-05 22:27:41,797 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,797 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,802 - GP - INFO - initializing Y
+2019-05-05 22:27:41,803 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,803 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,808 - GP - INFO - initializing Y
+2019-05-05 22:27:41,809 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,809 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,814 - GP - INFO - initializing Y
+2019-05-05 22:27:41,814 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,814 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,820 - GP - INFO - initializing Y
+2019-05-05 22:27:41,822 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,822 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,827 - GP - INFO - initializing Y
+2019-05-05 22:27:41,827 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,828 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,833 - GP - INFO - initializing Y
+2019-05-05 22:27:41,833 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,833 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,838 - GP - INFO - initializing Y
+2019-05-05 22:27:41,839 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,839 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,844 - GP - INFO - initializing Y
+2019-05-05 22:27:41,845 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,845 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,850 - GP - INFO - initializing Y
+2019-05-05 22:27:41,850 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,851 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,856 - GP - INFO - initializing Y
+2019-05-05 22:27:41,856 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,856 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,861 - GP - INFO - initializing Y
+2019-05-05 22:27:41,862 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,862 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,867 - GP - INFO - initializing Y
+2019-05-05 22:27:41,867 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,868 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,873 - GP - INFO - initializing Y
+2019-05-05 22:27:41,873 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,874 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,879 - GP - INFO - initializing Y
+2019-05-05 22:27:41,879 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,880 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,885 - GP - INFO - initializing Y
+2019-05-05 22:27:41,885 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,885 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,891 - GP - INFO - initializing Y
+2019-05-05 22:27:41,891 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,891 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,897 - GP - INFO - initializing Y
+2019-05-05 22:27:41,897 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,897 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,902 - GP - INFO - initializing Y
+2019-05-05 22:27:41,903 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,903 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,908 - GP - INFO - initializing Y
+2019-05-05 22:27:41,908 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,909 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,914 - GP - INFO - initializing Y
+2019-05-05 22:27:41,915 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,915 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,920 - GP - INFO - initializing Y
+2019-05-05 22:27:41,921 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,921 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,926 - GP - INFO - initializing Y
+2019-05-05 22:27:41,926 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,927 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,932 - GP - INFO - initializing Y
+2019-05-05 22:27:41,932 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,933 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,938 - GP - INFO - initializing Y
+2019-05-05 22:27:41,938 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,939 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,944 - GP - INFO - initializing Y
+2019-05-05 22:27:41,944 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,945 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,950 - GP - INFO - initializing Y
+2019-05-05 22:27:41,950 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,950 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,957 - GP - INFO - initializing Y
+2019-05-05 22:27:41,957 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,958 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,963 - GP - INFO - initializing Y
+2019-05-05 22:27:41,963 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,964 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,969 - GP - INFO - initializing Y
+2019-05-05 22:27:41,969 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,970 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,977 - GP - INFO - initializing Y
+2019-05-05 22:27:41,977 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,978 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,984 - GP - INFO - initializing Y
+2019-05-05 22:27:41,984 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,985 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,990 - GP - INFO - initializing Y
+2019-05-05 22:27:41,990 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,990 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,995 - GP - INFO - initializing Y
+2019-05-05 22:27:41,996 - GP - INFO - initializing inference method
+2019-05-05 22:27:41,996 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:41,999 - GP - INFO - initializing Y
+2019-05-05 22:27:42,000 - GP - INFO - initializing inference method
+2019-05-05 22:27:42,000 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:42,005 - GP - INFO - initializing Y
+2019-05-05 22:27:42,005 - GP - INFO - initializing inference method
+2019-05-05 22:27:42,006 - GP - INFO - adding kernel and likelihood as parameters
+2019-05-05 22:27:45,354 - root - ERROR - Invalid alias: The name clear can't be aliased because it is another magic command.
+2019-05-05 22:27:45,355 - root - ERROR - Invalid alias: The name more can't be aliased because it is another magic command.
+2019-05-05 22:27:45,356 - root - ERROR - Invalid alias: The name less can't be aliased because it is another magic command.
+2019-05-05 22:27:45,356 - root - ERROR - Invalid alias: The name man can't be aliased because it is another magic command.

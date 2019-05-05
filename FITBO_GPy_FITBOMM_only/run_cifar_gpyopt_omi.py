@@ -96,7 +96,7 @@ params_simple = {"batch_size": 32,
           }
 
 batch_list = [8]
-acq_func_list = ["LCB"]
+acq_func_list = ["EI"]
 eval_type = "local_penalization"
 seed_size = 3
 iterations = 80
