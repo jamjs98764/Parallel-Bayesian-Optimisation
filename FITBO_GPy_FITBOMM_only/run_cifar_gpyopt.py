@@ -27,10 +27,14 @@ try:
 except:
     print('here')
 try:
-    from .. import GPyOpt_mod
+    from . import GPyOpt_mod
 except:
     print('here')
-    
+try:
+    from ... import GPyOpt_mod
+except:
+    print('here')
+
 from class_FITBOMM import Bayes_opt
 from class_FITBOMM import Bayes_opt_batch
 
