@@ -21,7 +21,7 @@ import pickle
 import sys
 sys.path.append('limjianhong1995/fyp_bo_jian')
 
-from GPyOpt_mod_ import * 
+import GPyOpt_mod_ as GPyOpt_mod 
 
 from class_FITBOMM import Bayes_opt
 from class_FITBOMM import Bayes_opt_batch
@@ -140,7 +140,7 @@ for acq_func in acq_func_list:
 
             if batch == True:
                 # batch
-                BO = GPyOpt_mod_.methods.BayesianOptimization(f = obj_func_noise,
+                BO = GPyOpt_mod.methods.BayesianOptimization(f = obj_func_noise,
                                                         domain = domain,
                                                         acquisition_type = acq_func,
                                                         evaluator_type = eval_type,
@@ -160,7 +160,7 @@ for acq_func in acq_func_list:
                 BO.run_optimization(max_iter = int(iterations / batch_size))
             else:
                 # sequential
-                BO = GPyOpt_mod_.methods.BayesianOptimization(f = obj_func_noise,
+                BO = GPyOpt_mod.methods.BayesianOptimization(f = obj_func_noise,
                                                         domain = domain,
                                                         acquisition_type = acq_func,
                                                         model_type=gp_model,
