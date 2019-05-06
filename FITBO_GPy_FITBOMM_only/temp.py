@@ -36,12 +36,13 @@ with open(save_name+file_name, 'wb') as f:
 a = np.load(save_name + "2_batchnorm_batch_2,seed_3,cl-min,Y_optimum.npy")
 
 """
-b = np.load("Exp_Data/temp/80_iter,batch_1,seed_3,sequential,Y_optimum.npy")
-c = np.load("Exp_Data/temp/80_iter,seed_1st,1_batch,sequential,Y_opt.npy")
+b = np.load("Exp_Data/temp/80_iter,seed_12,2_batch,clmin,X_hist.npy")
+c = np.load("Exp_Data/temp/80_iter,seed_3rd,2_batch,clmin,X_hist.npy")
 
-d = np.vstack((c[0], b[1], b[2]))
+d = np.array([b[0], b[1], c[2]])
+d = np.vstack((b[0], b[1], c[2]))
 
-np.save(save_name + "80_iter,batch_1,seed_3,sequential,Y_optimum.npy",d)
+np.save(save_name + "80_iter,batch_2,seed_3,clmin,X_hist.npy",d)
 
 b = np.load("Exp_Data/temp/80_iter,seed_3,4_batch,clmin,Y_opt.npy")
 
