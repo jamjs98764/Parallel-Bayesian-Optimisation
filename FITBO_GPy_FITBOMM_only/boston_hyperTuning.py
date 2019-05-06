@@ -348,23 +348,23 @@ def FITBO_wrapper(batch_size = 2, heuristic = "cl-min"):
 # Running experiments
 ####
 
-batch_list = [1]
-heuristic_list = ['random']
+batch_list = [2,4]
+heuristic_list = ['kb']
 
 # heuristic_list = ['cl-min']
 error_list = []
 
-FITBO_wrapper(batch_size = 1, heuristic = "kb")
-"""
+# FITBO_wrapper(batch_size = 1, heuristic = "kb")
+
 for batch in batch_list:
     # gpyopt_wrapper(batch_size = batch)  # EI, Local Penalization by default
-    FITBO_wrapper(batch_size = batch, heuristic = "kb")
+    # FITBO_wrapper(batch_size = batch, heuristic = "kb")
     for heur in heuristic_list:
         try:
             FITBO_wrapper(batch_size = batch, heuristic = heur)
         except Exception as e:
             error_run = heur + str(batch) + "_batch - " + str(e)
-"""
+
 
 ####
 # Random Search

@@ -1,6 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
+Created on Sun May  5 15:35:20 2019
+
+@author: jian
+"""
+
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
 Created on Tue Apr 30 13:58:04 2019
 
 @author: jian
@@ -17,11 +25,7 @@ import numpy as np
 from tensorflow import set_random_seed
 import cifar_utils
 import pickle
-
-import sys
-sys.path.append('limjianhong1995/fyp_bo_jian')
-
-import GPyOpt_mod_ as GPyOpt_mod 
+import GPyOpt
 
 from class_FITBOMM import Bayes_opt
 from class_FITBOMM import Bayes_opt_batch
@@ -91,8 +95,8 @@ params_simple = {"batch_size": 32,
           "rms_l_rate": 0.0001,
           }
 
-batch_list = [1,2,4,8]
-acq_func_list = ["EI", "LCB"]
+batch_list = [8]
+acq_func_list = ["EI"]
 eval_type = "local_penalization"
 seed_size = 3
 iterations = 80
@@ -140,7 +144,7 @@ for acq_func in acq_func_list:
 
             if batch == True:
                 # batch
-                BO = GPyOpt_mod.methods.BayesianOptimization(f = obj_func_noise,
+                BO = GPyOpt.methods.BayesianOptimization(f = obj_func_noise,
                                                         domain = domain,
                                                         acquisition_type = acq_func,
                                                         evaluator_type = eval_type,
@@ -160,7 +164,7 @@ for acq_func in acq_func_list:
                 BO.run_optimization(max_iter = int(iterations / batch_size))
             else:
                 # sequential
-                BO = GPyOpt_mod.methods.BayesianOptimization(f = obj_func_noise,
+                BO = GPyOpt.methods.BayesianOptimization(f = obj_func_noise,
                                                         domain = domain,
                                                         acquisition_type = acq_func,
                                                         model_type=gp_model,
