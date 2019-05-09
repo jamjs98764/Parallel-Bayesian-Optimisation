@@ -8,13 +8,12 @@ Created on Fri Nov 10 13:45:16 2017
 import numpy as np
 import os
 from Test_Funcs import egg,hartmann,branin,func1D
-from class_FITBOMM import Bayes_opt
-from class_FITBOMM import Bayes_opt_batch
+from class_FITBOMM_change_prior import Bayes_opt
+from class_FITBOMM_change_prior import Bayes_opt_batch
 from class_FITBOMM_MLE import Bayes_opt_MLE
 from class_FITBOMM_MLE import Bayes_opt_batch_MLE
 
 ##### Initializing experiment parameters
-
 
 seed_size = 50
 num_iters = 40
@@ -65,7 +64,7 @@ def BO_test(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, re
 
     # Creating directory to save
     if batch == False:
-        dir_name = 'Exp_Data/' + test_func + ',' + str(seed_size) + '_seed,sequential/'
+        dir_name = 'Exp_Data/' + test_func + ',' + str(seed_size) + '_seed,sequential,bad_priors_confident/'
     else:
         dir_name = 'Exp_Data/' + test_func + ',' + str(seed_size) + '_seed,' + str(batch_size) + '_batch_size/'
 
@@ -169,7 +168,6 @@ def BO_test(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, re
             np.save(X_opt_file_name, X_optimum)
             np.save(Y_opt_file_name, Y_optimum)
 
-
 #####
 # Running tests
 #####
@@ -199,15 +197,11 @@ for func in test_funcs:
 
 """
 # Batch
-batch_sizes = [4]
-test_funcs = ["egg", "branin"]
-mle = True
+batch_sizes = [1]
+test_funcs = ["egg"]
 
 for test_func in test_funcs:
-
-    test_sequential(test_func, mle)
-
-    for batch_size in batch_sizes:
-        test_all(test_func, batch_size, mle)
+    test_sequential(test_func, True)
+    test_sequential(test_func, False)
 
 

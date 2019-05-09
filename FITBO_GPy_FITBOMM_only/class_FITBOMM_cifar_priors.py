@@ -96,7 +96,7 @@ class Bayes_opt():
         # log prior of hyperparameters
         det_l_scales = np.product(params[0:self.X_dim])
         logl_priormu = np.log(5.0 * np.ones(self.X_dim))
-        logl_priorvar = np.diag(50.0 * np.ones(self.X_dim))
+        logl_priorvar = np.diag(0.5 * np.ones(self.X_dim))
         prior_l_scales = Gaussianprior(log_params[0: self.X_dim], logl_priormu, logl_priorvar) / det_l_scales
         # Gaussianprior(X, mean, variance)
         # Returns pdf of X based on multivariate Gaussian with given mean and variance
@@ -673,8 +673,6 @@ class Bayes_opt_batch():
                              batch_size = 2, heuristic = "kb", dir_name = 'Exp_Data/'):
 
         np.random.seed(seed)
-
-
 
         # sample hyperparameters
         self.mc_samples = mc_samples  # number of samples

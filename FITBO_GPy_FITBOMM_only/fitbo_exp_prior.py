@@ -8,8 +8,8 @@ Created on Fri Nov 10 13:45:16 2017
 import numpy as np
 import os
 from Test_Funcs import egg,hartmann,branin,func1D
-from class_FITBOMM_change_prior import Bayes_opt
-from class_FITBOMM_change_prior import Bayes_opt_batch
+from class_FITBOMM_MLE import Bayes_opt_MLE
+from class_FITBOMM_MLE import Bayes_opt_batch_MLE
 
 
 ##### Initializing experiment parameters
