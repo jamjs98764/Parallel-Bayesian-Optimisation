@@ -95,8 +95,8 @@ burnin = 100
 sample_size = 50
 resample_interval = 1
 
-save_dir = '4yp-bo/FITBO_GPy-FITBOMM_only/Exp_Data/cifar10'
-dir_name = save_dir + "/FITBO/" + str(batch_size) + "_batch"
+save_dir = 'fyp_bo_jian/FITBO_GPy_FITBOMM_only/Exp_Data/cifar10'
+dir_name = save_dir + "/FITBO/80_iter," + str(batch_size) + "_batch"
 
 if batch_size == 1: # Sequential
     heuristic = "sequential"
