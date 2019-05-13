@@ -87,7 +87,7 @@ params_simple = {"batch_size": 32,
           "rms_l_rate": 0.0001,
           }
 
-batch_size = 4
+batch_size = 8
 heuristic = 'cl-min'
 
 BO_method = 'FITBOMM'
