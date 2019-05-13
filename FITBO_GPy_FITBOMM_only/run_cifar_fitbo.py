@@ -95,11 +95,13 @@ burnin = 100
 sample_size = 50
 resample_interval = 1
 
-save_dir = 'fyp_bo_jian/FITBO_GPy_FITBOMM_only/Exp_Data/cifar10'
-dir_name = save_dir + "/FITBO/80_iter," + str(batch_size) + "_batch"
 
 for batch_size in batch_size_list:
     for heuristic in heuristic_list:
+        
+        save_dir = 'fyp_bo_jian/FITBO_GPy_FITBOMM_only/Exp_Data/cifar10'
+        dir_name = save_dir + "/FITBO/80_iter," + str(batch_size) + "_batch"
+        
         if batch_size == 1: # Sequential
             heuristic = "sequential"
             results_X_hist = np.zeros(shape=(seed_size, total_evals + initial_num, input_dim))
