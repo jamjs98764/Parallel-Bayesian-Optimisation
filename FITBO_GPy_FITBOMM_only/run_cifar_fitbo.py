@@ -45,7 +45,7 @@ warnings.filterwarnings('ignore')
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 seed_size = 3
-total_evals = 8
+total_evals = 80
 
 # For FITBO
 num_continuous_dim = 6
@@ -88,7 +88,7 @@ params_simple = {"batch_size": 32,
           }
 
 batch_size_list = [8]
-heuristic_list = ['cl-min']
+heuristic_list = ['cl-min', 'kb']
 
 BO_method = 'FITBOMM'
 burnin = 100
