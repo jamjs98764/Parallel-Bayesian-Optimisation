@@ -25,7 +25,9 @@ import numpy as np
 from tensorflow import set_random_seed
 import cifar_utils
 import pickle
-import GPyOpt
+import sys
+sys.path.insert(0,'..')
+import GPyOpt_mod
 
 from class_FITBOMM import Bayes_opt
 from class_FITBOMM import Bayes_opt_batch
@@ -96,8 +98,8 @@ params_simple = {"batch_size": 32,
           "rms_l_rate": 0.0001,
           }
 
-batch_list = [8]
-acq_func_list = ["EI"]
+batch_list = [2,4]
+acq_func_list = ["LCB"]
 eval_type = "local_penalization"
 seed_size = 3
 iterations = 80
@@ -145,7 +147,7 @@ for acq_func in acq_func_list:
 
             if batch == True:
                 # batch
-                BO = GPyOpt.methods.BayesianOptimization(f = obj_func_noise,
+                BO = GPyOpt_mod.methods.BayesianOptimization(f = obj_func_noise,
                                                         domain = domain,
                                                         acquisition_type = acq_func,
                                                         evaluator_type = eval_type,
@@ -165,7 +167,7 @@ for acq_func in acq_func_list:
                 BO.run_optimization(max_iter = int(iterations / batch_size))
             else:
                 # sequential
-                BO = GPyOpt.methods.BayesianOptimization(f = obj_func_noise,
+                BO = GPyOpt_mod.methods.BayesianOptimization(f = obj_func_noise,
                                                         domain = domain,
                                                         acquisition_type = acq_func,
                                                         model_type=gp_model,

@@ -45,10 +45,11 @@ class SingleObjective(Objective):
         """
         Performs the evaluation of the objective at x.
         """
-
+        """
         if self.n_procs == 1:
             f_evals, cost_evals = self._eval_func(x)
         else:
+
             try:
                 f_evals, cost_evals = self._syncronous_batch_evaluation(x)
             except:
@@ -57,7 +58,8 @@ class SingleObjective(Objective):
                 else:
                     self.parallel_error = True
                 f_evals, cost_evals = self._eval_func(x)
-
+        """
+        f_evals, cost_evals = self._eval_func(x)
         return f_evals, cost_evals
 
 
