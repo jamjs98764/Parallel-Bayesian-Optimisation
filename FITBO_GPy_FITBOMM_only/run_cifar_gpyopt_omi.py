@@ -97,8 +97,8 @@ params_simple = {"batch_size": 32,
           "rms_l_rate": 0.0001,
           }
 
-batch_list = [8]
-acq_func_list = ["EI"]
+batch_list = [2,4]
+acq_func_list = ["LCB"]
 eval_type = "local_penalization"
 seed_size = 3
 iterations = 80
