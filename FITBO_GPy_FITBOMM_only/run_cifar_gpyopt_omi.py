@@ -25,7 +25,9 @@ import numpy as np
 from tensorflow import set_random_seed
 import cifar_utils
 import pickle
-import GPyOpt_mod
+import sys
+sys.path.append('/content/fyp_bo_jian')
+from fyp_bo_jian import GPyOpt_mod
 
 from class_FITBOMM import Bayes_opt
 from class_FITBOMM import Bayes_opt_batch
