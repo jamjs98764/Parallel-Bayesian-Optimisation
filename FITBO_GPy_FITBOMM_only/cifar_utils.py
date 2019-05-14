@@ -21,6 +21,8 @@ It gets to 75% validation accuracy in 25 epochs, and 79% after 50 epochs.
 '''
 
 import keras
+
+from keras import backend as K
 from keras.datasets import cifar10
 from keras.preprocessing.image import ImageDataGenerator
 from keras.models import Sequential
@@ -129,6 +131,9 @@ def cifar_cnn_gpyopt(x):
 
     scores = model.evaluate(x_test, y_test, verbose=0)
     test_accuracy = scores[1]
+
+    # Do some code, e.g. train and save model
+    K.clear_session()
 
     return -test_accuracy*10 # negative because FITBO minimises
 
