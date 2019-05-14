@@ -26,8 +26,8 @@ from tensorflow import set_random_seed
 import cifar_utils
 import pickle
 import sys
-sys.path.append('/content/fyp_bo_jian')
-from fyp_bo_jian import GPyOpt_mod
+sys.path.insert(0,'..')
+import GPyOpt_mod
 
 from class_FITBOMM import Bayes_opt
 from class_FITBOMM import Bayes_opt_batch
