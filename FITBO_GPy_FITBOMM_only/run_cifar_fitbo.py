@@ -45,7 +45,7 @@ warnings.filterwarnings('ignore')
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
 seed_size = 3
-total_evals = 80
+total_evals = 8
 
 # For FITBO
 num_continuous_dim = 6

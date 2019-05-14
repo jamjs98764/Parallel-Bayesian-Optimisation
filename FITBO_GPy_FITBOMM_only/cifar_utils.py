@@ -31,7 +31,7 @@ import numpy as np
 from tensorflow import set_random_seed
 
 num_classes = 10
-epochs = 3 #20
+epochs = 1 #20
 
 # The data, split between train and test sets:
 (x_train, y_train), (x_test, y_test) = cifar10.load_data()
