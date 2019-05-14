@@ -103,7 +103,7 @@ iterations = 80
 n_samples = 150
 n_burning = 100
 gp_model = "GP"
-num_cores = 4
+num_cores = 1
 initialsamplesize = 3
 domain = [{'name': 'x1', 'type': 'continuous', 'domain': (0., 1.)},
  {'name': 'x2', 'type': 'continuous', 'domain': (0., 1.)},

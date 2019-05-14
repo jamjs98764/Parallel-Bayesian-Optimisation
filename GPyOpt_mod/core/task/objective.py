@@ -47,6 +47,7 @@ class SingleObjective(Objective):
         """
 
         if self.n_procs == 1:
+            print("here")
             f_evals, cost_evals = self._eval_func(x)
         else:
             try:
