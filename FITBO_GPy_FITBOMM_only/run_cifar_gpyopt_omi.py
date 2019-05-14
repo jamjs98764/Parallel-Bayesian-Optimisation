@@ -52,7 +52,7 @@ warnings.filterwarnings('ignore')
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 
-seed_size = 3
+seed_size = 1
 total_evals = 80
 
 # For FITBO
