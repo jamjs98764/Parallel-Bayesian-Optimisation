@@ -50,6 +50,7 @@ class SingleObjective(Objective):
             print("here")
             f_evals, cost_evals = self._eval_func(x)
         else:
+            print("here instead")
             try:
                 f_evals, cost_evals = self._syncronous_batch_evaluation(x)
             except:
