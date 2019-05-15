@@ -20,7 +20,7 @@ num_iters = 40
 
 def BO_test(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, resample_interval = 1, \
             seed_size = seed_size, num_iterations = num_iters, batch = False, batch_size = 2, heuristic = "kb",
-            MLE = True):
+            MLE = False):
 
     # BO_method is either FITBOMM (moment matching) or FITBO (quadrature)
     # Sample size = MC sample size

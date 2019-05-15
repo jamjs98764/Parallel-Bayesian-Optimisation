@@ -17,7 +17,7 @@ import pickle
 import numpy as np
 import scipy as sp
 from scipy import stats
-import copy 
+import copy
 from scipy.optimize import minimize,fmin_l_bfgs_b
 import GPy
 from MCMC_Sampler import elliptical_slice
@@ -60,7 +60,7 @@ class Bayes_opt_MLE():
         params = np.exp(log_params)
         l_scales = params[0:self.X_dim]
         output_var = params[self.X_dim] # Vertical length scale
-        noise_var = params[self.X_dim + 1] 
+        noise_var = params[self.X_dim + 1]
         # compute eta
         eta = np.min(self.Y) - params[self.X_dim + 2] # QUESTION: what is this?
         # compute the observed value for g instead of y
@@ -69,7 +69,7 @@ class Bayes_opt_MLE():
         kernel = GPy.kern.RBF(input_dim=self.X_dim, ARD=True, variance=output_var, lengthscale=l_scales)
         Kng = kernel.K(self.X)
         # QUESTION: does not seem to follow conditional variance form in eqn 6
-        
+
         # compute posterior mean distribution for g TODO update this
         # GPg = GPy.models.GPRegression(self.X, g_ob, kernel, noise_var=1e-8)
         # mg,_ = GPg.predict(self.X)
@@ -84,17 +84,17 @@ class Bayes_opt_MLE():
         # LW = Cholesky decomposition of Kny (ndarray)
         # LWi = Cholesky decomposition of inverse of Kny (ndarray)
         # W_logdet = log determinant of Kny (float)
-        
+
         alpha, _ = dpotrs(LW, self.Y, lower=1)
         loglikelihood = 0.5 * (-self.Y.size * np.log(2 * np.pi) - self.Y.shape[1] * W_logdet - np.sum(alpha * self.Y))
         # Log marginal likelihood for GP, based on Rasmussen eqn 2.30
-        
+
         return loglikelihood
 
     def _log_posterior(self, log_params, mean_ln_yminob_minus_eta, var_ln_yminob_minus_eta):
         # Returns posterior, p(y|D, hyperparams, eta)
         # QUESTION: is this true? What is the formula?
-        
+
         params = np.exp(log_params)
         # compute log likelihood
         log_likelihood = self._log_likelihood(log_params)
@@ -102,7 +102,7 @@ class Bayes_opt_MLE():
         # log prior of hyperparameters
         det_l_scales = np.product(params[0:self.X_dim])
         logl_priormu = np.log(5.0 * np.ones(self.X_dim))
-        logl_priorvar = np.diag(0.5 * np.ones(self.X_dim))
+        logl_priorvar = np.diag(50.0 * np.ones(self.X_dim)) # confident = 0.5, unconfident = 50.0
         prior_l_scales = Gaussianprior(log_params[0: self.X_dim], logl_priormu, logl_priorvar) / det_l_scales
         # Gaussianprior(X, mean, variance)
         # Returns pdf of X based on multivariate Gaussian with given mean and variance
@@ -140,9 +140,9 @@ class Bayes_opt_MLE():
                 **sampler_options)
             log_params[i,:] = params_array.ravel()
             ll_record[i] = current_ll
-            
+
         self.params = np.exp(log_params[self.burnin:, :])
-        
+
         max_ll_index = np.argmax(ll_record) - self.burnin
         self.params = np.atleast_2d(self.params[max_ll_index])
 
@@ -213,7 +213,7 @@ class Bayes_opt_MLE():
         Mutual_info = Entropy_1 - np.mean(Entropy_T2, axis=0)
         # return - Mutual_info for minimiser
         return - Mutual_info
-    
+
     def _fit_GP(self):
         '''collect GPs defined using observed g values and all hyperparameter samples'''
         self.GP = [] # Contains a collection of GPs based on hyperparameter sampling
@@ -221,7 +221,7 @@ class Bayes_opt_MLE():
         lscale_param = self.params[:, 0:self.X_dim]
         var_param = self.params[:, self.X_dim]
         noise_param = self.params[:, self.X_dim + 1]
-        eta = np.min(self.Y) - self.params[:, self.X_dim + 2] # There are 
+        eta = np.min(self.Y) - self.params[:, self.X_dim + 2] # There are
 
         for i in range(len(self.params)): # iterate across each MC sample of hyperparaters (Nsamples = 50)
             diff = self.Y - eta[i]
@@ -254,7 +254,7 @@ class Bayes_opt_MLE():
         pos_mean = np.mean(Meanf, axis=0)
         # dpos_mean = np.mean(dMeanf, axis=0)
         return pos_mean
-    
+
     def _marginalised_posterior_var(self, x):
         '''Marginalize GP-normal over all hyperparam sample'''
         x = np.atleast_2d(x) # Wrap array x into 2D-array
@@ -265,20 +265,20 @@ class Bayes_opt_MLE():
             Mean_var[i, :] = vary[:, 0]
         pos_var = np.mean(Mean_var, axis=0)
         return pos_var
-    
+
     def _store_full_posterior_mean_var(self):
         ''' Saves the posterior mean and variance of GP model at each iteration'''
         Xgrid = np.random.uniform(0.0, 1.0, (self.ntest, self.X_dim))
         full_mean = []
         full_var = []
-        
+
         for x in Xgrid:
             pos_mean = self._marginalised_posterior_mean(x)
             pos_var = self._marginalised_posterior_var(x)
             full_mean.append(pos_mean)
             full_var.append(pos_var)
-            
-        return full_mean, full_var       
+
+        return full_mean, full_var
 
     def _gloabl_minimser(self,func):
         ntest = 2000;
@@ -292,22 +292,22 @@ class Bayes_opt_MLE():
 
         res = minimize(func, X_start, method='L-BFGS-B', jac=False, bounds=bnds)
         x_opt = res.x[None, :]
-        
+
         # Rounding
         for i in range(len(self.input_type)):
             if self.input_type[i] == True:
                 x_opt[0][i] = np.rint(x_opt[0][i])
-        
+
         return x_opt
 
     def iteration_step(self, iterations, mc_burn , mc_samples,bo_method, \
                        seed, resample_interval, dir_name = 'Exp_Data/'):
-        
+
         # Array to store mean GP values at each iteration
         self.full_mean_record = np.zeros([iterations, self.ntest])
         self.full_var_record = np.zeros([iterations, self.ntest])
         self.full_PI_value = np.zeros([1, iterations])
-        
+
         np.random.seed(seed)
 
         X_optimum = np.atleast_2d(self.arg_opt)
@@ -326,15 +326,15 @@ class Bayes_opt_MLE():
         mean_log_ymin_minus_eta, var_log_ymin_minus_eta = sp.stats.norm.fit(np.log(self.params[:, self.X_dim + 2])) # Fit a normal distribution to sampled etas
 
         # fit GP models to hyperparameter samples
-        self._fit_GP() 
+        self._fit_GP()
 
         # Specify acquisition function
         if bo_method == 'FITBOMM':
             acqu_func = self._FITBOMM
         else:
             acqu_func = self._FITBO
-            
-        
+
+
         for k in range(iterations):
 
             # np.random.seed(seed*100)
@@ -376,7 +376,7 @@ class Bayes_opt_MLE():
                         x_opt_pred=X_for_L2[-1,:], # QUESTION: why is this always the last value?
                         y_opt_pred=Y_for_IR[-1,:]
                         ))
-            
+
             # Saving GP values for PI calculation
             x_next_mean = self._marginalised_posterior_mean(x_next)
             x_next_var = self._marginalised_posterior_var(x_next)
@@ -389,27 +389,27 @@ class Bayes_opt_MLE():
             self.full_var_record[k,:] = full_var
             print(self.full_mean_record)
             """
-            
+
         # Just for saving
-        new_dir = dir_name + str(seed) + '_seed/' 
-        
+        new_dir = dir_name + str(seed) + '_seed/'
+
         try:
             os.mkdir(new_dir)
         except FileExistsError:
             pass
 
         file_name = new_dir + 'sequential,intermediate_vars.pickle'
-        
+
         pickle_dict = {
-                "X": self.X, 
-                "Y": self.Y, 
+                "X": self.X,
+                "Y": self.Y,
                 "X_init": self.X_init,
                 "Y_init": self.Y_init,
                 "PI_values": self.full_PI_value
                 }
-        
+
         with open(file_name, 'wb') as f:
-            pickle.dump(pickle_dict, f)          
+            pickle.dump(pickle_dict, f)
 
         return X_for_L2, Y_for_IR
 
@@ -453,7 +453,7 @@ class Bayes_opt_batch_MLE():
         params = np.exp(log_params)
         l_scales = params[0:self.X_dim]
         output_var = params[self.X_dim] # QUESTION: difference between output and noise variance
-        noise_var = params[self.X_dim + 1] 
+        noise_var = params[self.X_dim + 1]
         # compute eta
         eta = np.min(self.Y) - params[self.X_dim + 2] # QUESTION: what is this?
         # compute the observed value for g instead of y
@@ -462,7 +462,7 @@ class Bayes_opt_batch_MLE():
         kernel = GPy.kern.RBF(input_dim=self.X_dim, ARD=True, variance=output_var, lengthscale=l_scales)
         Kng = kernel.K(self.X)
         # QUESTION: does not seem to follow conditional variance form in eqn 6
-        
+
         # compute posterior mean distribution for g TODO update this
         # GPg = GPy.models.GPRegression(self.X, g_ob, kernel, noise_var=1e-8)
         # mg,_ = GPg.predict(self.X)
@@ -477,17 +477,17 @@ class Bayes_opt_batch_MLE():
         # LW = Cholesky decomposition of Kny (ndarray)
         # LWi = Cholesky decomposition of inverse of Kny (ndarray)
         # W_logdet = log determinant of Kny (float)
-        
+
         alpha, _ = dpotrs(LW, self.Y, lower=1)
         loglikelihood = 0.5 * (-self.Y.size * np.log(2 * np.pi) - self.Y.shape[1] * W_logdet - np.sum(alpha * self.Y))
         # Log marginal likelihood for GP, based on Rasmussen eqn 2.30
-        
+
         return loglikelihood
 
     def _log_posterior(self, log_params, mean_ln_yminob_minus_eta, var_ln_yminob_minus_eta):
         # Returns posterior, p(y|D, hyperparams, eta)
         # QUESTION: is this true? What is the formula?
-        
+
         params = np.exp(log_params)
         # compute log likelihood
         log_likelihood = self._log_likelihood(log_params)
@@ -532,12 +532,12 @@ class Bayes_opt_batch_MLE():
                 **sampler_options)
             log_params[i,:] = params_array.ravel()
             ll_record[i] = current_ll
-            
+
         self.params = np.exp(log_params[self.burnin:, :])
-        
+
         max_ll_index = np.argmax(ll_record) - self.burnin
         self.params = np.atleast_2d(self.params[max_ll_index])
-        
+
     def _FITBOMM(self,x):
         '''FITBO-Moment Matching acquisition function'''
         x = np.atleast_2d(x)
@@ -614,7 +614,7 @@ class Bayes_opt_batch_MLE():
         lscale_param = self.params[:, 0:self.X_dim]
         var_param = self.params[:, self.X_dim]
         noise_param = self.params[:, self.X_dim + 1]
-        eta = np.min(self.Y) - self.params[:, self.X_dim + 2] # There are 
+        eta = np.min(self.Y) - self.params[:, self.X_dim + 2] # There are
 
         for i in range(len(self.params)): # iterate across each MC sample of hyperparaters (Nsamples = 50)
             diff = self.Y - eta[i]
@@ -644,7 +644,7 @@ class Bayes_opt_batch_MLE():
         pos_mean = np.mean(Meanf, axis=0)
         # dpos_mean = np.mean(dMeanf, axis=0)
         return pos_mean
-    
+
     def _marginalised_posterior_var(self, x):
         '''Marginalize GP-normal over all hyperparam sample'''
         x = np.atleast_2d(x) # Wrap array x into 2D-array
@@ -665,15 +665,15 @@ class Bayes_opt_batch_MLE():
         X_start = Xtest[idx_test, :]
         # bnds = ((0.0, 1.0), (0.0, 1.0))
         bnds = tuple((li, ui) for li, ui in zip(self.lb, self.ub))
-        
+
         res = minimize(func, X_start, method='L-BFGS-B', jac=False, bounds=bnds)
         x_opt = res.x[None, :]
-        
+
         # Rounding
         for i in range(len(self.input_type)):
             if self.input_type[i] == True:
                 x_opt[0][i] = np.rint(x_opt[0][i])
-        
+
         return x_opt
 
     def iteration_step_batch(self, num_batches, mc_burn , mc_samples,bo_method, seed, resample_interval, \
@@ -697,7 +697,7 @@ class Bayes_opt_batch_MLE():
         mean_log_ymin_minus_eta, var_log_ymin_minus_eta = sp.stats.norm.fit(np.log(self.params[:, self.X_dim + 2])) # Fit a normal distribution to sampled etas
 
         # fit GP models to hyperparameter samples
-        self._fit_GP() 
+        self._fit_GP()
         self._fit_GP_normal()
 
         # Specify acquisition function
@@ -705,93 +705,93 @@ class Bayes_opt_batch_MLE():
             acqu_func = self._FITBOMM
         else:
             acqu_func = self._FITBO
-        
+
         #################### Main changes for batch
-        
+
         batch_X = np.zeros((num_batches, batch_size, self.X_dim))
         batch_Y = np.zeros((num_batches, batch_size, 1))
-        
+
         self.full_PI_value = np.zeros((num_batches, batch_size, 1))
-        
+
         for k in range(num_batches):
-            
+
             # Storing values which will be reset once batch iterations are over
             real_X = copy.deepcopy(self.X)
             real_Y = copy.deepcopy(self.Y)
-            
+
             """ Temporarily not used as deepcopy isnt working
             real_GP = copy.copy(self.GP)
             real_GP_normal = copy.copy(self.GP_normal)
             """
-            
+
             #batch_X = [] # Stores suggested query points for this batch
-            
+
             # Iterate across current batch
             for batch_i in range(batch_size):
                 # optimise the acquisition function to get the next query point and evaluate at next query point
-                
+
                 x_next = self._gloabl_minimser(acqu_func)
                 max_acqu_value = - acqu_func(x_next)
-                
+
                 if heuristic == "kb":
-                    y_next_guess = batch_proposals.kriging_believer(self, x_next) 
+                    y_next_guess = batch_proposals.kriging_believer(self, x_next)
                 elif heuristic[0:2] == "cl":
                     cl_setting = heuristic[3:]
                     y_next_guess = batch_proposals.constant_liar(self, x_next, cl_setting = cl_setting)
                 elif heuristic == "random":
                     """Fully random, even first sample in batch"""
-                    x_next = np.random.rand(1, self.X_dim) # Returns random float 
+                    x_next = np.random.rand(1, self.X_dim) # Returns random float
                     y_next_guess = -10.0 # Arbitary as not used in random batch selector
                 elif heuristic == "random_except_1st":
                     """First sample in batch is max of acq function, rest is random"""
                     if batch_i > 0:
-                        x_next = np.random.rand(1, self.X_dim) # Returns random float 
+                        x_next = np.random.rand(1, self.X_dim) # Returns random float
                         y_next_guess = 0.5 # Arbitary as not used in random batch selector
                     else:
                         y_next_guess = 0.5 # Arbitary as not used in random batch selector
-                        
 
-                # PI Values - calculate before updating GP with guessed values      
+
+                # PI Values - calculate before updating GP with guessed values
                 current_y_best = real_Y.min()
                 x_next_mean = self._marginalised_posterior_mean(x_next)
                 x_next_var = self._marginalised_posterior_var(x_next)
-                PI_value = norm.cdf((-(x_next_mean) + current_y_best) / np.sqrt(x_next_var)) 
+                PI_value = norm.cdf((-(x_next_mean) + current_y_best) / np.sqrt(x_next_var))
 
                 self.X = np.vstack((self.X, x_next))
                 self.Y = np.vstack((self.Y, y_next_guess)) # Appending Data with guessed values
-                
+
                 if heuristic != "random" and heuristic != "random_except_1st": # If random, not necessary to recalculate GP
                     print("Not random, need reset GP")
                     self._fit_GP()
                     self._fit_GP_normal()
                 else:
                     print("Random, not resetting GP")
-                
+
                 #print("Currently on iteration %d, batch %d" % (k, batch_i))
-                
+
                 # Just for recording
                 batch_X[k, batch_i, :] = x_next
                 batch_Y[k, batch_i, :] = y_next_guess
-                self.full_PI_value[k, batch_i, : ] = PI_value 
-                
-            
-            # Resetting back to original real values 
+                self.full_PI_value[k, batch_i, : ] = PI_value
+
+
+            # Resetting back to original real values
             # TODO: deepcopy doesnt work so we re-initialize GP with original X's every time
             self.X = real_X
             self.Y = real_Y
             self._fit_GP()
-            self._fit_GP_normal()    
-                        
+            self._fit_GP_normal()
+
             # Finding real function values for all query points in batch
-            
+
             cur_batch_X = batch_X[k]
 
             self.X = np.vstack((self.X, cur_batch_X))
             actual_y = self.func(cur_batch_X) + np.random.normal(0, self.var_noise, (batch_size, 1))
             self.Y = np.vstack((self.Y, actual_y))
-                
+
             #################### Main changes for batch END
-            
+
             # resample hyperparameters
             if k % resample_interval ==0:
                 self._samplehyper(mean_log_ymin_minus_eta, var_log_ymin_minus_eta)
@@ -803,7 +803,7 @@ class Bayes_opt_batch_MLE():
 
             # optimise the marginalised posterior mean to get the prediction for the global optimum/optimiser
             self._fit_GP_normal()
-            
+
             x_opt = self._gloabl_minimser(self._marginalised_posterior_mean)
             y_opt = self.func(x_opt)
             X_optimum = np.concatenate((X_optimum, np.atleast_2d(x_opt)))
@@ -821,27 +821,27 @@ class Bayes_opt_batch_MLE():
                         x_opt_pred=X_for_L2[-1,:], # QUESTION: why is this always the last value?
                         y_opt_pred=Y_for_IR[-1,:]
                         ))
-            
+
         # Just for saving
-        new_dir = dir_name + str(seed) + '_seed/' 
-        
+        new_dir = dir_name + str(seed) + '_seed/'
+
         try:
             os.mkdir(new_dir)
         except FileExistsError:
             pass
 
         file_name = new_dir + heuristic + ',intermediate_vars.pickle'
-                
+
         pickle_dict = {
-                "X": self.X, 
-                "Y": self.Y, 
+                "X": self.X,
+                "Y": self.Y,
                 "X_init": self.X_init,
                 "Y_init": self.Y_init,
                 "PI_values": self.full_PI_value
                 }
-        
+
         with open(file_name, 'wb') as f:
-            pickle.dump(pickle_dict, f)          
+            pickle.dump(pickle_dict, f)
 
         return X_for_L2, Y_for_IR
 

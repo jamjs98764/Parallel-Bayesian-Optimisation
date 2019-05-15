@@ -20,7 +20,7 @@ num_iters = 40
 
 def BO_test(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, resample_interval = 1, \
             seed_size = seed_size, num_iterations = num_iters, batch = False, batch_size = 2, heuristic = "kb",
-            MLE = True):
+            MLE = False):
 
     # BO_method is either FITBOMM (moment matching) or FITBO (quadrature)
     # Sample size = MC sample size
@@ -64,7 +64,7 @@ def BO_test(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, re
 
     # Creating directory to save
     if batch == False:
-        dir_name = 'Exp_Data/' + test_func + ',' + str(seed_size) + '_seed,sequential,bad_priors_confident/'
+        dir_name = 'Exp_Data/' + test_func + ',' + str(seed_size) + '_seed,sequential,bad_priors_unconfident/'
     else:
         dir_name = 'Exp_Data/' + test_func + ',' + str(seed_size) + '_seed,' + str(batch_size) + '_batch_size/'
 
@@ -201,7 +201,6 @@ batch_sizes = [1]
 test_funcs = ["egg"]
 
 for test_func in test_funcs:
-    test_sequential(test_func, True)
     test_sequential(test_func, False)
 
 
