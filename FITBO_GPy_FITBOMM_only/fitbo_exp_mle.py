@@ -64,7 +64,7 @@ def BO_test(test_func, BO_method = 'FITBOMM', burnin = 100, sample_size = 50, re
 
     # Creating directory to save
     if batch == False:
-        dir_name = 'Exp_Data/' + test_func + ',' + str(seed_size) + '_seed,sequential,bad_priors_unconfident/'
+        dir_name = 'Exp_Data/' + test_func + ',' + str(seed_size) + '_seed,sequential,bad_priors_confident1/'
     else:
         dir_name = 'Exp_Data/' + test_func + ',' + str(seed_size) + '_seed,' + str(batch_size) + '_batch_size/'
 
