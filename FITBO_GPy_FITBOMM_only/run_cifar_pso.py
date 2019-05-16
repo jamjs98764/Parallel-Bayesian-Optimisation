@@ -47,7 +47,7 @@ def pso_wrapper(seed_size, num_iters, batch_size):
         set_random_seed(seed_i)
         
         # Generating initial samples
-        init_pos = np.random.random((batch_sizes, d))
+        init_pos = np.random.random((batch_size, d))
         init_pos[0] = x_init_dict[0]
         init_pos[1] = x_init_dict[1]
 
