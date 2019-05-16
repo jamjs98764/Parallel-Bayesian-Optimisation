@@ -28,6 +28,9 @@ y_init_dict[2] = b[6:9]
 from pyswarms.single.global_best import GlobalBestPSO
 options = {'c1': 0.5, 'c2': 0.3, 'w':0.9}
 
+seed_size = 3
+total_evals = 4
+
 def pso_wrapper(seed_size, num_iters, batch_size):
     obj_func = cifar_utils.cifar_cnn_gpyopt
     d = 6
@@ -41,11 +44,16 @@ def pso_wrapper(seed_size, num_iters, batch_size):
 
     for seed_i in range(seed_size):
         np.random.seed(seed_i)
-        """
+        set_random_seed(seed_i)
+        
         # Generating initial samples
-        init_pos = np.random.random((initialsamplesize, d))
-        print(init_pos)
-        """
+        init_pos = np.random.random((batch_sizes, d))
+        init_pos[0] = x_init_dict[0]
+        init_pos[1] = x_init_dict[1]
+
+        if batch_size > 2:
+        	init_pos[2] = x_init_dict[2]
+        
         # Running optimisation
         optimizer = GlobalBestPSO(n_particles = batch_size, dimensions=d, options=options, bounds=bounds, init_pos = None)
         best_cost, best_pos = optimizer.optimize(obj_func, num_iters + 1, seed_i)
@@ -85,6 +93,6 @@ def saving_data_pso(pos_dict, cost_dict, batch_size):
 
     return 0
 
-for batch in [2,4,8]:
+for batch in [2]:
     a, b = pso_wrapper(seed_size, total_evals, batch)
     saving_data_pso(a, b, batch)
