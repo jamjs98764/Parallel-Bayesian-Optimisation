@@ -48,11 +48,11 @@ def pso_wrapper(seed_size, num_iters, batch_size):
         
         # Generating initial samples
         init_pos = np.random.random((batch_size, d))
-        init_pos[0] = x_init_dict[0]
-        init_pos[1] = x_init_dict[1]
+        init_pos[0] = x_init_dict[seed_i][0]
+        init_pos[1] = x_init_dict[seed_i][1]
 
         if batch_size > 2:
-        	init_pos[2] = x_init_dict[2]
+        	init_pos[2] = x_init_dict[seed_i][2]
         
         # Running optimisation
         optimizer = GlobalBestPSO(n_particles = batch_size, dimensions=d, options=options, bounds=bounds, init_pos = None)
