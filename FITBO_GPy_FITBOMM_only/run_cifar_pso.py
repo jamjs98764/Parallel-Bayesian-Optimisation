@@ -29,7 +29,7 @@ from pyswarms.single.global_best import GlobalBestPSO
 options = {'c1': 0.5, 'c2': 0.3, 'w':0.9}
 
 seed_size = 3
-total_evals = 4
+total_evals = 80
 
 
 def pso_wrapper(seed_size, num_iters, batch_size):
