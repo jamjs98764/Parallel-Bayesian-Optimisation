@@ -31,11 +31,12 @@ options = {'c1': 0.5, 'c2': 0.3, 'w':0.9}
 seed_size = 3
 total_evals = 4
 
+
 def pso_wrapper(seed_size, num_iters, batch_size):
     obj_func = cifar_utils.cifar_cnn_gpyopt
     d = 6
-    x_min = np.zeros((1,6))
-    x_max = np.ones((1,6))
+    x_min = np.zeros((1,6)).flatten()
+    x_max = np.ones((1,6)).flatten()
     bounds = (x_min, x_max)
 
     # Creating dicts to store
@@ -54,8 +55,8 @@ def pso_wrapper(seed_size, num_iters, batch_size):
         if batch_size > 2:
         	init_pos[2] = x_init_dict[seed_i][2]
         
-        # Running optimisation
-        optimizer = GlobalBestPSO(n_particles = batch_size, dimensions=d, options=options, bounds=bounds, init_pos = None)
+        # Running optimisation_
+        optimizer = GlobalBestPSO(n_particles = batch_size, dimensions=d, options=options, bounds=bounds, init_pos = init_pos)
         best_cost, best_pos = optimizer.optimize(obj_func, num_iters + 1, seed_i)
 
         # Recording results

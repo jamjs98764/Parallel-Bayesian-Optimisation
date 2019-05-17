@@ -1,0 +1,7 @@
+2019-05-17 01:02:46,474 - pyswarms.backend.generators - ERROR - Bounds and/or init_pos should be of size (6,)
+Traceback (most recent call last):
+  File "C:\Users\jianhong\Anaconda3\envs\tensorflow\lib\site-packages\pyswarms\backend\generators.py", line 80, in generate_swarm
+    low=min_bounds, high=max_bounds, size=(n_particles, dimensions)
+  File "mtrand.pyx", line 1320, in mtrand.RandomState.uniform
+  File "mtrand.pyx", line 267, in mtrand.cont2_array
+ValueError: size is not compatible with inputs
