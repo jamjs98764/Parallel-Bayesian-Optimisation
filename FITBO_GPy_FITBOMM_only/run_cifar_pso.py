@@ -94,6 +94,6 @@ def saving_data_pso(pos_dict, cost_dict, batch_size):
 
     return 0
 
-for batch in [2]:
+for batch in [2, 4, 8]:
     a, b = pso_wrapper(seed_size, total_evals, batch)
     saving_data_pso(a, b, batch)
