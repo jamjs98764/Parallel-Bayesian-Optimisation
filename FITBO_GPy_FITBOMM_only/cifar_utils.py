@@ -21,7 +21,6 @@ It gets to 75% validation accuracy in 25 epochs, and 79% after 50 epochs.
 '''
 
 import keras
-
 from keras import backend as K
 from keras.datasets import cifar10
 from keras.preprocessing.image import ImageDataGenerator

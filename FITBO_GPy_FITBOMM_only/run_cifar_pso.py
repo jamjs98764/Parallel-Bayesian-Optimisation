@@ -76,7 +76,7 @@ def saving_data_pso(pos_dict, cost_dict, batch_size):
     pos_dict =
     cost_dict = y_opt
     """
-    dir_name = 'Exp_Data/boston_gbr/pso/' + str(seed_size) + '_seed,' + str(batch_size) + '_batch/'
+    dir_name = 'Exp_Data/cifar10/pso/' + str(seed_size) + '_seed,' + str(batch_size) + '_batch/'
     file_name = dir_name + 'results_vars.pickle'
 
     try: # creates new folder
