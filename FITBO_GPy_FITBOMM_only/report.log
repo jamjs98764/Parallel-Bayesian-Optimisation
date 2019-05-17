@@ -5,3 +5,21 @@ Traceback (most recent call last):
   File "mtrand.pyx", line 1320, in mtrand.RandomState.uniform
   File "mtrand.pyx", line 267, in mtrand.cont2_array
 ValueError: size is not compatible with inputs
+2019-05-17 01:35:09,353 - pyswarms.single.global_best - INFO - Optimize for 81 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-17 02:01:06,660 - pyswarms.single.global_best - INFO - Optimization finished | best cost: -6.7589999999999995, best pos: [0.63904862 0.34715251 0.2879952  0.20337014 0.46234028 0.15321785]
+2019-05-17 02:01:06,664 - pyswarms.single.global_best - INFO - Optimize for 81 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-17 02:30:10,524 - pyswarms.single.global_best - INFO - Optimization finished | best cost: -6.985, best pos: [0.18079899 0.18250156 0.22921454 0.63331619 0.24564082 0.11440099]
+2019-05-17 02:30:10,530 - pyswarms.single.global_best - INFO - Optimize for 81 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-17 02:59:22,257 - pyswarms.single.global_best - INFO - Optimization finished | best cost: -7.0, best pos: [0.25817818 0.84955313 0.4921913  0.3842354  0.56524648 0.16176613]
+2019-05-17 02:59:22,263 - pyswarms.single.global_best - INFO - Optimize for 81 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-17 03:29:57,764 - pyswarms.single.global_best - INFO - Optimization finished | best cost: -6.878, best pos: [0.43727074 0.49598979 0.51668385 0.39630495 0.85909555 0.15558622]
+2019-05-17 03:29:57,768 - pyswarms.single.global_best - INFO - Optimize for 81 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-17 03:59:04,633 - pyswarms.single.global_best - INFO - Optimization finished | best cost: -6.805, best pos: [0.05841774 0.33503759 0.03169892 0.84223957 0.85274328 0.03668406]
+2019-05-17 03:59:04,637 - pyswarms.single.global_best - INFO - Optimize for 81 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-17 04:29:43,619 - pyswarms.single.global_best - INFO - Optimization finished | best cost: -7.170999999999999, best pos: [0.30266005 0.30561515 0.29718618 0.11683565 0.06110805 0.08785575]
+2019-05-17 04:29:43,626 - pyswarms.single.global_best - INFO - Optimize for 81 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-17 04:58:52,173 - pyswarms.single.global_best - INFO - Optimization finished | best cost: -7.058, best pos: [0.09815497 0.22338509 0.85673496 0.51714666 0.58008745 0.05691892]
+2019-05-17 04:58:52,177 - pyswarms.single.global_best - INFO - Optimize for 81 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-17 05:27:14,775 - pyswarms.single.global_best - INFO - Optimization finished | best cost: -6.356000000000001, best pos: [0.41860305 0.40178658 0.48934801 0.99744091 0.27911939 0.0805474 ]
+2019-05-17 05:27:14,778 - pyswarms.single.global_best - INFO - Optimize for 81 iters with {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+2019-05-17 05:58:24,731 - pyswarms.single.global_best - INFO - Optimization finished | best cost: -7.1499999999999995, best pos: [0.3110307  0.79464554 0.23850342 0.04696382 0.4553783  0.13894676]
